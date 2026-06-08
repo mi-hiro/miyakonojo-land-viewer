@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "updated_at": null,
+  "source": "不動産情報ライブラリAPIまたは手入力",
+  "note": "APIキー設定後は相続税路線価候補を自動生成します。手入力する場合も route_value_yen_per_sqm は円/㎡です。",
+  "item_example": {
+    "listing_id": "物件IDまたは空欄",
+    "source_url": "掲載URLまたは空欄",
+    "town": "早水町",
+    "address": "宮崎県都城市早水町",
+    "latitude": 31.742,
+    "longitude": 131.1,
+    "road_name": "前面道路名や地点メモ",
+    "route_value_type": "inheritance_tax",
+    "route_value_yen_per_sqm": 18000,
+    "inheritance_tax_route_value_yen_per_sqm": 18000,
+    "public_price_yen_per_sqm": 23000,
+    "frontage_m": 10,
+    "estimated_depth_m": 24,
+    "road_width_m": 3.6,
+    "depth_correction_rate": 1,
+    "frontage_correction_rate": 1,
+    "depth_long_correction_rate": 1,
+    "irregular_correction_rate": 1,
+    "year": 2026,
+    "source": "不動産情報ライブラリAPI / 鑑定評価書情報API（相続税路線価）",
+    "confidence": "中",
+    "note": "近接標準地を参照した参考値"
+  },
+  "items": []
+}

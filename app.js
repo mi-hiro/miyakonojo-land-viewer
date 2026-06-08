@@ -47,9 +47,17 @@ const PERSON_CHARACTER_IMAGE_TERMS = [
   "イメージキャラクター",
   "アバター",
   "似顔絵",
+  "営業",
+  "プロフィール",
+  "顔",
+  "店長",
+  "社長",
+  "代表",
+  "相談員",
+  "案内人",
 ];
 const PERSON_CHARACTER_IMAGE_PATTERN =
-  /(?:^|[/_.-])(?:person|people|human|portrait|profile|avatar|staff|member|owner|agent|mascot|character|chara|anime|cartoon|face|headshot)(?:[/_.-]|$)/i;
+  /(?:^|[/_.-])(?:person|people|human|portrait|profile|prof|avatar|staff|member|owner|agent|sales|manager|president|ceo|mascot|character|chara|anime|cartoon|face|headshot|smile|realtor|tantou|eigyo|tencho)(?:[/_.-]|$)/i;
 const STORAGE_KEYS = {
   favorites: "miyakonojo_land_favorites_v1",
   candidates: "miyakonojo_land_candidates_v1",
@@ -57,6 +65,7 @@ const STORAGE_KEYS = {
   notes: "miyakonojo_land_notes_v1",
   listLayout: "miyakonojo_land_list_layout_v1",
   mapLayerType: "miyakonojo_land_map_layer_type_v1",
+  hiddenImages: "miyakonojo_land_hidden_images_v1",
 };
 
 const MAP_LAYER_DEFS = {
@@ -423,7 +432,9 @@ const state = {
   favorites: new Set(),
   candidates: new Set(),
   excluded: new Set(),
+  hiddenImages: new Set(),
   notes: {},
+  currentDetailId: null,
 };
 
 const els = {
@@ -454,6 +465,11 @@ const els = {
   townCount: document.getElementById("townCount"),
   distributionSummary: document.getElementById("distributionSummary"),
   distributionGrid: document.getElementById("distributionGrid"),
+  schoolAverageSummary: document.getElementById("schoolAverageSummary"),
+  schoolAverageGrid: document.getElementById("schoolAverageGrid"),
+  recentMovementGrid: document.getElementById("recentMovementGrid"),
+  alertGrid: document.getElementById("alertGrid"),
+  dataSourceGrid: document.getElementById("dataSourceGrid"),
   candidateCount: document.getElementById("candidateCount"),
   compareTable: document.getElementById("compareTable"),
   listingList: document.getElementById("listingList"),
@@ -498,6 +514,7 @@ function bindEvents() {
   els.mappedOnly.addEventListener("change", render);
   els.showExcluded.addEventListener("change", render);
   els.closeDetail.addEventListener("click", closeDetail);
+  document.addEventListener("click", handleDelegatedActionClick);
   els.listLayoutControl?.querySelectorAll("[data-list-layout]").forEach((button) => {
     button.addEventListener("click", () => {
       state.listLayout = button.dataset.listLayout || "cards";
@@ -529,6 +546,9 @@ function bindEvents() {
       if (state.view === "distribution") {
         renderDistribution();
       }
+      if (state.view === "dashboard") {
+        renderDashboard();
+      }
       if (state.view === "compare") {
         renderCompare();
       }
@@ -540,9 +560,41 @@ function loadSavedState() {
   state.favorites = loadStoredSet(STORAGE_KEYS.favorites);
   state.candidates = loadStoredSet(STORAGE_KEYS.candidates);
   state.excluded = loadStoredSet(STORAGE_KEYS.excluded);
+  state.hiddenImages = loadStoredSet(STORAGE_KEYS.hiddenImages);
   state.notes = loadStoredObject(STORAGE_KEYS.notes);
   state.listLayout = normalizeListLayout(localStorage.getItem(STORAGE_KEYS.listLayout));
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
+}
+
+function handleDelegatedActionClick(event) {
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const button = target?.closest(
+    "[data-open-detail], [data-toggle-favorite], [data-toggle-candidate], [data-toggle-exclude], [data-hide-image]"
+  );
+  if (!button) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  if (button.dataset.openDetail) {
+    openDetail(button.dataset.openDetail);
+    return;
+  }
+  if (button.dataset.toggleFavorite) {
+    toggleSavedSet("favorites", button.dataset.toggleFavorite);
+    return;
+  }
+  if (button.dataset.toggleCandidate) {
+    toggleSavedSet("candidates", button.dataset.toggleCandidate);
+    return;
+  }
+  if (button.dataset.toggleExclude) {
+    toggleSavedSet("excluded", button.dataset.toggleExclude);
+    return;
+  }
+  if (button.dataset.hideImage) {
+    hideImageUrl(button.dataset.hideImage);
+  }
 }
 
 function normalizeListLayout(value) {
@@ -583,6 +635,7 @@ function saveAllUserState() {
   saveStoredSet(STORAGE_KEYS.favorites, state.favorites);
   saveStoredSet(STORAGE_KEYS.candidates, state.candidates);
   saveStoredSet(STORAGE_KEYS.excluded, state.excluded);
+  saveStoredSet(STORAGE_KEYS.hiddenImages, state.hiddenImages);
   saveStoredObject(STORAGE_KEYS.notes, state.notes);
 }
 
@@ -596,6 +649,7 @@ function buildBackupPayload() {
       favorites: [...state.favorites],
       candidates: [...state.candidates],
       excluded: [...state.excluded],
+      hidden_image_urls: [...state.hiddenImages],
       notes: state.notes,
     },
   };
@@ -649,7 +703,7 @@ async function importBackup(event) {
     renderBackupSummary();
     render();
     setStatus(
-      `復元しました。お気に入り ${formatInteger(result.favorites)}件 / 買付候補 ${formatInteger(result.candidates)}件 / 除外 ${formatInteger(result.excluded)}件 / メモ ${formatInteger(result.notes)}件`
+      `復元しました。お気に入り ${formatInteger(result.favorites)}件 / 買付候補 ${formatInteger(result.candidates)}件 / 除外 ${formatInteger(result.excluded)}件 / 写真非表示 ${formatInteger(result.hiddenImages)}件 / メモ ${formatInteger(result.notes)}件`
     );
   } catch (error) {
     setStatus("復元できませんでした。ビューアで保存したJSONファイルを選んでください。");
@@ -666,10 +720,12 @@ function restoreBackupPayload(payload) {
   const favorites = normalizeBackupList(data.favorites);
   const candidates = normalizeBackupList(data.candidates);
   const excluded = normalizeBackupList(data.excluded);
+  const hiddenImages = normalizeBackupList(data.hidden_image_urls || data.hiddenImages);
   const notes = normalizeBackupNotes(data.notes);
   mergeSet(state.favorites, favorites);
   mergeSet(state.candidates, candidates);
   mergeSet(state.excluded, excluded);
+  mergeSet(state.hiddenImages, hiddenImages);
   Object.entries(notes).forEach(([id, note]) => {
     state.notes[id] = note;
   });
@@ -677,6 +733,7 @@ function restoreBackupPayload(payload) {
     favorites: favorites.length,
     candidates: candidates.length,
     excluded: excluded.length,
+    hiddenImages: hiddenImages.length,
     notes: Object.keys(notes).length,
   };
 }
@@ -1214,6 +1271,7 @@ function render() {
   renderSummary();
   renderBackupSummary();
   renderList();
+  renderDashboard();
   renderHistory();
   renderDistribution();
   renderCompare();
@@ -1360,7 +1418,7 @@ function renderSummary() {
 
 function renderBackupSummary() {
   const noteCount = Object.values(state.notes).filter((value) => String(value || "").trim()).length;
-  els.backupSummary.textContent = `お気に入り ${formatInteger(state.favorites.size)} / 買付候補 ${formatInteger(state.candidates.size)} / 除外 ${formatInteger(state.excluded.size)} / メモ ${formatInteger(noteCount)}`;
+  els.backupSummary.textContent = `お気に入り ${formatInteger(state.favorites.size)} / 買付候補 ${formatInteger(state.candidates.size)} / 除外 ${formatInteger(state.excluded.size)} / 写真非表示 ${formatInteger(state.hiddenImages.size)} / メモ ${formatInteger(noteCount)}`;
 }
 
 function renderList() {
@@ -1468,6 +1526,7 @@ function renderCompactImage(listing) {
     <figure class="compact-thumb" data-fallback-town="${escapeAttr(listing.town || "都城市")}">
       <img src="${escapeAttr(imageUrls[0])}" data-images="${escapeAttr(JSON.stringify(imageUrls))}" data-image-index="0" alt="${escapeAttr(`${listing.town}の土地写真`)}" loading="lazy" referrerpolicy="no-referrer" onerror="swapBrokenImage(this);">
       ${imageUrls.length > 1 ? `<span class="image-count compact">${formatInteger(imageUrls.length)}</span>` : ""}
+      ${renderHideImageButton(imageUrls[0], true)}
     </figure>
   `;
 }
@@ -1535,18 +1594,7 @@ function actionButton(action, id, active, icon, label) {
 }
 
 function bindListingActions(root) {
-  root.querySelectorAll("[data-open-detail]").forEach((button) => {
-    button.addEventListener("click", () => openDetail(button.dataset.openDetail));
-  });
-  root.querySelectorAll("[data-toggle-favorite]").forEach((button) => {
-    button.addEventListener("click", () => toggleSavedSet("favorites", button.dataset.toggleFavorite));
-  });
-  root.querySelectorAll("[data-toggle-candidate]").forEach((button) => {
-    button.addEventListener("click", () => toggleSavedSet("candidates", button.dataset.toggleCandidate));
-  });
-  root.querySelectorAll("[data-toggle-exclude]").forEach((button) => {
-    button.addEventListener("click", () => toggleSavedSet("excluded", button.dataset.toggleExclude));
-  });
+  void root;
 }
 
 function toggleSavedSet(kind, id) {
@@ -1561,9 +1609,24 @@ function toggleSavedSet(kind, id) {
   }
   saveStoredSet(STORAGE_KEYS[kind], set);
   render();
-  if (els.detailPanel.classList.contains("open")) {
-    openDetail(id);
+  if (els.detailPanel.classList.contains("open") && state.currentDetailId) {
+    openDetail(state.currentDetailId);
   }
+}
+
+function hideImageUrl(url) {
+  const normalized = String(url || "").trim();
+  if (!normalized) {
+    return;
+  }
+  state.hiddenImages.add(normalized);
+  saveStoredSet(STORAGE_KEYS.hiddenImages, state.hiddenImages);
+  renderBackupSummary();
+  render();
+  if (els.detailPanel.classList.contains("open") && state.currentDetailId) {
+    openDetail(state.currentDetailId);
+  }
+  setStatus("この写真を非表示にしました。区画図や測量図は残せます。");
 }
 
 function isFavorite(listing) {
@@ -1592,7 +1655,19 @@ function renderCardImage(listing) {
       ${renderPhotoFallback(listing)}
       <img src="${escapeAttr(imageUrls[0])}" data-images="${escapeAttr(JSON.stringify(imageUrls))}" data-image-index="0" alt="${escapeAttr(`${listing.town}の土地写真`)}" loading="lazy" referrerpolicy="no-referrer" onerror="swapBrokenImage(this);">
       ${imageUrls.length > 1 ? `<span class="image-count">${formatInteger(imageUrls.length)}枚</span>` : ""}
+      ${renderHideImageButton(imageUrls[0])}
     </figure>
+  `;
+}
+
+function renderHideImageButton(url, compact = false, extraClass = "") {
+  if (!url) {
+    return "";
+  }
+  return `
+    <button class="image-hide-button ${compact ? "compact" : ""} ${escapeAttr(extraClass)}" type="button" data-hide-image="${escapeAttr(url)}" aria-label="この写真を非表示">
+      <i data-lucide="eye-off"></i><span>非表示</span>
+    </button>
   `;
 }
 
@@ -1735,6 +1810,7 @@ function renderPopup(listing) {
     <p class="popup-title">${escapeHtml(shortTitle(listing))}</p>
     <p class="popup-meta">${escapeHtml(listing.address || listing.town)}</p>
     <strong>${formatPrice(listing.price_man_yen)} / ${formatUnit(listing.unit_price_man_per_tsubo)}</strong>
+    <button class="detail-link compact popup-detail" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
   `;
 }
 
@@ -1795,6 +1871,184 @@ function renderDistribution() {
       `
     )
     .join("");
+}
+
+function renderDashboard() {
+  renderSchoolAverageDashboard();
+  renderRecentMovementDashboard();
+  renderAlertDashboard();
+  renderDataSourceDashboard();
+}
+
+function renderSchoolAverageDashboard() {
+  if (!els.schoolAverageGrid) {
+    return;
+  }
+  const rows = buildSchoolAverageRows(state.filtered);
+  els.schoolAverageSummary.textContent = `${formatInteger(rows.length)}校区 / ${formatInteger(state.filtered.length)}件`;
+  if (!rows.length) {
+    els.schoolAverageGrid.innerHTML = `<div class="empty-state">学校区別に集計できる物件がありません</div>`;
+    return;
+  }
+  const maxAverage = Math.max(...rows.map((row) => row.average), 1);
+  els.schoolAverageGrid.innerHTML = rows
+    .slice(0, 10)
+    .map(
+      (row) => `
+        <article class="school-average-row">
+          <div>
+            <h3>${escapeHtml(row.label)}</h3>
+            <span>${formatInteger(row.count)}件 / 最安 ${formatUnit(row.min)} / 最高 ${formatUnit(row.max)}</span>
+          </div>
+          <strong>${formatUnit(row.average)}</strong>
+          <div class="school-average-track">
+            <span style="width:${Math.max(8, (row.average / maxAverage) * 100)}%"></span>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function buildSchoolAverageRows(listings) {
+  const groups = new Map();
+  listings.forEach((listing) => {
+    const unit = numberValue(listing.unit_price_man_per_tsubo);
+    if (!unit) {
+      return;
+    }
+    const school = resolveSchoolInfo(listing);
+    const label = `${school.elementary_text} / ${school.middle_text}`;
+    const values = groups.get(label) || [];
+    values.push(unit);
+    groups.set(label, values);
+  });
+  return [...groups.entries()]
+    .map(([label, values]) => ({
+      label,
+      count: values.length,
+      average: averageNumbers(values),
+      min: Math.min(...values),
+      max: Math.max(...values),
+    }))
+    .sort((a, b) => b.count - a.count || a.average - b.average || a.label.localeCompare(b.label, "ja"));
+}
+
+function renderRecentMovementDashboard() {
+  if (!els.recentMovementGrid) {
+    return;
+  }
+  const priceDrops = state.filtered.filter(priceDropInfo);
+  const rows = [
+    { label: "新着物件", value: `${formatInteger(state.filtered.filter((listing) => listing.is_new).length)}件`, tone: "new" },
+    {
+      label: "割安候補",
+      value: `${formatInteger(state.filtered.filter((listing) => assessListing(listing).discount_rate >= 0.1).length)}件`,
+      tone: "cheap",
+    },
+    { label: "値下げ検知", value: `${formatInteger(priceDrops.length)}件`, tone: "drop" },
+    { label: "買付候補", value: `${formatInteger(state.candidates.size)}件`, tone: "candidate" },
+    {
+      label: "写真あり",
+      value: `${formatInteger(state.filtered.filter((listing) => imageUrlList(listing).length).length)}件`,
+      tone: "photo",
+    },
+  ];
+  els.recentMovementGrid.innerHTML = rows.map(renderDashboardStat).join("");
+}
+
+function renderDashboardStat(row) {
+  return `
+    <div class="dashboard-stat ${escapeAttr(row.tone)}">
+      <span>${escapeHtml(row.label)}</span>
+      <strong>${escapeHtml(row.value)}</strong>
+    </div>
+  `;
+}
+
+function renderAlertDashboard() {
+  if (!els.alertGrid) {
+    return;
+  }
+  const alerts = [
+    {
+      label: "ハザード該当",
+      count: state.filtered.filter((listing) => listing.hazard_reference?.affected).length,
+      tone: "danger",
+    },
+    {
+      label: "要セットバック",
+      count: state.filtered.filter((listing) => listing.legal_notice?.setback_required).length,
+      tone: "warning",
+    },
+    {
+      label: "告知事項あり",
+      count: state.filtered.filter((listing) => listing.legal_notice?.disclosure_found).length,
+      tone: "danger",
+    },
+    {
+      label: "概算位置",
+      count: state.filtered.filter((listing) => listing.is_approx_position).length,
+      tone: "note",
+    },
+    {
+      label: "写真なし",
+      count: state.filtered.filter((listing) => !imageUrlList(listing).length).length,
+      tone: "note",
+    },
+  ];
+  els.alertGrid.innerHTML = alerts
+    .map(
+      (alert) => `
+        <div class="dashboard-alert ${escapeAttr(alert.tone)}">
+          <span>${escapeHtml(alert.label)}</span>
+          <strong>${formatInteger(alert.count)}件</strong>
+        </div>
+      `
+    )
+    .join("");
+}
+
+function renderDataSourceDashboard() {
+  if (!els.dataSourceGrid) {
+    return;
+  }
+  const rows = buildDataSourceRows();
+  if (!rows.length) {
+    els.dataSourceGrid.innerHTML = `<div class="empty-state">情報元データがありません</div>`;
+    return;
+  }
+  els.dataSourceGrid.innerHTML = rows
+    .map(
+      (row) => `
+        <article class="source-status-row">
+          <div>
+            <h3>${escapeHtml(row.source)}</h3>
+            <span>${formatInteger(row.count)}件 / 写真 ${formatInteger(row.withImages)}件 / 地図 ${formatInteger(row.withMap)}件</span>
+          </div>
+          <strong>${formatNumber(row.imageRate * 100)}%</strong>
+          <div class="source-status-track">
+            <span style="width:${Math.max(4, row.imageRate * 100)}%"></span>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function buildDataSourceRows() {
+  const groups = new Map();
+  state.listings.forEach((listing) => {
+    const source = listing.source || "不明";
+    const row = groups.get(source) || { source, count: 0, withImages: 0, withMap: 0 };
+    row.count += 1;
+    row.withImages += imageUrlList(listing).length ? 1 : 0;
+    row.withMap += Number.isFinite(listing.map_latitude) ? 1 : 0;
+    groups.set(source, row);
+  });
+  return [...groups.values()]
+    .map((row) => ({ ...row, imageRate: row.count ? row.withImages / row.count : 0 }))
+    .sort((a, b) => b.count - a.count || b.imageRate - a.imageRate || a.source.localeCompare(b.source, "ja"));
 }
 
 function buildDistributionBins(values) {
@@ -1958,6 +2212,7 @@ function openDetail(id) {
   if (!listing) {
     return;
   }
+  state.currentDetailId = id;
   clearDetailMap();
   els.detailTown.textContent = `${listing.town} / ${listing.source}`;
   els.detailTitle.textContent = shortTitle(listing);
@@ -1976,6 +2231,7 @@ function openDetail(id) {
 function closeDetail() {
   els.detailPanel.classList.remove("open");
   els.detailPanel.setAttribute("aria-hidden", "true");
+  state.currentDetailId = null;
   clearDetailMap();
 }
 
@@ -2155,6 +2411,10 @@ function bindDetailControls(listing) {
       }
       image.dataset.imageIndex = button.dataset.previewIndex || "0";
       image.src = button.dataset.previewImage;
+      const hideButton = els.detailBody.querySelector(".detail-main-hide");
+      if (hideButton) {
+        hideButton.dataset.hideImage = button.dataset.previewImage;
+      }
       els.detailBody.querySelectorAll("[data-preview-image]").forEach((item) => item.classList.toggle("active", item === button));
     });
   });
@@ -2189,6 +2449,7 @@ function renderDetailImage(listing) {
       <figure class="detail-photo image-frame">
         ${renderPhotoFallback(listing, true)}
         <img id="detailMainImage" src="${escapeAttr(imageUrls[0])}" data-images="${escapeAttr(JSON.stringify(imageUrls))}" data-image-index="0" alt="${escapeAttr(`${listing.town}の土地写真`)}" referrerpolicy="no-referrer" onerror="swapBrokenImage(this);">
+        ${renderHideImageButton(imageUrls[0], false, "detail-main-hide")}
       </figure>
       ${renderImageStrip(imageUrls, listing)}
     </section>
@@ -2204,9 +2465,14 @@ function renderImageStrip(imageUrls, listing) {
       ${imageUrls
         .map(
           (url, index) => `
-            <button class="image-thumb ${index === 0 ? "active" : ""}" type="button" data-preview-image="${escapeAttr(url)}" data-preview-index="${index}">
-              <img src="${escapeAttr(url)}" alt="${escapeAttr(`${listing.town} 写真${index + 1}`)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove();">
-            </button>
+            <div class="image-thumb-wrap">
+              <button class="image-thumb ${index === 0 ? "active" : ""}" type="button" data-preview-image="${escapeAttr(url)}" data-preview-index="${index}">
+                <img src="${escapeAttr(url)}" alt="${escapeAttr(`${listing.town} 写真${index + 1}`)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-thumb-wrap')?.remove();">
+              </button>
+              <button class="image-hide-button thumb" type="button" data-hide-image="${escapeAttr(url)}" aria-label="この写真を非表示">
+                <i data-lucide="eye-off"></i>
+              </button>
+            </div>
           `
         )
         .join("")}
@@ -2226,7 +2492,7 @@ function imageUrlList(listing) {
   if (Array.isArray(listing.image_urls) && listing.image_urls.length) {
     values.push(...listing.image_urls);
   }
-  return [...new Set(values.filter(Boolean).filter(isDisplayableListingImageUrl))];
+  return [...new Set(values.filter(Boolean).filter((url) => !state.hiddenImages.has(String(url))).filter(isDisplayableListingImageUrl))];
 }
 
 function normalizeImageText(value) {
@@ -2265,6 +2531,7 @@ function isDisplayableListingImageUrl(url) {
     "icon",
     "sprite",
     "banner",
+    "bnr",
     "button",
     "map",
     "pagetop",
@@ -2280,6 +2547,12 @@ function isDisplayableListingImageUrl(url) {
     "transparent",
     "captcha",
     "common",
+    "footer",
+    "relation_site",
+    "static_app_contents",
+    "static_contents",
+    "mogecheck",
+    "pref_links",
   ];
   return !blockedTerms.some(
     (term) => normalized.includes(term) && !(term === "map" && imageUrlLooksLikeLandDiagram(url))
@@ -2293,6 +2566,10 @@ function swapBrokenImage(image) {
   if (nextIndex < urls.length) {
     image.dataset.imageIndex = String(nextIndex);
     image.src = urls[nextIndex];
+    const hideButton = image.parentElement?.querySelector(".image-hide-button:not(.thumb)");
+    if (hideButton) {
+      hideButton.dataset.hideImage = urls[nextIndex];
+    }
     return;
   }
   const parent = image.parentElement;

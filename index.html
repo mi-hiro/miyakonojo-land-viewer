@@ -109,6 +109,9 @@
             <button class="tab active" type="button" data-view="list">
               <i data-lucide="list"></i><span>一覧</span>
             </button>
+            <button class="tab" type="button" data-view="dashboard">
+              <i data-lucide="layout-dashboard"></i><span>AI分析</span>
+            </button>
             <button class="tab" type="button" data-view="map">
               <i data-lucide="map"></i><span>地図</span>
             </button>
@@ -125,6 +128,51 @@
         </section>
 
         <section id="statusMessage" class="status-message" hidden></section>
+
+        <section id="dashboardView" class="content-view" aria-label="AI分析">
+          <div class="dashboard-grid">
+            <section class="dashboard-panel dashboard-panel-wide">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">School Zone Signal</span>
+                  <h2>学校区別 平均坪単価</h2>
+                </div>
+                <span id="schoolAverageSummary" class="dashboard-summary">-</span>
+              </div>
+              <div id="schoolAverageGrid" class="school-average-grid"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Market Pulse</span>
+                  <h2>最近の動き</h2>
+                </div>
+              </div>
+              <div id="recentMovementGrid" class="dashboard-stat-list"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Risk Watch</span>
+                  <h2>注意アラート</h2>
+                </div>
+              </div>
+              <div id="alertGrid" class="dashboard-alert-list"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Data Sources</span>
+                  <h2>情報元の取得状況</h2>
+                </div>
+              </div>
+              <div id="dataSourceGrid" class="source-status-list"></div>
+            </section>
+          </div>
+        </section>
 
         <section id="listView" class="content-view active" aria-label="物件一覧">
           <div class="result-meta">

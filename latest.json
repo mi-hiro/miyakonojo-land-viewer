@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-06-08T16:48:38.473388+09:00",
+  "generated_at": "2026-06-08T19:40:54.975917+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -5864,33 +5864,6 @@
       "zoning": "ヒント"
     },
     {
-      "address": "都城市 若葉町（都城駅）",
-      "building_coverage_ratio_percent": 60.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://www.athome.co.jp/tochi/6990860108/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "image_url": null,
-      "image_urls": [],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 166.1,
-      "land_area_tsubo": 50.25,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 550.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地 都城市 若葉町（都城駅） 住宅用地 550 万円 坪単価 10.95万円 権利 所有権 土地面積 166.10m² (50.24坪) 最適用途 住宅用地  若葉町 都城市 若葉町（都城駅） アットホーム",
-      "source": "アットホーム",
-      "source_url": "https://www.athome.co.jp/tochi/6990860108/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "title": "土地 都城市 若葉町（都城駅） 住宅用地 550 万円 坪単価 10.95万円 権利 所有権 土地面積 166.10m² (50.24坪) 最適用途 住宅用地 ",
-      "town": "若葉町",
-      "unit_price_man_per_tsubo": 10.95,
-      "zoning": null
-    },
-    {
       "address": "宮崎県都城市若葉町",
       "building_coverage_ratio_percent": 60.0,
       "floor_area_ratio_percent": 60.0,
@@ -6797,6 +6770,33 @@
       "title": "土地 都城市 都原町（西都城駅） 住宅用地 362 万円 坪単価 7.01万円 権利 所有権 土地面積 170.80m² (51.66坪) 最適用途 住宅用地 ",
       "town": "都原町",
       "unit_price_man_per_tsubo": 7.01,
+      "zoning": null
+    },
+    {
+      "address": "都城市 都原町",
+      "building_coverage_ratio_percent": 60.0,
+      "floor_area_ratio_percent": 200.0,
+      "id": "https://www.athome.co.jp/tochi/1058006698/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "image_url": null,
+      "image_urls": [],
+      "is_cheap_new": false,
+      "is_new": false,
+      "land_area_sqm": 283.25,
+      "land_area_tsubo": 85.68,
+      "latitude": null,
+      "longitude": null,
+      "new_reason": "",
+      "parcel_number": null,
+      "price_man_yen": 728.0,
+      "remarks": null,
+      "restrictions": null,
+      "road_details": null,
+      "search_text": "土地 都城市 都原町 728 万円 坪単価 8.50万円 権利 所有権 土地面積 283.25m² (85.68坪) 最適用途 － 私道負担面積 － 建ぺい率/ 都原町 都城市 都原町 アットホーム",
+      "source": "アットホーム",
+      "source_url": "https://www.athome.co.jp/tochi/1058006698/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "title": "土地 都城市 都原町 728 万円 坪単価 8.50万円 権利 所有権 土地面積 283.25m² (85.68坪) 最適用途 － 私道負担面積 － 建ぺい率/",
+      "town": "都原町",
+      "unit_price_man_per_tsubo": 8.5,
       "zoning": null
     },
     {
@@ -9455,7 +9455,7 @@
     "duplicate_count": 99,
     "excluded_count": 17,
     "listing_count": 296,
-    "overall_average_unit_price_man_per_tsubo": 4.05
+    "overall_average_unit_price_man_per_tsubo": 4.04
   },
   "towns": [
     {
@@ -9501,8 +9501,8 @@
       "town": "前田町"
     },
     {
-      "average_unit_price_man_per_tsubo": 10.71,
-      "listing_count": 4,
+      "average_unit_price_man_per_tsubo": 10.63,
+      "listing_count": 3,
       "maximum_unit_price_man_per_tsubo": 15.28,
       "minimum_unit_price_man_per_tsubo": 7.77,
       "town": "若葉町"
@@ -9557,6 +9557,13 @@
       "town": "広原町"
     },
     {
+      "average_unit_price_man_per_tsubo": 6.83,
+      "listing_count": 4,
+      "maximum_unit_price_man_per_tsubo": 8.5,
+      "minimum_unit_price_man_per_tsubo": 5.75,
+      "town": "都原町"
+    },
+    {
       "average_unit_price_man_per_tsubo": 6.8,
       "listing_count": 3,
       "maximum_unit_price_man_per_tsubo": 7.17,
@@ -9583,13 +9590,6 @@
       "maximum_unit_price_man_per_tsubo": 8.61,
       "minimum_unit_price_man_per_tsubo": 3.29,
       "town": "南横市町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 6.27,
-      "listing_count": 3,
-      "maximum_unit_price_man_per_tsubo": 7.01,
-      "minimum_unit_price_man_per_tsubo": 5.75,
-      "town": "都原町"
     },
     {
       "average_unit_price_man_per_tsubo": 5.84,

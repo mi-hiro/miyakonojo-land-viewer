@@ -2024,7 +2024,7 @@ function renderDataSourceDashboard() {
         <article class="source-status-row">
           <div>
             <h3>${escapeHtml(row.source)}</h3>
-            <span>${formatInteger(row.count)}件 / 写真 ${formatInteger(row.withImages)}件 / 地図 ${formatInteger(row.withMap)}件</span>
+            <span>${formatInteger(row.count)}件 / 写真 ${formatInteger(row.withImages)}件 / 地図 ${formatInteger(row.withMap)}件${row.errorCount ? ` / 注意 ${formatInteger(row.errorCount)}件` : ""}</span>
           </div>
           <strong>${formatNumber(row.imageRate * 100)}%</strong>
           <div class="source-status-track">
@@ -2038,12 +2038,23 @@ function renderDataSourceDashboard() {
 
 function buildDataSourceRows() {
   const groups = new Map();
+  const sourceMeta = new Map(
+    (Array.isArray(state.latest?.sources) ? state.latest.sources : []).map((source) => [
+      source.name || "不明",
+      Array.isArray(source.errors) ? source.errors.length : 0,
+    ])
+  );
   state.listings.forEach((listing) => {
     const source = listing.source || "不明";
-    const row = groups.get(source) || { source, count: 0, withImages: 0, withMap: 0 };
+    const row = groups.get(source) || { source, count: 0, withImages: 0, withMap: 0, errorCount: 0 };
     row.count += 1;
     row.withImages += imageUrlList(listing).length ? 1 : 0;
     row.withMap += Number.isFinite(listing.map_latitude) ? 1 : 0;
+    groups.set(source, row);
+  });
+  sourceMeta.forEach((errorCount, source) => {
+    const row = groups.get(source) || { source, count: 0, withImages: 0, withMap: 0, errorCount: 0 };
+    row.errorCount = errorCount;
     groups.set(source, row);
   });
   return [...groups.values()]

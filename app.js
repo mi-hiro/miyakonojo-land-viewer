@@ -2,9 +2,54 @@ const RAW_BASE =
   "https://raw.githubusercontent.com/mi-hiro/miyakonojo-land-viewer/main/";
 
 const CITY_CENTER = [31.7196, 131.0616];
+const CITY_BOUNDS = [
+  [31.55, 130.75],
+  [31.98, 131.25],
+];
 const TSUBO_SQM = 3.305785;
 const FIXED_ASSET_ROUTE_VALUE_RATIO = 0.7;
 const INHERITANCE_TAX_ROUTE_VALUE_RATIO = 0.8;
+const LAND_DIAGRAM_IMAGE_TERMS = [
+  "区画",
+  "区画図",
+  "区画割",
+  "土地図",
+  "敷地",
+  "敷地図",
+  "配置図",
+  "公図",
+  "測量図",
+  "地積測量",
+  "図面",
+  "案内図",
+  "地形図",
+  "造成図",
+  "plan",
+  "plot",
+  "parcel",
+  "lot",
+  "layout",
+  "survey",
+  "drawing",
+  "cadastre",
+];
+const PERSON_CHARACTER_IMAGE_TERMS = [
+  "人物",
+  "人物写真",
+  "顔写真",
+  "スタッフ",
+  "担当者",
+  "営業担当",
+  "社員",
+  "代表者",
+  "キャラクター",
+  "マスコット",
+  "イメージキャラクター",
+  "アバター",
+  "似顔絵",
+];
+const PERSON_CHARACTER_IMAGE_PATTERN =
+  /(?:^|[/_.-])(?:person|people|human|portrait|profile|avatar|staff|member|owner|agent|mascot|character|chara|anime|cartoon|face|headshot)(?:[/_.-]|$)/i;
 const STORAGE_KEYS = {
   favorites: "miyakonojo_land_favorites_v1",
   candidates: "miyakonojo_land_candidates_v1",
@@ -1597,7 +1642,7 @@ function initMap() {
   if (state.map || !window.L) {
     return;
   }
-  state.map = L.map("map", { zoomControl: false }).setView(CITY_CENTER, 11);
+  state.map = L.map("map", { zoomControl: false }).setView(CITY_CENTER, 10);
   L.control.zoom({ position: "bottomright" }).addTo(state.map);
   state.mapBaseLayers = createMapBaseLayers();
   selectedMapLayer(state.mapBaseLayers).addTo(state.map);
@@ -1607,6 +1652,15 @@ function initMap() {
   }).addTo(state.map);
   state.map.on("baselayerchange", (event) => saveMapLayerType(mapLayerTypeFromLabel(event.name)));
   state.markerLayer = L.layerGroup().addTo(state.map);
+  fitMapToCity(state.map);
+}
+
+function cityLatLngBounds() {
+  return L.latLngBounds(CITY_BOUNDS);
+}
+
+function fitMapToCity(map) {
+  map.fitBounds(cityLatLngBounds(), { padding: [16, 16], maxZoom: 10 });
 }
 
 function createMapBaseLayers() {
@@ -1662,9 +1716,17 @@ function renderMap() {
   });
   if (state.markers.length) {
     const group = L.featureGroup(state.markers);
-    state.map.fitBounds(group.getBounds().pad(0.12), { maxZoom: 13 });
+    const markerBounds = group.getBounds().pad(0.08);
+    const cityBounds = cityLatLngBounds();
+    const outsideCity =
+      !cityBounds.contains(markerBounds.getSouthWest()) || !cityBounds.contains(markerBounds.getNorthEast());
+    const overviewMode = state.filtered.length > 30 || outsideCity;
+    state.map.fitBounds(overviewMode ? cityBounds : markerBounds, {
+      padding: [16, 16],
+      maxZoom: overviewMode ? 10 : 12,
+    });
   } else {
-    state.map.setView(CITY_CENTER, 11);
+    fitMapToCity(state.map);
   }
 }
 
@@ -2164,7 +2226,64 @@ function imageUrlList(listing) {
   if (Array.isArray(listing.image_urls) && listing.image_urls.length) {
     values.push(...listing.image_urls);
   }
-  return [...new Set(values.filter(Boolean))];
+  return [...new Set(values.filter(Boolean).filter(isDisplayableListingImageUrl))];
+}
+
+function normalizeImageText(value) {
+  let text = String(value || "").replaceAll("\\/", "/").toLowerCase();
+  try {
+    text = decodeURIComponent(text);
+  } catch (error) {
+    // Some source URLs contain partial escaping; keep the readable parts.
+  }
+  return text;
+}
+
+function imageUrlLooksLikeLandDiagram(url) {
+  const normalized = normalizeImageText(url);
+  return LAND_DIAGRAM_IMAGE_TERMS.some((term) => normalized.includes(term.toLowerCase()));
+}
+
+function imageUrlLooksLikePersonOrCharacter(url) {
+  if (imageUrlLooksLikeLandDiagram(url)) {
+    return false;
+  }
+  const normalized = normalizeImageText(url);
+  return (
+    PERSON_CHARACTER_IMAGE_TERMS.some((term) => normalized.includes(term.toLowerCase())) ||
+    PERSON_CHARACTER_IMAGE_PATTERN.test(normalized)
+  );
+}
+
+function isDisplayableListingImageUrl(url) {
+  const normalized = normalizeImageText(url);
+  if (imageUrlLooksLikePersonOrCharacter(url)) {
+    return false;
+  }
+  const blockedTerms = [
+    "logo",
+    "icon",
+    "sprite",
+    "banner",
+    "button",
+    "map",
+    "pagetop",
+    "noimage",
+    "no_image",
+    "no_photo",
+    "nophoto",
+    "no-photo",
+    "dummy",
+    "blank",
+    "loading",
+    "placeholder",
+    "transparent",
+    "captcha",
+    "common",
+  ];
+  return !blockedTerms.some(
+    (term) => normalized.includes(term) && !(term === "map" && imageUrlLooksLikeLandDiagram(url))
+  );
 }
 
 function swapBrokenImage(image) {

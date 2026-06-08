@@ -1886,3 +1886,269 @@ body {
   border-color: #f8d994;
   color: #7a4e00;
 }
+
+/* Signal Atlas selected theme */
+:root {
+  --ink: #172033;
+  --muted: #536577;
+  --paper: #f7fafc;
+  --panel: rgba(255, 255, 255, 0.95);
+  --panel-soft: rgba(238, 246, 251, 0.92);
+  --line: #b8cedd;
+  --line-strong: #1d77e8;
+  --accent: #1769e0;
+  --accent-strong: #0b4d9c;
+  --accent-soft: #e7f0ff;
+  --low: #0f9f66;
+  --mid: #d98717;
+  --high: #d84646;
+  --blue: #0d8ed6;
+  --new: #e95d34;
+  --ai-lime: #16a36d;
+  --ai-violet: #5361dc;
+  --shadow: 0 22px 52px rgba(22, 44, 68, 0.18);
+  --shadow-soft: 0 10px 26px rgba(22, 44, 68, 0.11);
+}
+
+body {
+  background:
+    linear-gradient(90deg, rgba(23, 105, 224, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 159, 102, 0.055) 1px, transparent 1px),
+    linear-gradient(135deg, #f7fafc 0%, #ffffff 44%, #f3fbf7 100%);
+  background-size: 40px 40px, 40px 40px, auto;
+}
+
+.app-shell::before {
+  background:
+    linear-gradient(120deg, transparent 0 38%, rgba(23, 105, 224, 0.1) 38% 38.35%, transparent 38.35% 100%),
+    linear-gradient(305deg, transparent 0 66%, rgba(15, 159, 102, 0.085) 66% 66.35%, transparent 66.35% 100%);
+}
+
+.topbar,
+.detail-head {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(238, 246, 251, 0.95) 58%, rgba(232, 241, 255, 0.95) 100%);
+  border-bottom-color: rgba(23, 105, 224, 0.38);
+  box-shadow: 0 12px 32px rgba(22, 44, 68, 0.14);
+}
+
+.topbar::after,
+.detail-head::after {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--ai-lime), var(--new), transparent);
+  opacity: 0.86;
+}
+
+.eyebrow {
+  color: var(--accent-strong);
+  opacity: 0.92;
+}
+
+.topbar h1,
+.card-title,
+.metric strong,
+.summary-item strong,
+.detail-head h2,
+.fallback-text strong {
+  color: #14243c;
+}
+
+.summary-item,
+.controls,
+.listing-card,
+.history-row,
+.distribution-row,
+.compare-wrap,
+.list-table-wrap,
+.detail-panel,
+.detail-section,
+.empty-state {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 249, 252, 0.95) 100%);
+  border-color: rgba(138, 166, 187, 0.72);
+}
+
+.summary-item::before,
+.listing-card::before,
+.history-row::before,
+.detail-section::before {
+  background: linear-gradient(90deg, transparent, rgba(23, 105, 224, 0.9), rgba(15, 159, 102, 0.86), transparent);
+  opacity: 0.82;
+}
+
+.summary-label,
+.select-wrap span,
+.range-title,
+.backup-status span,
+.distribution-label,
+.listing-table th,
+.compare-table th,
+.detail-section h3 {
+  color: #405268;
+}
+
+.summary-item strong {
+  color: var(--accent-strong);
+  text-shadow: 0 0 18px rgba(23, 105, 224, 0.16);
+}
+
+.search-box,
+.select-wrap select,
+.range-group,
+.range-group input,
+.backup-row,
+.utility-button,
+.tabs,
+.view-mode,
+.action-chip,
+.check-pill,
+.memo-input {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 246, 251, 0.94));
+  border-color: rgba(138, 166, 187, 0.75);
+}
+
+.search-box:focus-within,
+.select-wrap select:focus,
+.range-group input:focus,
+.memo-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.16), 0 0 22px rgba(23, 105, 224, 0.13);
+}
+
+.tabs,
+.view-mode {
+  background: #e8eef5;
+}
+
+.tab,
+.view-mode-button {
+  color: #43556a;
+}
+
+.tab.active,
+.view-mode-button.active {
+  background: linear-gradient(135deg, var(--accent), var(--blue));
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(23, 105, 224, 0.24);
+}
+
+.tab.active svg,
+.view-mode-button.active svg {
+  color: #ffffff;
+}
+
+.tab:hover,
+.icon-button:hover,
+.utility-button:hover,
+.action-chip:hover,
+.view-mode-button:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(23, 105, 224, 0.14);
+}
+
+.topbar .icon-button {
+  background: #ffffff;
+  color: var(--accent);
+  border-color: rgba(23, 105, 224, 0.42);
+}
+
+.listing-card {
+  border-left-color: var(--accent);
+}
+
+.listing-card:hover {
+  border-color: rgba(23, 105, 224, 0.64);
+  box-shadow: 0 20px 44px rgba(22, 44, 68, 0.17);
+}
+
+.listing-photo,
+.detail-photo,
+.compact-thumb,
+.image-thumb,
+.detail-map,
+.mini-map-placeholder,
+#map {
+  background:
+    linear-gradient(90deg, rgba(23, 105, 224, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 159, 102, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, #e8f1ff, #f4fbf7);
+  background-size: 26px 26px, 26px 26px, auto;
+  border-color: rgba(138, 166, 187, 0.76);
+}
+
+.fallback-visual {
+  background:
+    linear-gradient(90deg, rgba(23, 105, 224, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 159, 102, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, #e8f1ff 0%, #f6fff9 100%);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.badge.new {
+  background: #fff0e8;
+  color: #c7461f;
+  border-color: #ffbd9d;
+}
+
+.badge.cheap {
+  background: #e7fbef;
+  color: #087d4e;
+  border-color: #8be0b3;
+}
+
+.badge.approx,
+.badge.candidate,
+.action-chip.active {
+  background: #e8f1ff;
+  color: var(--accent-strong);
+  border-color: rgba(23, 105, 224, 0.34);
+}
+
+.badge.warning {
+  background: #fff0f0;
+  color: #b83232;
+  border-color: #f4b0b0;
+}
+
+.metric,
+.compact-metrics strong,
+.compact-metrics span {
+  background:
+    linear-gradient(180deg, #ffffff, #edf5fb);
+  border-color: #c9d9e5;
+}
+
+.detail-link {
+  background: linear-gradient(135deg, var(--accent), var(--blue) 54%, var(--ai-lime));
+  box-shadow: 0 10px 24px rgba(23, 105, 224, 0.24);
+}
+
+.distribution-track {
+  background: #dce8f3;
+}
+
+.distribution-bar {
+  background: linear-gradient(90deg, var(--accent), var(--blue), var(--ai-lime));
+}
+
+.listing-table th,
+.compare-table th {
+  background: #e5edf6;
+  color: #34485f;
+}
+
+.listing-table tbody tr:hover,
+.compare-table tbody tr:hover {
+  background: rgba(232, 241, 255, 0.76);
+}
+
+.leaflet-control-layers {
+  border-color: rgba(23, 105, 224, 0.46) !important;
+  box-shadow: 0 12px 26px rgba(22, 44, 68, 0.18);
+}
+
+.map-pin {
+  box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.2), 0 8px 18px rgba(22, 44, 68, 0.28);
+}

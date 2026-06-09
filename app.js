@@ -444,6 +444,7 @@ const state = {
 
 const els = {
   appShell: document.getElementById("appShell"),
+  controls: document.querySelector(".controls"),
   refreshButton: document.getElementById("refreshButton"),
   deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
@@ -462,7 +463,6 @@ const els = {
   candidateOnly: document.getElementById("candidateOnly"),
   newOnly: document.getElementById("newOnly"),
   cheapOnly: document.getElementById("cheapOnly"),
-  mappedOnly: document.getElementById("mappedOnly"),
   showExcluded: document.getElementById("showExcluded"),
   hazardAreaToggle: document.getElementById("hazardAreaToggle"),
   hazardAreaStatus: document.getElementById("hazardAreaStatus"),
@@ -508,7 +508,10 @@ function init() {
   renderBackupSummary();
   loadData();
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then((registration) => registration.update())
+      .catch(() => {});
   }
 }
 
@@ -516,7 +519,7 @@ function bindEvents() {
   els.refreshButton.addEventListener("click", loadData);
   els.searchInput.addEventListener("input", render);
   els.sortSelect.addEventListener("change", render);
-  els.townFilter.addEventListener("change", render);
+  els.townFilter?.addEventListener("change", render);
   els.schoolFilter.addEventListener("change", render);
   els.priceMin.addEventListener("input", render);
   els.priceMax.addEventListener("input", render);
@@ -528,12 +531,13 @@ function bindEvents() {
     els.backupFileInput.click();
   });
   els.backupFileInput.addEventListener("change", importBackup);
-  els.favoriteOnly.addEventListener("change", render);
-  els.candidateOnly.addEventListener("change", render);
+  els.favoriteOnly?.addEventListener("change", render);
+  els.candidateOnly?.addEventListener("change", render);
   els.newOnly.addEventListener("change", render);
   els.cheapOnly.addEventListener("change", render);
-  els.mappedOnly.addEventListener("change", render);
-  els.showExcluded.addEventListener("change", render);
+  els.showExcluded?.addEventListener("change", render);
+  els.controls?.addEventListener("change", handleControlChange, true);
+  els.controls?.addEventListener("input", handleControlInput, true);
   els.hazardAreaToggle?.addEventListener("change", () => {
     state.showHazardAreas = Boolean(els.hazardAreaToggle.checked);
     localStorage.setItem(STORAGE_KEYS.showHazardAreas, state.showHazardAreas ? "1" : "0");
@@ -609,6 +613,22 @@ function loadSavedState() {
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
   state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
+}
+
+function handleControlChange(event) {
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target?.matches?.("select, input")) {
+    return;
+  }
+  render();
+}
+
+function handleControlInput(event) {
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target?.matches?.("select, input[type='checkbox']")) {
+    return;
+  }
+  render();
 }
 
 function handleMouseDetailPointer(event) {
@@ -1462,6 +1482,9 @@ function render() {
   if (!state.latest) {
     return;
   }
+  if (els.townFilter && els.townFilter.options.length <= 1 && state.listings.length) {
+    populateTownFilter();
+  }
   state.filtered = sortListings(filterListings(state.listings));
   renderSummary();
   renderBackupSummary();
@@ -1481,21 +1504,25 @@ function render() {
 
 function filterListings(listings) {
   const query = normalizeQuery(els.searchInput.value);
-  const townFilter = els.townFilter.value;
+  const townFilter = els.townFilter?.value || "";
   const schoolFilter = els.schoolFilter.value;
   const priceRange = inputRange(els.priceMin.value, els.priceMax.value);
   const areaRange = inputRange(els.areaMin.value, els.areaMax.value);
   return listings.filter((listing) => {
-    if (!els.showExcluded.checked && isExcluded(listing)) {
+    const excluded = isExcluded(listing);
+    if (els.showExcluded?.checked && !excluded) {
       return false;
     }
-    if (els.favoriteOnly.checked && !isFavorite(listing)) {
+    if (!els.showExcluded?.checked && excluded) {
       return false;
     }
-    if (els.candidateOnly.checked && !isCandidate(listing)) {
+    if (els.favoriteOnly?.checked && !isFavorite(listing)) {
       return false;
     }
-    if (townFilter && listing.town !== townFilter) {
+    if (els.candidateOnly?.checked && !isCandidate(listing)) {
+      return false;
+    }
+    if (townFilter && listingTownName(listing) !== townFilter) {
       return false;
     }
     const haystack = normalizeQuery(
@@ -1529,9 +1556,6 @@ function filterListings(listings) {
       return false;
     }
     if (els.cheapOnly.checked && !listing.is_cheap_new) {
-      return false;
-    }
-    if (els.mappedOnly.checked && !Number.isFinite(listing.map_latitude)) {
       return false;
     }
     return true;
@@ -2503,8 +2527,11 @@ function averageNumbers(values) {
 }
 
 function populateTownFilter() {
+  if (!els.townFilter) {
+    return;
+  }
   const currentValue = els.townFilter.value;
-  const towns = [...new Set(state.listings.map((listing) => listing.town).filter(Boolean))].sort((a, b) =>
+  const towns = [...new Set(state.listings.map(listingTownName).filter(Boolean))].sort((a, b) =>
     a.localeCompare(b, "ja")
   );
   els.townFilter.innerHTML = [
@@ -2514,6 +2541,19 @@ function populateTownFilter() {
   if (currentValue && towns.includes(currentValue)) {
     els.townFilter.value = currentValue;
   }
+}
+
+function listingTownName(listing) {
+  const explicit = String(listing?.town || "").trim();
+  if (explicit) {
+    return explicit;
+  }
+  const text = [listing?.address, listing?.title, listing?.search_text].filter(Boolean).join(" ");
+  return (
+    Object.keys(TOWN_COORDS)
+      .sort((a, b) => b.length - a.length)
+      .find((town) => text.includes(town)) || ""
+  );
 }
 
 function populateSchoolFilter() {

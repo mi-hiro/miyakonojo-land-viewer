@@ -234,6 +234,13 @@ h1 {
   accent-color: var(--accent);
 }
 
+.check-pill:has(input:checked) {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(23, 105, 224, 0.12), rgba(22, 163, 109, 0.12));
+  color: var(--accent-strong);
+  box-shadow: 0 8px 18px rgba(23, 105, 224, 0.12);
+}
+
 .range-filters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

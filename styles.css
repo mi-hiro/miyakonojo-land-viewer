@@ -409,6 +409,58 @@ h1 {
   display: block;
 }
 
+.detail-page-view {
+  min-width: 0;
+}
+
+.detail-page-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 14px;
+  border: 1px solid rgba(138, 166, 187, 0.72);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(238, 246, 251, 0.96) 58%, rgba(232, 241, 255, 0.96) 100%);
+  box-shadow: 0 12px 32px rgba(22, 44, 68, 0.14);
+}
+
+.detail-page-head h2 {
+  margin: 0;
+  color: #14243c;
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.detail-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(23, 105, 224, 0.34);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.detail-back-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.detail-page-view .detail-body {
+  padding: 0;
+}
+
 .result-meta {
   display: flex;
   align-items: center;
@@ -969,6 +1021,7 @@ h1 {
   color: #fff;
   font-size: 13px;
   font-weight: 800;
+  text-decoration: none;
   box-shadow: 0 7px 15px rgba(19, 111, 145, 0.18);
 }
 

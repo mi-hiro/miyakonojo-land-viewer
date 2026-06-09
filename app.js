@@ -483,6 +483,11 @@ const els = {
   compareTable: document.getElementById("compareTable"),
   listingList: document.getElementById("listingList"),
   historyGrid: document.getElementById("historyGrid"),
+  detailView: document.getElementById("detailView"),
+  detailPageTown: document.getElementById("detailPageTown"),
+  detailPageTitle: document.getElementById("detailPageTitle"),
+  detailPageBody: document.getElementById("detailPageBody"),
+  detailBackLink: document.getElementById("detailBackLink"),
   detailPanel: document.getElementById("detailPanel"),
   detailTown: document.getElementById("detailTown"),
   detailTitle: document.getElementById("detailTitle"),
@@ -529,9 +534,9 @@ function bindEvents() {
     renderHazardAreas();
   });
   els.closeDetail.addEventListener("click", closeDetail);
-  document.addEventListener("pointerup", handleDelegatedDetailPointer, true);
   document.addEventListener("click", handleDelegatedActionClick, true);
   document.addEventListener("keydown", handleDelegatedOpenKeydown);
+  window.addEventListener("hashchange", routeFromHash);
   els.deviceModeControl?.querySelectorAll("[data-device-mode]").forEach((button) => {
     button.addEventListener("click", () => setDeviceMode(button.dataset.deviceMode));
   });
@@ -548,32 +553,42 @@ function bindEvents() {
 
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
-      state.view = button.dataset.view;
-      document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("active", item === button));
-      document.querySelectorAll(".content-view").forEach((view) => {
-        view.classList.toggle("active", view.id === `${state.view}View`);
-      });
-      if (state.view === "map") {
-        setTimeout(() => {
-          initMap();
-          renderMap();
-          state.map?.invalidateSize();
-        }, 40);
-      }
-      if (state.view === "history") {
-        renderHistory();
-      }
-      if (state.view === "distribution") {
-        renderDistribution();
-      }
-      if (state.view === "dashboard") {
-        renderDashboard();
-      }
-      if (state.view === "compare") {
-        renderCompare();
-      }
+      clearDetailHash();
+      activateView(button.dataset.view || "list");
     });
   });
+}
+
+function activateView(viewName) {
+  state.view = viewName || "list";
+  document.querySelectorAll(".tab").forEach((button) => {
+    button.classList.toggle("active", button.dataset.view === state.view);
+  });
+  document.querySelectorAll(".content-view").forEach((view) => {
+    view.classList.toggle("active", view.id === `${state.view}View`);
+  });
+  if (state.view === "map") {
+    setTimeout(() => {
+      initMap();
+      renderMap();
+      state.map?.invalidateSize();
+    }, 40);
+  }
+  if (state.view === "history") {
+    renderHistory();
+  }
+  if (state.view === "distribution") {
+    renderDistribution();
+  }
+  if (state.view === "dashboard") {
+    renderDashboard();
+  }
+  if (state.view === "compare") {
+    renderCompare();
+  }
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 function loadSavedState() {
@@ -588,19 +603,10 @@ function loadSavedState() {
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
 }
 
-function handleDelegatedDetailPointer(event) {
-  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
-  const button = target?.closest("[data-open-detail]");
-  if (!button) {
-    return;
-  }
-  openDetailFromButton(button);
-}
-
 function handleDelegatedActionClick(event) {
   const target = event.target instanceof Element ? event.target : event.target?.parentElement;
   const button = target?.closest(
-    "[data-open-detail], [data-open-listing], [data-toggle-favorite], [data-toggle-candidate], [data-toggle-exclude], [data-hide-image]"
+    "[data-open-listing], [data-toggle-favorite], [data-toggle-candidate], [data-toggle-exclude], [data-hide-image]"
   );
   if (!button) {
     return;
@@ -610,12 +616,8 @@ function handleDelegatedActionClick(event) {
   }
   event.preventDefault();
   event.stopPropagation();
-  if (button.dataset.openDetail) {
-    openDetailFromButton(button);
-    return;
-  }
   if (button.dataset.openListing) {
-    openDetail(button.dataset.openListing);
+    navigateToDetail(button.dataset.openListing);
     return;
   }
   if (button.dataset.toggleFavorite) {
@@ -636,9 +638,13 @@ function handleDelegatedActionClick(event) {
 }
 
 function openDetailFromButton(button) {
-  const id = button?.dataset?.openDetail || button?.getAttribute?.("data-open-detail");
+  const id =
+    button?.dataset?.detailId ||
+    button?.dataset?.openDetail ||
+    button?.getAttribute?.("data-detail-id") ||
+    button?.getAttribute?.("data-open-detail");
   if (id) {
-    openDetail(id);
+    navigateToDetail(id);
   }
 }
 
@@ -653,15 +659,61 @@ function handleDelegatedOpenKeydown(event) {
     return;
   }
   const target = event.target instanceof Element ? event.target : event.target?.parentElement;
-  const opener = target?.closest("[data-open-detail], [data-open-listing]");
+  const opener = target?.closest("[data-open-listing]");
   if (!opener || shouldIgnoreCardOpen(target)) {
     return;
   }
   event.preventDefault();
-  if (opener.dataset.openDetail) {
-    openDetailFromButton(opener);
+  navigateToDetail(opener.dataset.openListing);
+}
+
+function detailHash(id) {
+  return `#detail=${encodeURIComponent(String(id || ""))}`;
+}
+
+function parseDetailHash(hash) {
+  const match = String(hash || "").match(/^#detail=(.+)$/);
+  return match ? decodeURIComponent(match[1]) : "";
+}
+
+function isDetailHash() {
+  return Boolean(parseDetailHash(window.location.hash));
+}
+
+function clearDetailHash() {
+  if (!isDetailHash()) {
+    return;
+  }
+  window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+}
+
+function navigateToDetail(id) {
+  if (!id) {
+    return;
+  }
+  const nextHash = detailHash(id);
+  if (window.location.hash === nextHash) {
+    routeFromHash();
   } else {
-    openDetail(opener.dataset.openListing);
+    window.location.hash = nextHash;
+  }
+}
+
+function routeFromHash() {
+  const detailId = parseDetailHash(window.location.hash);
+  if (detailId) {
+    openDetail(detailId);
+    return;
+  }
+  const hashView = String(window.location.hash || "").replace(/^#/, "");
+  if (["list", "dashboard", "map", "history", "distribution", "compare"].includes(hashView)) {
+    closeDetail(false);
+    activateView(hashView);
+    return;
+  }
+  if (state.view === "detail") {
+    closeDetail(false);
+    activateView("list");
   }
 }
 
@@ -888,6 +940,7 @@ async function loadData() {
   state.listings = state.latest.listings.map((listing, index) => normalizeListing(listing, index));
   populateSchoolFilter();
   render();
+  routeFromHash();
 }
 
 async function fetchDataFile(fileName) {
@@ -1694,9 +1747,9 @@ function actionButton(action, id, active, icon, label) {
 
 function detailButton(id, extraClass = "") {
   return `
-    <button class="detail-link ${escapeAttr(extraClass)}" type="button" data-open-detail="${escapeAttr(id)}" onclick="openDetailFromButton(this); return false;">
+    <a class="detail-link ${escapeAttr(extraClass)}" href="${escapeAttr(detailHash(id))}" data-detail-id="${escapeAttr(id)}">
       詳細
-    </button>
+    </a>
   `;
 }
 
@@ -1716,7 +1769,7 @@ function toggleSavedSet(kind, id) {
   }
   saveStoredSet(STORAGE_KEYS[kind], set);
   render();
-  if (els.detailPanel.classList.contains("open") && state.currentDetailId) {
+  if (state.view === "detail" && state.currentDetailId) {
     openDetail(state.currentDetailId);
   }
 }
@@ -1730,7 +1783,7 @@ function hideImageUrl(url) {
   saveStoredSet(STORAGE_KEYS.hiddenImages, state.hiddenImages);
   renderBackupSummary();
   render();
-  if (els.detailPanel.classList.contains("open") && state.currentDetailId) {
+  if (state.view === "detail" && state.currentDetailId) {
     openDetail(state.currentDetailId);
   }
   setStatus("この写真を非表示にしました。区画図や測量図は残せます。");
@@ -1893,7 +1946,7 @@ function renderMap() {
     marker.bindPopup(renderPopup(listing));
     marker.on("click", () => {
       state.map?.closePopup();
-      openDetail(listing.id);
+      navigateToDetail(listing.id);
     });
     marker.addTo(state.markerLayer);
     state.markers.push(marker);
@@ -2426,20 +2479,40 @@ function openDetail(id) {
     setStatus("詳細を開けませんでした。ページを更新してからもう一度押してください。");
     return;
   }
+  const detailRoot = els.detailPageBody || els.detailBody;
+  if (!detailRoot) {
+    setStatus("詳細欄を表示できませんでした。ページを更新してからもう一度押してください。");
+    return;
+  }
   state.currentDetailId = id;
   clearDetailMap();
-  els.detailTown.textContent = `${listing.town} / ${listing.source}`;
-  els.detailTitle.textContent = shortTitle(listing);
-  els.detailPanel.classList.add("open");
-  els.detailPanel.setAttribute("aria-hidden", "false");
-  els.detailPanel.scrollTop = 0;
+  const townText = `${listing.town} / ${listing.source}`;
+  const titleText = shortTitle(listing);
+  if (els.detailPageTown) {
+    els.detailPageTown.textContent = townText;
+  }
+  if (els.detailPageTitle) {
+    els.detailPageTitle.textContent = titleText;
+  }
+  if (els.detailTown) {
+    els.detailTown.textContent = townText;
+  }
+  if (els.detailTitle) {
+    els.detailTitle.textContent = titleText;
+  }
+  if (els.detailPanel) {
+    els.detailPanel.classList.remove("open");
+    els.detailPanel.setAttribute("aria-hidden", "true");
+  }
   try {
-    els.detailBody.innerHTML = renderDetail(listing);
-    bindDetailControls(listing);
+    detailRoot.innerHTML = renderDetail(listing);
+    bindDetailControls(listing, detailRoot);
   } catch (error) {
-    els.detailBody.innerHTML = renderFallbackDetail(listing);
+    detailRoot.innerHTML = renderFallbackDetail(listing);
     setStatus("詳細の一部を表示できませんでした。最低限の情報を表示しています。");
   }
+  activateView("detail");
+  window.scrollTo({ top: 0, behavior: "smooth" });
   setTimeout(() => {
     renderDetailMap(listing);
   }, 80);
@@ -2463,11 +2536,17 @@ function renderFallbackDetail(listing) {
   `;
 }
 
-function closeDetail() {
-  els.detailPanel.classList.remove("open");
-  els.detailPanel.setAttribute("aria-hidden", "true");
+function closeDetail(updateHash = true) {
+  els.detailPanel?.classList.remove("open");
+  els.detailPanel?.setAttribute("aria-hidden", "true");
   state.currentDetailId = null;
   clearDetailMap();
+  if (updateHash) {
+    clearDetailHash();
+  }
+  if (state.view === "detail") {
+    activateView("list");
+  }
 }
 
 function renderDetail(listing) {
@@ -2636,9 +2715,12 @@ function renderMemoSection(listing) {
   `;
 }
 
-function bindDetailControls(listing) {
-  bindListingActions(els.detailBody);
-  els.detailBody.querySelectorAll("[data-preview-image]").forEach((button) => {
+function bindDetailControls(listing, root = els.detailPageBody || els.detailBody) {
+  if (!root) {
+    return;
+  }
+  bindListingActions(root);
+  root.querySelectorAll("[data-preview-image]").forEach((button) => {
     button.addEventListener("click", () => {
       const image = document.getElementById("detailMainImage");
       if (!image) {
@@ -2646,14 +2728,14 @@ function bindDetailControls(listing) {
       }
       image.dataset.imageIndex = button.dataset.previewIndex || "0";
       image.src = button.dataset.previewImage;
-      const hideButton = els.detailBody.querySelector(".detail-main-hide");
+      const hideButton = root.querySelector(".detail-main-hide");
       if (hideButton) {
         hideButton.dataset.hideImage = button.dataset.previewImage;
       }
-      els.detailBody.querySelectorAll("[data-preview-image]").forEach((item) => item.classList.toggle("active", item === button));
+      root.querySelectorAll("[data-preview-image]").forEach((item) => item.classList.toggle("active", item === button));
     });
   });
-  const memo = document.getElementById("detailNote");
+  const memo = root.querySelector("#detailNote");
   if (!memo) {
     return;
   }

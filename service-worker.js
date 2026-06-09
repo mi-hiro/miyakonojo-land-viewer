@@ -1,4 +1,4 @@
-const CACHE_NAME = "miyakonojo-land-viewer-v28";
+const CACHE_NAME = "miyakonojo-land-viewer-v29";
 const SHELL_FILES = [
   "./",
   "./index.html",

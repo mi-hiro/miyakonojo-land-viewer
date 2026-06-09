@@ -505,6 +505,7 @@ function init() {
   loadSavedState();
   applyDeviceMode();
   bindEvents();
+  resetTransientFilters();
   renderBackupSummary();
   loadData();
   if ("serviceWorker" in navigator) {
@@ -601,6 +602,27 @@ function activateView(viewName) {
   if (window.lucide) {
     window.lucide.createIcons();
   }
+}
+
+function resetTransientFilters() {
+  [
+    els.searchInput,
+    els.townFilter,
+    els.schoolFilter,
+    els.priceMin,
+    els.priceMax,
+    els.areaMin,
+    els.areaMax,
+  ].forEach((input) => {
+    if (input) {
+      input.value = "";
+    }
+  });
+  [els.favoriteOnly, els.candidateOnly, els.newOnly, els.cheapOnly, els.showExcluded].forEach((input) => {
+    if (input) {
+      input.checked = false;
+    }
+  });
 }
 
 function loadSavedState() {

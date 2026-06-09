@@ -57,13 +57,13 @@
         <section class="controls" aria-label="絞り込み">
           <label class="search-box">
             <i data-lucide="search"></i>
-            <input id="searchInput" type="search" placeholder="町名・所在地・備考で検索">
+            <input id="searchInput" type="search" placeholder="町名・所在地・備考で検索" autocomplete="off">
           </label>
 
           <div class="control-row">
             <label class="select-wrap">
               <span>並び替え</span>
-              <select id="sortSelect">
+              <select id="sortSelect" autocomplete="off">
                 <option value="new">新着順</option>
                 <option value="priceAsc">金額が安い順</option>
                 <option value="priceDesc">金額が高い順</option>
@@ -75,37 +75,37 @@
             </label>
             <label class="select-wrap">
               <span>町名</span>
-              <select id="townFilter">
+              <select id="townFilter" autocomplete="off">
                 <option value="">すべて</option>
               </select>
             </label>
             <label class="select-wrap">
               <span>学校区</span>
-              <select id="schoolFilter">
+              <select id="schoolFilter" autocomplete="off">
                 <option value="">すべて</option>
               </select>
             </label>
             <div class="toggle-row">
-              <label class="check-pill"><input id="favoriteOnly" type="checkbox">お気に入り</label>
-              <label class="check-pill"><input id="candidateOnly" type="checkbox">買付候補</label>
-              <label class="check-pill"><input id="newOnly" type="checkbox">新着</label>
-              <label class="check-pill"><input id="cheapOnly" type="checkbox">割安新着</label>
-              <label class="check-pill"><input id="showExcluded" type="checkbox">除外のみ</label>
+              <label class="check-pill"><input id="favoriteOnly" type="checkbox" autocomplete="off">お気に入り</label>
+              <label class="check-pill"><input id="candidateOnly" type="checkbox" autocomplete="off">買付候補</label>
+              <label class="check-pill"><input id="newOnly" type="checkbox" autocomplete="off">新着</label>
+              <label class="check-pill"><input id="cheapOnly" type="checkbox" autocomplete="off">割安新着</label>
+              <label class="check-pill"><input id="showExcluded" type="checkbox" autocomplete="off">除外のみ</label>
             </div>
           </div>
 
           <div class="range-filters" aria-label="価格と面積の範囲">
             <div class="range-group">
               <span class="range-title">価格（万円）</span>
-              <label><input id="priceMin" type="number" inputmode="numeric" min="0" step="10" placeholder="下限"></label>
+              <label><input id="priceMin" type="number" inputmode="numeric" min="0" step="10" placeholder="下限" autocomplete="off"></label>
               <span class="range-separator">〜</span>
-              <label><input id="priceMax" type="number" inputmode="numeric" min="0" step="10" placeholder="上限"></label>
+              <label><input id="priceMax" type="number" inputmode="numeric" min="0" step="10" placeholder="上限" autocomplete="off"></label>
             </div>
             <div class="range-group">
               <span class="range-title">面積（坪）</span>
-              <label><input id="areaMin" type="number" inputmode="decimal" min="0" step="1" placeholder="下限"></label>
+              <label><input id="areaMin" type="number" inputmode="decimal" min="0" step="1" placeholder="下限" autocomplete="off"></label>
               <span class="range-separator">〜</span>
-              <label><input id="areaMax" type="number" inputmode="decimal" min="0" step="1" placeholder="上限"></label>
+              <label><input id="areaMax" type="number" inputmode="decimal" min="0" step="1" placeholder="上限" autocomplete="off"></label>
             </div>
           </div>
 

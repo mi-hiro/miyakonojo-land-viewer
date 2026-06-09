@@ -66,6 +66,8 @@ const STORAGE_KEYS = {
   listLayout: "miyakonojo_land_list_layout_v1",
   mapLayerType: "miyakonojo_land_map_layer_type_v1",
   hiddenImages: "miyakonojo_land_hidden_images_v1",
+  deviceMode: "miyakonojo_land_device_mode_v1",
+  showHazardAreas: "miyakonojo_land_show_hazard_areas_v1",
 };
 
 const MAP_LAYER_DEFS = {
@@ -425,6 +427,7 @@ const state = {
   map: null,
   mapBaseLayers: null,
   markerLayer: null,
+  hazardAreaLayer: null,
   markers: [],
   detailMap: null,
   detailBaseLayers: null,
@@ -435,10 +438,14 @@ const state = {
   hiddenImages: new Set(),
   notes: {},
   currentDetailId: null,
+  deviceMode: "mobile",
+  showHazardAreas: false,
 };
 
 const els = {
+  appShell: document.getElementById("appShell"),
   refreshButton: document.getElementById("refreshButton"),
+  deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
   sortSelect: document.getElementById("sortSelect"),
   schoolFilter: document.getElementById("schoolFilter"),
@@ -454,6 +461,8 @@ const els = {
   cheapOnly: document.getElementById("cheapOnly"),
   mappedOnly: document.getElementById("mappedOnly"),
   showExcluded: document.getElementById("showExcluded"),
+  hazardAreaToggle: document.getElementById("hazardAreaToggle"),
+  hazardAreaStatus: document.getElementById("hazardAreaStatus"),
   statusMessage: document.getElementById("statusMessage"),
   listingCount: document.getElementById("listingCount"),
   currentAverage: document.getElementById("currentAverage"),
@@ -486,6 +495,7 @@ function init() {
     window.lucide.createIcons();
   }
   loadSavedState();
+  applyDeviceMode();
   bindEvents();
   renderBackupSummary();
   loadData();
@@ -513,8 +523,17 @@ function bindEvents() {
   els.cheapOnly.addEventListener("change", render);
   els.mappedOnly.addEventListener("change", render);
   els.showExcluded.addEventListener("change", render);
+  els.hazardAreaToggle?.addEventListener("change", () => {
+    state.showHazardAreas = Boolean(els.hazardAreaToggle.checked);
+    localStorage.setItem(STORAGE_KEYS.showHazardAreas, state.showHazardAreas ? "1" : "0");
+    renderHazardAreas();
+  });
   els.closeDetail.addEventListener("click", closeDetail);
-  document.addEventListener("click", handleDelegatedActionClick);
+  document.addEventListener("pointerup", handleDelegatedDetailPointer, true);
+  document.addEventListener("click", handleDelegatedActionClick, true);
+  els.deviceModeControl?.querySelectorAll("[data-device-mode]").forEach((button) => {
+    button.addEventListener("click", () => setDeviceMode(button.dataset.deviceMode));
+  });
   els.listLayoutControl?.querySelectorAll("[data-list-layout]").forEach((button) => {
     button.addEventListener("click", () => {
       state.listLayout = button.dataset.listLayout || "cards";
@@ -564,6 +583,19 @@ function loadSavedState() {
   state.notes = loadStoredObject(STORAGE_KEYS.notes);
   state.listLayout = normalizeListLayout(localStorage.getItem(STORAGE_KEYS.listLayout));
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
+  state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
+  state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
+}
+
+function handleDelegatedDetailPointer(event) {
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const button = target?.closest("[data-open-detail]");
+  if (!button) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  openDetailFromButton(button);
 }
 
 function handleDelegatedActionClick(event) {
@@ -577,7 +609,7 @@ function handleDelegatedActionClick(event) {
   event.preventDefault();
   event.stopPropagation();
   if (button.dataset.openDetail) {
-    openDetail(button.dataset.openDetail);
+    openDetailFromButton(button);
     return;
   }
   if (button.dataset.toggleFavorite) {
@@ -597,8 +629,47 @@ function handleDelegatedActionClick(event) {
   }
 }
 
+function openDetailFromButton(button) {
+  const id = button?.dataset?.openDetail || button?.getAttribute?.("data-open-detail");
+  if (id) {
+    openDetail(id);
+  }
+}
+
+window.openDetailFromButton = openDetailFromButton;
+
 function normalizeListLayout(value) {
   return ["cards", "compact", "table"].includes(value) ? value : "cards";
+}
+
+function normalizeDeviceMode(value) {
+  return ["desktop", "tablet", "mobile"].includes(value) ? value : defaultDeviceMode();
+}
+
+function defaultDeviceMode() {
+  if (window.matchMedia?.("(min-width: 1100px)").matches) return "desktop";
+  if (window.matchMedia?.("(min-width: 760px)").matches) return "tablet";
+  return "mobile";
+}
+
+function setDeviceMode(mode) {
+  state.deviceMode = normalizeDeviceMode(mode);
+  localStorage.setItem(STORAGE_KEYS.deviceMode, state.deviceMode);
+  applyDeviceMode();
+  setTimeout(() => {
+    state.map?.invalidateSize();
+    state.detailMap?.invalidateSize();
+  }, 80);
+}
+
+function applyDeviceMode() {
+  els.appShell?.classList.remove("device-desktop", "device-tablet", "device-mobile");
+  els.appShell?.classList.add(`device-${state.deviceMode}`);
+  els.deviceModeControl?.querySelectorAll("[data-device-mode]").forEach((button) => {
+    const active = button.dataset.deviceMode === state.deviceMode;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
 }
 
 function normalizeMapLayerType(value) {
@@ -1270,6 +1341,7 @@ function render() {
   state.filtered = sortListings(filterListings(state.listings));
   renderSummary();
   renderBackupSummary();
+  updateHazardAreaControl();
   renderList();
   renderDashboard();
   renderHistory();
@@ -1471,7 +1543,7 @@ function renderListingCard(listing) {
           ${actionButton("favorite", listing.id, isFavorite(listing), "star", "お気に入り")}
           ${actionButton("candidate", listing.id, isCandidate(listing), "clipboard-check", "買付候補")}
           ${actionButton("exclude", listing.id, isExcluded(listing), "eye-off", "除外")}
-          <button class="detail-link" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
+          ${detailButton(listing.id)}
         </div>
       </div>
     </article>
@@ -1504,7 +1576,7 @@ function renderListingCompact(listing) {
             ${actionButton("favorite", listing.id, isFavorite(listing), "star", "お気に入り")}
             ${actionButton("candidate", listing.id, isCandidate(listing), "clipboard-check", "買付候補")}
             ${actionButton("exclude", listing.id, isExcluded(listing), "eye-off", "除外")}
-            <button class="detail-link compact" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
+            ${detailButton(listing.id, "compact")}
           </div>
         </div>
       </div>
@@ -1578,7 +1650,7 @@ function renderListingTableRow(listing) {
         <div class="table-actions">
           ${actionButton("favorite", listing.id, isFavorite(listing), "star", "お気に入り")}
           ${actionButton("candidate", listing.id, isCandidate(listing), "clipboard-check", "買付候補")}
-          <button class="detail-link compact" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
+          ${detailButton(listing.id, "compact")}
         </div>
       </td>
     </tr>
@@ -1589,6 +1661,14 @@ function actionButton(action, id, active, icon, label) {
   return `
     <button class="action-chip ${active ? "active" : ""}" type="button" data-toggle-${action}="${escapeAttr(id)}" aria-pressed="${active}">
       <i data-lucide="${icon}"></i><span>${label}</span>
+    </button>
+  `;
+}
+
+function detailButton(id, extraClass = "") {
+  return `
+    <button class="detail-link ${escapeAttr(extraClass)}" type="button" data-open-detail="${escapeAttr(id)}" onclick="openDetailFromButton(this); return false;">
+      詳細
     </button>
   `;
 }
@@ -1727,6 +1807,7 @@ function initMap() {
   }).addTo(state.map);
   state.map.on("baselayerchange", (event) => saveMapLayerType(mapLayerTypeFromLabel(event.name)));
   state.markerLayer = L.layerGroup().addTo(state.map);
+  state.hazardAreaLayer = L.layerGroup().addTo(state.map);
   fitMapToCity(state.map);
 }
 
@@ -1769,6 +1850,7 @@ function renderMap() {
   }
   state.markerLayer.clearLayers();
   state.markers = [];
+  renderHazardAreas();
   state.filtered.forEach((listing) => {
     if (!Number.isFinite(listing.map_latitude) || !Number.isFinite(listing.map_longitude)) {
       return;
@@ -1805,12 +1887,105 @@ function renderMap() {
   }
 }
 
+function renderHazardAreas() {
+  updateHazardAreaControl();
+  if (!state.map || !window.L) {
+    return;
+  }
+  if (!state.hazardAreaLayer) {
+    state.hazardAreaLayer = L.layerGroup().addTo(state.map);
+  }
+  state.hazardAreaLayer.clearLayers();
+  const features = hazardGeoJsonFeatures();
+  if (!state.showHazardAreas || !features.length) {
+    return;
+  }
+  const layer = L.geoJSON({ type: "FeatureCollection", features }, {
+    style: (feature) => hazardFeatureStyle(feature),
+    onEachFeature: (feature, layerItem) => {
+      const properties = feature.properties || {};
+      const name = properties.type || properties.name || properties.hazard_type || "ハザードエリア";
+      const level = properties.level || properties.rank || "";
+      layerItem.bindPopup(`<strong>${escapeHtml(name)}</strong>${level ? `<br>${escapeHtml(level)}` : ""}`);
+    },
+  });
+  layer.addTo(state.hazardAreaLayer);
+}
+
+function updateHazardAreaControl() {
+  if (els.hazardAreaToggle) {
+    els.hazardAreaToggle.checked = state.showHazardAreas;
+  }
+  if (!els.hazardAreaStatus) {
+    return;
+  }
+  const count = hazardGeoJsonFeatures().length;
+  if (count) {
+    els.hazardAreaStatus.textContent = `${formatInteger(count)}エリアを表示できます`;
+  } else {
+    els.hazardAreaStatus.textContent = "API取得後に地図上へ表示できます";
+  }
+}
+
+function hazardGeoJsonFeatures() {
+  const zones = state.hazardZones || {};
+  const features = [];
+  appendHazardFeatures(features, zones.features);
+  appendHazardFeatures(features, zones.geojson?.features);
+  appendHazardFeatures(features, zones.feature_collection?.features);
+  const items = Array.isArray(zones.items) ? zones.items : Array.isArray(zones.hazards) ? zones.hazards : [];
+  items.forEach((item) => {
+    appendHazardFeatures(features, item.features);
+    appendHazardFeatures(features, item.geojson?.features);
+    if (item.geometry) {
+      features.push({
+        type: "Feature",
+        geometry: item.geometry,
+        properties: {
+          type: item.type || item.name || item.hazard_type || "ハザードエリア",
+          level: item.level || "",
+          source: item.source || zones.source || "",
+        },
+      });
+    }
+  });
+  return features.filter((feature) => feature?.type === "Feature" && feature.geometry);
+}
+
+function appendHazardFeatures(target, value) {
+  if (Array.isArray(value)) {
+    value.forEach((feature) => {
+      if (feature?.type === "Feature" && feature.geometry) {
+        target.push(feature);
+      }
+    });
+  }
+}
+
+function hazardFeatureStyle(feature) {
+  const text = normalizeQuery([
+    feature?.properties?.type,
+    feature?.properties?.name,
+    feature?.properties?.hazard_type,
+    feature?.properties?.level,
+  ].filter(Boolean).join(" "));
+  const isFlood = text.includes("浸水") || text.includes("洪水") || text.includes("flood");
+  const color = isFlood ? "#1769e0" : "#dc5a2a";
+  return {
+    color,
+    weight: 2,
+    opacity: 0.86,
+    fillColor: color,
+    fillOpacity: 0.18,
+  };
+}
+
 function renderPopup(listing) {
   return `
     <p class="popup-title">${escapeHtml(shortTitle(listing))}</p>
     <p class="popup-meta">${escapeHtml(listing.address || listing.town)}</p>
     <strong>${formatPrice(listing.price_man_yen)} / ${formatUnit(listing.unit_price_man_per_tsubo)}</strong>
-    <button class="detail-link compact popup-detail" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
+    ${detailButton(listing.id, "compact popup-detail")}
   `;
 }
 
@@ -2136,7 +2311,7 @@ function renderCompareRow(listing) {
       <td>${escapeHtml(userNote(listing) || "-")}</td>
       <td>
         <div class="table-actions">
-          <button class="detail-link compact" type="button" data-open-detail="${escapeAttr(listing.id)}">詳細</button>
+          ${detailButton(listing.id, "compact")}
           ${actionButton("candidate", listing.id, true, "x", "外す")}
         </div>
       </td>
@@ -2219,8 +2394,9 @@ function matchesSchoolFilter(listing, value) {
 }
 
 function openDetail(id) {
-  const listing = state.listings.find((item) => item.id === id);
+  const listing = state.listings.find((item) => String(item.id) === String(id));
   if (!listing) {
+    setStatus("詳細を開けませんでした。ページを更新してからもう一度押してください。");
     return;
   }
   state.currentDetailId = id;

@@ -488,60 +488,6 @@ h1 {
   background: #eef6ff;
 }
 
-.saved-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 3px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #eef6ff;
-}
-
-.saved-filter-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  min-height: 32px;
-  padding: 0 9px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.saved-filter-button svg {
-  width: 15px;
-  height: 15px;
-}
-
-.saved-filter-button strong {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 22px;
-  min-height: 20px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
-  color: currentColor;
-  font-size: 11px;
-}
-
-.saved-filter-button.active {
-  background: linear-gradient(135deg, var(--accent), var(--blue));
-  color: #ffffff;
-  box-shadow: 0 10px 22px rgba(23, 105, 224, 0.24);
-}
-
-.saved-filter-button.active svg {
-  color: #ffffff;
-}
-
 .view-mode-button {
   display: inline-flex;
   align-items: center;
@@ -2715,39 +2661,6 @@ body {
 .detail-link:focus-visible {
   outline: 3px solid rgba(23, 105, 224, 0.34);
   outline-offset: 2px;
-}
-
-.saved-filter {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 246, 251, 0.94));
-  border-color: rgba(138, 166, 187, 0.75);
-}
-
-.saved-filter-button {
-  cursor: pointer;
-  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease;
-}
-
-.saved-filter-button:hover {
-  box-shadow: 0 10px 22px rgba(23, 105, 224, 0.14);
-}
-
-.saved-filter-button[data-saved-filter="favorites"].active {
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-  color: #ffffff;
-  box-shadow: 0 12px 26px rgba(245, 158, 11, 0.28);
-}
-
-.saved-filter-button[data-saved-filter="candidates"].active {
-  background: linear-gradient(135deg, #1769e0, #16a36d);
-  color: #ffffff;
-  box-shadow: 0 12px 26px rgba(23, 105, 224, 0.28);
-}
-
-.saved-filter-button[data-saved-filter="excluded"].active {
-  background: linear-gradient(135deg, #4b5563, #dc2626);
-  color: #ffffff;
-  box-shadow: 0 12px 26px rgba(220, 38, 38, 0.22);
 }
 
 .action-chip {

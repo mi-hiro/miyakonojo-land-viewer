@@ -68,14 +68,6 @@ const STORAGE_KEYS = {
   hiddenImages: "miyakonojo_land_hidden_images_v1",
   deviceMode: "miyakonojo_land_device_mode_v1",
   showHazardAreas: "miyakonojo_land_show_hazard_areas_v1",
-  savedFilter: "miyakonojo_land_saved_filter_v1",
-};
-
-const SAVED_FILTER_LABELS = {
-  all: "すべて",
-  favorites: "お気に入り",
-  candidates: "買付候補",
-  excluded: "除外",
 };
 
 const MAP_LAYER_DEFS = {
@@ -448,7 +440,6 @@ const state = {
   currentDetailId: null,
   deviceMode: "mobile",
   showHazardAreas: false,
-  savedFilter: "all",
 };
 
 const els = {
@@ -457,6 +448,7 @@ const els = {
   deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
   sortSelect: document.getElementById("sortSelect"),
+  townFilter: document.getElementById("townFilter"),
   schoolFilter: document.getElementById("schoolFilter"),
   priceMin: document.getElementById("priceMin"),
   priceMax: document.getElementById("priceMax"),
@@ -466,6 +458,8 @@ const els = {
   importBackupButton: document.getElementById("importBackupButton"),
   backupFileInput: document.getElementById("backupFileInput"),
   backupSummary: document.getElementById("backupSummary"),
+  favoriteOnly: document.getElementById("favoriteOnly"),
+  candidateOnly: document.getElementById("candidateOnly"),
   newOnly: document.getElementById("newOnly"),
   cheapOnly: document.getElementById("cheapOnly"),
   mappedOnly: document.getElementById("mappedOnly"),
@@ -492,7 +486,6 @@ const els = {
   compareTable: document.getElementById("compareTable"),
   listingList: document.getElementById("listingList"),
   historyGrid: document.getElementById("historyGrid"),
-  savedFilterControl: document.getElementById("savedFilterControl"),
   detailView: document.getElementById("detailView"),
   detailPageTown: document.getElementById("detailPageTown"),
   detailPageTitle: document.getElementById("detailPageTitle"),
@@ -523,6 +516,7 @@ function bindEvents() {
   els.refreshButton.addEventListener("click", loadData);
   els.searchInput.addEventListener("input", render);
   els.sortSelect.addEventListener("change", render);
+  els.townFilter.addEventListener("change", render);
   els.schoolFilter.addEventListener("change", render);
   els.priceMin.addEventListener("input", render);
   els.priceMax.addEventListener("input", render);
@@ -534,6 +528,8 @@ function bindEvents() {
     els.backupFileInput.click();
   });
   els.backupFileInput.addEventListener("change", importBackup);
+  els.favoriteOnly.addEventListener("change", render);
+  els.candidateOnly.addEventListener("change", render);
   els.newOnly.addEventListener("change", render);
   els.cheapOnly.addEventListener("change", render);
   els.mappedOnly.addEventListener("change", render);
@@ -560,13 +556,6 @@ function bindEvents() {
       if (window.lucide) {
         window.lucide.createIcons();
       }
-    });
-  });
-  els.savedFilterControl?.querySelectorAll("[data-saved-filter]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.savedFilter = normalizeSavedFilter(button.dataset.savedFilter);
-      localStorage.setItem(STORAGE_KEYS.savedFilter, state.savedFilter);
-      render();
     });
   });
 
@@ -620,7 +609,6 @@ function loadSavedState() {
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
   state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
-  state.savedFilter = normalizeSavedFilter(localStorage.getItem(STORAGE_KEYS.savedFilter));
 }
 
 function handleMouseDetailPointer(event) {
@@ -774,10 +762,6 @@ function routeFromHash() {
 
 function normalizeListLayout(value) {
   return ["cards", "compact", "table"].includes(value) ? value : "cards";
-}
-
-function normalizeSavedFilter(value) {
-  return Object.prototype.hasOwnProperty.call(SAVED_FILTER_LABELS, value) ? value : "all";
 }
 
 function normalizeDeviceMode(value) {
@@ -997,6 +981,7 @@ async function loadData() {
   }
 
   state.listings = state.latest.listings.map((listing, index) => normalizeListing(listing, index));
+  populateTownFilter();
   populateSchoolFilter();
   render();
   routeFromHash();
@@ -1496,20 +1481,21 @@ function render() {
 
 function filterListings(listings) {
   const query = normalizeQuery(els.searchInput.value);
+  const townFilter = els.townFilter.value;
   const schoolFilter = els.schoolFilter.value;
   const priceRange = inputRange(els.priceMin.value, els.priceMax.value);
   const areaRange = inputRange(els.areaMin.value, els.areaMax.value);
   return listings.filter((listing) => {
-    if (state.savedFilter === "favorites" && !isFavorite(listing)) {
+    if (!els.showExcluded.checked && isExcluded(listing)) {
       return false;
     }
-    if (state.savedFilter === "candidates" && !isCandidate(listing)) {
+    if (els.favoriteOnly.checked && !isFavorite(listing)) {
       return false;
     }
-    if (state.savedFilter === "excluded" && !isExcluded(listing)) {
+    if (els.candidateOnly.checked && !isCandidate(listing)) {
       return false;
     }
-    if (state.savedFilter !== "excluded" && !els.showExcluded.checked && isExcluded(listing)) {
+    if (townFilter && listing.town !== townFilter) {
       return false;
     }
     const haystack = normalizeQuery(
@@ -1642,14 +1628,9 @@ function renderBackupSummary() {
 }
 
 function renderList() {
-  const filterLabel = SAVED_FILTER_LABELS[state.savedFilter] || SAVED_FILTER_LABELS.all;
-  els.resultCount.textContent =
-    state.savedFilter === "all"
-      ? `${formatInteger(state.filtered.length)}件表示`
-      : `${filterLabel} ${formatInteger(state.filtered.length)}件表示`;
+  els.resultCount.textContent = `${formatInteger(state.filtered.length)}件表示`;
   els.mapReadyCount.textContent = `地図 ${formatInteger(state.filtered.filter((item) => Number.isFinite(item.map_latitude)).length)}件`;
   updateListLayoutButtons();
-  updateSavedFilterButtons();
   els.listingList.className = `listing-list layout-${state.listLayout}`;
   if (!state.filtered.length) {
     els.listingList.innerHTML = `<div class="empty-state">該当する物件がありません</div>`;
@@ -1663,25 +1644,6 @@ function renderList() {
     els.listingList.innerHTML = state.filtered.map(renderListingCard).join("");
   }
   bindListingActions(els.listingList);
-}
-
-function updateSavedFilterButtons() {
-  const counts = {
-    all: state.listings.filter((listing) => els.showExcluded.checked || !isExcluded(listing)).length,
-    favorites: state.listings.filter((listing) => isFavorite(listing)).length,
-    candidates: state.listings.filter((listing) => isCandidate(listing)).length,
-    excluded: state.listings.filter((listing) => isExcluded(listing)).length,
-  };
-  els.savedFilterControl?.querySelectorAll("[data-saved-filter]").forEach((button) => {
-    const filter = normalizeSavedFilter(button.dataset.savedFilter);
-    const active = filter === state.savedFilter;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-    const count = button.querySelector("[data-filter-count]");
-    if (count) {
-      count.textContent = formatInteger(counts[filter] || 0);
-    }
-  });
 }
 
 function updateListLayoutButtons() {
@@ -2538,6 +2500,20 @@ function averageNumbers(values) {
     return null;
   }
   return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+function populateTownFilter() {
+  const currentValue = els.townFilter.value;
+  const towns = [...new Set(state.listings.map((listing) => listing.town).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "ja")
+  );
+  els.townFilter.innerHTML = [
+    `<option value="">すべて</option>`,
+    ...towns.map((town) => `<option value="${escapeAttr(town)}">${escapeHtml(town)}</option>`),
+  ].join("");
+  if (currentValue && towns.includes(currentValue)) {
+    els.townFilter.value = currentValue;
+  }
 }
 
 function populateSchoolFilter() {

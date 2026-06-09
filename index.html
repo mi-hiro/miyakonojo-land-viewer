@@ -74,12 +74,20 @@
               </select>
             </label>
             <label class="select-wrap">
+              <span>町名</span>
+              <select id="townFilter">
+                <option value="">すべて</option>
+              </select>
+            </label>
+            <label class="select-wrap">
               <span>学校区</span>
               <select id="schoolFilter">
                 <option value="">すべて</option>
               </select>
             </label>
             <div class="toggle-row">
+              <label class="check-pill"><input id="favoriteOnly" type="checkbox">お気に入り</label>
+              <label class="check-pill"><input id="candidateOnly" type="checkbox">買付候補</label>
               <label class="check-pill"><input id="newOnly" type="checkbox">新着</label>
               <label class="check-pill"><input id="cheapOnly" type="checkbox">割安新着</label>
               <label class="check-pill"><input id="mappedOnly" type="checkbox">地図表示</label>
@@ -205,20 +213,6 @@
             <div class="result-counts">
               <span id="resultCount">-</span>
               <span id="mapReadyCount">-</span>
-            </div>
-            <div id="savedFilterControl" class="saved-filter" aria-label="保存状態で絞り込み">
-              <button class="saved-filter-button active" type="button" data-saved-filter="all" aria-pressed="true">
-                <i data-lucide="list-filter"></i><span>すべて</span><strong data-filter-count>0</strong>
-              </button>
-              <button class="saved-filter-button" type="button" data-saved-filter="favorites" aria-pressed="false">
-                <i data-lucide="star"></i><span>お気に入り</span><strong data-filter-count>0</strong>
-              </button>
-              <button class="saved-filter-button" type="button" data-saved-filter="candidates" aria-pressed="false">
-                <i data-lucide="clipboard-check"></i><span>買付候補</span><strong data-filter-count>0</strong>
-              </button>
-              <button class="saved-filter-button" type="button" data-saved-filter="excluded" aria-pressed="false">
-                <i data-lucide="eye-off"></i><span>除外</span><strong data-filter-count>0</strong>
-              </button>
             </div>
             <div id="listLayoutControl" class="view-mode" aria-label="一覧表示方法">
               <button class="view-mode-button active" type="button" data-list-layout="cards" aria-pressed="true">

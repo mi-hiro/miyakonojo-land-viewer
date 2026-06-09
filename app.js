@@ -68,6 +68,14 @@ const STORAGE_KEYS = {
   hiddenImages: "miyakonojo_land_hidden_images_v1",
   deviceMode: "miyakonojo_land_device_mode_v1",
   showHazardAreas: "miyakonojo_land_show_hazard_areas_v1",
+  savedFilter: "miyakonojo_land_saved_filter_v1",
+};
+
+const SAVED_FILTER_LABELS = {
+  all: "すべて",
+  favorites: "お気に入り",
+  candidates: "買付候補",
+  excluded: "除外",
 };
 
 const MAP_LAYER_DEFS = {
@@ -440,6 +448,7 @@ const state = {
   currentDetailId: null,
   deviceMode: "mobile",
   showHazardAreas: false,
+  savedFilter: "all",
 };
 
 const els = {
@@ -483,6 +492,7 @@ const els = {
   compareTable: document.getElementById("compareTable"),
   listingList: document.getElementById("listingList"),
   historyGrid: document.getElementById("historyGrid"),
+  savedFilterControl: document.getElementById("savedFilterControl"),
   detailView: document.getElementById("detailView"),
   detailPageTown: document.getElementById("detailPageTown"),
   detailPageTitle: document.getElementById("detailPageTitle"),
@@ -534,6 +544,8 @@ function bindEvents() {
     renderHazardAreas();
   });
   els.closeDetail.addEventListener("click", closeDetail);
+  document.addEventListener("pointerup", handleMouseDetailPointer, true);
+  document.addEventListener("click", handleDetailLinkClick, true);
   document.addEventListener("click", handleDelegatedActionClick, true);
   document.addEventListener("keydown", handleDelegatedOpenKeydown);
   window.addEventListener("hashchange", routeFromHash);
@@ -548,6 +560,13 @@ function bindEvents() {
       if (window.lucide) {
         window.lucide.createIcons();
       }
+    });
+  });
+  els.savedFilterControl?.querySelectorAll("[data-saved-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.savedFilter = normalizeSavedFilter(button.dataset.savedFilter);
+      localStorage.setItem(STORAGE_KEYS.savedFilter, state.savedFilter);
+      render();
     });
   });
 
@@ -601,6 +620,42 @@ function loadSavedState() {
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
   state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
+  state.savedFilter = normalizeSavedFilter(localStorage.getItem(STORAGE_KEYS.savedFilter));
+}
+
+function handleMouseDetailPointer(event) {
+  if (event.pointerType && event.pointerType !== "mouse") {
+    return;
+  }
+  if (event.button !== 0) {
+    return;
+  }
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const detailLink = target?.closest("[data-detail-id]");
+  if (detailLink) {
+    event.preventDefault();
+    event.stopPropagation();
+    navigateToDetail(detailLink.dataset.detailId);
+    return;
+  }
+  const opener = target?.closest("[data-open-listing]");
+  if (!opener || shouldIgnoreCardOpen(target)) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  navigateToDetail(opener.dataset.openListing);
+}
+
+function handleDetailLinkClick(event) {
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const detailLink = target?.closest("[data-detail-id]");
+  if (!detailLink) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  navigateToDetail(detailLink.dataset.detailId);
 }
 
 function handleDelegatedActionClick(event) {
@@ -719,6 +774,10 @@ function routeFromHash() {
 
 function normalizeListLayout(value) {
   return ["cards", "compact", "table"].includes(value) ? value : "cards";
+}
+
+function normalizeSavedFilter(value) {
+  return Object.prototype.hasOwnProperty.call(SAVED_FILTER_LABELS, value) ? value : "all";
 }
 
 function normalizeDeviceMode(value) {
@@ -1441,7 +1500,16 @@ function filterListings(listings) {
   const priceRange = inputRange(els.priceMin.value, els.priceMax.value);
   const areaRange = inputRange(els.areaMin.value, els.areaMax.value);
   return listings.filter((listing) => {
-    if (!els.showExcluded.checked && isExcluded(listing)) {
+    if (state.savedFilter === "favorites" && !isFavorite(listing)) {
+      return false;
+    }
+    if (state.savedFilter === "candidates" && !isCandidate(listing)) {
+      return false;
+    }
+    if (state.savedFilter === "excluded" && !isExcluded(listing)) {
+      return false;
+    }
+    if (state.savedFilter !== "excluded" && !els.showExcluded.checked && isExcluded(listing)) {
       return false;
     }
     const haystack = normalizeQuery(
@@ -1574,9 +1642,14 @@ function renderBackupSummary() {
 }
 
 function renderList() {
-  els.resultCount.textContent = `${formatInteger(state.filtered.length)}件表示`;
+  const filterLabel = SAVED_FILTER_LABELS[state.savedFilter] || SAVED_FILTER_LABELS.all;
+  els.resultCount.textContent =
+    state.savedFilter === "all"
+      ? `${formatInteger(state.filtered.length)}件表示`
+      : `${filterLabel} ${formatInteger(state.filtered.length)}件表示`;
   els.mapReadyCount.textContent = `地図 ${formatInteger(state.filtered.filter((item) => Number.isFinite(item.map_latitude)).length)}件`;
   updateListLayoutButtons();
+  updateSavedFilterButtons();
   els.listingList.className = `listing-list layout-${state.listLayout}`;
   if (!state.filtered.length) {
     els.listingList.innerHTML = `<div class="empty-state">該当する物件がありません</div>`;
@@ -1590,6 +1663,25 @@ function renderList() {
     els.listingList.innerHTML = state.filtered.map(renderListingCard).join("");
   }
   bindListingActions(els.listingList);
+}
+
+function updateSavedFilterButtons() {
+  const counts = {
+    all: state.listings.filter((listing) => els.showExcluded.checked || !isExcluded(listing)).length,
+    favorites: state.listings.filter((listing) => isFavorite(listing)).length,
+    candidates: state.listings.filter((listing) => isCandidate(listing)).length,
+    excluded: state.listings.filter((listing) => isExcluded(listing)).length,
+  };
+  els.savedFilterControl?.querySelectorAll("[data-saved-filter]").forEach((button) => {
+    const filter = normalizeSavedFilter(button.dataset.savedFilter);
+    const active = filter === state.savedFilter;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+    const count = button.querySelector("[data-filter-count]");
+    if (count) {
+      count.textContent = formatInteger(counts[filter] || 0);
+    }
+  });
 }
 
 function updateListLayoutButtons() {
@@ -1738,9 +1830,17 @@ function renderListingTableRow(listing) {
 }
 
 function actionButton(action, id, active, icon, label) {
+  const activeLabels = {
+    favorite: "お気に入り済",
+    candidate: "候補済",
+    exclude: "除外中",
+  };
+  const showActiveState = active && label !== "外す";
+  const displayLabel = showActiveState ? activeLabels[action] || label : label;
+  const displayIcon = showActiveState ? "check" : icon;
   return `
-    <button class="action-chip ${active ? "active" : ""}" type="button" data-toggle-${action}="${escapeAttr(id)}" aria-pressed="${active}">
-      <i data-lucide="${icon}"></i><span>${label}</span>
+    <button class="action-chip action-${escapeAttr(action)} ${active ? "active" : ""}" type="button" data-toggle-${action}="${escapeAttr(id)}" aria-pressed="${active}">
+      <i data-lucide="${displayIcon}"></i><span>${displayLabel}</span>
     </button>
   `;
 }

@@ -531,6 +531,7 @@ function bindEvents() {
   els.closeDetail.addEventListener("click", closeDetail);
   document.addEventListener("pointerup", handleDelegatedDetailPointer, true);
   document.addEventListener("click", handleDelegatedActionClick, true);
+  document.addEventListener("keydown", handleDelegatedOpenKeydown);
   els.deviceModeControl?.querySelectorAll("[data-device-mode]").forEach((button) => {
     button.addEventListener("click", () => setDeviceMode(button.dataset.deviceMode));
   });
@@ -593,23 +594,28 @@ function handleDelegatedDetailPointer(event) {
   if (!button) {
     return;
   }
-  event.preventDefault();
-  event.stopPropagation();
   openDetailFromButton(button);
 }
 
 function handleDelegatedActionClick(event) {
   const target = event.target instanceof Element ? event.target : event.target?.parentElement;
   const button = target?.closest(
-    "[data-open-detail], [data-toggle-favorite], [data-toggle-candidate], [data-toggle-exclude], [data-hide-image]"
+    "[data-open-detail], [data-open-listing], [data-toggle-favorite], [data-toggle-candidate], [data-toggle-exclude], [data-hide-image]"
   );
   if (!button) {
+    return;
+  }
+  if (button.dataset.openListing && shouldIgnoreCardOpen(target)) {
     return;
   }
   event.preventDefault();
   event.stopPropagation();
   if (button.dataset.openDetail) {
     openDetailFromButton(button);
+    return;
+  }
+  if (button.dataset.openListing) {
+    openDetail(button.dataset.openListing);
     return;
   }
   if (button.dataset.toggleFavorite) {
@@ -637,6 +643,27 @@ function openDetailFromButton(button) {
 }
 
 window.openDetailFromButton = openDetailFromButton;
+
+function shouldIgnoreCardOpen(target) {
+  return Boolean(target?.closest?.("button, a, input, textarea, select, label, .image-hide-button, .image-thumb"));
+}
+
+function handleDelegatedOpenKeydown(event) {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+  const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+  const opener = target?.closest("[data-open-detail], [data-open-listing]");
+  if (!opener || shouldIgnoreCardOpen(target)) {
+    return;
+  }
+  event.preventDefault();
+  if (opener.dataset.openDetail) {
+    openDetailFromButton(opener);
+  } else {
+    openDetail(opener.dataset.openListing);
+  }
+}
 
 function normalizeListLayout(value) {
   return ["cards", "compact", "table"].includes(value) ? value : "cards";
@@ -1523,7 +1550,7 @@ function updateListLayoutButtons() {
 function renderListingCard(listing) {
   const color = unitColorClass(listing.unit_price_man_per_tsubo);
   return `
-    <article class="listing-card ${color}">
+    <article class="listing-card ${color}" data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
       ${renderCardImage(listing)}
       <div class="card-head">
         <div>
@@ -1554,7 +1581,7 @@ function renderListingCompact(listing) {
   const color = unitColorClass(listing.unit_price_man_per_tsubo);
   const school = resolveSchoolInfo(listing);
   return `
-    <article class="listing-card listing-compact ${color}">
+    <article class="listing-card listing-compact ${color}" data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
       ${renderCompactImage(listing)}
       <div class="compact-main">
         <div class="compact-head">
@@ -1631,7 +1658,7 @@ function renderListingTableRow(listing) {
   const assessment = assessListing(listing);
   const positionText = Number.isFinite(listing.map_latitude) ? (listing.is_approx_position ? "概算位置" : "地図あり") : "地図なし";
   return `
-    <tr>
+    <tr data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
       <td>
         <strong>${escapeHtml(shortTitle(listing))}</strong>
         <span>${escapeHtml(listing.town)} / ${escapeHtml(listing.source)}</span>
@@ -2403,16 +2430,37 @@ function openDetail(id) {
   clearDetailMap();
   els.detailTown.textContent = `${listing.town} / ${listing.source}`;
   els.detailTitle.textContent = shortTitle(listing);
-  els.detailBody.innerHTML = renderDetail(listing);
-  bindDetailControls(listing);
   els.detailPanel.classList.add("open");
   els.detailPanel.setAttribute("aria-hidden", "false");
+  els.detailPanel.scrollTop = 0;
+  try {
+    els.detailBody.innerHTML = renderDetail(listing);
+    bindDetailControls(listing);
+  } catch (error) {
+    els.detailBody.innerHTML = renderFallbackDetail(listing);
+    setStatus("詳細の一部を表示できませんでした。最低限の情報を表示しています。");
+  }
   setTimeout(() => {
     renderDetailMap(listing);
   }, 80);
   if (window.lucide) {
     window.lucide.createIcons();
   }
+}
+
+function renderFallbackDetail(listing) {
+  return `
+    <section class="detail-section">
+      <h3>基本情報</h3>
+      <dl class="detail-kv">
+        ${kv("価格", formatPrice(listing.price_man_yen))}
+        ${kv("土地面積", `${formatNumber(listing.land_area_sqm)}㎡ / ${formatNumber(listing.land_area_tsubo)}坪`)}
+        ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
+        ${kv("所在地", escapeHtml(listing.address || listing.town || "-"))}
+        ${kv("掲載元", `<a href="${escapeAttr(listing.source_url)}" target="_blank" rel="noopener">開く</a>`)}
+      </dl>
+    </section>
+  `;
 }
 
 function closeDetail() {

@@ -2599,6 +2599,52 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+[data-open-listing] {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+[data-open-listing]:focus-visible,
+.detail-link:focus-visible {
+  outline: 3px solid rgba(23, 105, 224, 0.34);
+  outline-offset: 2px;
+}
+
+.detail-panel {
+  inset: 0 0 0 auto;
+  z-index: 2147483000;
+  width: min(620px, 100%);
+  height: 100vh;
+  max-height: none;
+  border-top: 0;
+  transform: translateX(105%);
+}
+
+.detail-panel.open {
+  transform: translateX(0);
+}
+
+.detail-panel::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(12, 22, 36, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.detail-panel.open::before {
+  opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .detail-panel {
+    width: 100%;
+  }
+}
+
 @media (max-width: 760px) {
   .app-shell.device-desktop,
   .app-shell.device-tablet {

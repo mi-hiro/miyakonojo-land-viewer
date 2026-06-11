@@ -466,6 +466,7 @@ const els = {
   showExcluded: document.getElementById("showExcluded"),
   hazardAreaToggle: document.getElementById("hazardAreaToggle"),
   hazardAreaStatus: document.getElementById("hazardAreaStatus"),
+  hazardLegend: document.getElementById("hazardLegend"),
   statusMessage: document.getElementById("statusMessage"),
   listingCount: document.getElementById("listingCount"),
   currentAverage: document.getElementById("currentAverage"),
@@ -1139,7 +1140,7 @@ function resolveRouteValue(listing) {
 }
 
 function scoreRouteValueRecord(record, listing) {
-  const value = routeValueYenPerSqm(record);
+  const value = referenceValueYenPerSqm(record);
   if (!value) return null;
 
   const recordId = String(record.listing_id || record.id || "");
@@ -1189,23 +1190,29 @@ function isReliableRouteValueReference(routeValue) {
 }
 
 function routeValueReferenceDistanceKm(routeValue) {
-  const distance = numberValue(routeValue?.appraisal_distance_km ?? routeValue?.distance_km);
+  const distance = numberValue(
+    routeValue?.appraisal_distance_km ?? routeValue?.public_land_price_point_distance_km ?? routeValue?.distance_km
+  );
   return Number.isFinite(distance) ? distance : null;
 }
 
 function normalizeRouteValueRecord(record, matchNote, precision, distanceKm) {
   const routeValue = routeValueYenPerSqm(record);
-  if (!routeValue) return null;
+  const publicPrice = publicPriceYenPerSqm(record);
+  if (!routeValue && !publicPrice) return null;
   const routeValueType = routeValueRecordType(record);
-  const routeMethodUnit = routeValue * TSUBO_SQM / 10000;
+  const routeMethodUnit = routeValue ? routeValue * TSUBO_SQM / 10000 : null;
   const fixedAssetUnit = routeValueType === "fixed_asset_tax" ? routeMethodUnit : null;
   const publicReference =
     numberValue(record.public_reference_unit_price_man_per_tsubo) ||
     numberValue(record.market_reference_unit_price_man_per_tsubo) ||
+    numberValue(record.public_land_price_unit_price_man_per_tsubo) ||
     publicReferenceFromYenPerSqm(record) ||
-    (routeValueType === "inheritance_tax"
+    (routeValue && routeValueType === "inheritance_tax"
       ? routeMethodUnit / INHERITANCE_TAX_ROUTE_VALUE_RATIO
-      : routeMethodUnit / FIXED_ASSET_ROUTE_VALUE_RATIO);
+      : routeValue
+        ? routeMethodUnit / FIXED_ASSET_ROUTE_VALUE_RATIO
+        : 0);
   return {
     route_value_type: routeValueType,
     route_value_yen_per_sqm: routeValue,
@@ -1213,7 +1220,23 @@ function normalizeRouteValueRecord(record, matchNote, precision, distanceKm) {
     fixed_asset_unit_price_man_per_tsubo: fixedAssetUnit,
     route_method_unit_price_man_per_tsubo: routeMethodUnit,
     public_reference_unit_price_man_per_tsubo: publicReference,
-    public_price_yen_per_sqm: numberValue(record.public_price_yen_per_sqm),
+    public_price_yen_per_sqm: publicPrice,
+    comparable_method_price_yen_per_sqm: numberValue(record.comparable_method_price_yen_per_sqm),
+    comparable_method_unit_price_man_per_tsubo: numberValue(record.comparable_method_unit_price_man_per_tsubo),
+    income_method_unit_price_man_per_tsubo: numberValue(record.income_method_unit_price_man_per_tsubo),
+    cost_method_unit_price_man_per_tsubo: numberValue(record.cost_method_unit_price_man_per_tsubo),
+    development_method_unit_price_man_per_tsubo: numberValue(record.development_method_unit_price_man_per_tsubo),
+    public_land_price_point_id: record.public_land_price_point_id || "",
+    public_land_price_point_address: record.public_land_price_point_address || "",
+    public_land_price_point_distance_km: numberValue(record.public_land_price_point_distance_km),
+    public_land_price_type: record.public_land_price_type || "",
+    public_land_price_use_category: record.public_land_price_use_category || "",
+    public_land_price_zoning: record.public_land_price_zoning || "",
+    public_land_price_front_road_condition: record.public_land_price_front_road_condition || "",
+    public_land_price_station_name: record.public_land_price_station_name || "",
+    public_land_price_station_distance_m: numberValue(record.public_land_price_station_distance_m),
+    public_land_price_surroundings: record.public_land_price_surroundings || "",
+    public_land_price_unit_price_man_per_tsubo: numberValue(record.public_land_price_unit_price_man_per_tsubo),
     frontage_m: numberValue(record.frontage_m),
     estimated_depth_m: numberValue(record.estimated_depth_m || record.depth_m),
     road_width_m: numberValue(record.road_width_m),
@@ -1244,8 +1267,17 @@ function routeValueYenPerSqm(record) {
   );
 }
 
+function publicPriceYenPerSqm(record) {
+  return numberValue(record?.public_price_yen_per_sqm ?? record?.public_land_price_yen_per_sqm ?? record?.official_price_yen_per_sqm);
+}
+
+function referenceValueYenPerSqm(record) {
+  return routeValueYenPerSqm(record) || publicPriceYenPerSqm(record);
+}
+
 function routeValueRecordType(record) {
   const raw = String(record?.route_value_type || record?.value_type || "").toLowerCase();
+  if (raw.includes("public_land_price") || raw.includes("public")) return "public_land_price";
   if (raw.includes("inheritance") || raw.includes("souzoku") || raw.includes("相続")) return "inheritance_tax";
   if (record?.inheritance_tax_route_value_yen_per_sqm) return "inheritance_tax";
   return "fixed_asset_tax";
@@ -2122,8 +2154,7 @@ function renderHazardAffectedPoints() {
     const lng = numberValue(item.longitude ?? item.lng);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
     const text = normalizeQuery((item.hazards || []).map((hazard) => `${hazard.type || ""} ${hazard.level || ""}`).join(" "));
-    const isFlood = text.includes("浸水") || text.includes("洪水") || text.includes("flood");
-    const color = isFlood ? "#1769e0" : "#dc5a2a";
+    const color = hazardColorForText(text);
     const title = (item.hazards || []).map((hazard) => hazard.type || hazard.name || "").filter(Boolean).join(" / ") || "ハザード該当地点";
     const level = (item.hazards || []).map((hazard) => hazard.level || "").filter(Boolean).join(" / ");
     L.circle([lat, lng], {
@@ -2146,6 +2177,7 @@ function updateHazardAreaControl() {
   if (!els.hazardAreaStatus) {
     return;
   }
+  renderHazardLegend();
   const count = hazardGeoJsonFeatures().length;
   if (count) {
     els.hazardAreaStatus.textContent = `${formatInteger(count)}エリアを表示できます`;
@@ -2157,6 +2189,50 @@ function updateHazardAreaControl() {
     }
     els.hazardAreaStatus.textContent = "API取得後に地図上へ表示できます";
   }
+}
+
+function renderHazardLegend() {
+  if (!els.hazardLegend) return;
+  const legend = hazardLegendItems();
+  if (!legend.length) {
+    els.hazardLegend.innerHTML = "";
+    return;
+  }
+  els.hazardLegend.innerHTML = legend
+    .map(
+      (item) => `
+        <span class="hazard-legend-item">
+          <span class="hazard-legend-swatch" style="--hazard-color:${escapeHtml(item.color)}"></span>
+          ${escapeHtml(item.name)}
+        </span>
+      `
+    )
+    .join("");
+}
+
+function hazardLegendItems() {
+  const zones = state.hazardZones || {};
+  const configured = Array.isArray(zones.legend) ? zones.legend : [];
+  const items = configured
+    .map((item) => ({
+      name: item.name || item.type || item.api_id || "",
+      color: item.color || hazardColorForText(item.name || item.type || item.api_id || ""),
+    }))
+    .filter((item) => item.name);
+  if (items.length) return items;
+  const names = new Map();
+  hazardGeoJsonFeatures().forEach((feature) => {
+    const properties = feature.properties || {};
+    const name = properties.type || properties.name || properties.hazard_type || "";
+    if (name && !names.has(name)) names.set(name, properties.color || hazardColorForText(name));
+  });
+  hazardAffectedPointItems().forEach((item) => {
+    (item.hazards || []).forEach((hazard) => {
+      const name = hazard.type || hazard.name || "";
+      if (name && !names.has(name)) names.set(name, hazardColorForText(`${name} ${hazard.level || ""}`));
+    });
+  });
+  return Array.from(names, ([name, color]) => ({ name, color }));
 }
 
 function hazardAffectedPointItems() {
@@ -2210,8 +2286,7 @@ function hazardFeatureStyle(feature) {
     feature?.properties?.hazard_type,
     feature?.properties?.level,
   ].filter(Boolean).join(" "));
-  const isFlood = text.includes("浸水") || text.includes("洪水") || text.includes("flood");
-  const color = isFlood ? "#1769e0" : "#dc5a2a";
+  const color = feature?.properties?.color || hazardColorForText(text);
   return {
     color,
     weight: 2,
@@ -2219,6 +2294,17 @@ function hazardFeatureStyle(feature) {
     fillColor: color,
     fillOpacity: 0.18,
   };
+}
+
+function hazardColorForText(value) {
+  const text = normalizeQuery(value || "");
+  if (text.includes("洪水") || text.includes("浸水") || text.includes("flood")) return "#1769e0";
+  if (text.includes("高潮")) return "#0891b2";
+  if (text.includes("津波")) return "#0f766e";
+  if (text.includes("液状化")) return "#7c3aed";
+  if (text.includes("地すべり")) return "#b45309";
+  if (text.includes("急傾斜") || text.includes("土砂")) return "#dc5a2a";
+  return "#dc5a2a";
 }
 
 function renderPopup(listing) {
@@ -3307,30 +3393,41 @@ function renderRouteValueSection(listing, routeValue) {
   }
   const appraisal = calculateRouteValueAppraisal(listing, routeValue);
   const isInheritanceRoute = routeValue.route_value_type === "inheritance_tax";
-  const sectionTitle = isInheritanceRoute ? "国税庁路線価方式" : "固定資産税路線価";
-  const routeUnitLabel = isInheritanceRoute ? "路線価方式坪単価" : "固定資産税評価水準";
+  const isPublicLandPrice = routeValue.route_value_type === "public_land_price";
+  const sectionTitle = isPublicLandPrice ? "公示地価・地価調査近接点" : isInheritanceRoute ? "国税庁路線価方式" : "固定資産税路線価";
+  const routeUnitLabel = isPublicLandPrice ? "公的価格坪単価" : isInheritanceRoute ? "路線価方式坪単価" : "固定資産税評価水準";
   const routeUnitValue = isInheritanceRoute
     ? routeValue.route_method_unit_price_man_per_tsubo
-    : routeValue.fixed_asset_unit_price_man_per_tsubo;
+    : isPublicLandPrice
+      ? routeValue.public_reference_unit_price_man_per_tsubo
+      : routeValue.fixed_asset_unit_price_man_per_tsubo;
   const marketDiff = routeValue.public_reference_unit_price_man_per_tsubo - numberValue(listing.unit_price_man_per_tsubo);
   const diffRate = routeValue.public_reference_unit_price_man_per_tsubo
     ? marketDiff / routeValue.public_reference_unit_price_man_per_tsubo
     : null;
   const matchText = [
     routeValue.match_note,
-    routeValue.distance_km ? `約${formatNumber(routeValue.distance_km)}km` : "",
+    routeValueReferenceDistanceKm(routeValue) !== null ? `約${formatNumber(routeValueReferenceDistanceKm(routeValue))}km` : "",
     `信頼度 ${routeValue.confidence}`,
   ].filter(Boolean).join(" / ");
   return `
     <section class="detail-section">
       <h3>${sectionTitle}</h3>
       <dl class="detail-kv">
-        ${kv("路線価", formatYenPerSqm(routeValue.route_value_yen_per_sqm))}
+        ${routeValue.route_value_yen_per_sqm ? kv("路線価", formatYenPerSqm(routeValue.route_value_yen_per_sqm)) : ""}
         ${kv(routeUnitLabel, formatUnit(routeUnitValue))}
         ${appraisal ? kv("路線価方式査定", `${formatPrice(appraisal.appraised_value_man_yen)}（${formatUnit(appraisal.appraised_unit_price_man_per_tsubo)}）`) : ""}
         ${appraisal ? kv("補正率", formatNumber(appraisal.correction_rate)) : ""}
         ${appraisal && appraisal.setback.area_sqm ? kv("SB控除", `${formatNumber(appraisal.setback.area_sqm)}㎡ / ${formatPrice(appraisal.setback.deduction_yen / 10000)}`) : ""}
         ${kv("公示価格水準換算", formatUnit(routeValue.public_reference_unit_price_man_per_tsubo))}
+        ${routeValue.comparable_method_unit_price_man_per_tsubo ? kv("比準価格", formatUnit(routeValue.comparable_method_unit_price_man_per_tsubo)) : ""}
+        ${routeValue.income_method_unit_price_man_per_tsubo ? kv("収益価格", formatUnit(routeValue.income_method_unit_price_man_per_tsubo)) : ""}
+        ${routeValue.cost_method_unit_price_man_per_tsubo ? kv("積算価格", formatUnit(routeValue.cost_method_unit_price_man_per_tsubo)) : ""}
+        ${routeValue.development_method_unit_price_man_per_tsubo ? kv("開発法価格", formatUnit(routeValue.development_method_unit_price_man_per_tsubo)) : ""}
+        ${routeValue.public_land_price_point_address ? kv("近接公示/調査地点", escapeHtml(routeValue.public_land_price_point_address)) : ""}
+        ${routeValue.public_land_price_type ? kv("公示/調査区分", escapeHtml([routeValue.public_land_price_type, routeValue.public_land_price_use_category, routeValue.public_land_price_zoning].filter(Boolean).join(" / "))) : ""}
+        ${routeValue.public_land_price_front_road_condition ? kv("公示/調査前面道路", escapeHtml(routeValue.public_land_price_front_road_condition)) : ""}
+        ${routeValue.public_land_price_station_name ? kv("最寄駅", escapeHtml(`${routeValue.public_land_price_station_name}${routeValue.public_land_price_station_distance_m ? ` 約${formatInteger(routeValue.public_land_price_station_distance_m)}m` : ""}`)) : ""}
         ${kv("掲載坪単価との差", `${formatNumber(marketDiff)}万円/坪${diffRate !== null ? `（${formatNumber(diffRate * 100)}%）` : ""}`)}
         ${kv("前面道路・地点", escapeHtml(routeValue.road_name || routeValue.address || "-"))}
         ${kv("参照標準地", escapeHtml(routeValue.appraisal_address || routeValue.appraisal_point_id || "-"))}
@@ -3357,11 +3454,21 @@ function assessListing(listing) {
   const reasons = [];
 
   if (routeValue?.public_reference_unit_price_man_per_tsubo) {
-    const routeWeight = routeValue.confidence === "高" ? 0.5 : 0.3;
+    const routeWeight = routeValue.route_value_type === "public_land_price" ? 0.35 : routeValue.confidence === "高" ? 0.5 : 0.3;
     sources.push({ value: routeValue.public_reference_unit_price_man_per_tsubo, weight: routeWeight });
-    const routeLabel = routeValue.route_value_type === "inheritance_tax" ? "相続税路線価" : "固定資産税路線価";
+    const routeLabel =
+      routeValue.route_value_type === "inheritance_tax"
+        ? "相続税路線価"
+        : routeValue.route_value_type === "public_land_price"
+          ? "公示地価・地価調査"
+          : "固定資産税路線価";
     const routeDistance = routeValueReferenceDistanceKm(routeValue);
-    reasons.push(`${routeLabel} ${formatYenPerSqm(routeValue.route_value_yen_per_sqm)} を公示価格水準へ換算 ${formatUnit(routeValue.public_reference_unit_price_man_per_tsubo)}${routeDistance !== null ? `（参照地点 約${formatNumber(routeDistance)}km）` : ""}`);
+    const routeValueText = routeValue.route_value_yen_per_sqm ? `${formatYenPerSqm(routeValue.route_value_yen_per_sqm)} を公示価格水準へ換算 ` : "";
+    reasons.push(`${routeLabel} ${routeValueText}${formatUnit(routeValue.public_reference_unit_price_man_per_tsubo)}${routeDistance !== null ? `（参照地点 約${formatNumber(routeDistance)}km）` : ""}`);
+  }
+  if (routeValue?.comparable_method_unit_price_man_per_tsubo) {
+    sources.push({ value: routeValue.comparable_method_unit_price_man_per_tsubo, weight: 0.15 });
+    reasons.push(`鑑定評価書の取引事例比較法 比準価格 ${formatUnit(routeValue.comparable_method_unit_price_man_per_tsubo)}`);
   }
   if (peerAvg && peers.length >= 2) {
     const weight = Math.min(routeValue ? 0.45 : 0.65, 0.3 + peers.length * 0.05);

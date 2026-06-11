@@ -2541,6 +2541,37 @@ body {
   min-height: 34px;
 }
 
+.hazard-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex: 1 1 280px;
+  flex-wrap: wrap;
+}
+
+.hazard-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border: 1px solid rgba(138, 166, 187, 0.48);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #34475d;
+  font-size: 11px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.hazard-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--hazard-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--hazard-color) 18%, transparent);
+}
+
 .tabs {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }

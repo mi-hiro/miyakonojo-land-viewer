@@ -1117,7 +1117,7 @@ function resolveRouteValue(listing) {
     "exact",
     null
   );
-  if (embedded) {
+  if (embedded && isReliableRouteValueReference(embedded)) {
     return embedded;
   }
 
@@ -1134,7 +1134,8 @@ function resolveRouteValue(listing) {
     return null;
   }
   const best = scored[0];
-  return normalizeRouteValueRecord(best.record, best.match_note, best.precision, best.distance_km);
+  const normalized = normalizeRouteValueRecord(best.record, best.match_note, best.precision, best.distance_km);
+  return isReliableRouteValueReference(normalized) ? normalized : null;
 }
 
 function scoreRouteValueRecord(record, listing) {
@@ -1170,15 +1171,26 @@ function scoreRouteValueRecord(record, listing) {
     if (distanceKm <= 0.45) {
       return { record, score: 66, precision: "nearby", match_note: "近接地点候補", distance_km: distanceKm };
     }
-    if (record.town === listing.town && distanceKm <= 1.2) {
+    if (record.town === listing.town && distanceKm <= 0.7) {
       return { record, score: 48, precision: "town_nearby", match_note: "同町内の近接候補", distance_km: distanceKm };
     }
   }
 
-  if (record.town && record.town === listing.town) {
-    return { record, score: 24, precision: "town", match_note: "町名一致", distance_km: null };
-  }
   return null;
+}
+
+function isReliableRouteValueReference(routeValue) {
+  if (!routeValue) return false;
+  const distance = routeValueReferenceDistanceKm(routeValue);
+  if (distance !== null && distance > 0.7) return false;
+  if (routeValue.precision === "town" || routeValue.precision === "town_nearby") return false;
+  if (routeValue.confidence === "低") return false;
+  return true;
+}
+
+function routeValueReferenceDistanceKm(routeValue) {
+  const distance = numberValue(routeValue?.appraisal_distance_km ?? routeValue?.distance_km);
+  return Number.isFinite(distance) ? distance : null;
 }
 
 function normalizeRouteValueRecord(record, matchNote, precision, distanceKm) {
@@ -2086,6 +2098,9 @@ function renderHazardAreas() {
   state.hazardAreaLayer.clearLayers();
   const features = hazardGeoJsonFeatures();
   if (!state.showHazardAreas || !features.length) {
+    if (state.showHazardAreas) {
+      renderHazardAffectedPoints();
+    }
     return;
   }
   const layer = L.geoJSON({ type: "FeatureCollection", features }, {
@@ -2100,6 +2115,30 @@ function renderHazardAreas() {
   layer.addTo(state.hazardAreaLayer);
 }
 
+function renderHazardAffectedPoints() {
+  if (!state.hazardAreaLayer || !window.L) return;
+  hazardAffectedPointItems().forEach((item) => {
+    const lat = numberValue(item.latitude ?? item.lat);
+    const lng = numberValue(item.longitude ?? item.lng);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    const text = normalizeQuery((item.hazards || []).map((hazard) => `${hazard.type || ""} ${hazard.level || ""}`).join(" "));
+    const isFlood = text.includes("浸水") || text.includes("洪水") || text.includes("flood");
+    const color = isFlood ? "#1769e0" : "#dc5a2a";
+    const title = (item.hazards || []).map((hazard) => hazard.type || hazard.name || "").filter(Boolean).join(" / ") || "ハザード該当地点";
+    const level = (item.hazards || []).map((hazard) => hazard.level || "").filter(Boolean).join(" / ");
+    L.circle([lat, lng], {
+      radius: 130,
+      color,
+      weight: 2,
+      opacity: 0.95,
+      fillColor: color,
+      fillOpacity: 0.18,
+    })
+      .bindPopup(`<strong>${escapeHtml(title)}</strong>${level ? `<br>${escapeHtml(level)}` : ""}<br>該当地点の概略表示`)
+      .addTo(state.hazardAreaLayer);
+  });
+}
+
 function updateHazardAreaControl() {
   if (els.hazardAreaToggle) {
     els.hazardAreaToggle.checked = state.showHazardAreas;
@@ -2111,8 +2150,22 @@ function updateHazardAreaControl() {
   if (count) {
     els.hazardAreaStatus.textContent = `${formatInteger(count)}エリアを表示できます`;
   } else {
+    const affectedCount = hazardAffectedPointItems().length;
+    if (affectedCount) {
+      els.hazardAreaStatus.textContent = `${formatInteger(affectedCount)}件の該当地点を表示できます`;
+      return;
+    }
     els.hazardAreaStatus.textContent = "API取得後に地図上へ表示できます";
   }
+}
+
+function hazardAffectedPointItems() {
+  const zones = state.hazardZones || {};
+  const items = Array.isArray(zones.items) ? zones.items : Array.isArray(zones.hazards) ? zones.hazards : [];
+  return items.filter((item) => {
+    const hazards = Array.isArray(item?.hazards) ? item.hazards : [];
+    return item?.status === "affected" || hazards.length > 0 || item?.affected === true;
+  });
 }
 
 function hazardGeoJsonFeatures() {
@@ -3304,10 +3357,11 @@ function assessListing(listing) {
   const reasons = [];
 
   if (routeValue?.public_reference_unit_price_man_per_tsubo) {
-    const routeWeight = routeValue.precision === "exact" || routeValue.precision === "address" ? 0.65 : routeValue.precision === "nearby" ? 0.45 : 0.25;
+    const routeWeight = routeValue.confidence === "高" ? 0.5 : 0.3;
     sources.push({ value: routeValue.public_reference_unit_price_man_per_tsubo, weight: routeWeight });
     const routeLabel = routeValue.route_value_type === "inheritance_tax" ? "相続税路線価" : "固定資産税路線価";
-    reasons.push(`${routeLabel} ${formatYenPerSqm(routeValue.route_value_yen_per_sqm)} を公示価格水準へ換算 ${formatUnit(routeValue.public_reference_unit_price_man_per_tsubo)}`);
+    const routeDistance = routeValueReferenceDistanceKm(routeValue);
+    reasons.push(`${routeLabel} ${formatYenPerSqm(routeValue.route_value_yen_per_sqm)} を公示価格水準へ換算 ${formatUnit(routeValue.public_reference_unit_price_man_per_tsubo)}${routeDistance !== null ? `（参照地点 約${formatNumber(routeDistance)}km）` : ""}`);
   }
   if (peerAvg && peers.length >= 2) {
     const weight = Math.min(routeValue ? 0.45 : 0.65, 0.3 + peers.length * 0.05);

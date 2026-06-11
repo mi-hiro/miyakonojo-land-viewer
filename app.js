@@ -1366,7 +1366,7 @@ function normalizeHazardRecord(record, matchNote, precision, distanceKm) {
   if (!record || typeof record !== "object") return null;
   const hazards = normalizeHazardItems(record.hazards || record.hazard_types || record.types);
   const status = record.status || (hazards.length ? "affected" : record.checked ? "not_affected" : "unknown");
-  const affected = status === "affected" || hazards.length > 0 || record.affected === true;
+  const affected = status === "affected" || record.affected === true || (!record.status && hazards.length > 0);
   return {
     affected,
     status,
@@ -1389,7 +1389,7 @@ function normalizeHazardItems(value) {
   return rawItems
     .map((item) => {
       if (typeof item === "string") {
-        return { type: item, level: "", note: "" };
+        return { type: item, level: "", note: "", informational: false };
       }
       if (!item || typeof item !== "object") {
         return null;
@@ -1398,6 +1398,8 @@ function normalizeHazardItems(value) {
         type: item.type || item.name || item.hazard_type || "",
         level: item.level || item.rank || item.depth || "",
         note: item.note || item.description || "",
+        api_id: item.api_id || "",
+        informational: item.informational === true || item.informational === "true",
       };
     })
     .filter((item) => item && item.type);
@@ -2240,7 +2242,7 @@ function hazardAffectedPointItems() {
   const items = Array.isArray(zones.items) ? zones.items : Array.isArray(zones.hazards) ? zones.hazards : [];
   return items.filter((item) => {
     const hazards = Array.isArray(item?.hazards) ? item.hazards : [];
-    return item?.status === "affected" || hazards.length > 0 || item?.affected === true;
+    return item?.status === "affected" || item?.affected === true || (!item?.status && hazards.length > 0);
   });
 }
 
@@ -3231,7 +3233,7 @@ function renderHazardSection(hazard) {
     <section class="detail-section">
       <h3>ハザード</h3>
       <dl class="detail-kv">
-        ${kv("判定", hazard.affected ? "該当あり" : hazard.status === "not_affected" ? "該当なし" : "要確認")}
+        ${kv("判定", hazard.affected ? "該当あり" : hazard.status === "attention" ? "参考情報あり" : hazard.status === "not_affected" ? "該当なし" : "要確認")}
         ${kv("種類", hazardText)}
         ${kv("照合", escapeHtml(matchText || "-"))}
         ${kv("調査日", escapeHtml(hazard.checked_at || "-"))}

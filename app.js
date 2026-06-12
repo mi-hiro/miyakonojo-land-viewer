@@ -7,6 +7,8 @@ const CITY_BOUNDS = [
   [31.98, 131.25],
 ];
 const TSUBO_SQM = 3.305785;
+const LIST_PAGE_SIZE_OPTIONS = [20, 50, 100];
+const DEFAULT_LIST_PAGE_SIZE = 20;
 const FIXED_ASSET_ROUTE_VALUE_RATIO = 0.7;
 const INHERITANCE_TAX_ROUTE_VALUE_RATIO = 0.8;
 const LAND_DIAGRAM_IMAGE_TERMS = [
@@ -64,6 +66,7 @@ const STORAGE_KEYS = {
   excluded: "miyakonojo_land_excluded_v1",
   notes: "miyakonojo_land_notes_v1",
   listLayout: "miyakonojo_land_list_layout_v1",
+  listPageSize: "miyakonojo_land_list_page_size_v1",
   mapLayerType: "miyakonojo_land_map_layer_type_v1",
   hiddenImages: "miyakonojo_land_hidden_images_v1",
   deviceMode: "miyakonojo_land_device_mode_v1",
@@ -423,6 +426,8 @@ const state = {
   filtered: [],
   view: "list",
   listLayout: "cards",
+  listPage: 1,
+  listPageSize: DEFAULT_LIST_PAGE_SIZE,
   mapLayerType: "standard",
   map: null,
   mapBaseLayers: null,
@@ -475,6 +480,8 @@ const els = {
   resultCount: document.getElementById("resultCount"),
   mapReadyCount: document.getElementById("mapReadyCount"),
   listLayoutControl: document.getElementById("listLayoutControl"),
+  listPageSize: document.getElementById("listPageSize"),
+  listPagination: document.getElementById("listPagination"),
   townCount: document.getElementById("townCount"),
   distributionSummary: document.getElementById("distributionSummary"),
   distributionGrid: document.getElementById("distributionGrid"),
@@ -519,25 +526,25 @@ function init() {
 
 function bindEvents() {
   els.refreshButton.addEventListener("click", loadData);
-  els.searchInput.addEventListener("input", render);
-  els.sortSelect.addEventListener("change", render);
-  els.townFilter?.addEventListener("change", render);
-  els.schoolFilter.addEventListener("change", render);
-  els.priceMin.addEventListener("input", render);
-  els.priceMax.addEventListener("input", render);
-  els.areaMin.addEventListener("input", render);
-  els.areaMax.addEventListener("input", render);
+  els.searchInput.addEventListener("input", renderFromFirstListPage);
+  els.sortSelect.addEventListener("change", renderFromFirstListPage);
+  els.townFilter?.addEventListener("change", renderFromFirstListPage);
+  els.schoolFilter.addEventListener("change", renderFromFirstListPage);
+  els.priceMin.addEventListener("input", renderFromFirstListPage);
+  els.priceMax.addEventListener("input", renderFromFirstListPage);
+  els.areaMin.addEventListener("input", renderFromFirstListPage);
+  els.areaMax.addEventListener("input", renderFromFirstListPage);
   els.exportBackupButton.addEventListener("click", exportBackup);
   els.importBackupButton.addEventListener("click", () => {
     els.backupFileInput.value = "";
     els.backupFileInput.click();
   });
   els.backupFileInput.addEventListener("change", importBackup);
-  els.favoriteOnly?.addEventListener("change", render);
-  els.candidateOnly?.addEventListener("change", render);
-  els.newOnly.addEventListener("change", render);
-  els.cheapOnly.addEventListener("change", render);
-  els.showExcluded?.addEventListener("change", render);
+  els.favoriteOnly?.addEventListener("change", renderFromFirstListPage);
+  els.candidateOnly?.addEventListener("change", renderFromFirstListPage);
+  els.newOnly.addEventListener("change", renderFromFirstListPage);
+  els.cheapOnly.addEventListener("change", renderFromFirstListPage);
+  els.showExcluded?.addEventListener("change", renderFromFirstListPage);
   els.controls?.addEventListener("change", handleControlChange, true);
   els.controls?.addEventListener("input", handleControlInput, true);
   els.hazardAreaToggle?.addEventListener("change", () => {
@@ -563,6 +570,20 @@ function bindEvents() {
         window.lucide.createIcons();
       }
     });
+  });
+  els.listPageSize?.addEventListener("change", () => {
+    state.listPageSize = normalizeListPageSize(els.listPageSize.value);
+    localStorage.setItem(STORAGE_KEYS.listPageSize, String(state.listPageSize));
+    state.listPage = 1;
+    renderList();
+  });
+  els.listPagination?.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+    const button = target?.closest("[data-list-page]");
+    if (!button) {
+      return;
+    }
+    setListPage(Number(button.dataset.listPage), true);
   });
 
   document.querySelectorAll(".tab").forEach((button) => {
@@ -633,6 +654,7 @@ function loadSavedState() {
   state.hiddenImages = loadStoredSet(STORAGE_KEYS.hiddenImages);
   state.notes = loadStoredObject(STORAGE_KEYS.notes);
   state.listLayout = normalizeListLayout(localStorage.getItem(STORAGE_KEYS.listLayout));
+  state.listPageSize = normalizeListPageSize(localStorage.getItem(STORAGE_KEYS.listPageSize));
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
   state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
@@ -643,7 +665,7 @@ function handleControlChange(event) {
   if (!target?.matches?.("select, input")) {
     return;
   }
-  render();
+  renderFromFirstListPage();
 }
 
 function handleControlInput(event) {
@@ -651,7 +673,7 @@ function handleControlInput(event) {
   if (!target?.matches?.("select, input[type='checkbox']")) {
     return;
   }
-  render();
+  renderFromFirstListPage();
 }
 
 function handleMouseDetailPointer(event) {
@@ -805,6 +827,11 @@ function routeFromHash() {
 
 function normalizeListLayout(value) {
   return ["cards", "compact", "table"].includes(value) ? value : "cards";
+}
+
+function normalizeListPageSize(value) {
+  const size = Number(value);
+  return LIST_PAGE_SIZE_OPTIONS.includes(size) ? size : DEFAULT_LIST_PAGE_SIZE;
 }
 
 function normalizeDeviceMode(value) {
@@ -1570,6 +1597,11 @@ function render() {
   }
 }
 
+function renderFromFirstListPage() {
+  state.listPage = 1;
+  render();
+}
+
 function filterListings(listings) {
   const query = normalizeQuery(els.searchInput.value);
   const townFilter = els.townFilter?.value || "";
@@ -1707,10 +1739,14 @@ function withinRange(value, range) {
 
 function renderSummary() {
   const latestSummary = state.latest.summary || {};
-  const historySummary = state.history?.summary || {};
   els.listingCount.textContent = `${formatInteger(latestSummary.listing_count || state.listings.length)}件`;
-  els.currentAverage.textContent = formatUnit(latestSummary.overall_average_unit_price_man_per_tsubo);
-  els.historyAverage.textContent = formatUnit(historySummary.historical_average_unit_price_man_per_tsubo);
+  if (els.currentAverage) {
+    els.currentAverage.textContent = formatUnit(latestSummary.overall_average_unit_price_man_per_tsubo);
+  }
+  if (els.historyAverage) {
+    const historySummary = state.history?.summary || {};
+    els.historyAverage.textContent = formatUnit(historySummary.historical_average_unit_price_man_per_tsubo);
+  }
   els.updatedAt.textContent = formatDateTime(state.latest.generated_at);
 }
 
@@ -1720,22 +1756,34 @@ function renderBackupSummary() {
 }
 
 function renderList() {
-  els.resultCount.textContent = `${formatInteger(state.filtered.length)}件表示`;
+  const pageCount = Math.max(1, Math.ceil(state.filtered.length / state.listPageSize));
+  state.listPage = Math.min(Math.max(1, state.listPage), pageCount);
+  const start = (state.listPage - 1) * state.listPageSize;
+  const pageItems = state.filtered.slice(start, start + state.listPageSize);
+  const end = start + pageItems.length;
+  els.resultCount.textContent = state.filtered.length
+    ? `${formatInteger(start + 1)}〜${formatInteger(end)}件 / 全${formatInteger(state.filtered.length)}件`
+    : "0件表示";
   els.mapReadyCount.textContent = `地図 ${formatInteger(state.filtered.filter((item) => Number.isFinite(item.map_latitude)).length)}件`;
+  if (els.listPageSize) {
+    els.listPageSize.value = String(state.listPageSize);
+  }
   updateListLayoutButtons();
   els.listingList.className = `listing-list layout-${state.listLayout}`;
   if (!state.filtered.length) {
     els.listingList.innerHTML = `<div class="empty-state">該当する物件がありません</div>`;
+    renderListPagination(pageCount);
     return;
   }
   if (state.listLayout === "compact") {
-    els.listingList.innerHTML = state.filtered.map(renderListingCompact).join("");
+    els.listingList.innerHTML = pageItems.map(renderListingCompact).join("");
   } else if (state.listLayout === "table") {
-    els.listingList.innerHTML = renderListingTable(state.filtered);
+    els.listingList.innerHTML = renderListingTable(pageItems);
   } else {
-    els.listingList.innerHTML = state.filtered.map(renderListingCard).join("");
+    els.listingList.innerHTML = pageItems.map(renderListingCard).join("");
   }
   bindListingActions(els.listingList);
+  renderListPagination(pageCount);
 }
 
 function updateListLayoutButtons() {
@@ -1743,6 +1791,56 @@ function updateListLayoutButtons() {
     const active = button.dataset.listLayout === state.listLayout;
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function setListPage(page, shouldScroll) {
+  const pageCount = Math.max(1, Math.ceil(state.filtered.length / state.listPageSize));
+  state.listPage = Math.min(Math.max(1, Number(page) || 1), pageCount);
+  renderList();
+  if (shouldScroll) {
+    document.getElementById("listView")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+function renderListPagination(pageCount) {
+  if (!els.listPagination) {
+    return;
+  }
+  if (!state.filtered.length || pageCount <= 1) {
+    els.listPagination.innerHTML = "";
+    return;
+  }
+  const pages = visibleListPages(state.listPage, pageCount);
+  els.listPagination.innerHTML = `
+    <button class="pagination-button" type="button" data-list-page="${state.listPage - 1}" ${state.listPage <= 1 ? "disabled" : ""}>前へ</button>
+    <div class="pagination-pages">
+      ${pages
+        .map((page) =>
+          page === "gap"
+            ? `<span class="pagination-gap">…</span>`
+            : `<button class="pagination-button ${page === state.listPage ? "active" : ""}" type="button" data-list-page="${page}" aria-current="${page === state.listPage ? "page" : "false"}">${formatInteger(page)}</button>`
+        )
+        .join("")}
+    </div>
+    <button class="pagination-button" type="button" data-list-page="${state.listPage + 1}" ${state.listPage >= pageCount ? "disabled" : ""}>次へ</button>
+  `;
+}
+
+function visibleListPages(current, total) {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, index) => index + 1);
+  }
+  const pages = new Set([1, total, current, current - 1, current + 1]);
+  const sorted = [...pages].filter((page) => page >= 1 && page <= total).sort((a, b) => a - b);
+  return sorted.flatMap((page, index) => {
+    if (index === 0 || page - sorted[index - 1] === 1) {
+      return [page];
+    }
+    return ["gap", page];
   });
 }
 

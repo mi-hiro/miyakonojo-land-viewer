@@ -41,14 +41,6 @@
             <strong id="listingCount">-</strong>
           </div>
           <div class="summary-item">
-            <span class="summary-label">現在平均</span>
-            <strong id="currentAverage">-</strong>
-          </div>
-          <div class="summary-item">
-            <span class="summary-label">履歴平均</span>
-            <strong id="historyAverage">-</strong>
-          </div>
-          <div class="summary-item">
             <span class="summary-label">更新</span>
             <strong id="updatedAt">-</strong>
           </div>
@@ -224,13 +216,22 @@
               <button class="view-mode-button" type="button" data-list-layout="compact" aria-pressed="false">
                 <i data-lucide="rows-3"></i><span>コンパクト</span>
               </button>
-              <button class="view-mode-button" type="button" data-list-layout="table" aria-pressed="false">
-                <i data-lucide="table-2"></i><span>表</span>
-              </button>
-            </div>
+            <button class="view-mode-button" type="button" data-list-layout="table" aria-pressed="false">
+              <i data-lucide="table-2"></i><span>表</span>
+            </button>
           </div>
-          <div id="listingList" class="listing-list"></div>
-        </section>
+          <label class="page-size-control">
+            <span>表示件数</span>
+            <select id="listPageSize" autocomplete="off">
+              <option value="20">20件</option>
+              <option value="50">50件</option>
+              <option value="100">100件</option>
+            </select>
+          </label>
+        </div>
+        <div id="listingList" class="listing-list"></div>
+        <div id="listPagination" class="pagination" aria-label="一覧ページ切替"></div>
+      </section>
 
         <section id="mapView" class="content-view" aria-label="地図">
           <div class="map-toolbar">

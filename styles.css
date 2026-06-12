@@ -2733,6 +2733,7 @@ body {
 }
 
 .detail-panel {
+  position: fixed;
   inset: 0 0 0 auto;
   z-index: 2147483000;
   width: min(620px, 100%);
@@ -2782,5 +2783,242 @@ body {
   .app-shell.device-tablet .controls {
     position: static;
     max-height: none;
+  }
+}
+
+/* Compact control center */
+.compact-controls {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.control-primary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, 220px);
+  gap: 8px;
+  align-items: end;
+}
+
+.compact-controls .search-box {
+  min-height: 42px;
+  padding-inline: 11px;
+}
+
+.compact-controls .select-wrap {
+  min-width: 0;
+  gap: 4px;
+}
+
+.compact-controls .select-wrap span,
+.compact-controls .range-title {
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.compact-controls .select-wrap select {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.filter-strip {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.8fr) minmax(130px, 0.9fr) minmax(0, 1.5fr);
+  gap: 8px;
+  align-items: end;
+}
+
+.compact-controls .toggle-row {
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.compact-controls .check-pill {
+  min-height: 34px;
+  padding: 0 9px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.compact-controls .check-pill input {
+  width: 14px;
+  height: 14px;
+}
+
+.compact-controls .range-filters {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 0;
+}
+
+.compact-controls .range-group {
+  min-height: 38px;
+  padding: 7px 8px;
+  gap: 6px;
+  grid-template-columns: minmax(70px, auto) minmax(52px, 1fr) auto minmax(52px, 1fr);
+}
+
+.compact-controls .range-group input {
+  height: 30px;
+  padding: 0 7px;
+}
+
+.utility-disclosure {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.utility-disclosure summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 10px;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.utility-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.utility-disclosure summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  color: var(--accent-strong);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.utility-disclosure[open] summary::after {
+  content: "-";
+}
+
+.utility-disclosure summary strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compact-controls .backup-row {
+  margin-top: 0;
+  padding: 8px 10px 10px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.compact-controls .backup-actions {
+  width: 100%;
+}
+
+.compact-controls .utility-button {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.compact-controls .tabs {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 3px;
+  margin-top: 0;
+  padding: 3px;
+}
+
+.compact-controls .tab {
+  min-height: 34px;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.compact-controls .tab svg {
+  width: 15px;
+  height: 15px;
+}
+
+.app-shell.device-desktop .compact-controls .control-primary,
+.app-shell.device-tablet .compact-controls .control-primary,
+.app-shell.device-desktop .compact-controls .filter-strip,
+.app-shell.device-tablet .compact-controls .filter-strip,
+.app-shell.device-desktop .compact-controls .range-filters,
+.app-shell.device-tablet .compact-controls .range-filters {
+  grid-template-columns: 1fr;
+}
+
+.app-shell.device-desktop .compact-controls .tabs,
+.app-shell.device-tablet .compact-controls .tabs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.app-shell.device-desktop .compact-controls .tab,
+.app-shell.device-tablet .compact-controls .tab {
+  justify-content: flex-start;
+  padding: 0 9px;
+}
+
+@media (max-width: 760px) {
+  .control-primary,
+  .filter-strip,
+  .compact-controls .range-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-controls .tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .compact-controls {
+    padding: 10px;
+  }
+
+  .compact-controls .tab span,
+  .compact-controls .utility-button span {
+    font-size: 11px;
+  }
+
+  .app-shell.device-mobile .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .app-shell.device-mobile .topbar h1 {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .app-shell.device-mobile .topbar-actions {
+    width: auto;
+    flex-wrap: nowrap;
+    gap: 7px;
+    justify-content: flex-end;
+  }
+
+  .app-shell.device-mobile .device-mode {
+    flex: 0 0 auto;
+  }
+
+  .app-shell.device-mobile .device-mode-button {
+    flex: 0 0 36px;
+    min-height: 34px;
+    padding: 0;
+  }
+
+  .app-shell.device-mobile .topbar .icon-button {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
   }
 }

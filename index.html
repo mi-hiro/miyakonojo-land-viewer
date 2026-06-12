@@ -54,14 +54,13 @@
           </div>
         </section>
 
-        <section class="controls" aria-label="絞り込み">
-          <label class="search-box">
-            <i data-lucide="search"></i>
-            <input id="searchInput" type="search" placeholder="町名・所在地・備考で検索" autocomplete="off">
-          </label>
-
-          <div class="control-row">
-            <label class="select-wrap">
+        <section class="controls compact-controls" aria-label="絞り込み">
+          <div class="control-primary">
+            <label class="search-box">
+              <i data-lucide="search"></i>
+              <input id="searchInput" type="search" placeholder="町名・所在地・備考で検索" autocomplete="off">
+            </label>
+            <label class="select-wrap sort-wrap">
               <span>並び替え</span>
               <select id="sortSelect" autocomplete="off">
                 <option value="new">新着順</option>
@@ -73,6 +72,9 @@
                 <option value="unitDesc">坪単価が高い順</option>
               </select>
             </label>
+          </div>
+
+          <div class="filter-strip">
             <label class="select-wrap">
               <span>町名</span>
               <select id="townFilter" autocomplete="off">
@@ -109,21 +111,23 @@
             </div>
           </div>
 
-          <div class="backup-row" aria-label="保存データのバックアップ">
-            <div class="backup-status">
+          <details class="utility-disclosure">
+            <summary>
               <span>保存データ</span>
               <strong id="backupSummary">-</strong>
+            </summary>
+            <div class="backup-row" aria-label="保存データのバックアップ">
+              <div class="backup-actions">
+                <button id="exportBackupButton" class="utility-button" type="button">
+                  <i data-lucide="download"></i><span>バックアップ保存</span>
+                </button>
+                <button id="importBackupButton" class="utility-button" type="button">
+                  <i data-lucide="upload"></i><span>復元</span>
+                </button>
+                <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
+              </div>
             </div>
-            <div class="backup-actions">
-              <button id="exportBackupButton" class="utility-button" type="button">
-                <i data-lucide="download"></i><span>バックアップ保存</span>
-              </button>
-              <button id="importBackupButton" class="utility-button" type="button">
-                <i data-lucide="upload"></i><span>復元</span>
-              </button>
-              <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
-            </div>
-          </div>
+          </details>
 
           <nav class="tabs" aria-label="表示切替">
             <button class="tab active" type="button" data-view="list">

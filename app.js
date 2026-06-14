@@ -410,6 +410,13 @@ const SAMPLE_ROUTE_VALUES = {
   items: [],
 };
 
+const SAMPLE_FIXED_ASSET_ROUTE_VALUES = {
+  schema_version: 1,
+  updated_at: null,
+  source: "固定資産税路線価データ未登録",
+  items: [],
+};
+
 const SAMPLE_HAZARD_ZONES = {
   schema_version: 1,
   updated_at: null,
@@ -1031,15 +1038,16 @@ function localDateStamp(date) {
 async function loadData() {
   setStatus("読み込み中");
   try {
-    const [latest, history, routeValues, hazardZones] = await Promise.all([
+    const [latest, history, routeValues, fixedAssetRouteValues, hazardZones] = await Promise.all([
       fetchDataFile("latest.json"),
       fetchDataFile("history.json"),
       fetchOptionalDataFile("route-values.json", SAMPLE_ROUTE_VALUES),
+      fetchOptionalDataFile("fixed-asset-route-values.json", SAMPLE_FIXED_ASSET_ROUTE_VALUES),
       fetchOptionalDataFile("hazard-zones.json", SAMPLE_HAZARD_ZONES),
     ]);
     state.latest = latest;
     state.history = history;
-    state.routeValues = routeValues || SAMPLE_ROUTE_VALUES;
+    state.routeValues = mergeRouteValuePayloads(routeValues || SAMPLE_ROUTE_VALUES, fixedAssetRouteValues || SAMPLE_FIXED_ASSET_ROUTE_VALUES);
     state.hazardZones = hazardZones || SAMPLE_HAZARD_ZONES;
     setStatus("");
   } catch (error) {
@@ -1086,6 +1094,27 @@ async function fetchJson(url) {
     throw new Error(`Fetch failed: ${response.status}`);
   }
   return response.json();
+}
+
+function mergeRouteValuePayloads(routeValues, fixedAssetRouteValues) {
+  const baseItems = routeValuePayloadItems(routeValues);
+  const fixedItems = routeValuePayloadItems(fixedAssetRouteValues);
+  return {
+    schema_version: 1,
+    updated_at: fixedAssetRouteValues?.updated_at || routeValues?.updated_at || null,
+    source: [fixedAssetRouteValues?.source, routeValues?.source].filter(Boolean).join(" / ") || SAMPLE_ROUTE_VALUES.source,
+    note: [fixedAssetRouteValues?.note, routeValues?.note].filter(Boolean).join(" / "),
+    fixed_asset_summary: fixedAssetRouteValues?.summary || null,
+    route_value_summary: routeValues?.summary || null,
+    items: [...fixedItems, ...baseItems],
+  };
+}
+
+function routeValuePayloadItems(payload) {
+  if (Array.isArray(payload?.items)) return payload.items;
+  if (Array.isArray(payload?.route_values)) return payload.route_values;
+  if (Array.isArray(payload?.rows)) return payload.rows;
+  return [];
 }
 
 function normalizeListing(listing, index) {
@@ -1169,6 +1198,7 @@ function resolveRouteValue(listing) {
 function scoreRouteValueRecord(record, listing) {
   const value = referenceValueYenPerSqm(record);
   if (!value) return null;
+  const fixedAssetRoute = isFixedAssetRouteRecord(record);
 
   const recordId = String(record.listing_id || record.id || "");
   if (recordId && recordId === listing.id) {
@@ -1184,8 +1214,8 @@ function scoreRouteValueRecord(record, listing) {
     return { record, score: 84, precision: "address", match_note: "所在地一致", distance_km: null };
   }
 
-  const recordLat = numberValue(record.latitude ?? record.lat);
-  const recordLng = numberValue(record.longitude ?? record.lng);
+  const recordLat = numberValue(record.latitude ?? record.lat ?? record["座標_lat"]);
+  const recordLng = numberValue(record.longitude ?? record.lng ?? record.lon ?? record["座標_lon"]);
   if (
     recordLat &&
     recordLng &&
@@ -1193,6 +1223,14 @@ function scoreRouteValueRecord(record, listing) {
     Number.isFinite(listing.map_longitude)
   ) {
     const distanceKm = haversineKm(listing.map_latitude, listing.map_longitude, recordLat, recordLng);
+    if (fixedAssetRoute) {
+      if (distanceKm <= 0.12) {
+        return { record, score: 112, precision: "nearby", match_note: "最寄り固定資産税路線価", distance_km: distanceKm };
+      }
+      if (distanceKm <= 0.25) {
+        return { record, score: 88, precision: "nearby", match_note: "近接固定資産税路線価", distance_km: distanceKm };
+      }
+    }
     if (distanceKm <= 0.15) {
       return { record, score: 78, precision: "nearby", match_note: "近接地点一致", distance_km: distanceKm };
     }
@@ -1210,6 +1248,7 @@ function scoreRouteValueRecord(record, listing) {
 function isReliableRouteValueReference(routeValue) {
   if (!routeValue) return false;
   const distance = routeValueReferenceDistanceKm(routeValue);
+  if (routeValue.route_value_type === "fixed_asset_tax" && distance !== null && distance > 0.25) return false;
   if (distance !== null && distance > 0.7) return false;
   if (routeValue.precision === "town" || routeValue.precision === "town_nearby") return false;
   if (routeValue.confidence === "低") return false;
@@ -1244,6 +1283,13 @@ function normalizeRouteValueRecord(record, matchNote, precision, distanceKm) {
     route_value_type: routeValueType,
     route_value_yen_per_sqm: routeValue,
     inheritance_tax_route_value_yen_per_sqm: numberValue(record.inheritance_tax_route_value_yen_per_sqm),
+    fixed_asset_tax_route_value_yen_per_sqm: routeValueType === "fixed_asset_tax"
+      ? routeValue
+      : numberValue(record.fixed_asset_tax_route_value_yen_per_sqm ?? record.fixed_asset_route_value_yen_per_sqm),
+    fixed_asset_route_id: record.fixed_asset_route_id || record.route_id || record["路線ID"] || "",
+    fixed_asset_use_district: record.fixed_asset_use_district || record.use_district || record["用途地区区分"] || "",
+    fixed_asset_price_date: record.fixed_asset_price_date || record.price_date || record["時点"] || "",
+    fixed_asset_classification: record.fixed_asset_classification || record.classification || record["分類"] || "",
     fixed_asset_unit_price_man_per_tsubo: fixedAssetUnit,
     route_method_unit_price_man_per_tsubo: routeMethodUnit,
     public_reference_unit_price_man_per_tsubo: publicReference,
@@ -1275,6 +1321,7 @@ function normalizeRouteValueRecord(record, matchNote, precision, distanceKm) {
     address: record.address || "",
     road_name: record.road_name || record.route_name || "",
     year: record.year || record.fiscal_year || "",
+    source_url: record.source_url || record["取得元URL"] || "",
     source: record.source || state.routeValues?.source || (routeValueType === "inheritance_tax" ? "相続税路線価" : "固定資産税路線価"),
     note: record.note || "",
     precision,
@@ -1290,6 +1337,7 @@ function routeValueYenPerSqm(record) {
       record?.inheritance_tax_route_value_yen_per_sqm ??
       record?.fixed_asset_tax_route_value_yen_per_sqm ??
       record?.fixed_asset_route_value_yen_per_sqm ??
+      record?.["路線価（円/㎡）"] ??
       record?.value_yen_per_sqm
   );
 }
@@ -1303,11 +1351,16 @@ function referenceValueYenPerSqm(record) {
 }
 
 function routeValueRecordType(record) {
-  const raw = String(record?.route_value_type || record?.value_type || "").toLowerCase();
+  const raw = String(record?.route_value_type || record?.value_type || record?.classification || record?.["分類"] || "").toLowerCase();
   if (raw.includes("public_land_price") || raw.includes("public")) return "public_land_price";
   if (raw.includes("inheritance") || raw.includes("souzoku") || raw.includes("相続")) return "inheritance_tax";
+  if (raw.includes("fixed") || raw.includes("固定資産")) return "fixed_asset_tax";
   if (record?.inheritance_tax_route_value_yen_per_sqm) return "inheritance_tax";
   return "fixed_asset_tax";
+}
+
+function isFixedAssetRouteRecord(record) {
+  return routeValueRecordType(record) === "fixed_asset_tax";
 }
 
 function publicReferenceFromYenPerSqm(record) {
@@ -3520,6 +3573,9 @@ function renderRouteValueSection(listing, routeValue) {
         ${appraisal ? kv("補正率", formatNumber(appraisal.correction_rate)) : ""}
         ${appraisal && appraisal.setback.area_sqm ? kv("SB控除", `${formatNumber(appraisal.setback.area_sqm)}㎡ / ${formatPrice(appraisal.setback.deduction_yen / 10000)}`) : ""}
         ${kv("公示価格水準換算", formatUnit(routeValue.public_reference_unit_price_man_per_tsubo))}
+        ${routeValue.fixed_asset_route_id ? kv("路線ID", escapeHtml(routeValue.fixed_asset_route_id)) : ""}
+        ${routeValue.fixed_asset_use_district ? kv("用途地区区分", escapeHtml(routeValue.fixed_asset_use_district)) : ""}
+        ${routeValue.fixed_asset_price_date ? kv("時点", escapeHtml(routeValue.fixed_asset_price_date)) : ""}
         ${routeValue.comparable_method_unit_price_man_per_tsubo ? kv("比準価格", formatUnit(routeValue.comparable_method_unit_price_man_per_tsubo)) : ""}
         ${routeValue.income_method_unit_price_man_per_tsubo ? kv("収益価格", formatUnit(routeValue.income_method_unit_price_man_per_tsubo)) : ""}
         ${routeValue.cost_method_unit_price_man_per_tsubo ? kv("積算価格", formatUnit(routeValue.cost_method_unit_price_man_per_tsubo)) : ""}
@@ -3554,7 +3610,12 @@ function assessListing(listing) {
   const reasons = [];
 
   if (routeValue?.public_reference_unit_price_man_per_tsubo) {
-    const routeWeight = routeValue.route_value_type === "public_land_price" ? 0.35 : routeValue.confidence === "高" ? 0.5 : 0.3;
+    const routeWeight =
+      routeValue.route_value_type === "fixed_asset_tax"
+        ? routeValue.confidence === "高" ? 0.65 : 0.5
+        : routeValue.route_value_type === "public_land_price"
+          ? 0.35
+          : routeValue.confidence === "高" ? 0.5 : 0.3;
     sources.push({ value: routeValue.public_reference_unit_price_man_per_tsubo, weight: routeWeight });
     const routeLabel =
       routeValue.route_value_type === "inheritance_tax"

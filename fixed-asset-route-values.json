@@ -1,10 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": null,
-  "source": "固定資産税路線価データ未登録",
+  "updated_at": "2026-06-14T03:28:32.040Z",
+  "source": "固定資産税路線価",
+  "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
     "rows": 0,
-    "items": 0
+    "items": 0,
+    "towns": 0,
+    "min_yen_per_sqm": null,
+    "max_yen_per_sqm": null
   },
   "items": []
 }

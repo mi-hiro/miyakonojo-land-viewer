@@ -2719,7 +2719,7 @@ function buildDataSourceRows() {
 
 function buildDistributionBins(values) {
   const max = Math.max(...values);
-  const step = max <= 12 ? 2 : max <= 30 ? 5 : 10;
+  const step = 2.5;
   const upper = Math.ceil(max / step) * step;
   const bins = [];
   for (let start = 0; start < upper; start += step) {

@@ -2490,8 +2490,8 @@ function renderHistory() {
           <div class="history-metrics">
             ${metric("現在件数", `${formatInteger(row.listing_count)}件`)}
             ${metric("現在平均", formatUnit(row.average_unit_price_man_per_tsubo))}
-            ${metric("最低", townExtremeLink(row.minimum_unit_price_man_per_tsubo, extremes.min))}
-            ${metric("最高", townExtremeLink(row.maximum_unit_price_man_per_tsubo, extremes.max))}
+            ${metricDetail("最低", row.minimum_unit_price_man_per_tsubo, extremes.min)}
+            ${metricDetail("最高", row.maximum_unit_price_man_per_tsubo, extremes.max)}
             ${metric("履歴件数", `${formatInteger(row.historical_unique_listing_count)}件`)}
             ${metric("履歴平均", formatUnit(row.historical_average_unit_price_man_per_tsubo))}
           </div>
@@ -2853,13 +2853,18 @@ function compareListingsByUnitPrice(direction) {
     String(a.id || "").localeCompare(String(b.id || ""), "ja");
 }
 
-function townExtremeLink(value, listing) {
-  const label = formatUnit(value);
+function metricDetail(label, value, listing) {
+  const valueText = formatUnit(value);
   if (!listing?.id) {
-    return label;
+    return metric(label, valueText);
   }
   const title = `${listing.address || listing.town || "物件"} / ${formatPrice(listing.price_man_yen)}`;
-  return `<a class="metric-detail-link" href="${escapeAttr(detailHash(listing.id))}" title="${escapeAttr(title)}">${label}</a>`;
+  return `
+    <a class="metric metric-link-card" href="${escapeAttr(detailHash(listing.id))}" data-detail-id="${escapeAttr(listing.id)}" title="${escapeAttr(title)}" aria-label="${escapeAttr(`${label} ${valueText} の物件詳細を開く`)}">
+      <span>${escapeHtml(label)}</span>
+      <strong>${valueText}</strong>
+    </a>
+  `;
 }
 
 function averageNumbers(values) {

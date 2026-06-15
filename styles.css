@@ -1086,6 +1086,27 @@ h1 {
   color: var(--accent);
 }
 
+.metric-link-card {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  border-color: #b9d9f3;
+  box-shadow: 0 8px 18px rgba(34, 119, 167, 0.1);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.metric-link-card strong::after {
+  content: " 〉";
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.metric-link-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(34, 119, 167, 0.18);
+  transform: translateY(-1px);
+}
+
 .card-foot {
   display: flex;
   align-items: flex-end;

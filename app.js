@@ -2482,21 +2482,22 @@ function renderHistory() {
     return;
   }
   els.historyGrid.innerHTML = visibleRows
-    .map(
-      (row) => `
+    .map((row) => {
+      const extremes = townUnitExtremes(row.town);
+      return `
         <article class="history-row">
           <h3>${escapeHtml(row.town)}</h3>
           <div class="history-metrics">
             ${metric("現在件数", `${formatInteger(row.listing_count)}件`)}
             ${metric("現在平均", formatUnit(row.average_unit_price_man_per_tsubo))}
-            ${metric("最低", formatUnit(row.minimum_unit_price_man_per_tsubo))}
-            ${metric("最高", formatUnit(row.maximum_unit_price_man_per_tsubo))}
+            ${metric("最低", townExtremeLink(row.minimum_unit_price_man_per_tsubo, extremes.min))}
+            ${metric("最高", townExtremeLink(row.maximum_unit_price_man_per_tsubo, extremes.max))}
             ${metric("履歴件数", `${formatInteger(row.historical_unique_listing_count)}件`)}
             ${metric("履歴平均", formatUnit(row.historical_average_unit_price_man_per_tsubo))}
           </div>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
@@ -2831,6 +2832,34 @@ function buildTownRowsFromListings(listings) {
     minimum_unit_price_man_per_tsubo: Math.min(...values),
     maximum_unit_price_man_per_tsubo: Math.max(...values),
   }));
+}
+
+function townUnitExtremes(town) {
+  const townName = String(town || "");
+  const listings = state.listings
+    .filter((listing) => listingTownName(listing) === townName)
+    .filter((listing) => numberValue(listing.unit_price_man_per_tsubo) > 0);
+  return {
+    min: listings.slice().sort(compareListingsByUnitPrice("asc"))[0] || null,
+    max: listings.slice().sort(compareListingsByUnitPrice("desc"))[0] || null,
+  };
+}
+
+function compareListingsByUnitPrice(direction) {
+  const multiplier = direction === "desc" ? -1 : 1;
+  return (a, b) =>
+    (numberValue(a.unit_price_man_per_tsubo) - numberValue(b.unit_price_man_per_tsubo)) * multiplier ||
+    numberValue(a.price_man_yen) - numberValue(b.price_man_yen) ||
+    String(a.id || "").localeCompare(String(b.id || ""), "ja");
+}
+
+function townExtremeLink(value, listing) {
+  const label = formatUnit(value);
+  if (!listing?.id) {
+    return label;
+  }
+  const title = `${listing.address || listing.town || "物件"} / ${formatPrice(listing.price_man_yen)}`;
+  return `<a class="metric-detail-link" href="${escapeAttr(detailHash(listing.id))}" title="${escapeAttr(title)}">${label}</a>`;
 }
 
 function averageNumbers(values) {

@@ -1074,6 +1074,18 @@ h1 {
   color: #1f3b66;
 }
 
+.metric-detail-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.metric-detail-link:hover {
+  color: var(--accent);
+}
+
 .card-foot {
   display: flex;
   align-items: flex-end;

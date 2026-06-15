@@ -85,6 +85,7 @@
               <label class="check-pill"><input id="candidateOnly" type="checkbox" autocomplete="off">買付候補</label>
               <label class="check-pill"><input id="newOnly" type="checkbox" autocomplete="off">新着</label>
               <label class="check-pill"><input id="cheapOnly" type="checkbox" autocomplete="off">割安新着</label>
+              <label class="check-pill"><input id="priceDropOnly" type="checkbox" autocomplete="off">値下げ</label>
               <label class="check-pill"><input id="showExcluded" type="checkbox" autocomplete="off">除外のみ</label>
             </div>
           </div>
@@ -264,8 +265,13 @@
 
         <section id="compareView" class="content-view" aria-label="買付候補比較">
           <div class="result-meta">
-            <span id="candidateCount">-</span>
-            <span>買付候補に追加した物件を横並びで比較</span>
+            <div class="result-counts">
+              <span id="candidateCount">-</span>
+              <span>買付候補に追加した物件を横並びで比較</span>
+            </div>
+            <button id="exportComparePdfButton" class="utility-button" type="button">
+              <i data-lucide="file-down"></i><span>PDF出力</span>
+            </button>
           </div>
           <div id="compareTable" class="compare-wrap"></div>
         </section>

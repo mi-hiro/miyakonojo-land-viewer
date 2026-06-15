@@ -475,6 +475,7 @@ const els = {
   candidateOnly: document.getElementById("candidateOnly"),
   newOnly: document.getElementById("newOnly"),
   cheapOnly: document.getElementById("cheapOnly"),
+  priceDropOnly: document.getElementById("priceDropOnly"),
   showExcluded: document.getElementById("showExcluded"),
   hazardAreaToggle: document.getElementById("hazardAreaToggle"),
   hazardAreaStatus: document.getElementById("hazardAreaStatus"),
@@ -498,6 +499,7 @@ const els = {
   alertGrid: document.getElementById("alertGrid"),
   dataSourceGrid: document.getElementById("dataSourceGrid"),
   candidateCount: document.getElementById("candidateCount"),
+  exportComparePdfButton: document.getElementById("exportComparePdfButton"),
   compareTable: document.getElementById("compareTable"),
   listingList: document.getElementById("listingList"),
   historyGrid: document.getElementById("historyGrid"),
@@ -551,7 +553,9 @@ function bindEvents() {
   els.candidateOnly?.addEventListener("change", renderFromFirstListPage);
   els.newOnly.addEventListener("change", renderFromFirstListPage);
   els.cheapOnly.addEventListener("change", renderFromFirstListPage);
+  els.priceDropOnly?.addEventListener("change", renderFromFirstListPage);
   els.showExcluded?.addEventListener("change", renderFromFirstListPage);
+  els.exportComparePdfButton?.addEventListener("click", exportComparePdf);
   els.controls?.addEventListener("change", handleControlChange, true);
   els.controls?.addEventListener("input", handleControlInput, true);
   els.hazardAreaToggle?.addEventListener("change", () => {
@@ -647,7 +651,7 @@ function resetTransientFilters() {
       input.value = "";
     }
   });
-  [els.favoriteOnly, els.candidateOnly, els.newOnly, els.cheapOnly, els.showExcluded].forEach((input) => {
+  [els.favoriteOnly, els.candidateOnly, els.newOnly, els.cheapOnly, els.priceDropOnly, els.showExcluded].forEach((input) => {
     if (input) {
       input.checked = false;
     }
@@ -1711,6 +1715,9 @@ function filterListings(listings) {
     if (els.cheapOnly.checked && !listing.is_cheap_new) {
       return false;
     }
+    if (els.priceDropOnly?.checked && !priceDropInfo(listing)) {
+      return false;
+    }
     return true;
   });
 }
@@ -1762,6 +1769,22 @@ function priceDropInfo(listing) {
     }
   }
   return null;
+}
+
+function priceDropSummary(drop) {
+  if (!drop) {
+    return "-";
+  }
+  const rateText = Number.isFinite(drop.rate) ? ` / ${formatNumber(drop.rate * 100)}%` : "";
+  return `${formatPrice(drop.amount)}値下げ${rateText}`;
+}
+
+function priceDropDetailText(drop) {
+  if (!drop) {
+    return "-";
+  }
+  const dateText = drop.date ? `（前回 ${escapeHtml(drop.date)}）` : "";
+  return `${formatPrice(drop.amount)}値下げ / ${formatPrice(drop.previous)} → ${formatPrice(drop.current)}${dateText}`;
 }
 
 function numberValue(value) {
@@ -1899,6 +1922,9 @@ function visibleListPages(current, total) {
 
 function renderListingCard(listing) {
   const color = unitColorClass(listing.unit_price_man_per_tsubo);
+  const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
+  const drop = priceDropInfo(listing);
   return `
     <article class="listing-card ${color}" data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
       ${renderCardImage(listing)}
@@ -1913,6 +1939,8 @@ function renderListingCard(listing) {
         ${metric("価格", formatPrice(listing.price_man_yen))}
         ${metric("面積", `${formatNumber(listing.land_area_tsubo)}坪`)}
         ${metric("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
+        ${metric("割安スコア", `${formatInteger(score.score)}点`)}
+        ${drop ? metric("価格改定", priceDropSummary(drop)) : ""}
       </div>
       <div class="card-foot">
         <span class="source">${escapeHtml(listing.address || "-")}</span>
@@ -1930,6 +1958,9 @@ function renderListingCard(listing) {
 function renderListingCompact(listing) {
   const color = unitColorClass(listing.unit_price_man_per_tsubo);
   const school = resolveSchoolInfo(listing);
+  const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
+  const drop = priceDropInfo(listing);
   return `
     <article class="listing-card listing-compact ${color}" data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
       ${renderCompactImage(listing)}
@@ -1945,6 +1976,8 @@ function renderListingCompact(listing) {
           <strong>${formatPrice(listing.price_man_yen)}</strong>
           <span>${formatNumber(listing.land_area_tsubo)}坪</span>
           <span>${formatUnit(listing.unit_price_man_per_tsubo)}</span>
+          <span>AI ${formatInteger(score.score)}点</span>
+          ${drop ? `<span>${escapeHtml(priceDropSummary(drop))}</span>` : ""}
           <span>${escapeHtml(school.elementary_text)} / ${escapeHtml(school.middle_text)}</span>
         </div>
         <div class="compact-foot">
@@ -2006,6 +2039,8 @@ function renderListingTable(listings) {
 function renderListingTableRow(listing) {
   const school = resolveSchoolInfo(listing);
   const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
+  const drop = priceDropInfo(listing);
   const positionText = Number.isFinite(listing.map_latitude) ? (listing.is_approx_position ? "概算位置" : "地図あり") : "地図なし";
   return `
     <tr data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
@@ -2020,6 +2055,8 @@ function renderListingTableRow(listing) {
       <td><span>${escapeHtml(school.elementary_text)}</span><small>${escapeHtml(school.middle_text)}</small></td>
       <td>
         <strong>${escapeHtml(assessment.label)}</strong>
+        <span>AI ${formatInteger(score.score)}点</span>
+        ${drop ? `<small>${escapeHtml(priceDropSummary(drop))}</small>` : ""}
         <span>${escapeHtml(positionText)}</span>
         <div class="badge-row table-badges">${renderBadges(listing)}</div>
       </td>
@@ -2157,10 +2194,12 @@ function renderPhotoFallback(listing, detail = false) {
 function renderBadges(listing) {
   const badges = [];
   const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
   const drop = priceDropInfo(listing);
   if (isFavorite(listing)) badges.push(`<span class="badge favorite">お気に入り</span>`);
   if (isCandidate(listing)) badges.push(`<span class="badge candidate">買付候補</span>`);
   if (isExcluded(listing)) badges.push(`<span class="badge warning">除外</span>`);
+  if (score.score >= 70) badges.push(`<span class="badge score">AI ${formatInteger(score.score)}点</span>`);
   if (drop) badges.push(`<span class="badge cheap">値下げ</span>`);
   if (userNote(listing)) badges.push(`<span class="badge approx">メモ</span>`);
   if (listing.is_new) badges.push(`<span class="badge new">新着</span>`);
@@ -2754,6 +2793,8 @@ function renderCompare() {
           <th>面積</th>
           <th>坪単価</th>
           <th>査定</th>
+          <th>スコア</th>
+          <th>価格改定</th>
           <th>学校区</th>
           <th>注意</th>
           <th>メモ</th>
@@ -2770,6 +2811,8 @@ function renderCompare() {
 
 function renderCompareRow(listing) {
   const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
+  const drop = priceDropInfo(listing);
   const school = resolveSchoolInfo(listing);
   const caution = [
     listing.legal_notice?.setback_required ? "要セットバック" : "",
@@ -2787,6 +2830,8 @@ function renderCompareRow(listing) {
       <td>${formatNumber(listing.land_area_tsubo)}坪</td>
       <td>${formatUnit(listing.unit_price_man_per_tsubo)}</td>
       <td>${escapeHtml(assessment.label)}<br><small>${formatUnit(assessment.reference_unit_price)}基準</small></td>
+      <td><strong>${formatInteger(score.score)}点</strong><small>${score.reasons.slice(0, 2).map(escapeHtml).join(" / ") || "-"}</small></td>
+      <td>${escapeHtml(priceDropSummary(drop))}</td>
       <td>${school.elementary_text}<br><small>${school.middle_text}</small></td>
       <td>${escapeHtml(caution)}</td>
       <td>${escapeHtml(userNote(listing) || "-")}</td>
@@ -2798,6 +2843,128 @@ function renderCompareRow(listing) {
       </td>
     </tr>
   `;
+}
+
+function exportComparePdf() {
+  const candidates = state.listings.filter((listing) => isCandidate(listing));
+  if (!candidates.length) {
+    setStatus("買付候補がありません。比較したい物件を買付候補に追加してください。");
+    return;
+  }
+  const printWindow = window.open("", "_blank", "width=1180,height=820");
+  if (!printWindow) {
+    setStatus("PDF出力画面を開けませんでした。ブラウザのポップアップ許可を確認してください。");
+    return;
+  }
+  printWindow.document.open();
+  printWindow.document.write(buildComparePrintHtml(candidates));
+  printWindow.document.close();
+  setStatus("比較PDF用の印刷画面を開きました。印刷先でPDF保存を選べます。");
+}
+
+function buildComparePrintHtml(candidates) {
+  const generatedAt = new Date().toLocaleString("ja-JP");
+  const reportAt = state.latest?.generated_at ? formatDateTime(state.latest.generated_at) : "-";
+  return `<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>都城市 売土地 買付候補比較</title>
+    <style>
+      @page { size: A4 landscape; margin: 10mm; }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #142033; font-family: "Yu Gothic", "Meiryo", sans-serif; font-size: 10.5px; line-height: 1.45; }
+      header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #2563eb; }
+      h1 { margin: 0; font-size: 21px; letter-spacing: 0; }
+      .meta { color: #475569; font-size: 10px; font-weight: 700; text-align: right; }
+      table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+      th, td { padding: 6px 7px; border: 1px solid #cbd5e1; vertical-align: top; word-break: break-word; }
+      th { background: #eaf3ff; color: #1e3a8a; font-size: 10px; text-align: left; }
+      td strong { display: block; margin-bottom: 2px; color: #0f172a; font-size: 11px; }
+      a { color: #1d4ed8; text-decoration: none; }
+      .score { font-size: 15px; color: #0369a1; }
+      .note { color: #475569; }
+      .caution { color: #b91c1c; font-weight: 800; }
+      .sub { display: block; color: #64748b; font-size: 9.5px; font-weight: 700; }
+      @media print { button { display: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>都城市 売土地 買付候補比較</h1>
+        <div class="note">買付候補 ${formatInteger(candidates.length)}件 / レポート更新 ${escapeHtml(reportAt)}</div>
+      </div>
+      <div class="meta">出力 ${escapeHtml(generatedAt)}<br>都城市 売土地ビューア</div>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:18%">物件</th>
+          <th style="width:8%">価格</th>
+          <th style="width:8%">面積</th>
+          <th style="width:8%">坪単価</th>
+          <th style="width:10%">査定</th>
+          <th style="width:8%">スコア</th>
+          <th style="width:9%">価格改定</th>
+          <th style="width:11%">学校区</th>
+          <th style="width:10%">注意</th>
+          <th style="width:10%">メモ・補足</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${candidates.map(renderComparePrintRow).join("")}
+      </tbody>
+    </table>
+    <script>window.addEventListener("load", function () { setTimeout(function () { window.print(); }, 300); });<\/script>
+  </body>
+</html>`;
+}
+
+function renderComparePrintRow(listing) {
+  const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
+  const drop = priceDropInfo(listing);
+  const school = resolveSchoolInfo(listing);
+  const caution = [
+    listing.legal_notice?.setback_required ? "要セットバック" : "",
+    listing.legal_notice?.disclosure_found ? "告知事項あり" : "",
+    listing.hazard_reference?.affected ? "ハザード該当" : "",
+    isExcluded(listing) ? "除外中" : "",
+  ].filter(Boolean).join(" / ") || "-";
+  const supplements = [
+    userNote(listing),
+    listing.remarks,
+    listing.restrictions,
+    plainText(listing.legal_notice?.road_text),
+  ].filter(Boolean).join(" / ");
+  return `
+    <tr>
+      <td>
+        <strong>${escapeHtml(shortTitle(listing))}</strong>
+        <span class="sub">${escapeHtml(listing.town)} / ${escapeHtml(listing.source)}</span>
+        <span class="sub">${escapeHtml(listing.address || "-")}</span>
+        ${listing.source_url ? `<a href="${escapeAttr(listing.source_url)}">掲載元</a>` : ""}
+      </td>
+      <td>${formatPrice(listing.price_man_yen)}</td>
+      <td>${formatNumber(listing.land_area_tsubo)}坪<br><span class="sub">${formatNumber(listing.land_area_sqm)}㎡</span></td>
+      <td>${formatUnit(listing.unit_price_man_per_tsubo)}</td>
+      <td>${escapeHtml(assessment.label)}<br><span class="sub">基準 ${formatUnit(assessment.reference_unit_price)}</span><span class="sub">査定 ${formatPrice(assessment.estimated_price_man_yen)}</span></td>
+      <td><strong class="score">${formatInteger(score.score)}点</strong><span class="sub">${score.reasons.slice(0, 3).map(escapeHtml).join(" / ")}</span></td>
+      <td>${escapeHtml(priceDropSummary(drop))}</td>
+      <td>${school.elementary_text}<br><span class="sub">${school.middle_text}</span></td>
+      <td class="${caution === "-" ? "" : "caution"}">${escapeHtml(caution)}</td>
+      <td>${escapeHtml(supplements || "-")}</td>
+    </tr>
+  `;
+}
+
+function plainText(value) {
+  return String(value || "")
+    .replace(/<br\s*\/?>/gi, " / ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function buildTownRows() {
@@ -3016,6 +3183,7 @@ function closeDetail(updateHash = true) {
 function renderDetail(listing) {
   const mapsQuery = encodeURIComponent(listing.address || `宮崎県都城市${listing.town}`);
   const assessment = assessListing(listing);
+  const score = assessmentScore(listing, assessment);
   const school = resolveSchoolInfo(listing);
   const drop = priceDropInfo(listing);
   return `
@@ -3028,6 +3196,7 @@ function renderDetail(listing) {
         ${kv("価格", formatPrice(listing.price_man_yen))}
         ${kv("土地面積", `${formatNumber(listing.land_area_sqm)}㎡ / ${formatNumber(listing.land_area_tsubo)}坪`)}
         ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
+        ${kv("価格改定", priceDropDetailText(drop))}
         ${kv("新着", listing.is_new ? "あり" : "なし")}
         ${kv("割安新着", listing.is_cheap_new ? "あり" : "なし")}
       </dl>
@@ -3048,12 +3217,14 @@ function renderDetail(listing) {
       <h3>割安査定</h3>
       <dl class="detail-kv">
         ${kv("判定", assessment.label)}
+        ${kv("割安スコア", `${formatInteger(score.score)}点`)}
         ${kv("信頼度", assessment.confidence)}
         ${kv("比較基準", formatUnit(assessment.reference_unit_price))}
         ${kv("平均との差", `${formatNumber(assessment.discount_amount)}万円/坪`)}
         ${kv("割安率", assessment.discount_rate !== null ? `${formatNumber(assessment.discount_rate * 100)}%` : "-")}
         ${kv("概算査定", formatPrice(assessment.estimated_price_man_yen))}
         ${kv("根拠", assessment.reasons.join("<br>"))}
+        ${kv("スコア理由", score.reasons.map(escapeHtml).join("<br>"))}
       </dl>
     </section>
     ${renderRouteValueSection(listing, assessment.route_value)}
@@ -3695,6 +3866,109 @@ function assessListing(listing) {
     route_value: routeValue,
     reasons,
   };
+}
+
+function assessmentScore(listing, assessment = assessListing(listing)) {
+  const reasons = [];
+  let score = 50;
+  const rate = Number.isFinite(assessment.discount_rate) ? assessment.discount_rate : null;
+  if (rate === null) {
+    score -= 12;
+    reasons.push("比較基準が少ないため慎重判定");
+  } else if (rate >= 0.2) {
+    score += 28;
+    reasons.push("査定基準より20%以上低い");
+  } else if (rate >= 0.1) {
+    score += 20;
+    reasons.push("査定基準より10%以上低い");
+  } else if (rate >= 0.05) {
+    score += 10;
+    reasons.push("査定基準より5%以上低い");
+  } else if (rate < -0.15) {
+    score -= 18;
+    reasons.push("査定基準より15%以上高い");
+  } else if (rate < 0) {
+    score -= 8;
+    reasons.push("査定基準より高め");
+  } else {
+    score += 3;
+    reasons.push("査定基準と同程度");
+  }
+
+  if (assessment.confidence === "高") {
+    score += 10;
+    reasons.push("根拠データの信頼度が高い");
+  } else if (assessment.confidence === "中") {
+    score += 5;
+    reasons.push("根拠データの信頼度が中程度");
+  } else {
+    score -= 4;
+    reasons.push("根拠データが少ない");
+  }
+
+  const routeValue = assessment.route_value || listing.route_value_reference;
+  if (routeValue?.public_reference_unit_price_man_per_tsubo) {
+    if (routeValue.route_value_type === "fixed_asset_tax") {
+      score += 12;
+      reasons.push("固定資産税路線価を参照");
+    } else if (routeValue.route_value_type === "inheritance_tax") {
+      score += 7;
+      reasons.push("相続税路線価を参照");
+    } else if (routeValue.route_value_type === "public_land_price") {
+      score += 5;
+      reasons.push("公示地価・地価調査を参照");
+    }
+    const distanceKm = routeValueReferenceDistanceKm(routeValue);
+    if (distanceKm !== null && distanceKm <= 1) {
+      score += 4;
+      reasons.push("参照地点が1km以内");
+    } else if (distanceKm !== null && distanceKm > 3) {
+      score -= 10;
+      reasons.push("参照地点が離れている");
+    }
+  }
+
+  if (priceDropInfo(listing)) {
+    score += 6;
+    reasons.push("値下げ履歴あり");
+  }
+  if (listing.is_new) {
+    score += 2;
+    reasons.push("新着物件");
+  }
+  if (listing.hazard_reference?.affected) {
+    score -= 8;
+    reasons.push("ハザード該当");
+  }
+  if (listing.legal_notice?.setback_required) {
+    score -= 8;
+    reasons.push("セットバック注意");
+  }
+  if (listing.legal_notice?.disclosure_found) {
+    score -= 10;
+    reasons.push("告知事項あり");
+  }
+  if (listing.is_approx_position) {
+    score -= 4;
+    reasons.push("地図位置が概算");
+  }
+  const roadWidth = numberValue(listing.legal_notice?.road_width_m);
+  if (roadWidth >= 4) {
+    score += 3;
+    reasons.push("接道幅員4m以上");
+  } else if (roadWidth > 0 && roadWidth < 4) {
+    score -= 7;
+    reasons.push("接道幅員4m未満");
+  }
+
+  return {
+    score: Math.round(clamp(score, 0, 100)),
+    reasons,
+  };
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
 }
 
 function discountLabel(rate) {

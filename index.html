@@ -54,6 +54,10 @@
               <span id="fixedAssetRouteMeta" class="route-data-meta">詳細を見る</span>
             </summary>
             <div id="fixedAssetRouteDetail" class="route-data-detail"></div>
+            <button id="fixedAssetCoverageLink" class="route-coverage-link" type="button" hidden>
+              <i data-lucide="map-pin"></i>
+              <span>取得範囲を地図で見る</span>
+            </button>
           </details>
         </section>
 
@@ -251,8 +255,14 @@
               <input id="hazardAreaToggle" type="checkbox">
               ハザードエリア
             </label>
+            <label class="check-pill map-toggle">
+              <input id="fixedAssetCoverageToggle" type="checkbox">
+              路線価取得範囲
+            </label>
             <span id="hazardAreaStatus">API取得後に地図上へ表示できます</span>
+            <span id="fixedAssetCoverageStatus">路線価データを読み込み中</span>
             <div id="hazardLegend" class="hazard-legend" aria-label="ハザード凡例"></div>
+            <div id="fixedAssetCoverageLegend" class="coverage-legend" aria-label="固定資産税路線価取得範囲の凡例"></div>
           </div>
           <div id="map"></div>
         </section>

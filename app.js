@@ -71,6 +71,7 @@ const STORAGE_KEYS = {
   hiddenImages: "miyakonojo_land_hidden_images_v1",
   deviceMode: "miyakonojo_land_device_mode_v1",
   showHazardAreas: "miyakonojo_land_show_hazard_areas_v1",
+  showFixedAssetCoverage: "miyakonojo_land_show_fixed_asset_coverage_v1",
 };
 
 const MAP_LAYER_DEFS = {
@@ -440,6 +441,7 @@ const state = {
   mapBaseLayers: null,
   markerLayer: null,
   hazardAreaLayer: null,
+  fixedAssetCoverageLayer: null,
   markers: [],
   detailMap: null,
   detailBaseLayers: null,
@@ -452,6 +454,8 @@ const state = {
   currentDetailId: null,
   deviceMode: "mobile",
   showHazardAreas: false,
+  showFixedAssetCoverage: false,
+  focusFixedAssetCoverage: false,
 };
 
 const els = {
@@ -480,6 +484,9 @@ const els = {
   hazardAreaToggle: document.getElementById("hazardAreaToggle"),
   hazardAreaStatus: document.getElementById("hazardAreaStatus"),
   hazardLegend: document.getElementById("hazardLegend"),
+  fixedAssetCoverageToggle: document.getElementById("fixedAssetCoverageToggle"),
+  fixedAssetCoverageStatus: document.getElementById("fixedAssetCoverageStatus"),
+  fixedAssetCoverageLegend: document.getElementById("fixedAssetCoverageLegend"),
   statusMessage: document.getElementById("statusMessage"),
   listingCount: document.getElementById("listingCount"),
   currentAverage: document.getElementById("currentAverage"),
@@ -488,6 +495,7 @@ const els = {
   fixedAssetRouteCount: document.getElementById("fixedAssetRouteCount"),
   fixedAssetRouteMeta: document.getElementById("fixedAssetRouteMeta"),
   fixedAssetRouteDetail: document.getElementById("fixedAssetRouteDetail"),
+  fixedAssetCoverageLink: document.getElementById("fixedAssetCoverageLink"),
   resultCount: document.getElementById("resultCount"),
   mapReadyCount: document.getElementById("mapReadyCount"),
   listLayoutControl: document.getElementById("listLayoutControl"),
@@ -565,6 +573,17 @@ function bindEvents() {
     state.showHazardAreas = Boolean(els.hazardAreaToggle.checked);
     localStorage.setItem(STORAGE_KEYS.showHazardAreas, state.showHazardAreas ? "1" : "0");
     renderHazardAreas();
+  });
+  els.fixedAssetCoverageLink?.addEventListener("click", openFixedAssetCoverageMap);
+  els.fixedAssetCoverageToggle?.addEventListener("change", () => {
+    state.showFixedAssetCoverage = Boolean(els.fixedAssetCoverageToggle.checked);
+    state.focusFixedAssetCoverage = state.showFixedAssetCoverage;
+    localStorage.setItem(STORAGE_KEYS.showFixedAssetCoverage, state.showFixedAssetCoverage ? "1" : "0");
+    renderFixedAssetCoverage();
+    if (state.focusFixedAssetCoverage) {
+      fitMapToFixedAssetCoverage();
+      state.focusFixedAssetCoverage = false;
+    }
   });
   els.closeDetail.addEventListener("click", closeDetail);
   document.addEventListener("pointerup", handleMouseDetailPointer, true);
@@ -672,6 +691,19 @@ function loadSavedState() {
   state.mapLayerType = normalizeMapLayerType(localStorage.getItem(STORAGE_KEYS.mapLayerType));
   state.deviceMode = normalizeDeviceMode(localStorage.getItem(STORAGE_KEYS.deviceMode) || defaultDeviceMode());
   state.showHazardAreas = localStorage.getItem(STORAGE_KEYS.showHazardAreas) === "1";
+  state.showFixedAssetCoverage = localStorage.getItem(STORAGE_KEYS.showFixedAssetCoverage) === "1";
+}
+
+function openFixedAssetCoverageMap(event) {
+  event?.preventDefault();
+  state.showFixedAssetCoverage = true;
+  state.focusFixedAssetCoverage = true;
+  localStorage.setItem(STORAGE_KEYS.showFixedAssetCoverage, "1");
+  if (window.location.hash === "#map") {
+    activateView("map");
+  } else {
+    window.location.hash = "map";
+  }
 }
 
 function handleControlChange(event) {
@@ -1862,6 +1894,9 @@ function renderFixedAssetRouteStatus() {
   els.fixedAssetRouteMeta.textContent = routeCount
     ? `物件照合 ${formatInteger(matchedCount)}件`
     : "データ蓄積待ち";
+  if (els.fixedAssetCoverageLink) {
+    els.fixedAssetCoverageLink.hidden = !routeCount;
+  }
   els.fixedAssetRouteDetail.innerHTML = routeCount
     ? `
         <span><b>収集路線</b>${formatInteger(routeCount)}件</span>
@@ -2279,6 +2314,7 @@ function initMap() {
   state.map.on("baselayerchange", (event) => saveMapLayerType(mapLayerTypeFromLabel(event.name)));
   state.markerLayer = L.layerGroup().addTo(state.map);
   state.hazardAreaLayer = L.layerGroup().addTo(state.map);
+  state.fixedAssetCoverageLayer = L.layerGroup().addTo(state.map);
   fitMapToCity(state.map);
 }
 
@@ -2322,6 +2358,7 @@ function renderMap() {
   state.markerLayer.clearLayers();
   state.markers = [];
   renderHazardAreas();
+  renderFixedAssetCoverage();
   state.filtered.forEach((listing) => {
     if (!Number.isFinite(listing.map_latitude) || !Number.isFinite(listing.map_longitude)) {
       return;
@@ -2355,6 +2392,107 @@ function renderMap() {
     });
   } else {
     fitMapToCity(state.map);
+  }
+  if (state.focusFixedAssetCoverage) {
+    fitMapToFixedAssetCoverage();
+    state.focusFixedAssetCoverage = false;
+  }
+}
+
+function fixedAssetCoverageItems() {
+  const items = Array.isArray(state.routeValues?.items) ? state.routeValues.items : [];
+  return items.filter(isFixedAssetRouteRecord).filter((item) => {
+    const latitude = Number(item.latitude ?? item.lat);
+    const longitude = Number(item.longitude ?? item.lng);
+    return Number.isFinite(latitude) && Number.isFinite(longitude);
+  });
+}
+
+function renderFixedAssetCoverage() {
+  updateFixedAssetCoverageControl();
+  if (!state.map || !window.L) {
+    return;
+  }
+  if (!state.fixedAssetCoverageLayer) {
+    state.fixedAssetCoverageLayer = L.layerGroup().addTo(state.map);
+  }
+  state.fixedAssetCoverageLayer.clearLayers();
+  if (!state.showFixedAssetCoverage) {
+    return;
+  }
+  fixedAssetCoverageItems().forEach((item) => {
+    const latitude = Number(item.latitude ?? item.lat);
+    const longitude = Number(item.longitude ?? item.lng);
+    const value = routeValueYenPerSqm(item);
+    const town = item.town || item.address || "町名未登録";
+    const routeId = item.fixed_asset_route_id || item.route_id || item.id || "";
+    const popup = [
+      `<strong>固定資産税路線価 取得済み</strong>`,
+      `<br>${escapeHtml(town)}`,
+      value ? `<br>${escapeHtml(formatYenPerSqm(value))}` : "",
+      routeId ? `<br>路線ID ${escapeHtml(routeId)}` : "",
+      `<br><small>色付き範囲は取得地点から半径約250mの目安です</small>`,
+    ].join("");
+    L.circle([latitude, longitude], {
+      radius: 250,
+      color: "#1769e0",
+      weight: 2,
+      opacity: 0.9,
+      fillColor: "#18a999",
+      fillOpacity: 0.2,
+    })
+      .bindPopup(popup)
+      .addTo(state.fixedAssetCoverageLayer);
+    L.circleMarker([latitude, longitude], {
+      radius: 4,
+      color: "#ffffff",
+      weight: 2,
+      fillColor: "#1769e0",
+      fillOpacity: 1,
+    })
+      .bindPopup(popup)
+      .addTo(state.fixedAssetCoverageLayer);
+  });
+}
+
+function fitMapToFixedAssetCoverage() {
+  if (!state.map || !window.L) {
+    return;
+  }
+  const points = fixedAssetCoverageItems().map((item) => [
+    Number(item.latitude ?? item.lat),
+    Number(item.longitude ?? item.lng),
+  ]);
+  if (!points.length) {
+    fitMapToCity(state.map);
+    return;
+  }
+  state.map.fitBounds(L.latLngBounds(points).pad(0.18), {
+    padding: [20, 20],
+    maxZoom: points.length === 1 ? 14 : 12,
+  });
+}
+
+function updateFixedAssetCoverageControl() {
+  if (els.fixedAssetCoverageToggle) {
+    els.fixedAssetCoverageToggle.checked = state.showFixedAssetCoverage;
+  }
+  const items = fixedAssetCoverageItems();
+  const towns = new Set(items.map((item) => String(item.town || "").trim()).filter(Boolean));
+  if (els.fixedAssetCoverageStatus) {
+    els.fixedAssetCoverageStatus.textContent = items.length
+      ? `${formatInteger(items.length)}路線・${formatInteger(towns.size)}町を取得済み`
+      : "固定資産税路線価を収集中";
+  }
+  if (els.fixedAssetCoverageLegend) {
+    els.fixedAssetCoverageLegend.innerHTML = items.length
+      ? `
+          <span class="coverage-legend-item">
+            <span class="coverage-legend-swatch"></span>
+            取得済み地点周辺（半径約250m・目安）
+          </span>
+        `
+      : "";
   }
 }
 

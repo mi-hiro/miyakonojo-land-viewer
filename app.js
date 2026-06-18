@@ -485,6 +485,9 @@ const els = {
   currentAverage: document.getElementById("currentAverage"),
   historyAverage: document.getElementById("historyAverage"),
   updatedAt: document.getElementById("updatedAt"),
+  fixedAssetRouteCount: document.getElementById("fixedAssetRouteCount"),
+  fixedAssetRouteMeta: document.getElementById("fixedAssetRouteMeta"),
+  fixedAssetRouteDetail: document.getElementById("fixedAssetRouteDetail"),
   resultCount: document.getElementById("resultCount"),
   mapReadyCount: document.getElementById("mapReadyCount"),
   listLayoutControl: document.getElementById("listLayoutControl"),
@@ -1824,6 +1827,50 @@ function renderSummary() {
     els.historyAverage.textContent = formatUnit(historySummary.historical_average_unit_price_man_per_tsubo);
   }
   els.updatedAt.textContent = formatDateTime(state.latest.generated_at);
+  renderFixedAssetRouteStatus();
+}
+
+function renderFixedAssetRouteStatus() {
+  if (!els.fixedAssetRouteCount || !els.fixedAssetRouteMeta || !els.fixedAssetRouteDetail) {
+    return;
+  }
+  const items = (Array.isArray(state.routeValues?.items) ? state.routeValues.items : []).filter(
+    isFixedAssetRouteRecord
+  );
+  const summary = state.routeValues?.fixed_asset_summary || {};
+  const routeCount = numberValue(summary.items || summary.rows) || items.length;
+  const townNames = new Set(items.map((item) => String(item.town || "").trim()).filter(Boolean));
+  const townCount = numberValue(summary.towns) || townNames.size;
+  const matchedCount = state.listings.filter(
+    (listing) => listing.route_value_reference?.route_value_type === "fixed_asset_tax"
+  ).length;
+  const values = items.map(routeValueYenPerSqm).filter((value) => value > 0);
+  const minValue = numberValue(summary.min_yen_per_sqm) || (values.length ? Math.min(...values) : 0);
+  const maxValue = numberValue(summary.max_yen_per_sqm) || (values.length ? Math.max(...values) : 0);
+  const updatedAt =
+    state.routeValues?.updated_at ||
+    items
+      .map((item) => item.collected_at)
+      .filter(Boolean)
+      .sort()
+      .at(-1) ||
+    null;
+
+  els.fixedAssetRouteCount.textContent = routeCount
+    ? `${formatInteger(routeCount)}路線・${formatInteger(townCount)}町`
+    : "収集中";
+  els.fixedAssetRouteMeta.textContent = routeCount
+    ? `物件照合 ${formatInteger(matchedCount)}件`
+    : "データ蓄積待ち";
+  els.fixedAssetRouteDetail.innerHTML = routeCount
+    ? `
+        <span><b>収集路線</b>${formatInteger(routeCount)}件</span>
+        <span><b>対象町名</b>${formatInteger(townCount)}町</span>
+        <span><b>物件照合</b>${formatInteger(matchedCount)}件</span>
+        <span><b>路線価範囲</b>${formatYenPerSqm(minValue)}〜${formatYenPerSqm(maxValue)}</span>
+        <span class="route-data-updated"><b>最終更新</b>${escapeHtml(formatDateTime(updatedAt))}</span>
+      `
+    : `<span class="route-data-updated"><b>状況</b>毎朝の自動収集で少しずつ蓄積します</span>`;
 }
 
 function renderBackupSummary() {

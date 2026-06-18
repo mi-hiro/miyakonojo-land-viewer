@@ -97,7 +97,7 @@ h1 {
 
 .summary-band {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -124,6 +124,95 @@ h1 {
   font-size: 23px;
   line-height: 1.15;
   overflow-wrap: anywhere;
+}
+
+.route-data-summary {
+  padding: 0;
+}
+
+.route-data-summary > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 10px;
+  align-items: center;
+  min-height: 80px;
+  padding: 13px 15px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.route-data-summary > summary::-webkit-details-marker {
+  display: none;
+}
+
+.route-data-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.route-data-heading svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+}
+
+.route-data-heading .summary-label {
+  margin: 0;
+}
+
+.route-data-summary strong {
+  grid-column: 1;
+  font-size: 19px;
+}
+
+.route-data-meta {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.route-data-meta::after {
+  content: "⌄";
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.route-data-summary[open] .route-data-meta::after {
+  transform: rotate(180deg);
+}
+
+.route-data-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  padding: 0 15px 13px;
+  border-top: 1px solid rgba(138, 166, 187, 0.35);
+}
+
+.route-data-detail span {
+  display: inline-flex;
+  gap: 5px;
+  padding-top: 10px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.route-data-detail b {
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.route-data-updated {
+  flex-basis: 100%;
 }
 
 .controls {
@@ -1584,8 +1673,26 @@ h1 {
     padding: 12px 13px;
   }
 
+  .route-data-summary {
+    grid-column: 1 / -1;
+    padding: 0;
+  }
+
   .summary-item strong {
     font-size: 18px;
+  }
+
+  .route-data-summary > summary {
+    min-height: 62px;
+    padding: 10px 13px;
+  }
+
+  .route-data-summary strong {
+    font-size: 16px;
+  }
+
+  .route-data-detail {
+    padding: 0 13px 11px;
   }
 
   .control-row {

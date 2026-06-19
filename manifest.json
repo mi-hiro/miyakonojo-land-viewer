@@ -1,9 +1,9 @@
 {
-  "name": "物件ビューア",
-  "short_name": "物件",
+  "name": "都城市 売土地ビューア",
+  "short_name": "売土地",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#eef9ff",
-  "theme_color": "#0a7de8",
+  "background_color": "#f7fafc",
+  "theme_color": "#1769e0",
   "icons": []
 }

@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-19T13:04:56.289Z",
+  "updated_at": "2026-06-20T10:23:49.965Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 25,
-    "items": 25,
-    "towns": 13,
+    "rows": 26,
+    "items": 26,
+    "towns": 14,
     "min_yen_per_sqm": 3300,
     "max_yen_per_sqm": 21300
   },
@@ -354,6 +354,29 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-19T13:02:01.376Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5726208-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.76985652765677,
+      "longitude": 131.09243680526453,
+      "route_value_yen_per_sqm": 10000,
+      "fixed_asset_tax_route_value_yen_per_sqm": 10000,
+      "fixed_asset_unit_price_man_per_tsubo": 3.3,
+      "public_reference_unit_price_man_per_tsubo": 4.7,
+      "fixed_asset_route_id": "5726208-22",
+      "route_id": "5726208-22",
+      "fixedid": "5726208",
+      "town": "太郎坊町",
+      "address": "太郎坊町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-06-20T10:22:53.946Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

@@ -4331,3 +4331,240 @@ body {
     height: 32px;
   }
 }
+
+/* Desktop/tablet map visibility tuning */
+@media (min-width: 900px) {
+  .topbar {
+    margin-top: 10px;
+    margin-bottom: -72px;
+    padding: 9px 12px;
+    border-radius: 22px;
+  }
+
+  .brand-mark {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+  }
+
+  .brand-mark svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .topbar h1 {
+    font-size: 25px;
+  }
+
+  .map-prism-cockpit,
+  .app-shell:not(.device-mobile) .map-prism-cockpit {
+    min-height: 880px;
+    padding-top: 86px;
+    padding-bottom: 112px;
+  }
+
+  .summary-band {
+    width: min(100%, 900px);
+    grid-template-columns: 150px 180px minmax(270px, 440px);
+    gap: 7px;
+  }
+
+  .summary-item {
+    min-height: 48px;
+    padding: 8px 11px;
+    border-radius: 17px;
+  }
+
+  .route-data-summary > summary {
+    min-height: 48px;
+    padding: 8px 11px;
+  }
+
+  .summary-label {
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .summary-item strong {
+    font-size: 18px;
+  }
+
+  .route-data-summary strong {
+    font-size: 16px;
+  }
+
+  .controls,
+  .app-shell:not(.device-mobile) .controls {
+    width: min(680px, calc(100% - 340px));
+    margin-top: 8px;
+    border-radius: 20px;
+  }
+
+  .compact-controls {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .control-primary,
+  .app-shell.device-desktop .compact-controls .control-primary,
+  .app-shell.device-tablet .compact-controls .control-primary {
+    display: flex;
+    align-items: end;
+    gap: 7px;
+  }
+
+  .compact-controls .search-box {
+    flex: 1 1 360px;
+    min-height: 36px;
+    border-radius: 16px;
+  }
+
+  .compact-controls .sort-wrap {
+    flex: 0 0 156px;
+  }
+
+  .filter-strip,
+  .app-shell.device-desktop .compact-controls .filter-strip,
+  .app-shell.device-tablet .compact-controls .filter-strip {
+    display: flex;
+    align-items: end;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .compact-controls .select-wrap {
+    flex: 0 0 132px;
+  }
+
+  .compact-controls .select-wrap select {
+    min-height: 33px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .compact-controls .select-wrap span,
+  .compact-controls .range-title {
+    font-size: 10px;
+  }
+
+  .compact-controls .toggle-row {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    gap: 5px;
+    min-width: 0;
+    overflow-x: auto;
+    padding-bottom: 1px;
+    scrollbar-width: none;
+  }
+
+  .compact-controls .toggle-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-controls .check-pill {
+    flex: 0 0 auto;
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+
+  .compact-controls .check-pill input {
+    width: 13px;
+    height: 13px;
+  }
+
+  .compact-controls .tabs,
+  .app-shell.device-desktop .compact-controls .tabs,
+  .app-shell.device-tablet .compact-controls .tabs {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 35px;
+    padding: 3px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .compact-controls .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-controls .tab,
+  .app-shell.device-desktop .compact-controls .tab,
+  .app-shell.device-tablet .compact-controls .tab {
+    flex: 0 0 auto;
+    min-width: 78px;
+    min-height: 29px;
+    padding: 0 9px;
+    border-radius: 14px;
+    font-size: 11px;
+  }
+
+  .compact-controls .tab svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .map-toolbar {
+    top: 238px;
+    width: min(244px, calc(100% - 20px));
+    max-height: 330px;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 11px;
+  }
+
+  .map-toolbar .map-toggle {
+    min-height: 30px;
+    font-size: 11px;
+  }
+
+  .hazard-legend-item,
+  .coverage-legend-item {
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+
+  #listView.content-view.active {
+    margin-top: -72px;
+  }
+}
+
+/* Extra-thin mobile stat cards */
+@media (max-width: 640px) {
+  .summary-item,
+  .route-data-summary {
+    flex-basis: 132px;
+    min-height: 40px;
+    padding: 6px 9px;
+    border-radius: 15px;
+  }
+
+  .route-data-summary {
+    flex-basis: 214px;
+  }
+
+  .route-data-summary > summary {
+    min-height: 40px;
+    padding: 6px 9px;
+  }
+
+  .summary-label,
+  .route-data-heading .summary-label {
+    font-size: 9px;
+  }
+
+  .summary-item strong {
+    font-size: 15px;
+  }
+
+  .route-data-summary strong {
+    font-size: 14px;
+  }
+
+  .route-data-meta {
+    font-size: 9px;
+  }
+}

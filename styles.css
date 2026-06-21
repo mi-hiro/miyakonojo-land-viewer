@@ -4261,12 +4261,15 @@ body {
     left: 10px;
     display: flex;
     align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
     width: auto;
-    max-height: 58px;
+    min-height: 50px;
+    max-height: none;
     gap: 6px;
     padding: 7px;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     border-radius: 20px;
     scrollbar-width: none;
   }
@@ -4288,14 +4291,18 @@ body {
     min-height: 30px;
     padding: 4px 8px;
     font-size: 10px;
+    white-space: nowrap;
   }
 
   .hazard-legend,
   .coverage-legend {
     display: flex;
     flex: 0 0 auto;
+    align-items: center;
     flex-wrap: nowrap;
     gap: 5px;
+    min-width: max-content;
+    overflow: visible;
   }
 
   #listView.content-view.active {

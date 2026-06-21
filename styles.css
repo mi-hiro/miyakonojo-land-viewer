@@ -5355,9 +5355,15 @@ body {
 
   .app-shell.device-mobile.view-list .map-toolbar {
     position: absolute;
-    top: auto;
+    top: 318px;
     right: 10px;
-    bottom: 126px;
+    bottom: auto;
     left: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .app-shell:not(.device-mobile) .summary-band {
+    margin-top: 16px;
   }
 }

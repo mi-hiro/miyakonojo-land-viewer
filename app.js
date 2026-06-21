@@ -703,6 +703,16 @@ function bindEvents() {
 
 function activateView(viewName) {
   state.view = viewName || "list";
+  els.appShell?.classList.remove(
+    "view-list",
+    "view-dashboard",
+    "view-map",
+    "view-history",
+    "view-distribution",
+    "view-compare",
+    "view-detail"
+  );
+  els.appShell?.classList.add(`view-${state.view}`);
   document.querySelectorAll(".tab").forEach((button) => {
     button.classList.toggle("active", button.dataset.view === state.view);
   });

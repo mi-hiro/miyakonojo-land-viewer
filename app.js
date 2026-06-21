@@ -74,6 +74,11 @@ const STORAGE_KEYS = {
   showFixedAssetCoverage: "miyakonojo_land_show_fixed_asset_coverage_v1",
 };
 
+const JAPANESE_TEXT_COLLATOR = new Intl.Collator("ja", {
+  numeric: true,
+  sensitivity: "base",
+});
+
 const MAP_LAYER_DEFS = {
   standard: {
     label: "地図",
@@ -159,6 +164,75 @@ const TOWN_COORDS = {
   "蓑原町": [31.718, 130.99],
   "野々美谷町": [31.822, 131.065],
   "立野町": [31.726, 131.098],
+};
+
+const TOWN_READING_ORDER = {
+  "菖蒲原町": "あやめばるちょう",
+  "一万城町": "いちまんじょうちょう",
+  "五十町": "いそまち",
+  "今町": "いままち",
+  "祝吉": "いわよし",
+  "梅北町": "うめきたちょう",
+  "大岩田町": "おおいわだちょう",
+  "大王町": "だいおうちょう",
+  "乙房町": "おとぼうちょう",
+  "甲斐元町": "かいもとちょう",
+  "菓子野町": "かしのちょう",
+  "上川東": "かみかわひがし",
+  "上長飯町": "かみながえちょう",
+  "久保原町": "くぼばるちょう",
+  "郡元町": "こおりもとちょう",
+  "栄町": "さかえまち",
+  "志比田町": "しびたちょう",
+  "下川東": "しもかわひがし",
+  "下水流町": "しもづるちょう",
+  "下長飯町": "しもながえちょう",
+  "庄内町": "しょうないちょう",
+  "神之山町": "じんのやまちょう",
+  "関之尾町": "せきのおちょう",
+  "早鈴町": "はやすずちょう",
+  "早水町": "はやみずちょう",
+  "前田町": "まえだちょう",
+  "高木町": "たかぎちょう",
+  "高崎町江平": "たかざきちょうえひら",
+  "高崎町大牟田": "たかざきちょうおおむた",
+  "高崎町東霧島": "たかざきちょうつまぎりしま",
+  "高崎町縄瀬": "たかざきちょうなわぜ",
+  "高崎町前田": "たかざきちょうまえだ",
+  "高城町有水": "たかじょうちょうありみず",
+  "高城町石山": "たかじょうちょういしやま",
+  "高城町大井手": "たかじょうちょうおおいで",
+  "高城町桜木": "たかじょうちょうさくらぎ",
+  "高城町四家": "たかじょうちょうしか",
+  "高城町高城": "たかじょうちょうたかじょう",
+  "高城町穂満坊": "たかじょうちょうほまんぼう",
+  "鷹尾": "たかお",
+  "太郎坊町": "たろぼうちょう",
+  "都北町": "とほくちょう",
+  "豊満町": "とよみつちょう",
+  "夏尾町": "なつおちょう",
+  "野々美谷町": "ののみたにちょう",
+  "姫城町": "ひめぎちょう",
+  "平江町": "ひらえちょう",
+  "平塚町": "ひらつかちょう",
+  "広原町": "ひろはらちょう",
+  "丸谷町": "まるたにちょう",
+  "美川町": "みかわちょう",
+  "南鷹尾町": "みなみたかおちょう",
+  "南横市町": "みなみよこいちちょう",
+  "蓑原町": "みのばるちょう",
+  "都島町": "みやこじまちょう",
+  "宮丸町": "みやまるちょう",
+  "都原町": "みやこばるちょう",
+  "安久町": "やすひさちょう",
+  "山田町中霧島": "やまだちょうなかぎりしま",
+  "山田町山田": "やまだちょうやまだ",
+  "山之口町富吉": "やまのくちちょうとみよし",
+  "山之口町花木": "やまのくちちょうはなのき",
+  "横市町": "よこいちちょう",
+  "吉之元町": "よしのもとちょう",
+  "若葉町": "わかばちょう",
+  "立野町": "たてのちょう",
 };
 
 const SCHOOL_COORDS = {
@@ -2697,7 +2771,7 @@ function renderHistory() {
   const query = normalizeQuery(els.searchInput.value);
   const visibleRows = rows
     .filter((row) => !query || normalizeQuery(row.town).includes(query))
-    .sort((a, b) => numberValue(b.listing_count) - numberValue(a.listing_count) || a.town.localeCompare(b.town, "ja"));
+    .sort((a, b) => compareTownNames(a.town, b.town));
 
   els.townCount.textContent = `${formatInteger(visibleRows.length)}町表示`;
   if (!visibleRows.length) {
@@ -3201,7 +3275,17 @@ function compareListingsByUnitPrice(direction) {
   return (a, b) =>
     (numberValue(a.unit_price_man_per_tsubo) - numberValue(b.unit_price_man_per_tsubo)) * multiplier ||
     numberValue(a.price_man_yen) - numberValue(b.price_man_yen) ||
-    String(a.id || "").localeCompare(String(b.id || ""), "ja");
+    compareJapaneseText(a.id, b.id);
+}
+
+function compareJapaneseText(a, b) {
+  return JAPANESE_TEXT_COLLATOR.compare(String(a || ""), String(b || ""));
+}
+
+function compareTownNames(a, b) {
+  const aText = String(a || "");
+  const bText = String(b || "");
+  return compareJapaneseText(TOWN_READING_ORDER[aText] || aText, TOWN_READING_ORDER[bText] || bText) || compareJapaneseText(aText, bText);
 }
 
 function metricDetail(label, value, listing) {
@@ -3230,9 +3314,7 @@ function populateTownFilter() {
     return;
   }
   const currentValue = els.townFilter.value;
-  const towns = [...new Set(state.listings.map(listingTownName).filter(Boolean))].sort((a, b) =>
-    a.localeCompare(b, "ja")
-  );
+  const towns = [...new Set(state.listings.map(listingTownName).filter(Boolean))].sort(compareTownNames);
   els.townFilter.innerHTML = [
     `<option value="">すべて</option>`,
     ...towns.map((town) => `<option value="${escapeAttr(town)}">${escapeHtml(town)}</option>`),

@@ -4956,3 +4956,86 @@ body {
     radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.28) 34%, transparent 35%),
     linear-gradient(135deg, #42d3df, #0796aa);
 }
+
+/* Compact town view */
+#historyView .result-meta {
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 16px;
+}
+
+.history-grid {
+  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+  gap: 8px;
+}
+
+.history-row {
+  padding: 8px;
+  border-radius: 16px;
+}
+
+.history-row::before {
+  right: 14px;
+  left: 14px;
+}
+
+.history-row h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.history-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.history-row .metric {
+  min-height: 34px;
+  padding: 5px 6px;
+  border-radius: 10px;
+}
+
+.history-row .metric span {
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.history-row .metric strong {
+  margin-top: 1px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.history-row .metric-link-card strong::after {
+  font-size: 9px;
+}
+
+@media (min-width: 1120px) {
+  .history-grid {
+    grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  #historyView .result-meta {
+    padding: 7px 10px;
+  }
+
+  .history-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .history-row {
+    padding: 8px;
+  }
+
+  .history-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .history-row .metric {
+    min-height: 32px;
+  }
+}

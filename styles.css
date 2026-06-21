@@ -4026,3 +4026,308 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Compact mobile glass controls so the map stays visible */
+@media (max-width: 640px) {
+  .topbar {
+    top: 8px;
+    width: calc(100% - 18px);
+    margin-top: 8px;
+    margin-bottom: -70px;
+    padding: 7px 8px;
+    border-radius: 20px;
+  }
+
+  .brand-lockup {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: 14px;
+  }
+
+  .brand-mark svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .topbar .eyebrow {
+    margin-bottom: 1px;
+    font-size: 10px;
+  }
+
+  .topbar h1 {
+    max-width: 122px;
+    overflow: hidden;
+    font-size: 17px;
+    text-overflow: ellipsis;
+  }
+
+  .topbar-actions {
+    gap: 5px;
+  }
+
+  .device-mode {
+    gap: 1px;
+    padding: 2px;
+  }
+
+  .device-mode-button {
+    flex: 0 0 28px;
+    width: 28px;
+    min-width: 28px;
+    min-height: 30px;
+    padding: 0;
+  }
+
+  .topbar .icon-button {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .map-prism-cockpit {
+    min-height: 850px;
+    padding: 82px 10px 128px;
+  }
+
+  .summary-band {
+    display: flex;
+    width: calc(100% + 4px);
+    gap: 7px;
+    padding: 0 2px 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .summary-band::-webkit-scrollbar {
+    display: none;
+  }
+
+  .summary-item,
+  .route-data-summary {
+    flex: 0 0 142px;
+    min-height: 48px;
+    padding: 8px 10px;
+    border-radius: 16px;
+  }
+
+  .route-data-summary {
+    flex-basis: 230px;
+    grid-column: auto;
+  }
+
+  .route-data-summary > summary {
+    min-height: 48px;
+    padding: 8px 10px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .summary-label,
+  .route-data-heading .summary-label {
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .summary-item strong {
+    font-size: 17px;
+  }
+
+  .route-data-summary strong {
+    font-size: 16px;
+  }
+
+  .route-data-meta {
+    font-size: 10px;
+  }
+
+  .route-data-detail {
+    display: none;
+  }
+
+  .controls {
+    margin-top: 8px;
+    border-radius: 20px;
+  }
+
+  .compact-controls {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .control-primary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .control-primary::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-controls .search-box {
+    flex: 1 0 230px;
+    min-height: 36px;
+    padding-inline: 10px;
+    border-radius: 16px;
+  }
+
+  .compact-controls .search-box input {
+    font-size: 14px;
+  }
+
+  .compact-controls .sort-wrap {
+    flex: 0 0 120px;
+  }
+
+  .compact-controls .filter-strip,
+  .app-shell.device-desktop .compact-controls .filter-strip,
+  .app-shell.device-tablet .compact-controls .filter-strip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .compact-controls .filter-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-controls .select-wrap {
+    flex: 0 0 118px;
+  }
+
+  .compact-controls .select-wrap span,
+  .compact-controls .range-title {
+    font-size: 10px;
+  }
+
+  .compact-controls .select-wrap select {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .compact-controls .toggle-row {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: visible;
+  }
+
+  .compact-controls .check-pill {
+    flex: 0 0 auto;
+    min-height: 32px;
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .compact-controls .check-pill input {
+    width: 13px;
+    height: 13px;
+  }
+
+  .compact-controls .tabs {
+    min-height: 38px;
+    padding: 3px;
+    border-radius: 18px;
+  }
+
+  .compact-controls .tab,
+  .app-shell.device-desktop .compact-controls .tab,
+  .app-shell.device-tablet .compact-controls .tab {
+    min-width: 78px;
+    min-height: 32px;
+    padding-inline: 9px;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+
+  .compact-controls .tab svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .map-toolbar {
+    right: 10px;
+    bottom: 126px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    max-height: 58px;
+    gap: 6px;
+    padding: 7px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 20px;
+    scrollbar-width: none;
+  }
+
+  .map-toolbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .map-toolbar::before,
+  #hazardAreaStatus,
+  #fixedAssetCoverageStatus {
+    display: none;
+  }
+
+  .map-toolbar .map-toggle,
+  .hazard-legend-item,
+  .coverage-legend-item {
+    flex: 0 0 auto;
+    min-height: 30px;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .hazard-legend,
+  .coverage-legend {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    gap: 5px;
+  }
+
+  #listView.content-view.active {
+    margin-top: -118px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell.device-mobile .topbar h1 {
+    max-width: 122px;
+    overflow: hidden;
+    font-size: 17px;
+    text-overflow: ellipsis;
+  }
+
+  .app-shell.device-mobile .device-mode {
+    flex: 0 0 auto;
+    gap: 1px;
+    padding: 2px;
+  }
+
+  .app-shell.device-mobile .device-mode-button {
+    flex: 0 0 28px;
+    width: 28px;
+    min-width: 28px;
+    min-height: 30px;
+    padding: 0;
+  }
+
+  .app-shell.device-mobile .topbar .icon-button {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+  }
+}

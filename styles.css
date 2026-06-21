@@ -4575,3 +4575,110 @@ body {
     font-size: 9px;
   }
 }
+
+/* Thin mobile bottom sheet controls */
+@media (max-width: 640px) {
+  #listView.content-view.active {
+    padding: 8px 10px 10px;
+    border-radius: 22px 22px 8px 8px;
+  }
+
+  #listView .sheet-handle {
+    width: 40px;
+    height: 4px;
+    margin-bottom: 8px;
+  }
+
+  #listView > .range-filters {
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  #listView > .range-filters .range-group {
+    min-height: 34px;
+    padding: 5px 7px;
+    gap: 5px;
+    grid-template-columns: 72px minmax(72px, 1fr) auto minmax(72px, 1fr);
+    border-radius: 14px;
+  }
+
+  #listView > .range-filters .range-title {
+    font-size: 11px;
+  }
+
+  #listView > .range-filters .range-group input {
+    height: 28px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  #listView > .range-filters .range-separator {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  #listView > .utility-disclosure {
+    margin-bottom: 6px;
+    border-radius: 14px;
+  }
+
+  #listView > .utility-disclosure summary {
+    min-height: 30px;
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  #listView > .utility-disclosure summary strong {
+    font-size: 10px;
+  }
+
+  #listView .result-meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  #listView .result-meta::before {
+    grid-column: 1;
+    flex-basis: auto;
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  #listView .result-counts {
+    grid-column: 1;
+    gap: 5px 8px;
+    font-size: 12px;
+  }
+
+  #listView .view-mode {
+    grid-column: 1 / -1;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 14px;
+  }
+
+  #listView .view-mode-button {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  #listView .page-size-control {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    min-height: 30px;
+    padding: 2px 5px 2px 7px;
+    font-size: 11px;
+  }
+
+  #listView .page-size-control select {
+    height: 26px;
+    padding: 0 5px;
+    font-size: 12px;
+  }
+}

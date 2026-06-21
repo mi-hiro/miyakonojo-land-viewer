@@ -4809,3 +4809,45 @@ body {
     height: 12px;
   }
 }
+
+/* Desktop map layer panel should sit cleanly at the upper-right */
+@media (min-width: 900px) {
+  .map-toolbar {
+    top: 158px;
+    right: clamp(18px, 2.4vw, 30px);
+    left: auto;
+    width: 300px;
+    max-height: none;
+    padding: 10px;
+    overflow: visible;
+    border-radius: 18px;
+  }
+
+  .map-toolbar::before {
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+
+  .map-toolbar .map-toggle {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .hazard-legend,
+  .coverage-legend {
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .hazard-legend-item,
+  .coverage-legend-item {
+    padding: 3px 7px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+}

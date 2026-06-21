@@ -5039,3 +5039,214 @@ body {
     min-height: 32px;
   }
 }
+
+/* Extra glossy liquid-glass finish */
+:root {
+  --glass-glow: 0 18px 48px rgba(19, 134, 158, 0.15), 0 4px 14px rgba(255, 255, 255, 0.38);
+  --glass-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.98), inset 0 -1px 0 rgba(255, 255, 255, 0.48);
+}
+
+body {
+  background:
+    radial-gradient(circle at 16% 5%, rgba(114, 231, 241, 0.28), transparent 32%),
+    radial-gradient(circle at 86% 10%, rgba(255, 203, 154, 0.16), transparent 30%),
+    linear-gradient(180deg, #e8fcff 0%, #f9ffff 46%, #ffffff 100%);
+}
+
+.leaflet-tile {
+  filter: saturate(1.12) brightness(1.07) contrast(0.97);
+}
+
+.topbar,
+.summary-item,
+.route-data-summary,
+.controls,
+.map-toolbar,
+#listView.content-view.active,
+.result-meta,
+.listing-card,
+.detail-page-head,
+.dashboard-panel,
+.history-card,
+.history-row,
+.distribution-card,
+.distribution-row,
+.compare-table,
+.compare-wrap,
+.list-table-wrap,
+.detail-panel,
+.detail-section,
+.empty-state {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.96);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(246, 255, 255, 0.62) 44%, rgba(214, 250, 255, 0.38) 100%),
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.9), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.16));
+  box-shadow: var(--glass-glow), var(--glass-inner-glow);
+  backdrop-filter: blur(30px) saturate(1.68) brightness(1.05);
+  -webkit-backdrop-filter: blur(30px) saturate(1.68) brightness(1.05);
+}
+
+.topbar::before,
+.summary-item::after,
+.route-data-summary::after,
+.controls::after,
+.map-toolbar::after,
+#listView.content-view.active::after,
+.result-meta::after,
+.listing-card::after,
+.detail-page-head::after,
+.dashboard-panel::after,
+.history-card::after,
+.history-row::after,
+.distribution-card::after,
+.distribution-row::after,
+.compare-table::after,
+.compare-wrap::after,
+.list-table-wrap::after,
+.detail-panel::after,
+.detail-section::after,
+.empty-state::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  content: "";
+  border-radius: inherit;
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.18) 23%, transparent 42%),
+    radial-gradient(circle at 78% 8%, rgba(255, 255, 255, 0.7), transparent 25%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 52%);
+  opacity: 0.62;
+}
+
+.summary-item > *,
+.route-data-summary > *,
+.controls > *,
+.topbar > *,
+.map-toolbar > *,
+#listView.content-view.active > *,
+.result-meta > *,
+.listing-card > *,
+.detail-page-head > *,
+.dashboard-panel > *,
+.history-card > *,
+.history-row > *,
+.distribution-card > *,
+.distribution-row > *,
+.compare-table > *,
+.compare-wrap > *,
+.list-table-wrap > *,
+.detail-panel > *,
+.detail-section > *,
+.empty-state > * {
+  position: relative;
+  z-index: 2;
+}
+
+.map-toolbar::before,
+#listView .result-meta::before {
+  position: relative;
+  z-index: 2;
+}
+
+.topbar::before {
+  inset: 1px;
+  opacity: 0.72;
+}
+
+.topbar::after,
+.map-prism-cockpit::after {
+  border-color: rgba(255, 255, 255, 0.74);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.map-prism-cockpit::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(250, 255, 255, 0.03) 46%, rgba(250, 255, 255, 0.5) 100%),
+    radial-gradient(circle at 58% 54%, rgba(84, 222, 232, 0.22), transparent 36%),
+    linear-gradient(122deg, rgba(255, 255, 255, 0.2) 0%, transparent 32%);
+}
+
+.search-box,
+.select-wrap,
+.range-group,
+.utility-disclosure,
+.tabs,
+.view-mode,
+.page-size-control,
+.check-pill,
+.map-toggle,
+.hazard-legend-item,
+.coverage-legend-item,
+.action-chip,
+.metric {
+  border-color: rgba(255, 255, 255, 0.94);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(242, 254, 255, 0.54)),
+    rgba(255, 255, 255, 0.44);
+  box-shadow:
+    0 8px 24px rgba(19, 134, 158, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(22px) saturate(1.48);
+  -webkit-backdrop-filter: blur(22px) saturate(1.48);
+}
+
+.tab.active,
+.view-mode-button.active,
+.device-mode-button.active,
+.pagination-button.active {
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.32), transparent 36%),
+    linear-gradient(135deg, #34d7df, #0798aa);
+  box-shadow:
+    0 12px 28px rgba(5, 154, 178, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(1, 88, 102, 0.22);
+}
+
+.brand-mark {
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.42) 24%, transparent 36%),
+    linear-gradient(145deg, #58e2ea 0%, #14b8c7 48%, #087b92 100%);
+  box-shadow:
+    0 14px 30px rgba(7, 143, 160, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    inset 0 -10px 18px rgba(1, 98, 115, 0.16);
+}
+
+@media (min-width: 900px) {
+  .map-toolbar {
+    position: absolute;
+    top: 96px;
+    right: clamp(18px, 2.4vw, 30px);
+    bottom: auto;
+    left: auto;
+    z-index: 16;
+    display: grid;
+    width: min(300px, calc(100% - 36px));
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 899px) {
+  .map-toolbar {
+    position: absolute;
+    top: auto;
+    right: 10px;
+    bottom: 126px;
+    left: 10px;
+    z-index: 16;
+    display: flex;
+    width: auto;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+}

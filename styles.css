@@ -5361,6 +5361,53 @@ body {
   }
 }
 
+@media (min-width: 700px) and (max-width: 1100px) {
+  .app-shell.device-tablet .summary-band {
+    width: min(530px, calc(100% - 350px));
+    grid-template-columns: 106px 126px minmax(220px, 250px);
+    justify-content: start;
+  }
+
+  .app-shell.device-tablet .summary-item,
+  .app-shell.device-tablet .route-data-summary {
+    min-height: 38px;
+    padding: 6px 9px;
+  }
+
+  .app-shell.device-tablet .route-data-summary > summary {
+    min-height: 38px;
+    padding: 6px 9px;
+  }
+
+  .app-shell.device-tablet .route-data-heading {
+    gap: 4px;
+  }
+
+  .app-shell.device-tablet .route-data-heading svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .app-shell.device-tablet .summary-label,
+  .app-shell.device-tablet .route-data-heading .summary-label {
+    font-size: 8px;
+  }
+
+  .app-shell.device-tablet .summary-item strong,
+  .app-shell.device-tablet .route-data-summary strong {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .app-shell.device-tablet .route-data-meta {
+    max-width: 70px;
+    overflow: hidden;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
 #detailPanel.detail-panel {
   position: fixed;
   inset: 0 0 0 auto;

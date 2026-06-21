@@ -640,6 +640,7 @@ function activateView(viewName) {
       initMap();
       renderMap();
       state.map?.invalidateSize();
+      document.getElementById("mapView")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 40);
   }
   if (state.view === "history") {
@@ -1681,9 +1682,7 @@ function render() {
   renderHistory();
   renderDistribution();
   renderCompare();
-  if (state.view === "map") {
-    renderMap();
-  }
+  renderMap();
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -2385,7 +2384,7 @@ function renderMap() {
     const cityBounds = cityLatLngBounds();
     const outsideCity =
       !cityBounds.contains(markerBounds.getSouthWest()) || !cityBounds.contains(markerBounds.getNorthEast());
-    const overviewMode = state.filtered.length > 30 || outsideCity;
+    const overviewMode = outsideCity;
     state.map.fitBounds(overviewMode ? cityBounds : markerBounds, {
       padding: [16, 16],
       maxZoom: overviewMode ? 10 : 12,

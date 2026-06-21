@@ -3300,3 +3300,729 @@ body {
     height: 38px;
   }
 }
+
+/* Liquid glass map cockpit */
+:root {
+  --glass: rgba(255, 255, 255, 0.68);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-line: rgba(255, 255, 255, 0.78);
+  --glass-shadow: 0 20px 56px rgba(35, 75, 95, 0.18);
+  --aqua: #18a7b8;
+  --aqua-strong: #0b7f8d;
+  --sky: #e9fbff;
+  --coral: #ff6b6b;
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 2%, rgba(83, 214, 226, 0.22), transparent 34%),
+    radial-gradient(circle at 88% 16%, rgba(255, 168, 106, 0.16), transparent 28%),
+    linear-gradient(180deg, #eefbff 0%, #f7fdff 42%, #ffffff 100%);
+}
+
+.app-shell {
+  position: relative;
+  overflow: clip;
+}
+
+.topbar {
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  width: min(1180px, calc(100% - 24px));
+  margin: 14px auto -84px;
+  padding: 12px 14px;
+  border: 1px solid var(--glass-line);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 255, 255, 0.62)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.06));
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(22px) saturate(1.45);
+  -webkit-backdrop-filter: blur(22px) saturate(1.45);
+}
+
+.topbar::after {
+  position: absolute;
+  inset: 2px 14px auto 14px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.98), transparent);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand-mark {
+  display: inline-grid;
+  flex: 0 0 48px;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.18) 34%, transparent 35%),
+    linear-gradient(135deg, #34c6d1, #077f95);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(9, 126, 148, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.brand-mark svg {
+  width: 25px;
+  height: 25px;
+}
+
+.topbar h1 {
+  font-size: clamp(21px, 2.6vw, 30px);
+  font-weight: 950;
+}
+
+.topbar .eyebrow {
+  color: #49606f;
+  opacity: 1;
+}
+
+.topbar-actions {
+  gap: 8px;
+}
+
+.device-mode,
+.topbar .icon-button,
+.utility-button,
+.icon-button,
+.view-mode,
+.page-size-control {
+  border-color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 10px 24px rgba(36, 74, 92, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px) saturate(1.28);
+  -webkit-backdrop-filter: blur(16px) saturate(1.28);
+}
+
+.device-mode-button.active,
+.view-mode-button.active,
+.pagination-button.active {
+  background: linear-gradient(135deg, #28bfcb, #0f8aa4);
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(10, 132, 152, 0.28);
+}
+
+.workspace {
+  width: min(1180px, 100%);
+  padding: 0 clamp(8px, 2vw, 18px) 42px;
+}
+
+.map-prism-cockpit {
+  position: relative;
+  min-height: 760px;
+  padding: 106px clamp(10px, 2vw, 18px) 170px;
+  overflow: hidden;
+  border-radius: 0 0 30px 30px;
+  isolation: isolate;
+}
+
+.map-prism-cockpit::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(245, 253, 255, 0.22) 0%, rgba(245, 253, 255, 0.02) 50%, rgba(245, 253, 255, 0.52) 100%),
+    radial-gradient(circle at 58% 56%, rgba(52, 198, 209, 0.23), transparent 35%);
+}
+
+.map-prism-cockpit::after {
+  position: absolute;
+  inset: 12px;
+  z-index: 3;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 24px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+}
+
+.map-stage-view {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.map-stage-view #map,
+.app-shell.device-desktop .map-stage-view #map,
+.app-shell.device-tablet .map-stage-view #map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.summary-band,
+.controls {
+  position: relative;
+  z-index: 10;
+}
+
+.summary-band {
+  width: min(100%, 980px);
+  grid-template-columns: minmax(130px, 0.6fr) minmax(130px, 0.6fr) minmax(220px, 1.25fr);
+  gap: 8px;
+}
+
+.summary-item,
+.route-data-summary,
+.controls,
+.result-meta,
+.listing-card,
+.dashboard-panel,
+.history-card,
+.distribution-card,
+.compare-table,
+.detail-page-head,
+.detail-panel {
+  border-color: rgba(255, 255, 255, 0.76);
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(239, 253, 255, 0.62)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.08));
+  box-shadow: 0 14px 34px rgba(38, 79, 95, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(1.35);
+  -webkit-backdrop-filter: blur(20px) saturate(1.35);
+}
+
+.summary-item {
+  min-height: 58px;
+  padding: 12px 14px;
+  border-radius: 20px;
+}
+
+.summary-label {
+  margin-bottom: 4px;
+}
+
+.summary-item strong {
+  color: #123447;
+  font-size: 20px;
+}
+
+.route-data-summary > summary {
+  min-height: 58px;
+  padding: 10px 13px;
+}
+
+.route-data-summary strong {
+  font-size: 17px;
+}
+
+.controls {
+  width: min(100%, 930px);
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+}
+
+.compact-controls {
+  gap: 9px;
+  padding: 12px;
+}
+
+.control-primary {
+  grid-template-columns: minmax(240px, 1fr) minmax(166px, 220px);
+}
+
+.search-box,
+.select-wrap,
+.range-group,
+.utility-disclosure,
+.tabs {
+  border-color: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(15px) saturate(1.25);
+  -webkit-backdrop-filter: blur(15px) saturate(1.25);
+}
+
+.search-box {
+  border-radius: 18px;
+}
+
+.select-wrap {
+  border-radius: 17px;
+}
+
+.select-wrap select,
+.search-box input,
+.range-group input,
+.page-size-control select {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.filter-strip {
+  grid-template-columns: minmax(132px, 0.72fr) minmax(132px, 0.8fr) minmax(280px, 1.4fr);
+}
+
+.check-pill,
+.map-toggle {
+  border-color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 8px 18px rgba(38, 79, 95, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+.check-pill:has(input:checked) {
+  border-color: rgba(13, 151, 169, 0.48);
+  background: linear-gradient(135deg, rgba(39, 197, 205, 0.22), rgba(255, 255, 255, 0.72));
+  color: #075d69;
+}
+
+.tabs {
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.tab {
+  border-radius: 16px;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #30c4d0, #0b8398);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(10, 132, 152, 0.24);
+}
+
+.map-toolbar {
+  position: absolute;
+  top: 270px;
+  right: clamp(10px, 2vw, 18px);
+  z-index: 8;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  justify-content: stretch;
+  width: min(282px, calc(100% - 20px));
+  max-height: calc(100% - 310px);
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(238, 253, 255, 0.56)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.06));
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  color: #1f4050;
+  backdrop-filter: blur(22px) saturate(1.38);
+  -webkit-backdrop-filter: blur(22px) saturate(1.38);
+}
+
+.map-toolbar::before {
+  content: "マップレイヤー";
+  color: #1e3b4b;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.hazard-legend,
+.coverage-legend {
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+
+.leaflet-control-layers {
+  border-color: rgba(255, 255, 255, 0.78) !important;
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+}
+
+.leaflet-control-layers-expanded {
+  background: rgba(255, 255, 255, 0.74);
+  color: #1c3440;
+}
+
+.leaflet-control-zoom a {
+  border-color: rgba(255, 255, 255, 0.72) !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+  color: #0c6876 !important;
+  box-shadow: 0 10px 24px rgba(38, 79, 95, 0.14);
+}
+
+.map-pin {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 24px rgba(31, 74, 89, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.map-pin.low {
+  background: linear-gradient(135deg, #37b56d, #0c8459);
+}
+
+.map-pin.mid {
+  background: linear-gradient(135deg, #24b6c4, #0d7f96);
+}
+
+.map-pin.high {
+  background: linear-gradient(135deg, #ff706c, #d74054);
+}
+
+#listView.content-view.active {
+  position: relative;
+  z-index: 12;
+  display: block;
+  max-width: 1120px;
+  margin: -136px auto 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 28px 28px 8px 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(243, 253, 255, 0.72)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.08));
+  box-shadow: 0 -8px 38px rgba(38, 79, 95, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px) saturate(1.42);
+  -webkit-backdrop-filter: blur(24px) saturate(1.42);
+}
+
+.sheet-handle {
+  width: 46px;
+  height: 5px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: rgba(75, 104, 119, 0.24);
+}
+
+#listView .result-meta {
+  margin: 0 0 12px;
+  padding: 9px 10px;
+  border-radius: 18px;
+}
+
+#listView .result-meta::before {
+  content: "物件一覧";
+  color: #132d3a;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.listing-card {
+  border-radius: 20px;
+}
+
+.listing-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(38, 79, 95, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.badge.new,
+.badge.cheap {
+  background: linear-gradient(135deg, #1fb4c5, #0b8596);
+  color: #ffffff;
+}
+
+.action-chip.active,
+.check-pill:has(input:checked) {
+  outline: 2px solid rgba(34, 179, 197, 0.2);
+}
+
+.pagination-button {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.app-shell.device-desktop .workspace,
+.app-shell.device-tablet .workspace {
+  display: block;
+  width: min(1180px, 100%);
+}
+
+.app-shell.device-desktop .controls,
+.app-shell.device-tablet .controls,
+.app-shell.device-desktop .status-message,
+.app-shell.device-tablet .status-message,
+.app-shell.device-desktop .content-view,
+.app-shell.device-tablet .content-view {
+  grid-column: auto;
+  margin-top: 12px;
+}
+
+.app-shell.device-desktop .controls,
+.app-shell.device-tablet .controls {
+  position: relative;
+  top: auto;
+  max-height: none;
+  overflow: visible;
+  margin-top: 12px;
+}
+
+.app-shell.device-desktop .summary-band,
+.app-shell.device-tablet .summary-band {
+  grid-column: auto;
+}
+
+.app-shell.device-desktop .compact-controls .control-primary,
+.app-shell.device-tablet .compact-controls .control-primary {
+  grid-template-columns: minmax(240px, 1fr) minmax(166px, 220px);
+}
+
+.app-shell.device-desktop .compact-controls .filter-strip,
+.app-shell.device-tablet .compact-controls .filter-strip {
+  grid-template-columns: minmax(132px, 0.72fr) minmax(132px, 0.8fr) minmax(280px, 1.4fr);
+}
+
+.app-shell.device-desktop .compact-controls .range-filters,
+.app-shell.device-tablet .compact-controls .range-filters {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.app-shell.device-desktop .compact-controls .tabs,
+.app-shell.device-tablet .compact-controls .tabs {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.app-shell.device-desktop .compact-controls .tab,
+.app-shell.device-tablet .compact-controls .tab {
+  justify-content: center;
+}
+
+@media (min-width: 980px) {
+  .app-shell:not(.device-mobile) .map-prism-cockpit {
+    min-height: 800px;
+  }
+
+  .app-shell:not(.device-mobile) .controls {
+    width: min(760px, calc(100% - 320px));
+  }
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    width: calc(100% - 18px);
+    margin-top: 10px;
+    margin-bottom: -92px;
+  }
+
+  .map-prism-cockpit {
+    min-height: 860px;
+    padding-top: 116px;
+    padding-bottom: 178px;
+  }
+
+  .summary-band,
+  .controls {
+    width: 100%;
+  }
+
+  .summary-band {
+    grid-template-columns: 1fr;
+  }
+
+  .control-primary,
+  .filter-strip,
+  .compact-controls .range-filters,
+  .app-shell.device-desktop .compact-controls .control-primary,
+  .app-shell.device-tablet .compact-controls .control-primary,
+  .app-shell.device-desktop .compact-controls .filter-strip,
+  .app-shell.device-tablet .compact-controls .filter-strip,
+  .app-shell.device-desktop .compact-controls .range-filters,
+  .app-shell.device-tablet .compact-controls .range-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .map-toolbar {
+    top: auto;
+    right: 10px;
+    bottom: 196px;
+    max-height: 250px;
+  }
+
+  #listView.content-view.active {
+    margin-top: -150px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px;
+    border-radius: 21px;
+  }
+
+  .brand-mark {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+  }
+
+  .brand-mark svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .topbar h1 {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .device-mode {
+    padding: 2px;
+  }
+
+  .device-mode-button {
+    flex-basis: 34px;
+    min-height: 32px;
+    padding: 0;
+  }
+
+  .device-mode-button span {
+    display: none;
+  }
+
+  .topbar .icon-button {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .workspace {
+    padding-inline: 0;
+  }
+
+  .map-prism-cockpit {
+    min-height: 900px;
+    padding-inline: 10px;
+    border-radius: 0 0 22px 22px;
+  }
+
+  .map-toolbar {
+    width: calc(100% - 20px);
+  }
+
+  .compact-controls .tabs,
+  .app-shell.device-desktop .compact-controls .tabs,
+  .app-shell.device-tablet .compact-controls .tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #listView.content-view.active {
+    margin-inline: 8px;
+    padding: 11px;
+    border-radius: 24px 24px 8px 8px;
+  }
+
+  #listView .result-meta {
+    align-items: stretch;
+  }
+
+  #listView .result-meta::before {
+    flex-basis: 100%;
+  }
+}
+
+/* Map-first refinement after moving detailed controls into the sheet */
+.compact-controls .tabs {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.compact-controls .tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.compact-controls .tab,
+.app-shell.device-desktop .compact-controls .tab,
+.app-shell.device-tablet .compact-controls .tab {
+  flex: 0 0 auto;
+  min-width: 88px;
+  padding-inline: 12px;
+}
+
+#listView > .range-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+#listView > .utility-disclosure {
+  margin: 0 0 10px;
+}
+
+#listView > .utility-disclosure .backup-row {
+  margin-top: 0;
+  border: 0;
+  border-top: 1px solid rgba(138, 166, 187, 0.32);
+  background: transparent;
+}
+
+#listView > .utility-disclosure .backup-actions {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .summary-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .route-data-summary {
+    grid-column: 1 / -1;
+  }
+
+  .compact-controls .toggle-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .compact-controls .toggle-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compact-controls .check-pill {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .map-prism-cockpit {
+    padding-bottom: 150px;
+  }
+
+  .summary-item {
+    min-height: 52px;
+    padding: 10px 12px;
+  }
+
+  .summary-item strong {
+    font-size: 18px;
+  }
+
+  .compact-controls {
+    padding: 10px;
+  }
+
+  .compact-controls .select-wrap select,
+  .compact-controls .search-box {
+    min-height: 38px;
+  }
+
+  #listView > .range-filters {
+    grid-template-columns: 1fr;
+  }
+}

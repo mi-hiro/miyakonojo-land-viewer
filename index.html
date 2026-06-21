@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7fafc">
-    <title>都城市 売土地ビューア</title>
+    <meta name="theme-color" content="#dff8ff">
+    <title>売土地 物件ビューア</title>
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
     <link rel="stylesheet" href="./styles.css">
@@ -12,9 +12,12 @@
   <body>
     <div id="appShell" class="app-shell">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">都城市 売土地</p>
-          <h1>物件ビューア</h1>
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true"><i data-lucide="map-pin"></i></span>
+          <div>
+            <p class="eyebrow">売土地</p>
+            <h1>物件ビューア</h1>
+          </div>
         </div>
         <div class="topbar-actions">
           <div id="deviceModeControl" class="device-mode" aria-label="表示サイズ切替">
@@ -35,6 +38,7 @@
       </header>
 
       <main class="workspace">
+        <section class="map-prism-cockpit" aria-label="地図と検索">
         <section class="summary-band" aria-label="集計">
           <div class="summary-item">
             <span class="summary-label">掲載</span>
@@ -104,39 +108,6 @@
             </div>
           </div>
 
-          <div class="range-filters" aria-label="価格と面積の範囲">
-            <div class="range-group">
-              <span class="range-title">価格（万円）</span>
-              <label><input id="priceMin" type="number" inputmode="numeric" min="0" step="10" placeholder="下限" autocomplete="off"></label>
-              <span class="range-separator">〜</span>
-              <label><input id="priceMax" type="number" inputmode="numeric" min="0" step="10" placeholder="上限" autocomplete="off"></label>
-            </div>
-            <div class="range-group">
-              <span class="range-title">面積（坪）</span>
-              <label><input id="areaMin" type="number" inputmode="decimal" min="0" step="1" placeholder="下限" autocomplete="off"></label>
-              <span class="range-separator">〜</span>
-              <label><input id="areaMax" type="number" inputmode="decimal" min="0" step="1" placeholder="上限" autocomplete="off"></label>
-            </div>
-          </div>
-
-          <details class="utility-disclosure">
-            <summary>
-              <span>保存データ</span>
-              <strong id="backupSummary">-</strong>
-            </summary>
-            <div class="backup-row" aria-label="保存データのバックアップ">
-              <div class="backup-actions">
-                <button id="exportBackupButton" class="utility-button" type="button">
-                  <i data-lucide="download"></i><span>バックアップ保存</span>
-                </button>
-                <button id="importBackupButton" class="utility-button" type="button">
-                  <i data-lucide="upload"></i><span>復元</span>
-                </button>
-                <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
-              </div>
-            </div>
-          </details>
-
           <nav class="tabs" aria-label="表示切替">
             <button class="tab active" type="button" data-view="list">
               <i data-lucide="list"></i><span>一覧</span>
@@ -157,6 +128,25 @@
               <i data-lucide="table-2"></i><span>比較</span>
             </button>
           </nav>
+        </section>
+
+        <section id="mapView" class="map-stage-view" aria-label="地図">
+          <div class="map-toolbar">
+            <label class="check-pill map-toggle">
+              <input id="hazardAreaToggle" type="checkbox">
+              ハザードエリア
+            </label>
+            <label class="check-pill map-toggle">
+              <input id="fixedAssetCoverageToggle" type="checkbox">
+              路線価取得範囲
+            </label>
+            <span id="hazardAreaStatus">API取得後に地図上へ表示できます</span>
+            <span id="fixedAssetCoverageStatus">路線価データを読み込み中</span>
+            <div id="hazardLegend" class="hazard-legend" aria-label="ハザード凡例"></div>
+            <div id="fixedAssetCoverageLegend" class="coverage-legend" aria-label="固定資産税路線価取得範囲の凡例"></div>
+          </div>
+          <div id="map"></div>
+        </section>
         </section>
 
         <section id="statusMessage" class="status-message" hidden></section>
@@ -220,6 +210,38 @@
         </section>
 
         <section id="listView" class="content-view active" aria-label="物件一覧">
+          <div class="sheet-handle" aria-hidden="true"></div>
+          <div class="range-filters" aria-label="価格と面積の範囲">
+            <div class="range-group">
+              <span class="range-title">価格（万円）</span>
+              <label><input id="priceMin" type="number" inputmode="numeric" min="0" step="10" placeholder="下限" autocomplete="off"></label>
+              <span class="range-separator">〜</span>
+              <label><input id="priceMax" type="number" inputmode="numeric" min="0" step="10" placeholder="上限" autocomplete="off"></label>
+            </div>
+            <div class="range-group">
+              <span class="range-title">面積（坪）</span>
+              <label><input id="areaMin" type="number" inputmode="decimal" min="0" step="1" placeholder="下限" autocomplete="off"></label>
+              <span class="range-separator">〜</span>
+              <label><input id="areaMax" type="number" inputmode="decimal" min="0" step="1" placeholder="上限" autocomplete="off"></label>
+            </div>
+          </div>
+          <details class="utility-disclosure">
+            <summary>
+              <span>保存データ</span>
+              <strong id="backupSummary">-</strong>
+            </summary>
+            <div class="backup-row" aria-label="保存データのバックアップ">
+              <div class="backup-actions">
+                <button id="exportBackupButton" class="utility-button" type="button">
+                  <i data-lucide="download"></i><span>バックアップ保存</span>
+                </button>
+                <button id="importBackupButton" class="utility-button" type="button">
+                  <i data-lucide="upload"></i><span>復元</span>
+                </button>
+                <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
+              </div>
+            </div>
+          </details>
           <div class="result-meta">
             <div class="result-counts">
               <span id="resultCount">-</span>
@@ -248,24 +270,6 @@
         <div id="listingList" class="listing-list"></div>
         <div id="listPagination" class="pagination" aria-label="一覧ページ切替"></div>
       </section>
-
-        <section id="mapView" class="content-view" aria-label="地図">
-          <div class="map-toolbar">
-            <label class="check-pill map-toggle">
-              <input id="hazardAreaToggle" type="checkbox">
-              ハザードエリア
-            </label>
-            <label class="check-pill map-toggle">
-              <input id="fixedAssetCoverageToggle" type="checkbox">
-              路線価取得範囲
-            </label>
-            <span id="hazardAreaStatus">API取得後に地図上へ表示できます</span>
-            <span id="fixedAssetCoverageStatus">路線価データを読み込み中</span>
-            <div id="hazardLegend" class="hazard-legend" aria-label="ハザード凡例"></div>
-            <div id="fixedAssetCoverageLegend" class="coverage-legend" aria-label="固定資産税路線価取得範囲の凡例"></div>
-          </div>
-          <div id="map"></div>
-        </section>
 
         <section id="historyView" class="content-view" aria-label="町別平均">
           <div class="result-meta">

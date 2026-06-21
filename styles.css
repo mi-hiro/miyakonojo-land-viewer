@@ -4682,3 +4682,130 @@ body {
     font-size: 12px;
   }
 }
+
+/* Extra-thin desktop control stack */
+@media (min-width: 900px) {
+  .map-prism-cockpit,
+  .app-shell:not(.device-mobile) .map-prism-cockpit {
+    padding-top: 78px;
+  }
+
+  .summary-band {
+    width: min(100%, 830px);
+    grid-template-columns: 130px 156px minmax(250px, 390px);
+    gap: 6px;
+  }
+
+  .summary-item,
+  .route-data-summary {
+    min-height: 40px;
+    padding: 6px 10px;
+    border-radius: 15px;
+  }
+
+  .route-data-summary > summary {
+    min-height: 40px;
+    padding: 6px 10px;
+  }
+
+  .summary-label {
+    margin-bottom: 1px;
+    font-size: 9px;
+  }
+
+  .summary-item strong {
+    font-size: 16px;
+  }
+
+  .route-data-summary strong {
+    font-size: 14px;
+  }
+
+  .route-data-meta {
+    font-size: 9px;
+  }
+
+  .controls,
+  .app-shell:not(.device-mobile) .controls {
+    width: min(620px, calc(100% - 360px));
+    margin-top: 6px;
+    border-radius: 16px;
+  }
+
+  .compact-controls {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .control-primary,
+  .app-shell.device-desktop .compact-controls .control-primary,
+  .app-shell.device-tablet .compact-controls .control-primary,
+  .filter-strip,
+  .app-shell.device-desktop .compact-controls .filter-strip,
+  .app-shell.device-tablet .compact-controls .filter-strip {
+    gap: 4px;
+  }
+
+  .compact-controls .search-box {
+    min-height: 30px;
+    padding-inline: 8px;
+    border-radius: 13px;
+  }
+
+  .compact-controls .search-box input {
+    font-size: 12px;
+  }
+
+  .compact-controls .sort-wrap {
+    flex-basis: 132px;
+  }
+
+  .compact-controls .select-wrap {
+    flex-basis: 116px;
+  }
+
+  .compact-controls .select-wrap select {
+    min-height: 28px;
+    padding: 0 7px;
+    font-size: 11px;
+  }
+
+  .compact-controls .select-wrap span {
+    font-size: 9px;
+  }
+
+  .compact-controls .check-pill {
+    min-height: 26px;
+    padding: 0 7px;
+    font-size: 10px;
+    border-radius: 10px;
+  }
+
+  .compact-controls .check-pill input {
+    width: 12px;
+    height: 12px;
+  }
+
+  .compact-controls .tabs,
+  .app-shell.device-desktop .compact-controls .tabs,
+  .app-shell.device-tablet .compact-controls .tabs {
+    min-height: 29px;
+    padding: 2px;
+    border-radius: 13px;
+  }
+
+  .compact-controls .tab,
+  .app-shell.device-desktop .compact-controls .tab,
+  .app-shell.device-tablet .compact-controls .tab {
+    min-width: 68px;
+    min-height: 24px;
+    padding: 0 7px;
+    border-radius: 11px;
+    font-size: 10px;
+  }
+
+  .compact-controls .tab svg {
+    width: 12px;
+    height: 12px;
+  }
+}

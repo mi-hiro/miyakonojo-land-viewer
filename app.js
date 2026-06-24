@@ -502,6 +502,7 @@ const SAMPLE_HAZARD_ZONES = {
 const state = {
   latest: null,
   history: null,
+  collectionHistory: null,
   routeValues: SAMPLE_ROUTE_VALUES,
   hazardZones: SAMPLE_HAZARD_ZONES,
   listings: [],
@@ -536,6 +537,7 @@ const els = {
   appShell: document.getElementById("appShell"),
   controls: document.querySelector(".controls"),
   refreshButton: document.getElementById("refreshButton"),
+  settingsButton: document.getElementById("settingsButton"),
   deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
   sortSelect: document.getElementById("sortSelect"),
@@ -598,6 +600,11 @@ const els = {
   detailTitle: document.getElementById("detailTitle"),
   detailBody: document.getElementById("detailBody"),
   closeDetail: document.getElementById("closeDetail"),
+  settingsPanel: document.getElementById("settingsPanel"),
+  closeSettings: document.getElementById("closeSettings"),
+  collectionHistoryButton: document.getElementById("collectionHistoryButton"),
+  collectionHistorySummary: document.getElementById("collectionHistorySummary"),
+  collectionHistoryList: document.getElementById("collectionHistoryList"),
 };
 
 function init() {
@@ -620,6 +627,14 @@ function init() {
 
 function bindEvents() {
   els.refreshButton.addEventListener("click", loadData);
+  els.settingsButton?.addEventListener("click", openSettings);
+  els.closeSettings?.addEventListener("click", closeSettings);
+  els.collectionHistoryButton?.addEventListener("click", renderCollectionHistory);
+  els.settingsPanel?.addEventListener("click", (event) => {
+    if (event.target === els.settingsPanel) {
+      closeSettings();
+    }
+  });
   els.searchInput.addEventListener("input", renderFromFirstListPage);
   els.sortSelect.addEventListener("change", renderFromFirstListPage);
   els.townFilter?.addEventListener("change", renderFromFirstListPage);
@@ -664,6 +679,7 @@ function bindEvents() {
   document.addEventListener("click", handleDetailLinkClick, true);
   document.addEventListener("click", handleDelegatedActionClick, true);
   document.addEventListener("keydown", handleDelegatedOpenKeydown);
+  document.addEventListener("keydown", handleGlobalKeydown);
   window.addEventListener("hashchange", routeFromHash);
   els.deviceModeControl?.querySelectorAll("[data-device-mode]").forEach((button) => {
     button.addEventListener("click", () => setDeviceMode(button.dataset.deviceMode));
@@ -699,6 +715,34 @@ function bindEvents() {
       activateView(button.dataset.view || "list");
     });
   });
+}
+
+function openSettings() {
+  if (!els.settingsPanel) {
+    return;
+  }
+  renderCollectionHistory();
+  els.settingsPanel.classList.add("open");
+  els.settingsPanel.setAttribute("aria-hidden", "false");
+  document.body.classList.add("settings-open");
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+function closeSettings() {
+  if (!els.settingsPanel) {
+    return;
+  }
+  els.settingsPanel.classList.remove("open");
+  els.settingsPanel.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("settings-open");
+}
+
+function handleGlobalKeydown(event) {
+  if (event.key === "Escape" && els.settingsPanel?.classList.contains("open")) {
+    closeSettings();
+  }
 }
 
 function activateView(viewName) {
@@ -1162,21 +1206,24 @@ function localDateStamp(date) {
 async function loadData() {
   setStatus("読み込み中");
   try {
-    const [latest, history, routeValues, fixedAssetRouteValues, hazardZones] = await Promise.all([
+    const [latest, history, routeValues, fixedAssetRouteValues, hazardZones, collectionHistory] = await Promise.all([
       fetchDataFile("latest.json"),
       fetchDataFile("history.json"),
       fetchOptionalDataFile("route-values.json", SAMPLE_ROUTE_VALUES),
       fetchOptionalDataFile("fixed-asset-route-values.json", SAMPLE_FIXED_ASSET_ROUTE_VALUES),
       fetchOptionalDataFile("hazard-zones.json", SAMPLE_HAZARD_ZONES),
+      fetchOptionalDataFile("collection-history.json", null),
     ]);
     state.latest = latest;
     state.history = history;
     state.routeValues = mergeRouteValuePayloads(routeValues || SAMPLE_ROUTE_VALUES, fixedAssetRouteValues || SAMPLE_FIXED_ASSET_ROUTE_VALUES);
     state.hazardZones = hazardZones || SAMPLE_HAZARD_ZONES;
+    state.collectionHistory = collectionHistory;
     setStatus("");
   } catch (error) {
     state.latest = SAMPLE_LATEST;
     state.history = SAMPLE_HISTORY;
+    state.collectionHistory = null;
     state.routeValues = SAMPLE_ROUTE_VALUES;
     state.hazardZones = SAMPLE_HAZARD_ZONES;
     setStatus("最新データを取得できないため、サンプルを表示しています。");
@@ -1766,6 +1813,7 @@ function render() {
   renderHistory();
   renderDistribution();
   renderCompare();
+  renderCollectionHistory();
   renderMap();
   if (window.lucide) {
     window.lucide.createIcons();
@@ -3023,6 +3071,227 @@ function buildDataSourceRows() {
   return [...groups.values()]
     .map((row) => ({ ...row, imageRate: row.count ? row.withImages / row.count : 0 }))
     .sort((a, b) => b.count - a.count || b.imageRate - a.imageRate || a.source.localeCompare(b.source, "ja"));
+}
+
+function renderCollectionHistory() {
+  if (!els.collectionHistoryList) {
+    return;
+  }
+  const rows = buildCollectionHistoryRows();
+  els.collectionHistorySummary.textContent = rows.length ? `${formatInteger(rows.length)}回分` : "履歴なし";
+  if (!rows.length) {
+    els.collectionHistoryList.innerHTML = `<div class="empty-state">取得データ履歴はまだありません</div>`;
+    return;
+  }
+  els.collectionHistoryList.innerHTML = rows
+    .map((row) => {
+      const sources = row.sources || [];
+      const warningCount = sources.reduce((sum, source) => sum + Number(source.error_count || 0), 0);
+      return `
+        <article class="collection-history-card">
+          <div class="collection-history-main">
+            <div>
+              <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
+              <h3>${escapeHtml(formatFullDateTime(row.generated_at || row.date))}</h3>
+            </div>
+            <strong>${formatInteger(row.listing_count)}件</strong>
+          </div>
+          <div class="collection-history-metrics">
+            ${renderCollectionHistoryMetric("土地情報", `${formatInteger(row.listing_count)}件`, `新着 ${formatInteger(row.new_count)}件`)}
+            ${renderCollectionHistoryMetric("写真", `${formatInteger(row.photos?.listings_with_photos)}件`, `${formatInteger(row.photos?.photo_count)}枚`)}
+            ${renderCollectionHistoryMetric("アットホーム写真", `${formatInteger(row.athome_photos?.with_photos)}件`, `${formatInteger(row.athome_photos?.photo_count)}枚`)}
+            ${renderCollectionHistoryMetric("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values?.count)}路線`, `${formatInteger(row.fixed_asset_route_values?.town_count)}町`)}
+            ${renderCollectionHistoryMetric("路線価照合", `${formatInteger(row.route_values?.matched_count)}件`, `確認 ${formatInteger(row.route_values?.checked_count)}件`)}
+            ${renderCollectionHistoryMetric("注意", `${formatInteger(warningCount)}件`, `除外 ${formatInteger(row.excluded_count)}件`)}
+          </div>
+          <div class="collection-history-sources" aria-label="収集元別の取得数">
+            ${sources.map(renderCollectionHistorySource).join("")}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderCollectionHistoryMetric(label, value, sub) {
+  return `
+    <div class="collection-history-metric">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+      <small>${escapeHtml(sub || "")}</small>
+    </div>
+  `;
+}
+
+function renderCollectionHistorySource(source) {
+  const warningText = Number(source.error_count || 0) ? ` / 注意 ${formatInteger(source.error_count)}` : "";
+  return `
+    <div class="collection-history-source">
+      <span>${escapeHtml(source.name || "不明")}</span>
+      <strong>収集 ${formatInteger(source.collected_count)}件 / 表示 ${formatInteger(source.displayed_count)}件</strong>
+      <small>写真 ${formatInteger(source.with_photos)}件・${formatInteger(source.photo_count)}枚 / 除外 ${formatInteger(source.excluded_count)}件${escapeHtml(warningText)}</small>
+    </div>
+  `;
+}
+
+function buildCollectionHistoryRows() {
+  const savedRows = Array.isArray(state.collectionHistory?.entries)
+    ? state.collectionHistory.entries.map(normalizeCollectionHistoryEntry).filter(Boolean)
+    : [];
+  const currentRow = buildCollectionHistoryCurrentRow();
+  const rows = [...savedRows];
+  if (currentRow && !rows.some((row) => row.generated_at && row.generated_at === currentRow.generated_at)) {
+    rows.unshift(currentRow);
+  }
+  return rows
+    .sort((a, b) => new Date(b.generated_at || b.date || 0).getTime() - new Date(a.generated_at || a.date || 0).getTime())
+    .slice(0, 45);
+}
+
+function normalizeCollectionHistoryEntry(entry) {
+  if (!entry || typeof entry !== "object") {
+    return null;
+  }
+  return {
+    date: entry.date || entry.report_date || "",
+    generated_at: entry.generated_at || entry.collected_at || entry.updated_at || "",
+    listing_count: Number(entry.listing_count ?? entry.listings ?? 0),
+    new_count: Number(entry.new_count ?? 0),
+    duplicate_count: Number(entry.duplicate_count ?? 0),
+    excluded_count: Number(entry.excluded_count ?? 0),
+    sources: Array.isArray(entry.sources) ? entry.sources.map(normalizeCollectionHistorySource) : [],
+    photos: normalizeCollectionHistoryPhotos(entry.photos),
+    athome_photos: normalizeCollectionHistoryPhotos(entry.athome_photos),
+    fixed_asset_route_values: normalizeCollectionHistoryRoute(entry.fixed_asset_route_values || entry.fixed_asset),
+    route_values: normalizeCollectionHistoryRoute(entry.route_values || entry.route_value),
+  };
+}
+
+function normalizeCollectionHistorySource(source) {
+  return {
+    name: source?.name || source?.source || "不明",
+    collected_count: Number(source?.collected_count ?? source?.count ?? 0),
+    displayed_count: Number(source?.displayed_count ?? source?.listing_count ?? 0),
+    excluded_count: Number(source?.excluded_count ?? 0),
+    error_count: Number(source?.error_count ?? (Array.isArray(source?.errors) ? source.errors.length : 0)),
+    with_photos: Number(source?.with_photos ?? source?.listings_with_photos ?? 0),
+    photo_count: Number(source?.photo_count ?? source?.photos ?? 0),
+  };
+}
+
+function normalizeCollectionHistoryPhotos(value) {
+  return {
+    listings_with_photos: Number(value?.listings_with_photos ?? value?.with_photos ?? 0),
+    photo_count: Number(value?.photo_count ?? value?.photos ?? 0),
+  };
+}
+
+function normalizeCollectionHistoryRoute(value) {
+  return {
+    count: Number(value?.count ?? value?.items ?? value?.rows ?? value?.matched_count ?? 0),
+    town_count: Number(value?.town_count ?? value?.towns ?? 0),
+    checked_count: Number(value?.checked_count ?? value?.checked ?? 0),
+    matched_count: Number(value?.matched_count ?? value?.matched ?? value?.count ?? 0),
+    updated_at: value?.updated_at || "",
+  };
+}
+
+function buildCollectionHistoryCurrentRow() {
+  if (!state.latest) {
+    return null;
+  }
+  const photos = buildPhotoStats(state.listings);
+  const athomeListings = state.listings.filter((listing) =>
+    /アットホーム|athome/i.test(`${listing.source || ""} ${listing.source_url || ""}`)
+  );
+  const fixedAsset = buildFixedAssetCollectionStats();
+  const routeValues = buildRouteValueCollectionStats();
+  return {
+    date: state.latest.report_date || localDateStamp(new Date()),
+    generated_at: state.latest.generated_at || state.history?.updated_at || new Date().toISOString(),
+    listing_count: Number(state.latest.summary?.listing_count ?? state.listings.length),
+    new_count: state.listings.filter((listing) => listing.is_new).length,
+    duplicate_count: Number(state.latest.summary?.duplicate_count ?? 0),
+    excluded_count: Number(state.latest.summary?.excluded_count ?? 0),
+    sources: buildCollectionHistorySourceRows(),
+    photos,
+    athome_photos: buildPhotoStats(athomeListings),
+    fixed_asset_route_values: fixedAsset,
+    route_values: routeValues,
+  };
+}
+
+function buildCollectionHistorySourceRows() {
+  const listingStats = buildSourceListingStats(state.listings);
+  const rows = [];
+  (Array.isArray(state.latest?.sources) ? state.latest.sources : []).forEach((source) => {
+    const key = source.name || "不明";
+    const stats = listingStats.get(key) || {};
+    rows.push({
+      name: key,
+      collected_count: Number(source.collected_count || 0),
+      displayed_count: Number(stats.displayed_count || 0),
+      excluded_count: Number(source.excluded_count || 0),
+      error_count: Array.isArray(source.errors) ? source.errors.length : 0,
+      with_photos: Number(stats.with_photos || 0),
+      photo_count: Number(stats.photo_count || 0),
+    });
+    listingStats.delete(key);
+  });
+  listingStats.forEach((stats, name) => {
+    rows.push({ name, collected_count: stats.displayed_count, ...stats });
+  });
+  return rows.sort((a, b) => b.collected_count - a.collected_count || a.name.localeCompare(b.name, "ja"));
+}
+
+function buildSourceListingStats(listings) {
+  const groups = new Map();
+  listings.forEach((listing) => {
+    const name = listing.source || "不明";
+    const row = groups.get(name) || { displayed_count: 0, with_photos: 0, photo_count: 0, with_map: 0 };
+    const images = imageUrlList(listing);
+    row.displayed_count += 1;
+    row.with_photos += images.length ? 1 : 0;
+    row.photo_count += images.length;
+    row.with_map += Number.isFinite(listing.map_latitude) ? 1 : 0;
+    groups.set(name, row);
+  });
+  return groups;
+}
+
+function buildPhotoStats(listings) {
+  return listings.reduce(
+    (stats, listing) => {
+      const images = imageUrlList(listing);
+      stats.listings_with_photos += images.length ? 1 : 0;
+      stats.photo_count += images.length;
+      return stats;
+    },
+    { listings_with_photos: 0, photo_count: 0 }
+  );
+}
+
+function buildFixedAssetCollectionStats() {
+  const items = routeValuePayloadItems(state.routeValues).filter(
+    (item) => item.route_value_type === "fixed_asset_tax" || Number.isFinite(Number(item.fixed_asset_tax_route_value_yen_per_sqm))
+  );
+  const towns = new Set(items.map((item) => item.town).filter(Boolean));
+  return {
+    count: Number(state.routeValues?.fixed_asset_summary?.items ?? state.routeValues?.fixed_asset_summary?.rows ?? items.length),
+    town_count: Number(state.routeValues?.fixed_asset_summary?.towns ?? towns.size),
+    updated_at: state.routeValues?.updated_at || "",
+  };
+}
+
+function buildRouteValueCollectionStats() {
+  const summary = state.routeValues?.route_value_summary || {};
+  const items = routeValuePayloadItems(state.routeValues).filter((item) => item.route_value_type !== "fixed_asset_tax");
+  return {
+    count: Number(summary.items ?? items.length),
+    checked_count: Number(summary.checked_count ?? summary.checked ?? items.length),
+    matched_count: Number(summary.matched_count ?? summary.matched ?? items.length),
+    updated_at: state.routeValues?.updated_at || "",
+  };
 }
 
 function buildDistributionBins(values) {
@@ -4399,6 +4668,19 @@ function formatInteger(value) {
     return "0";
   }
   return Number(value).toLocaleString("ja-JP", { maximumFractionDigits: 0 });
+}
+
+function formatFullDateTime(value) {
+  if (!value) return "-";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return String(value);
+  return date.toLocaleString("ja-JP", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 }
 
 function formatDateTime(value) {

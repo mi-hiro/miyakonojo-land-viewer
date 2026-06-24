@@ -19,6 +19,17 @@
             <h1>物件ビューア</h1>
           </div>
         </div>
+        <div class="topbar-live" aria-label="現在の日時と天気">
+          <div class="topbar-live-row">
+            <i data-lucide="calendar-days"></i>
+            <span id="currentDateText">-</span>
+          </div>
+          <div class="topbar-live-row">
+            <i data-lucide="cloud-sun"></i>
+            <span id="currentTimeText">--:--</span>
+            <span id="weatherText">天気取得待ち</span>
+          </div>
+        </div>
         <div class="topbar-actions">
           <div id="deviceModeControl" class="device-mode" aria-label="表示サイズ切替">
             <button class="device-mode-button" type="button" data-device-mode="desktop" aria-pressed="false">
@@ -302,6 +313,24 @@
           </div>
           <div id="compareTable" class="compare-wrap"></div>
         </section>
+
+        <section id="collectionHistoryView" class="content-view collection-history-view" aria-label="取得データ履歴">
+          <div class="collection-history-page-head">
+            <button id="collectionHistoryBackButton" class="utility-button" type="button">
+              <i data-lucide="arrow-left"></i><span>一覧へ戻る</span>
+            </button>
+            <div>
+              <p class="dashboard-kicker">Collection Log</p>
+              <h2>取得データ履歴</h2>
+            </div>
+            <span id="collectionHistorySummary" class="dashboard-summary">-</span>
+          </div>
+          <div class="collection-history-overview">
+            <span>土地情報・写真・固定資産税路線価・各サイト取得数の履歴</span>
+            <small>最新データと保存済み履歴を新しい順に表示します</small>
+          </div>
+          <div id="collectionHistoryList" class="collection-history-list"></div>
+        </section>
       </main>
     </div>
 
@@ -330,21 +359,12 @@
           </button>
         </div>
         <div class="settings-menu" aria-label="設定メニュー">
-          <button id="collectionHistoryButton" class="settings-menu-button active" type="button">
+          <button id="collectionHistoryButton" class="settings-menu-button" type="button">
             <i data-lucide="database"></i>
             <span>取得データ履歴</span>
           </button>
+          <p class="settings-note">毎日の土地情報・写真・固定資産税路線価の取得状況を別画面で確認します。</p>
         </div>
-        <section id="collectionHistorySection" class="collection-history-section" aria-label="取得データ履歴">
-          <div class="settings-section-head">
-            <div>
-              <p class="eyebrow">Collection Log</p>
-              <h3>取得データ履歴</h3>
-            </div>
-            <span id="collectionHistorySummary" class="dashboard-summary">-</span>
-          </div>
-          <div id="collectionHistoryList" class="collection-history-list"></div>
-        </section>
       </div>
     </aside>
 

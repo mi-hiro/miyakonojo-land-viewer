@@ -533,11 +533,16 @@ const state = {
   focusFixedAssetCoverage: false,
 };
 
+let topbarClockTimer = null;
+
 const els = {
   appShell: document.getElementById("appShell"),
   controls: document.querySelector(".controls"),
   refreshButton: document.getElementById("refreshButton"),
   settingsButton: document.getElementById("settingsButton"),
+  currentDateText: document.getElementById("currentDateText"),
+  currentTimeText: document.getElementById("currentTimeText"),
+  weatherText: document.getElementById("weatherText"),
   deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
   sortSelect: document.getElementById("sortSelect"),
@@ -603,6 +608,7 @@ const els = {
   settingsPanel: document.getElementById("settingsPanel"),
   closeSettings: document.getElementById("closeSettings"),
   collectionHistoryButton: document.getElementById("collectionHistoryButton"),
+  collectionHistoryBackButton: document.getElementById("collectionHistoryBackButton"),
   collectionHistorySummary: document.getElementById("collectionHistorySummary"),
   collectionHistoryList: document.getElementById("collectionHistoryList"),
 };
@@ -616,6 +622,7 @@ function init() {
   bindEvents();
   resetTransientFilters();
   renderBackupSummary();
+  startTopbarLiveInfo();
   loadData();
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
@@ -629,7 +636,14 @@ function bindEvents() {
   els.refreshButton.addEventListener("click", loadData);
   els.settingsButton?.addEventListener("click", openSettings);
   els.closeSettings?.addEventListener("click", closeSettings);
-  els.collectionHistoryButton?.addEventListener("click", renderCollectionHistory);
+  els.collectionHistoryButton?.addEventListener("click", openCollectionHistoryView);
+  els.collectionHistoryBackButton?.addEventListener("click", () => {
+    if (window.location.hash === "#list") {
+      activateView("list");
+    } else {
+      window.location.hash = "list";
+    }
+  });
   els.settingsPanel?.addEventListener("click", (event) => {
     if (event.target === els.settingsPanel) {
       closeSettings();
@@ -721,12 +735,21 @@ function openSettings() {
   if (!els.settingsPanel) {
     return;
   }
-  renderCollectionHistory();
   els.settingsPanel.classList.add("open");
   els.settingsPanel.setAttribute("aria-hidden", "false");
   document.body.classList.add("settings-open");
   if (window.lucide) {
     window.lucide.createIcons();
+  }
+}
+
+function openCollectionHistoryView() {
+  closeSettings();
+  clearDetailHash();
+  if (window.location.hash === "#collectionHistory") {
+    activateView("collectionHistory");
+  } else {
+    window.location.hash = "collectionHistory";
   }
 }
 
@@ -745,6 +768,86 @@ function handleGlobalKeydown(event) {
   }
 }
 
+function startTopbarLiveInfo() {
+  renderTopbarDateTime();
+  if (topbarClockTimer) {
+    window.clearInterval(topbarClockTimer);
+  }
+  topbarClockTimer = window.setInterval(renderTopbarDateTime, 30 * 1000);
+  loadCurrentWeather();
+}
+
+function renderTopbarDateTime() {
+  const now = new Date();
+  if (els.currentDateText) {
+    els.currentDateText.textContent = now.toLocaleDateString("ja-JP", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      weekday: "short",
+    });
+  }
+  if (els.currentTimeText) {
+    els.currentTimeText.textContent = now.toLocaleTimeString("ja-JP", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+}
+
+function loadCurrentWeather() {
+  if (!els.weatherText) {
+    return;
+  }
+  if (!navigator.geolocation) {
+    els.weatherText.textContent = "位置情報非対応";
+    return;
+  }
+  els.weatherText.textContent = "現在地の天気を取得中";
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      try {
+        const { latitude, longitude } = position.coords;
+        const url = new URL("https://api.open-meteo.com/v1/forecast");
+        url.searchParams.set("latitude", latitude.toFixed(4));
+        url.searchParams.set("longitude", longitude.toFixed(4));
+        url.searchParams.set("current", "temperature_2m,weather_code");
+        url.searchParams.set("timezone", "auto");
+        const response = await fetch(url.toString(), { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("weather request failed");
+        }
+        const data = await response.json();
+        const current = data?.current || data?.current_weather || {};
+        const temperature = Number(current.temperature_2m ?? current.temperature);
+        const weatherCode = Number(current.weather_code ?? current.weathercode);
+        const weatherName = weatherCodeLabel(weatherCode);
+        const tempText = Number.isFinite(temperature) ? `${Math.round(temperature)}℃` : "";
+        els.weatherText.textContent = [tempText, weatherName].filter(Boolean).join(" ");
+      } catch (error) {
+        els.weatherText.textContent = "天気取得できません";
+      }
+    },
+    () => {
+      els.weatherText.textContent = "位置情報を許可で天気表示";
+    },
+    { enableHighAccuracy: false, maximumAge: 20 * 60 * 1000, timeout: 8000 }
+  );
+}
+
+function weatherCodeLabel(code) {
+  if (!Number.isFinite(code)) return "";
+  if (code === 0) return "快晴";
+  if ([1, 2].includes(code)) return "晴れ";
+  if (code === 3) return "くもり";
+  if ([45, 48].includes(code)) return "霧";
+  if ([51, 53, 55, 56, 57].includes(code)) return "霧雨";
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "雨";
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return "雪";
+  if ([95, 96, 99].includes(code)) return "雷雨";
+  return "天気";
+}
+
 function activateView(viewName) {
   state.view = viewName || "list";
   els.appShell?.classList.remove(
@@ -754,6 +857,7 @@ function activateView(viewName) {
     "view-history",
     "view-distribution",
     "view-compare",
+    "view-collectionHistory",
     "view-detail"
   );
   els.appShell?.classList.add(`view-${state.view}`);
@@ -782,6 +886,12 @@ function activateView(viewName) {
   }
   if (state.view === "compare") {
     renderCompare();
+  }
+  if (state.view === "collectionHistory") {
+    renderCollectionHistory();
+    setTimeout(() => {
+      document.getElementById("collectionHistoryView")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 40);
   }
   if (window.lucide) {
     window.lucide.createIcons();
@@ -989,7 +1099,7 @@ function routeFromHash() {
     return;
   }
   const hashView = String(window.location.hash || "").replace(/^#/, "");
-  if (["list", "dashboard", "map", "history", "distribution", "compare"].includes(hashView)) {
+  if (["list", "dashboard", "map", "history", "distribution", "compare", "collectionHistory"].includes(hashView)) {
     closeDetail(false);
     activateView(hashView);
     return;

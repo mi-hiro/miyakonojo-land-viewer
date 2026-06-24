@@ -5847,6 +5847,8 @@ body {
   white-space: nowrap;
 }
 
+.weather-mark {   flex: 0 0 auto;   display: inline-grid;   place-items: center;   width: 18px;   height: 18px;   font-size: 15px;   line-height: 1;   filter: drop-shadow(0 2px 4px rgba(12, 96, 112, 0.16)); }  .weather-mark[hidden] {   display: none; }
+
 .collection-history-view.content-view.active {
   position: relative;
   z-index: 12;
@@ -6003,6 +6005,8 @@ body {
     width: 11px;
     height: 11px;
   }
+
+  .app-shell.device-mobile .weather-mark {     width: 14px;     height: 14px;     font-size: 12px;   }
 
   .app-shell.device-mobile .topbar-live-row span {
     min-width: 0;

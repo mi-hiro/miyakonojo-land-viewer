@@ -5146,6 +5146,13 @@ body {
   z-index: 2;
 }
 
+.list-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 .map-toolbar::before,
 #listView .result-meta::before {
   position: relative;

@@ -91,6 +91,7 @@ function normalizeHistoryEntry(entry) {
     sources: Array.isArray(entry.sources) ? entry.sources.map(normalizeSource).filter(Boolean) : [],
     photos: normalizePhotos(entry.photos),
     athome_photos: normalizePhotos(entry.athome_photos),
+    athome_photo_fill: normalizeAthomePhotoFill(entry.athome_photo_fill),
     fixed_asset_route_values: normalizeRoute(entry.fixed_asset_route_values || entry.fixed_asset),
     route_values: normalizeRoute(entry.route_values || entry.route_value),
     history: entry.history || null,
@@ -201,6 +202,24 @@ function normalizePhotos(photos) {
     listings_with_photos: toNumber(photos?.listings_with_photos ?? photos?.with_photos),
     with_photos: toNumber(photos?.with_photos ?? photos?.listings_with_photos),
     photo_count: toNumber(photos?.photo_count),
+  };
+}
+
+function normalizeAthomePhotoFill(fill) {
+  if (!fill || typeof fill !== "object") return null;
+  return {
+    date: fill.date || "",
+    generated_at: fill.generated_at || "",
+    run_at: fill.run_at || "",
+    checked: toNumber(fill.checked),
+    updated: toNumber(fill.updated),
+    no_image: toNumber(fill.no_image),
+    failed: toNumber(fill.failed),
+    remaining_without_images: toNumber(fill.remaining_without_images),
+    added_with_photos: toNumber(fill.added_with_photos),
+    added_photo_count: toNumber(fill.added_photo_count),
+    before: normalizePhotos(fill.before),
+    after: normalizePhotos(fill.after),
   };
 }
 
@@ -389,6 +408,7 @@ function renderAthomePhotoTrend(rows) {
   const chronological = rows.slice().reverse();
   const latest = rows[0];
   const latestStats = latest.athome_photos || normalizePhotos();
+  const latestFill = latest.athome_photo_fill;
   const previousPhotoData = rows.slice(1).find((row) => toNumber(row.athome_photos?.photo_count) > 0);
   const pending = latestStats.listings > 0 && latestStats.photo_count === 0 && previousPhotoData;
   const latestRate = latestStats.listings ? Math.round((latestStats.with_photos / latestStats.listings) * 100) : 0;
@@ -400,11 +420,12 @@ function renderAthomePhotoTrend(rows) {
 
   els.athomePhotoSummary.innerHTML = `
     <span class="athome-status-chip ${pending ? "warning" : "ok"}">
-      ${pending ? "本日分は写真補完待ちの可能性" : `最新 ${formatInteger(latestStats.photo_count)}枚`}
+      ${pending ? "本日分は写真補完待ちの可能性" : latestFill ? `写真補完 +${formatInteger(latestFill.added_photo_count)}枚` : `最新 ${formatInteger(latestStats.photo_count)}枚`}
     </span>
   `;
   els.athomePhotoTrendChart.innerHTML = chronological.map((row) => {
     const stats = row.athome_photos || normalizePhotos();
+    const fill = row.athome_photo_fill;
     const rate = stats.listings ? Math.round((stats.with_photos / stats.listings) * 100) : 0;
     const isLatest = sameMoment(row.generated_at, latest.generated_at) || row.date === latest.date;
     return `
@@ -422,6 +443,12 @@ function renderAthomePhotoTrend(rows) {
           <span>写真付き率</span>
           <strong>${formatInteger(rate)}%</strong>
         </div>
+        ${fill ? renderAthomePhotoFillStats(fill) : `
+          <div class="athome-photo-fill missing">
+            <span>写真のみ収集</span>
+            <strong>記録なし</strong>
+          </div>
+        `}
       </div>
     `;
   }).join("");
@@ -429,8 +456,25 @@ function renderAthomePhotoTrend(rows) {
     els.athomePhotoTrendChart.innerHTML = `<div class="empty-state">アットホーム写真の履歴はまだありません</div>`;
   }
   if (els.athomePhotoSummary && !pending) {
-    els.athomePhotoSummary.title = `最新: ${formatInteger(latestStats.with_photos)}件 / ${formatInteger(latestStats.listings)}件、${formatInteger(latestStats.photo_count)}枚、写真付き率 ${formatInteger(latestRate)}%`;
+    const fillText = latestFill ? `、写真補完 ${formatDateTime(latestFill.run_at)} 実行` : "";
+    els.athomePhotoSummary.title = `最新: ${formatInteger(latestStats.with_photos)}件 / ${formatInteger(latestStats.listings)}件、${formatInteger(latestStats.photo_count)}枚、写真付き率 ${formatInteger(latestRate)}%${fillText}`;
   }
+}
+
+function renderAthomePhotoFillStats(fill) {
+  const statusClass = fill.failed > 0 ? "warning" : fill.updated > 0 ? "ok" : "flat";
+  return `
+    <div class="athome-photo-fill ${statusClass}">
+      <span>写真のみ収集 ${escapeHtml(formatDateTime(fill.run_at))}</span>
+      <div class="athome-photo-fill-chips">
+        <b>確認 ${formatInteger(fill.checked)}件</b>
+        <b>追加 ${formatInteger(fill.updated)}件</b>
+        <b>+${formatInteger(fill.added_photo_count)}枚</b>
+        <b>失敗 ${formatInteger(fill.failed)}件</b>
+        <b>残り ${formatInteger(fill.remaining_without_images)}件</b>
+      </div>
+    </div>
+  `;
 }
 
 function athomePhotoBar(label, value, max, tone, unit) {

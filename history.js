@@ -10,6 +10,8 @@ const els = {
   sourceChartSummary: document.getElementById("sourceChartSummary"),
   sourceHistoryChart: document.getElementById("sourceHistoryChart"),
   photoTrendPanel: document.getElementById("photoTrendPanel"),
+  athomePhotoSummary: document.getElementById("athomePhotoSummary"),
+  athomePhotoTrendChart: document.getElementById("athomePhotoTrendChart"),
   rowCount: document.getElementById("historyRowCount"),
   timeline: document.getElementById("historyTimeline"),
 };
@@ -222,6 +224,7 @@ function renderHistoryPage(rows, collectionHistory) {
   renderDeltaList(latest, previous);
   renderSourceChart(latest);
   renderPhotoTrend(rows);
+  renderAthomePhotoTrend(rows);
   renderTimeline(rows);
   if (window.lucide) {
     window.lucide.createIcons();
@@ -377,6 +380,66 @@ function renderPhotoTrend(rows) {
       <div><span>写真枚数</span><strong>${formatInteger(latest.photos.photo_count)}枚</strong></div>
       <div><span>アットホーム写真</span><strong>${formatInteger(latest.athome_photos.photo_count)}枚</strong></div>
       <div><span>アットホーム写真付き</span><strong>${formatInteger(latest.athome_photos.with_photos)}件</strong></div>
+    </div>
+  `;
+}
+
+function renderAthomePhotoTrend(rows) {
+  if (!els.athomePhotoTrendChart) return;
+  const chronological = rows.slice().reverse();
+  const latest = rows[0];
+  const latestStats = latest.athome_photos || normalizePhotos();
+  const previousPhotoData = rows.slice(1).find((row) => toNumber(row.athome_photos?.photo_count) > 0);
+  const pending = latestStats.listings > 0 && latestStats.photo_count === 0 && previousPhotoData;
+  const latestRate = latestStats.listings ? Math.round((latestStats.with_photos / latestStats.listings) * 100) : 0;
+  const max = {
+    listings: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.listings)), 1),
+    withPhotos: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.with_photos)), 1),
+    photoCount: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.photo_count)), 1),
+  };
+
+  els.athomePhotoSummary.innerHTML = `
+    <span class="athome-status-chip ${pending ? "warning" : "ok"}">
+      ${pending ? "本日分は写真補完待ちの可能性" : `最新 ${formatInteger(latestStats.photo_count)}枚`}
+    </span>
+  `;
+  els.athomePhotoTrendChart.innerHTML = chronological.map((row) => {
+    const stats = row.athome_photos || normalizePhotos();
+    const rate = stats.listings ? Math.round((stats.with_photos / stats.listings) * 100) : 0;
+    const isLatest = sameMoment(row.generated_at, latest.generated_at) || row.date === latest.date;
+    return `
+      <div class="athome-photo-row ${isLatest ? "latest" : ""}">
+        <div class="athome-photo-date">
+          <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
+          <small>${escapeHtml(formatTime(row.generated_at))}</small>
+        </div>
+        <div class="athome-photo-bars">
+          ${athomePhotoBar("対象物件", stats.listings, max.listings, "listings", "件")}
+          ${athomePhotoBar("写真付き", stats.with_photos, max.withPhotos, "with-photos", "件")}
+          ${athomePhotoBar("写真枚数", stats.photo_count, max.photoCount, "photo-count", "枚")}
+        </div>
+        <div class="athome-photo-rate">
+          <span>写真付き率</span>
+          <strong>${formatInteger(rate)}%</strong>
+        </div>
+      </div>
+    `;
+  }).join("");
+  if (!chronological.length) {
+    els.athomePhotoTrendChart.innerHTML = `<div class="empty-state">アットホーム写真の履歴はまだありません</div>`;
+  }
+  if (els.athomePhotoSummary && !pending) {
+    els.athomePhotoSummary.title = `最新: ${formatInteger(latestStats.with_photos)}件 / ${formatInteger(latestStats.listings)}件、${formatInteger(latestStats.photo_count)}枚、写真付き率 ${formatInteger(latestRate)}%`;
+  }
+}
+
+function athomePhotoBar(label, value, max, tone, unit) {
+  const width = Math.max(2, Math.min(100, (toNumber(value) / Math.max(max, 1)) * 100));
+  return `
+    <div class="athome-photo-bar ${tone}">
+      <span>${escapeHtml(label)}</span>
+      <div class="athome-photo-track"><i style="width:${width}%"></i></div>
+      <strong>${formatInteger(value)}${escapeHtml(unit)}</strong>
     </div>
   `;
 }

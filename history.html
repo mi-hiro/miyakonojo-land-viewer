@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#dff8ff">
+    <title>取得データ履歴 | 売土地 物件ビューア</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body class="history-page-body">
+    <div class="history-page-shell">
+      <header class="history-page-topbar">
+        <a class="history-back-link" href="./index.html">
+          <i data-lucide="arrow-left"></i><span>物件ビューアへ戻る</span>
+        </a>
+        <div class="history-title-block">
+          <p class="dashboard-kicker">Collection Log</p>
+          <h1>取得データ履歴</h1>
+        </div>
+        <span id="historyUpdatedAt" class="history-updated">読み込み中</span>
+      </header>
+
+      <main class="history-page-main">
+        <section id="historyStatus" class="status-message" hidden></section>
+
+        <section class="history-hero-panel">
+          <div>
+            <p class="dashboard-kicker">Daily Changes</p>
+            <h2>毎日の取得データの変化</h2>
+            <p>土地情報・物件写真・固定資産税路線価・路線価照合の増減をまとめて確認できます。</p>
+          </div>
+          <div id="historySummaryCards" class="history-summary-cards"></div>
+        </section>
+
+        <section class="history-layout-grid">
+          <article class="history-glass-panel history-panel-wide">
+            <div class="history-panel-head">
+              <div>
+                <p class="dashboard-kicker">Trend</p>
+                <h2>日別推移</h2>
+              </div>
+              <span id="historyTrendRange" class="dashboard-summary">-</span>
+            </div>
+            <div id="dailyTrendChart" class="daily-trend-chart"></div>
+          </article>
+
+          <article class="history-glass-panel">
+            <div class="history-panel-head">
+              <div>
+                <p class="dashboard-kicker">Diff</p>
+                <h2>前回からの変化</h2>
+              </div>
+            </div>
+            <div id="historyDeltaList" class="history-delta-list"></div>
+          </article>
+
+          <article class="history-glass-panel history-panel-wide">
+            <div class="history-panel-head">
+              <div>
+                <p class="dashboard-kicker">Sources</p>
+                <h2>情報元別の取得状況</h2>
+              </div>
+              <span id="sourceChartSummary" class="dashboard-summary">最新回</span>
+            </div>
+            <div id="sourceHistoryChart" class="source-history-chart"></div>
+          </article>
+
+          <article class="history-glass-panel">
+            <div class="history-panel-head">
+              <div>
+                <p class="dashboard-kicker">Photos</p>
+                <h2>写真取得の変化</h2>
+              </div>
+            </div>
+            <div id="photoTrendPanel" class="photo-trend-panel"></div>
+          </article>
+        </section>
+
+        <section class="history-glass-panel">
+          <div class="history-panel-head">
+            <div>
+              <p class="dashboard-kicker">Timeline</p>
+              <h2>取得履歴一覧</h2>
+            </div>
+            <span id="historyRowCount" class="dashboard-summary">-</span>
+          </div>
+          <div id="historyTimeline" class="history-timeline"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="./history.js"></script>
+  </body>
+</html>

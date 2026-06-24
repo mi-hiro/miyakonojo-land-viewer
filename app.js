@@ -608,7 +608,6 @@ const els = {
   settingsPanel: document.getElementById("settingsPanel"),
   closeSettings: document.getElementById("closeSettings"),
   collectionHistoryButton: document.getElementById("collectionHistoryButton"),
-  collectionHistoryBackButton: document.getElementById("collectionHistoryBackButton"),
   collectionHistorySummary: document.getElementById("collectionHistorySummary"),
   collectionHistoryList: document.getElementById("collectionHistoryList"),
 };
@@ -637,13 +636,6 @@ function bindEvents() {
   els.settingsButton?.addEventListener("click", openSettings);
   els.closeSettings?.addEventListener("click", closeSettings);
   els.collectionHistoryButton?.addEventListener("click", openCollectionHistoryView);
-  els.collectionHistoryBackButton?.addEventListener("click", () => {
-    if (window.location.hash === "#list") {
-      activateView("list");
-    } else {
-      window.location.hash = "list";
-    }
-  });
   els.settingsPanel?.addEventListener("click", (event) => {
     if (event.target === els.settingsPanel) {
       closeSettings();
@@ -745,12 +737,7 @@ function openSettings() {
 
 function openCollectionHistoryView() {
   closeSettings();
-  clearDetailHash();
-  if (window.location.hash === "#collectionHistory") {
-    activateView("collectionHistory");
-  } else {
-    window.location.hash = "collectionHistory";
-  }
+  window.location.href = "./history.html";
 }
 
 function closeSettings() {
@@ -886,12 +873,6 @@ function activateView(viewName) {
   }
   if (state.view === "compare") {
     renderCompare();
-  }
-  if (state.view === "collectionHistory") {
-    renderCollectionHistory();
-    setTimeout(() => {
-      document.getElementById("collectionHistoryView")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 40);
   }
   if (window.lucide) {
     window.lucide.createIcons();
@@ -1099,7 +1080,11 @@ function routeFromHash() {
     return;
   }
   const hashView = String(window.location.hash || "").replace(/^#/, "");
-  if (["list", "dashboard", "map", "history", "distribution", "compare", "collectionHistory"].includes(hashView)) {
+  if (hashView === "collectionHistory") {
+    window.location.replace("./history.html");
+    return;
+  }
+  if (["list", "dashboard", "map", "history", "distribution", "compare"].includes(hashView)) {
     closeDetail(false);
     activateView(hashView);
     return;

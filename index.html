@@ -34,6 +34,9 @@
           <button id="refreshButton" class="icon-button" type="button" aria-label="更新">
             <i data-lucide="refresh-cw"></i>
           </button>
+          <button id="settingsButton" class="icon-button" type="button" aria-label="設定">
+            <i data-lucide="settings"></i>
+          </button>
         </div>
       </header>
 
@@ -313,6 +316,36 @@
         </button>
       </div>
       <div id="detailBody" class="detail-body"></div>
+    </aside>
+
+    <aside id="settingsPanel" class="settings-panel" role="dialog" aria-label="設定" aria-hidden="true">
+      <div class="settings-card">
+        <div class="settings-head">
+          <div>
+            <p class="eyebrow">Settings</p>
+            <h2>設定</h2>
+          </div>
+          <button id="closeSettings" class="icon-button" type="button" aria-label="設定を閉じる">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="settings-menu" aria-label="設定メニュー">
+          <button id="collectionHistoryButton" class="settings-menu-button active" type="button">
+            <i data-lucide="database"></i>
+            <span>取得データ履歴</span>
+          </button>
+        </div>
+        <section id="collectionHistorySection" class="collection-history-section" aria-label="取得データ履歴">
+          <div class="settings-section-head">
+            <div>
+              <p class="eyebrow">Collection Log</p>
+              <h3>取得データ履歴</h3>
+            </div>
+            <span id="collectionHistorySummary" class="dashboard-summary">-</span>
+          </div>
+          <div id="collectionHistoryList" class="collection-history-list"></div>
+        </section>
+      </div>
     </aside>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>

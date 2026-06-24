@@ -875,6 +875,108 @@ h1 {
 .compact-metrics strong {
   color: var(--accent-strong);
 }
+/* Compact list mode visual separation */
+.listing-list.layout-compact {
+  gap: 7px;
+}
+
+.listing-compact {
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 9px;
+  min-height: 0;
+  padding: 8px 10px;
+  border-left-width: 4px;
+  border-radius: 12px;
+}
+
+.listing-compact .compact-thumb {
+  width: 104px;
+  min-height: 78px;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+}
+
+.listing-compact .compact-main {
+  gap: 5px;
+}
+
+.listing-compact .compact-head {
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.listing-compact .town-line {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.listing-compact .card-title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.listing-compact .badge-row {
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.listing-compact .badge {
+  min-height: 20px;
+  padding-inline: 6px;
+  font-size: 10px;
+}
+
+.listing-compact .compact-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.listing-compact .compact-metrics strong,
+.listing-compact .compact-metrics span {
+  min-height: 0;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+.listing-compact .compact-metrics span:last-child {
+  flex-basis: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+}
+
+.listing-compact .compact-foot {
+  align-items: center;
+  gap: 5px;
+}
+
+.listing-compact .source {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.listing-compact .card-actions {
+  gap: 4px;
+}
+
+.listing-compact .action-chip,
+.listing-compact .detail-link.compact {
+  min-height: 28px;
+  padding-inline: 8px;
+  font-size: 11px;
+}
 
 .detail-photo {
   aspect-ratio: 16 / 10;
@@ -6736,5 +6838,43 @@ body {
   .history-summary-cards,
   .history-timeline-metrics {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Compact list density correction */
+.listing-compact {
+  align-items: start;
+}
+
+.listing-compact .compact-thumb {
+  align-self: start;
+  height: 78px;
+  min-height: 0;
+}
+
+.listing-compact .card-actions .action-chip {
+  width: 28px;
+  min-width: 28px;
+  padding-inline: 0;
+}
+
+.listing-compact .card-actions .action-chip span {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .listing-compact .compact-thumb {
+    height: 72px;
+    min-height: 0;
+  }
+
+  .listing-compact .compact-foot {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .listing-compact .source {
+    display: none;
   }
 }

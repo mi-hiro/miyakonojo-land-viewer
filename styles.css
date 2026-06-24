@@ -5447,6 +5447,8 @@ body {
   }
 
   .app-shell.device-mobile .brand-lockup {
+    grid-column: 1;
+    grid-row: 1;
     flex: none;
     width: auto;
     min-width: 0;
@@ -5474,6 +5476,8 @@ body {
   }
 
   .app-shell.device-mobile .topbar-actions {
+    grid-column: 2;
+    grid-row: 1;
     position: static;
     justify-self: end;
     display: flex;
@@ -5957,7 +5961,58 @@ body {
   }
 
   .app-shell.device-mobile .topbar-live {
-    display: none;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    width: 100%;
+    min-height: 26px;
+    margin-top: 2px;
+    padding: 3px 7px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    overflow: hidden;
+  }
+
+  .app-shell.device-mobile .topbar-live-row {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+    gap: 3px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .app-shell.device-mobile .topbar-live-row:first-child {
+    flex: 0 1 42%;
+  }
+
+  .app-shell.device-mobile .topbar-live-row:last-child {
+    justify-content: flex-end;
+  }
+
+  .app-shell.device-mobile .topbar-live-row svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .app-shell.device-mobile .topbar-live-row span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-shell.device-mobile #weatherText {
+    max-width: 86px;
   }
 
   .collection-history-page-head {

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-06-23T03:32:48.6257800+09:00",
+  "entries": [
+    {
+      "date": "2026-06-23",
+      "generated_at": "2026-06-23T03:32:48.6257800+09:00",
+      "listing_count": 318,
+      "new_count": 9,
+      "duplicate_count": 152,
+      "excluded_count": 24,
+      "sources": [
+        {
+          "name": "SUUMO",
+          "collected_count": 126,
+          "displayed_count": 126,
+          "excluded_count": 12,
+          "error_count": 0,
+          "with_photos": 125,
+          "photo_count": 904
+        },
+        {
+          "name": "LIFULL HOME'S",
+          "collected_count": 29,
+          "displayed_count": 19,
+          "excluded_count": 0,
+          "error_count": 1,
+          "with_photos": 19,
+          "photo_count": 65
+        },
+        {
+          "name": "アットホーム",
+          "collected_count": 144,
+          "displayed_count": 94,
+          "excluded_count": 0,
+          "error_count": 2,
+          "with_photos": 6,
+          "photo_count": 60
+        },
+        {
+          "name": "Yahoo!不動産",
+          "collected_count": 1,
+          "displayed_count": 1,
+          "excluded_count": 1,
+          "error_count": 0,
+          "with_photos": 1,
+          "photo_count": 2
+        },
+        {
+          "name": "goo住宅・不動産",
+          "collected_count": 38,
+          "displayed_count": 18,
+          "excluded_count": 4,
+          "error_count": 1,
+          "with_photos": 17,
+          "photo_count": 31
+        },
+        {
+          "name": "ニフティ不動産",
+          "collected_count": 39,
+          "displayed_count": 9,
+          "excluded_count": 1,
+          "error_count": 1,
+          "with_photos": 9,
+          "photo_count": 26
+        },
+        {
+          "name": "ネット不動産モールSESH 宮崎",
+          "collected_count": 0,
+          "displayed_count": 0,
+          "excluded_count": 1,
+          "error_count": 1,
+          "with_photos": 0,
+          "photo_count": 0
+        },
+        {
+          "name": "ハトマークサイト（宅建協会）",
+          "collected_count": 93,
+          "displayed_count": 51,
+          "excluded_count": 5,
+          "error_count": 0,
+          "with_photos": 35,
+          "photo_count": 125
+        }
+      ],
+      "photos": {
+        "listings_with_photos": 212,
+        "photo_count": 1213
+      },
+      "athome_photos": {
+        "listings": 94,
+        "with_photos": 6,
+        "photo_count": 60
+      },
+      "fixed_asset_route_values": {
+        "count": 36,
+        "town_count": 17,
+        "updated_at": "2026-06-22T17:24:39.9460000Z"
+      },
+      "route_values": {
+        "count": 139,
+        "checked_count": 318,
+        "matched_count": 139,
+        "updated_at": "2026-06-23T03:47:13.9688520+09:00"
+      },
+      "history": {
+        "report_dates": 17,
+        "unique_listings": 442
+      }
+    }
+  ]
+}

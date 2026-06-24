@@ -543,7 +543,6 @@ const els = {
   currentDateText: document.getElementById("currentDateText"),
   currentTimeText: document.getElementById("currentTimeText"),
   weatherText: document.getElementById("weatherText"),
-  weatherIcon: document.getElementById("weatherIcon"),
   deviceModeControl: document.getElementById("deviceModeControl"),
   searchInput: document.getElementById("searchInput"),
   sortSelect: document.getElementById("sortSelect"),
@@ -788,10 +787,10 @@ function loadCurrentWeather() {
     return;
   }
   if (!navigator.geolocation) {
-    setWeatherDisplay("位置情報非対応");
+    els.weatherText.textContent = "位置情報非対応";
     return;
   }
-  setWeatherDisplay("現在地の天気を取得中");
+  els.weatherText.textContent = "現在地の天気を取得中";
   navigator.geolocation.getCurrentPosition(
     async (position) => {
       try {
@@ -809,42 +808,31 @@ function loadCurrentWeather() {
         const current = data?.current || data?.current_weather || {};
         const temperature = Number(current.temperature_2m ?? current.temperature);
         const weatherCode = Number(current.weather_code ?? current.weathercode);
-        const weather = weatherCodeMeta(weatherCode);
+        const weatherName = weatherCodeLabel(weatherCode);
         const tempText = Number.isFinite(temperature) ? `${Math.round(temperature)}℃` : "";
-        setWeatherDisplay([tempText, weather.label].filter(Boolean).join(" "), weather.icon);
+        els.weatherText.textContent = [tempText, weatherName].filter(Boolean).join(" ");
       } catch (error) {
-        setWeatherDisplay("天気取得できません");
+        els.weatherText.textContent = "天気取得できません";
       }
     },
     () => {
-      setWeatherDisplay("位置情報を許可で天気表示");
+      els.weatherText.textContent = "位置情報を許可で天気表示";
     },
     { enableHighAccuracy: false, maximumAge: 20 * 60 * 1000, timeout: 8000 }
   );
 }
 
-function setWeatherDisplay(text, icon = "") {
-  if (els.weatherText) {
-    els.weatherText.textContent = text || "天気";
-  }
-  if (!els.weatherIcon) {
-    return;
-  }
-  els.weatherIcon.textContent = icon;
-  els.weatherIcon.hidden = !icon;
-}
-
-function weatherCodeMeta(code) {
-  if (!Number.isFinite(code)) return { label: "", icon: "" };
-  if (code === 0) return { label: "快晴", icon: "☀️" };
-  if ([1, 2].includes(code)) return { label: "晴れ", icon: "🌤️" };
-  if (code === 3) return { label: "くもり", icon: "☁️" };
-  if ([45, 48].includes(code)) return { label: "霧", icon: "🌫️" };
-  if ([51, 53, 55, 56, 57].includes(code)) return { label: "霧雨", icon: "🌦️" };
-  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { label: "雨", icon: "🌧️" };
-  if ([71, 73, 75, 77, 85, 86].includes(code)) return { label: "雪", icon: "❄️" };
-  if ([95, 96, 99].includes(code)) return { label: "雷雨", icon: "⛈️" };
-  return { label: "天気", icon: "🌡️" };
+function weatherCodeLabel(code) {
+  if (!Number.isFinite(code)) return "";
+  if (code === 0) return "快晴";
+  if ([1, 2].includes(code)) return "晴れ";
+  if (code === 3) return "くもり";
+  if ([45, 48].includes(code)) return "霧";
+  if ([51, 53, 55, 56, 57].includes(code)) return "霧雨";
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "雨";
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return "雪";
+  if ([95, 96, 99].includes(code)) return "雷雨";
+  return "天気";
 }
 
 function activateView(viewName) {

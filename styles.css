@@ -6768,9 +6768,9 @@ body {
 }
 
 .listing-list.layout-table .listing-table {
-  width: max-content;
-  min-width: 1040px;
-  table-layout: auto;
+  width: 940px;
+  min-width: 940px;
+  table-layout: fixed;
 }
 
 @media (max-width: 640px) {
@@ -6787,6 +6787,259 @@ body {
   }
 
   .listing-list.layout-table .listing-table {
-    min-width: 1040px;
+    width: 900px;
+    min-width: 900px;
+  }
+}
+
+/* Persistent compact/table density guard */
+.listing-list.layout-compact {
+  gap: 8px;
+}
+
+.listing-list.layout-compact .listing-card.listing-compact {
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  min-height: 0;
+  padding: 8px;
+  border-left-width: 4px;
+}
+
+.listing-list.layout-compact .compact-thumb {
+  width: 88px;
+  height: 76px;
+  min-height: 0;
+  align-self: start;
+  border-radius: 10px;
+}
+
+.listing-list.layout-compact .compact-fallback {
+  gap: 3px;
+  padding: 6px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.listing-list.layout-compact .compact-fallback svg {
+  width: 16px;
+  height: 16px;
+}
+
+.listing-list.layout-compact .compact-main {
+  gap: 4px;
+}
+
+.listing-list.layout-compact .compact-head {
+  display: grid;
+  gap: 3px;
+}
+
+.listing-list.layout-compact .town-line {
+  margin: 0 0 2px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.listing-list.layout-compact .card-title {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.22;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.listing-list.layout-compact .badge-row {
+  gap: 3px;
+}
+
+.listing-list.layout-compact .badge {
+  min-height: 20px;
+  padding: 0 6px;
+  font-size: 10px;
+}
+
+.listing-list.layout-compact .compact-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  grid-template-columns: none;
+}
+
+.listing-list.layout-compact .compact-metrics strong,
+.listing-list.layout-compact .compact-metrics span {
+  min-height: 22px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+.listing-list.layout-compact .compact-foot {
+  align-items: center;
+  gap: 5px;
+}
+
+.listing-list.layout-compact .source {
+  display: -webkit-box;
+  flex: 1 1 120px;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.listing-list.layout-compact .card-actions {
+  gap: 4px;
+}
+
+.listing-list.layout-compact .action-chip {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0 7px;
+  gap: 3px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.listing-list.layout-compact .action-chip svg,
+.listing-list.layout-table .action-chip svg {
+  width: 13px;
+  height: 13px;
+}
+
+.listing-list.layout-compact .action-chip span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.listing-list.layout-compact .detail-link.compact {
+  min-height: 28px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.listing-list.layout-table .listing-table {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.listing-list.layout-table .listing-table th,
+.listing-list.layout-table .listing-table td {
+  padding: 7px 8px;
+}
+
+.listing-list.layout-table .listing-table th {
+  font-size: 11px;
+}
+
+.listing-list.layout-table .listing-table td strong {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.listing-list.layout-table .listing-table td span,
+.listing-list.layout-table .listing-table td small {
+  margin-top: 2px;
+  font-size: 10.5px;
+  line-height: 1.3;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(1),
+.listing-list.layout-table .listing-table td:nth-child(1) {
+  width: 250px;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(2),
+.listing-list.layout-table .listing-table td:nth-child(2),
+.listing-list.layout-table .listing-table th:nth-child(4),
+.listing-list.layout-table .listing-table td:nth-child(4) {
+  width: 90px;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(3),
+.listing-list.layout-table .listing-table td:nth-child(3) {
+  width: 105px;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(5),
+.listing-list.layout-table .listing-table td:nth-child(5) {
+  width: 140px;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(6),
+.listing-list.layout-table .listing-table td:nth-child(6) {
+  width: 160px;
+}
+
+.listing-list.layout-table .listing-table th:nth-child(7),
+.listing-list.layout-table .listing-table td:nth-child(7) {
+  width: 105px;
+}
+
+.listing-list.layout-table .action-chip {
+  min-height: 27px;
+  padding: 0 7px;
+  gap: 3px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.listing-list.layout-table .detail-link.compact {
+  min-height: 27px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .listing-list.layout-compact .listing-card.listing-compact {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .listing-list.layout-compact .compact-thumb {
+    width: 74px;
+    height: 66px;
+  }
+
+  .listing-list.layout-compact .card-title {
+    font-size: 13px;
+  }
+
+  .listing-list.layout-compact .compact-metrics strong,
+  .listing-list.layout-compact .compact-metrics span {
+    min-height: 20px;
+    padding: 2px 5px;
+    font-size: 10px;
+  }
+
+  .listing-list.layout-compact .action-chip,
+  .listing-list.layout-compact .detail-link.compact {
+    min-height: 26px;
+  }
+
+  .listing-list.layout-table .listing-table {
+    width: 860px;
+    min-width: 860px;
+    font-size: 11px;
+  }
+
+  .listing-list.layout-table .listing-table th,
+  .listing-list.layout-table .listing-table td {
+    padding: 6px 7px;
+  }
+
+  .listing-list.layout-table .listing-table td strong {
+    font-size: 11.5px;
   }
 }

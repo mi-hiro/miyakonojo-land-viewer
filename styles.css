@@ -7295,3 +7295,52 @@ body {
     font-size: 11.5px;
   }
 }
+
+/* Detail mode should read like a focused property sheet, without the global search/map cockpit above it. */
+.app-shell.view-detail {
+  padding-top: 0;
+}
+
+.app-shell.view-detail .topbar,
+.app-shell.view-detail .summary-band,
+.app-shell.view-detail .controls,
+.app-shell.view-detail .map-stage-view,
+.app-shell.view-detail #statusMessage {
+  display: none !important;
+}
+
+.app-shell.view-detail .workspace,
+.app-shell.device-desktop.view-detail .workspace,
+.app-shell.device-tablet.view-detail .workspace {
+  display: block;
+}
+
+.app-shell.view-detail .map-prism-cockpit {
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: visible;
+  border-radius: 0;
+}
+
+.app-shell.view-detail .map-prism-cockpit::before,
+.app-shell.view-detail .map-prism-cockpit::after {
+  display: none;
+}
+
+.app-shell.view-detail .detail-page-view,
+.app-shell.device-desktop.view-detail .content-view.active,
+.app-shell.device-tablet.view-detail .content-view.active {
+  grid-column: auto;
+  width: min(100% - 20px, 980px);
+  margin: 0 auto;
+}
+
+.app-shell.device-mobile.view-detail .detail-page-view {
+  width: min(100% - 12px, 460px);
+}
+
+.app-shell.view-detail .detail-page-head {
+  position: relative;
+  top: auto;
+  margin: 0 0 10px;
+}

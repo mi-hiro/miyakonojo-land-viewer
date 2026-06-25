@@ -4220,7 +4220,8 @@ function openDetail(id) {
     setStatus("詳細の一部を表示できませんでした。最低限の情報を表示しています。");
   }
   activateView("detail");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  window.requestAnimationFrame?.(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
   setTimeout(() => {
     renderDetailMap(listing);
   }, 80);

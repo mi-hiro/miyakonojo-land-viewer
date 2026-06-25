@@ -5538,6 +5538,16 @@ body {
   }
 }
 
+@media (max-width: 899px) {
+  .app-shell.device-tablet.view-dashboard .map-stage-view,
+  .app-shell.device-tablet.view-history .map-stage-view,
+  .app-shell.device-tablet.view-distribution .map-stage-view,
+  .app-shell.device-tablet.view-compare .map-stage-view {
+    z-index: 9;
+    margin: 12px auto 10px;
+  }
+}
+
 @media (min-width: 900px) {
   .app-shell:not(.device-mobile) .summary-band {
     margin-top: 16px;

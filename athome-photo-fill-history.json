@@ -1,7 +1,31 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-25T08:01:32.467054+09:00",
+  "updated_at": "2026-06-26T08:01:29.603017+09:00",
   "entries": [
+    {
+      "date": "2026-06-26",
+      "generated_at": "2026-06-26T06:16:09.656417+09:00",
+      "run_at": "2026-06-26T08:00:12.136532+09:00",
+      "checked": 10,
+      "updated": 4,
+      "no_image": 0,
+      "failed": 6,
+      "remaining_without_images": 81,
+      "before": {
+        "listings": 96,
+        "listings_with_photos": 11,
+        "with_photos": 11,
+        "photo_count": 110
+      },
+      "after": {
+        "listings": 96,
+        "listings_with_photos": 15,
+        "with_photos": 15,
+        "photo_count": 150
+      },
+      "added_with_photos": 4,
+      "added_photo_count": 40
+    },
     {
       "date": "2026-06-25",
       "generated_at": "2026-06-25T06:10:56.060304+09:00",

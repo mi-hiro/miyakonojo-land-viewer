@@ -211,6 +211,50 @@
               <div id="alertGrid" class="dashboard-alert-list"></div>
             </section>
 
+            <section class="dashboard-panel dashboard-panel-wide">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Today Watch</span>
+                  <h2>通知候補</h2>
+                </div>
+                <span id="notificationSummary" class="dashboard-summary">-</span>
+              </div>
+              <div id="notificationGrid" class="notification-list"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Data Trust</span>
+                  <h2>物件データ信頼度</h2>
+                </div>
+                <span id="dataQualitySummary" class="dashboard-summary">-</span>
+              </div>
+              <div id="dataQualityGrid" class="quality-grid"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">Coverage</span>
+                  <h2>路線価取得進捗</h2>
+                </div>
+                <span id="routeCoverageSummary" class="dashboard-summary">-</span>
+              </div>
+              <div id="routeCoverageGrid" class="coverage-progress-grid"></div>
+            </section>
+
+            <section class="dashboard-panel">
+              <div class="dashboard-panel-head">
+                <div>
+                  <span class="dashboard-kicker">App Ready</span>
+                  <h2>アプリ化チェック</h2>
+                </div>
+                <span id="appReadinessSummary" class="dashboard-summary">-</span>
+              </div>
+              <div id="appReadinessGrid" class="app-readiness-list"></div>
+            </section>
+
             <section class="dashboard-panel">
               <div class="dashboard-panel-head">
                 <div>
@@ -345,6 +389,18 @@
           <button id="collectionHistoryButton" class="settings-menu-button" type="button">
             <i data-lucide="database"></i>
             <span>取得データ履歴を開く</span>
+          </button>
+          <button id="notificationPermissionButton" class="settings-menu-button" type="button">
+            <i data-lucide="bell"></i>
+            <span id="notificationPermissionText">通知を有効にする</span>
+          </button>
+          <button id="settingsExportBackupButton" class="settings-menu-button" type="button">
+            <i data-lucide="download-cloud"></i>
+            <span>保存データをバックアップ</span>
+          </button>
+          <button id="settingsImportBackupButton" class="settings-menu-button" type="button">
+            <i data-lucide="upload-cloud"></i>
+            <span>保存データを復元</span>
           </button>
           <p class="settings-note">毎日の土地情報・写真・固定資産税路線価の取得状況を別画面で確認します。</p>
         </div>

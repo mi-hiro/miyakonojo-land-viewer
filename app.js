@@ -72,6 +72,8 @@ const STORAGE_KEYS = {
   deviceMode: "miyakonojo_land_device_mode_v1",
   showHazardAreas: "miyakonojo_land_show_hazard_areas_v1",
   showFixedAssetCoverage: "miyakonojo_land_show_fixed_asset_coverage_v1",
+  notificationsEnabled: "miyakonojo_land_notifications_enabled_v1",
+  lastNotifiedAt: "miyakonojo_land_last_notified_at_v1",
 };
 
 const JAPANESE_TEXT_COLLATOR = new Intl.Collator("ja", {
@@ -590,6 +592,14 @@ const els = {
   schoolAverageGrid: document.getElementById("schoolAverageGrid"),
   recentMovementGrid: document.getElementById("recentMovementGrid"),
   alertGrid: document.getElementById("alertGrid"),
+  notificationSummary: document.getElementById("notificationSummary"),
+  notificationGrid: document.getElementById("notificationGrid"),
+  dataQualitySummary: document.getElementById("dataQualitySummary"),
+  dataQualityGrid: document.getElementById("dataQualityGrid"),
+  routeCoverageSummary: document.getElementById("routeCoverageSummary"),
+  routeCoverageGrid: document.getElementById("routeCoverageGrid"),
+  appReadinessSummary: document.getElementById("appReadinessSummary"),
+  appReadinessGrid: document.getElementById("appReadinessGrid"),
   dataSourceGrid: document.getElementById("dataSourceGrid"),
   candidateCount: document.getElementById("candidateCount"),
   exportComparePdfButton: document.getElementById("exportComparePdfButton"),
@@ -609,6 +619,10 @@ const els = {
   settingsPanel: document.getElementById("settingsPanel"),
   closeSettings: document.getElementById("closeSettings"),
   collectionHistoryButton: document.getElementById("collectionHistoryButton"),
+  notificationPermissionButton: document.getElementById("notificationPermissionButton"),
+  notificationPermissionText: document.getElementById("notificationPermissionText"),
+  settingsExportBackupButton: document.getElementById("settingsExportBackupButton"),
+  settingsImportBackupButton: document.getElementById("settingsImportBackupButton"),
   collectionHistorySummary: document.getElementById("collectionHistorySummary"),
   collectionHistoryList: document.getElementById("collectionHistoryList"),
 };
@@ -637,6 +651,13 @@ function bindEvents() {
   els.settingsButton?.addEventListener("click", openSettings);
   els.closeSettings?.addEventListener("click", closeSettings);
   els.collectionHistoryButton?.addEventListener("click", openCollectionHistoryView);
+  els.notificationPermissionButton?.addEventListener("click", requestBrowserNotifications);
+  els.settingsExportBackupButton?.addEventListener("click", exportBackup);
+  els.settingsImportBackupButton?.addEventListener("click", () => {
+    closeSettings();
+    els.backupFileInput.value = "";
+    els.backupFileInput.click();
+  });
   els.settingsPanel?.addEventListener("click", (event) => {
     if (event.target === els.settingsPanel) {
       closeSettings();
@@ -728,6 +749,7 @@ function openSettings() {
   if (!els.settingsPanel) {
     return;
   }
+  renderNotificationPermissionStatus();
   els.settingsPanel.classList.add("open");
   els.settingsPanel.setAttribute("aria-hidden", "false");
   document.body.classList.add("settings-open");
@@ -748,6 +770,40 @@ function closeSettings() {
   els.settingsPanel.classList.remove("open");
   els.settingsPanel.setAttribute("aria-hidden", "true");
   document.body.classList.remove("settings-open");
+}
+
+function renderNotificationPermissionStatus() {
+  if (!els.notificationPermissionButton || !els.notificationPermissionText) {
+    return;
+  }
+  const supported = "Notification" in window;
+  const enabled = localStorage.getItem(STORAGE_KEYS.notificationsEnabled) === "1";
+  const permission = supported ? Notification.permission : "unsupported";
+  els.notificationPermissionButton.disabled = !supported || permission === "denied";
+  els.notificationPermissionText.textContent = !supported
+    ? "通知はこのブラウザ非対応"
+    : permission === "granted" && enabled
+      ? "通知は有効"
+      : permission === "denied"
+        ? "通知はブラウザ側で拒否中"
+        : "通知を有効にする";
+}
+
+async function requestBrowserNotifications() {
+  if (!("Notification" in window)) {
+    setStatus("このブラウザでは通知に対応していません。");
+    renderNotificationPermissionStatus();
+    return;
+  }
+  try {
+    const permission = await Notification.requestPermission();
+    localStorage.setItem(STORAGE_KEYS.notificationsEnabled, permission === "granted" ? "1" : "0");
+    renderNotificationPermissionStatus();
+    setStatus(permission === "granted" ? "通知を有効にしました。" : "通知は有効化されませんでした。");
+    maybeSendDataNotifications(true);
+  } catch (error) {
+    setStatus("通知設定を変更できませんでした。");
+  }
 }
 
 function handleGlobalKeydown(event) {
@@ -1325,10 +1381,11 @@ async function loadData() {
     setStatus("最新データを取得できないため、サンプルを表示しています。");
   }
 
-  state.listings = state.latest.listings.map((listing, index) => normalizeListing(listing, index));
+    state.listings = state.latest.listings.map((listing, index) => normalizeListing(listing, index));
   populateTownFilter();
   populateSchoolFilter();
   render();
+  maybeSendDataNotifications(false);
   routeFromHash();
 }
 
@@ -2555,6 +2612,93 @@ function userNote(listing) {
   return String(state.notes[String(listing.id)] || "").trim();
 }
 
+function listingDataQuality(listing) {
+  const reasons = [];
+  let score = 100;
+  const price = numberValue(listing.price_man_yen);
+  const areaTsubo = numberValue(listing.land_area_tsubo);
+  const areaSqm = numberValue(listing.land_area_sqm);
+  const unit = numberValue(listing.unit_price_man_per_tsubo);
+  if (!price) {
+    score -= 25;
+    reasons.push("価格未取得");
+  }
+  if (!areaTsubo && !areaSqm) {
+    score -= 25;
+    reasons.push("面積未取得");
+  }
+  if (!unit) {
+    score -= 22;
+    reasons.push("坪単価未取得");
+  }
+  if (price && areaTsubo && unit) {
+    const calculatedUnit = price / areaTsubo;
+    const diffRate = Math.abs(calculatedUnit - unit) / Math.max(unit, calculatedUnit, 1);
+    if (diffRate > 0.15) {
+      score -= 22;
+      reasons.push(`価格/面積/坪単価の整合性要確認（計算 ${formatUnit(calculatedUnit)}）`);
+    }
+  }
+  if (!imageUrlList(listing).length) {
+    score -= /アットホーム|athome/i.test(`${listing.source || ""} ${listing.source_url || ""}`) ? 12 : 8;
+    reasons.push("写真未取得");
+  }
+  if (!Number.isFinite(listing.map_latitude) || !Number.isFinite(listing.map_longitude)) {
+    score -= 16;
+    reasons.push("地図位置未取得");
+  } else if (listing.is_approx_position) {
+    score -= 12;
+    reasons.push("地図位置が概算");
+  }
+  if (!listing.route_value_reference) {
+    score -= 12;
+    reasons.push("路線価未照合");
+  } else {
+    const distance = routeValueReferenceDistanceKm(listing.route_value_reference);
+    if (distance !== null && distance > 0.25) {
+      score -= 10;
+      reasons.push(`路線価参照地点が遠い（約${formatNumber(distance)}km）`);
+    }
+    if (listing.route_value_reference.route_value_type !== "fixed_asset_tax") {
+      score -= 4;
+      reasons.push("固定資産税路線価以外を参照");
+    }
+  }
+  if (!numberValue(listing.legal_notice?.road_width_m)) {
+    score -= 6;
+    reasons.push("接道幅員未検出");
+  }
+  if (listing.legal_notice?.setback_required) {
+    score -= 6;
+    reasons.push("要セットバック");
+  }
+  if (listing.legal_notice?.disclosure_found) {
+    score -= 10;
+    reasons.push("告知事項あり");
+  }
+  if (listing.hazard_reference?.affected) {
+    score -= 8;
+    reasons.push("ハザード該当");
+  }
+  if (numberValue(listing.floor_area_ratio_percent) === 70) {
+    score -= 8;
+    reasons.push("容積率70%は要確認");
+  }
+  const normalizedScore = Math.round(clamp(score, 0, 100));
+  return {
+    score: normalizedScore,
+    level: normalizedScore >= 82 ? "high" : normalizedScore >= 62 ? "medium" : "low",
+    reasons: reasons.length ? reasons : ["主要データはおおむね取得済み"],
+  };
+}
+
+function dataQualityLabel(quality) {
+  if (!quality) return "未判定";
+  if (quality.level === "high") return "高信頼";
+  if (quality.level === "medium") return "通常確認";
+  return "要確認";
+}
+
 function renderCardImage(listing) {
   const imageUrls = imageUrlList(listing);
   if (!imageUrls.length) {
@@ -2603,6 +2747,7 @@ function renderBadges(listing) {
   const badges = [];
   const assessment = assessListing(listing);
   const score = assessmentScore(listing, assessment);
+  const quality = listingDataQuality(listing);
   const drop = priceDropInfo(listing);
   if (isFavorite(listing)) badges.push(`<span class="badge favorite">お気に入り</span>`);
   if (isCandidate(listing)) badges.push(`<span class="badge candidate">買付候補</span>`);
@@ -2613,6 +2758,7 @@ function renderBadges(listing) {
   if (listing.is_new) badges.push(`<span class="badge new">新着</span>`);
   if (listing.is_cheap_new) badges.push(`<span class="badge cheap">割安新着</span>`);
   if (assessment.discount_rate >= 0.1) badges.push(`<span class="badge cheap">査定割安</span>`);
+  if (quality.level === "low") badges.push(`<span class="badge warning">要確認</span>`);
   if (listing.legal_notice?.setback_required) badges.push(`<span class="badge warning">要SB</span>`);
   if (listing.legal_notice?.disclosure_found) badges.push(`<span class="badge warning">告知</span>`);
   if (listing.hazard_reference?.affected) badges.push(`<span class="badge warning">ハザード</span>`);
@@ -3083,6 +3229,10 @@ function renderDashboard() {
   renderSchoolAverageDashboard();
   renderRecentMovementDashboard();
   renderAlertDashboard();
+  renderNotificationDashboard();
+  renderDataQualityDashboard();
+  renderRouteCoverageDashboard();
+  renderAppReadinessDashboard();
   renderDataSourceDashboard();
 }
 
@@ -3212,6 +3362,193 @@ function renderAlertDashboard() {
         </div>
       `
     )
+    .join("");
+}
+
+function renderNotificationDashboard() {
+  if (!els.notificationGrid || !els.notificationSummary) {
+    return;
+  }
+  const candidates = buildNotificationCandidates(state.filtered);
+  els.notificationSummary.textContent = candidates.length ? `${formatInteger(candidates.length)}件` : "通知なし";
+  if (!candidates.length) {
+    els.notificationGrid.innerHTML = `<div class="empty-state">今日優先して見る通知候補はありません</div>`;
+    return;
+  }
+  els.notificationGrid.innerHTML = candidates
+    .slice(0, 8)
+    .map((item) => {
+      const listing = item.listing;
+      return `
+        <article class="notification-row ${escapeAttr(item.tone)}">
+          <div>
+            <span class="dashboard-kicker">${escapeHtml(item.type)}</span>
+            <h3>${escapeHtml(shortTitle(listing))}</h3>
+            <small>${escapeHtml(listing.town)} / ${escapeHtml(listing.source)} / ${formatPrice(listing.price_man_yen)} / ${formatUnit(listing.unit_price_man_per_tsubo)}</small>
+          </div>
+          <strong>${escapeHtml(item.label)}</strong>
+          ${detailButton(listing.id, "compact")}
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function buildNotificationCandidates(listings = state.listings) {
+  const rows = [];
+  listings.forEach((listing) => {
+    const assessment = assessListing(listing);
+    const score = assessmentScore(listing, assessment);
+    const drop = priceDropInfo(listing);
+    if (listing.is_new && assessment.discount_rate >= 0.1) {
+      rows.push({ listing, priority: 95 + score.score, type: "割安新着", label: `AI ${formatInteger(score.score)}点`, tone: "cheap" });
+    } else if (listing.is_new) {
+      rows.push({ listing, priority: 70 + score.score, type: "新着", label: formatUnit(listing.unit_price_man_per_tsubo), tone: "new" });
+    }
+    if (drop) {
+      rows.push({ listing, priority: 85 + Math.round(drop.rate * 100), type: "価格変更", label: priceDropSummary(drop), tone: "drop" });
+    }
+    if (!listing.is_new && assessment.discount_rate >= 0.18) {
+      rows.push({ listing, priority: 80 + score.score, type: "割安候補", label: `${formatNumber(assessment.discount_rate * 100)}%割安`, tone: "cheap" });
+    }
+    if (listing.legal_notice?.disclosure_found || listing.hazard_reference?.affected || listing.legal_notice?.setback_required) {
+      rows.push({ listing, priority: 65, type: "要確認", label: dataQualityLabel(listingDataQuality(listing)), tone: "warning" });
+    }
+  });
+  const seen = new Set();
+  return rows
+    .sort((a, b) => b.priority - a.priority)
+    .filter((row) => {
+      const key = `${row.type}:${row.listing.id}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
+function maybeSendDataNotifications(force) {
+  if (!("Notification" in window) || Notification.permission !== "granted") {
+    return;
+  }
+  if (localStorage.getItem(STORAGE_KEYS.notificationsEnabled) !== "1") {
+    return;
+  }
+  const reportAt = state.latest?.generated_at || state.latest?.report_date || "";
+  const lastNotifiedAt = localStorage.getItem(STORAGE_KEYS.lastNotifiedAt) || "";
+  if (!force && reportAt && reportAt === lastNotifiedAt) {
+    return;
+  }
+  const candidates = buildNotificationCandidates(state.listings).slice(0, 3);
+  if (!candidates.length) {
+    if (reportAt) localStorage.setItem(STORAGE_KEYS.lastNotifiedAt, reportAt);
+    return;
+  }
+  const title = "売土地 物件ビューア";
+  const body = candidates.map((item) => `${item.type}: ${shortTitle(item.listing)}`).join("\n");
+  try {
+    new Notification(title, { body, tag: `land-viewer-${reportAt || Date.now()}` });
+    if (reportAt) localStorage.setItem(STORAGE_KEYS.lastNotifiedAt, reportAt);
+  } catch (error) {
+    // Browser notifications are optional; the in-app notification list remains available.
+  }
+}
+
+function renderDataQualityDashboard() {
+  if (!els.dataQualityGrid || !els.dataQualitySummary) {
+    return;
+  }
+  const qualities = state.filtered.map(listingDataQuality);
+  const high = qualities.filter((item) => item.level === "high").length;
+  const medium = qualities.filter((item) => item.level === "medium").length;
+  const low = qualities.filter((item) => item.level === "low").length;
+  els.dataQualitySummary.textContent = `高 ${formatInteger(high)} / 要確認 ${formatInteger(low)}`;
+  const rows = [
+    { label: "高信頼", value: high, sub: "価格・位置・写真・根拠が比較的そろう", tone: "ok" },
+    { label: "通常確認", value: medium, sub: "一部データは確認推奨", tone: "note" },
+    { label: "要確認", value: low, sub: "価格・位置・根拠の不足あり", tone: "warning" },
+    { label: "概算位置", value: state.filtered.filter((listing) => listing.is_approx_position).length, sub: "地図位置の精度注意", tone: "note" },
+    { label: "路線価未照合", value: state.filtered.filter((listing) => !listing.route_value_reference).length, sub: "査定根拠が弱め", tone: "warning" },
+  ];
+  els.dataQualityGrid.innerHTML = rows.map(renderQualityMetric).join("");
+}
+
+function renderQualityMetric(row) {
+  return `
+    <div class="quality-metric ${escapeAttr(row.tone)}">
+      <span>${escapeHtml(row.label)}</span>
+      <strong>${formatInteger(row.value)}件</strong>
+      <small>${escapeHtml(row.sub)}</small>
+    </div>
+  `;
+}
+
+function renderRouteCoverageDashboard() {
+  if (!els.routeCoverageGrid || !els.routeCoverageSummary) {
+    return;
+  }
+  const coverage = fixedAssetCoverageStats();
+  els.routeCoverageSummary.textContent = `${formatInteger(coverage.coverageRate)}%`;
+  const missingText = coverage.missingTowns.slice(0, 10).join("、") || "未取得町なし";
+  els.routeCoverageGrid.innerHTML = `
+    <div class="coverage-ring" style="--value:${coverage.coverageRate}">
+      <strong>${formatInteger(coverage.coverageRate)}%</strong>
+      <span>町名カバー</span>
+    </div>
+    <div class="coverage-progress-list">
+      ${renderQualityMetric({ label: "取得済み", value: coverage.townCount, sub: `${formatInteger(coverage.routeCount)}路線`, tone: "ok" })}
+      ${renderQualityMetric({ label: "未取得町", value: coverage.missingTowns.length, sub: missingText, tone: coverage.missingTowns.length ? "warning" : "ok" })}
+      ${renderQualityMetric({ label: "物件照合", value: coverage.matchedListings, sub: "固定資産税路線価と近接照合", tone: "note" })}
+    </div>
+  `;
+}
+
+function fixedAssetCoverageStats() {
+  const items = fixedAssetCoverageItems();
+  const coveredTowns = new Set(items.map((item) => String(item.town || "").trim()).filter(Boolean));
+  const targetTowns = new Set([
+    ...Object.keys(TOWN_COORDS),
+    ...state.listings.map((listing) => String(listing.town || "").trim()).filter(Boolean),
+  ]);
+  const missingTowns = [...targetTowns].filter((town) => !coveredTowns.has(town)).sort(compareTownNames);
+  const coverageRate = targetTowns.size ? Math.round((coveredTowns.size / targetTowns.size) * 100) : 0;
+  return {
+    routeCount: items.length,
+    townCount: coveredTowns.size,
+    targetTownCount: targetTowns.size,
+    missingTowns,
+    coverageRate,
+    matchedListings: state.listings.filter((listing) => listing.route_value_reference?.route_value_type === "fixed_asset_tax").length,
+  };
+}
+
+function renderAppReadinessDashboard() {
+  if (!els.appReadinessGrid || !els.appReadinessSummary) {
+    return;
+  }
+  const quality = state.filtered.map(listingDataQuality);
+  const low = quality.filter((item) => item.level === "low").length;
+  const sourceRows = buildDataSourceRows();
+  const sourceErrors = sourceRows.reduce((sum, row) => sum + Number(row.errorCount || 0), 0);
+  const coverage = fixedAssetCoverageStats();
+  const savedCount = state.favorites.size + state.candidates.size + state.excluded.size + Object.keys(state.notes).length;
+  const checks = [
+    { label: "毎日更新", ok: Boolean(state.latest?.generated_at), detail: formatDateTime(state.latest?.generated_at) },
+    { label: "取得履歴", ok: Boolean(state.collectionHistory?.entries?.length), detail: `${formatInteger(state.collectionHistory?.entries?.length || 0)}回分` },
+    { label: "路線価進捗", ok: coverage.coverageRate >= 50, detail: `${formatInteger(coverage.coverageRate)}%` },
+    { label: "要確認物件", ok: low <= Math.max(8, state.filtered.length * 0.12), detail: `${formatInteger(low)}件` },
+    { label: "収集エラー", ok: sourceErrors === 0, detail: `${formatInteger(sourceErrors)}件` },
+    { label: "保存データ", ok: true, detail: `${formatInteger(savedCount)}件` },
+  ];
+  const okCount = checks.filter((check) => check.ok).length;
+  els.appReadinessSummary.textContent = `${formatInteger(okCount)}/${formatInteger(checks.length)}`;
+  els.appReadinessGrid.innerHTML = checks
+    .map((check) => `
+      <div class="readiness-row ${check.ok ? "ok" : "warning"}">
+        <i data-lucide="${check.ok ? "check-circle-2" : "circle-alert"}"></i>
+        <span>${escapeHtml(check.label)}</span>
+        <strong>${escapeHtml(check.detail)}</strong>
+      </div>
+    `)
     .join("");
 }
 
@@ -3950,6 +4287,7 @@ function renderDetail(listing) {
         ${kv("地図", listing.is_approx_position ? "町名の概算位置" : "緯度経度")}
       </dl>
     </section>
+    ${renderDataQualitySection(listing)}
     ${renderDetailMapSection(listing)}
     ${renderLegalNoticeSection(listing.legal_notice)}
     ${renderHazardSection(listing.hazard_reference)}
@@ -4002,6 +4340,22 @@ function renderDetail(listing) {
       <dl class="detail-kv">
         ${kv("掲載元", `<a href="${escapeAttr(listing.source_url)}" target="_blank" rel="noopener">開く</a>`)}
         ${kv("地図検索", `<a href="https://www.google.com/maps/search/?api=1&query=${mapsQuery}" target="_blank" rel="noopener">開く</a>`)}
+      </dl>
+    </section>
+  `;
+}
+
+function renderDataQualitySection(listing) {
+  const quality = listingDataQuality(listing);
+  return `
+    <section class="detail-section">
+      <h3>データ信頼度</h3>
+      <dl class="detail-kv">
+        ${kv("判定", `${dataQualityLabel(quality)}（${formatInteger(quality.score)}点）`)}
+        ${kv("確認項目", quality.reasons.map(escapeHtml).join("<br>"))}
+        ${kv("写真", imageUrlList(listing).length ? `${formatInteger(imageUrlList(listing).length)}枚` : "未取得")}
+        ${kv("位置精度", listing.is_approx_position ? "概算位置" : Number.isFinite(listing.map_latitude) ? "緯度経度あり" : "未取得")}
+        ${kv("路線価", listing.route_value_reference ? `${escapeHtml(listing.route_value_reference.source || "参照あり")} / ${escapeHtml(listing.route_value_reference.confidence || "-")}` : "未照合")}
       </dl>
     </section>
   `;

@@ -12,6 +12,8 @@ const els = {
   photoTrendPanel: document.getElementById("photoTrendPanel"),
   athomePhotoSummary: document.getElementById("athomePhotoSummary"),
   athomePhotoTrendChart: document.getElementById("athomePhotoTrendChart"),
+  routeCoverageHistorySummary: document.getElementById("routeCoverageHistorySummary"),
+  routeCoverageHistoryPanel: document.getElementById("routeCoverageHistoryPanel"),
   rowCount: document.getElementById("historyRowCount"),
   timeline: document.getElementById("historyTimeline"),
 };
@@ -36,7 +38,7 @@ async function initHistoryPage() {
       return;
     }
     setStatus("");
-    renderHistoryPage(rows, collectionHistory);
+    renderHistoryPage(rows, collectionHistory, latest, fixedAssetRouteValues);
   } catch (error) {
     setStatus("取得データ履歴を読み込めませんでした。時間をおいて再読み込みしてください。");
   }
@@ -233,7 +235,7 @@ function normalizeRoute(route) {
   };
 }
 
-function renderHistoryPage(rows, collectionHistory) {
+function renderHistoryPage(rows, collectionHistory, latestData, fixedAssetRouteValues) {
   const latest = rows[0];
   const previous = rows[1] || null;
   els.updatedAt.textContent = `更新 ${formatDateTime(collectionHistory?.updated_at || latest.generated_at || latest.date)}`;
@@ -244,6 +246,7 @@ function renderHistoryPage(rows, collectionHistory) {
   renderSourceChart(latest);
   renderPhotoTrend(rows);
   renderAthomePhotoTrend(rows);
+  renderRouteCoverageHistory(rows, latestData, fixedAssetRouteValues);
   renderTimeline(rows);
   if (window.lucide) {
     window.lucide.createIcons();
@@ -473,6 +476,41 @@ function renderAthomePhotoFillStats(fill) {
         <b>失敗 ${formatInteger(fill.failed)}件</b>
         <b>残り ${formatInteger(fill.remaining_without_images)}件</b>
       </div>
+    </div>
+  `;
+}
+
+function renderRouteCoverageHistory(rows, latestData, fixedAssetRouteValues) {
+  if (!els.routeCoverageHistoryPanel || !els.routeCoverageHistorySummary) return;
+  const listings = Array.isArray(latestData?.listings) ? latestData.listings : [];
+  const targetTowns = new Set(listings.map((listing) => String(listing.town || "").trim()).filter(Boolean));
+  const fixedItems = Array.isArray(fixedAssetRouteValues?.items) ? fixedAssetRouteValues.items : [];
+  const coveredTowns = new Set(fixedItems.map((item) => String(item.town || "").trim()).filter(Boolean));
+  const missingTowns = [...targetTowns].filter((town) => !coveredTowns.has(town)).sort((a, b) => a.localeCompare(b, "ja"));
+  const coverageRate = targetTowns.size ? Math.round((coveredTowns.size / targetTowns.size) * 100) : 0;
+  const chronological = rows.slice().reverse();
+  const deltas = chronological
+    .map((row, index) => index ? toNumber(row.fixed_asset_route_values?.town_count) - toNumber(chronological[index - 1].fixed_asset_route_values?.town_count) : 0)
+    .filter((value) => value > 0);
+  const averageTownGain = deltas.length ? deltas.reduce((sum, value) => sum + value, 0) / deltas.length : 0;
+  const estimatedRuns = averageTownGain ? Math.ceil(missingTowns.length / averageTownGain) : null;
+  els.routeCoverageHistorySummary.textContent = `${formatInteger(coverageRate)}%`;
+  els.routeCoverageHistoryPanel.innerHTML = `
+    <div class="route-coverage-history-main">
+      <div class="coverage-ring" style="--value:${coverageRate}">
+        <strong>${formatInteger(coverageRate)}%</strong>
+        <span>町名カバー</span>
+      </div>
+      <div class="route-coverage-history-stats">
+        ${metricChip("取得済み町", `${formatInteger(coveredTowns.size)}町`)}
+        ${metricChip("未取得町", `${formatInteger(missingTowns.length)}町`)}
+        ${metricChip("取得路線", `${formatInteger(fixedItems.length)}路線`)}
+        ${metricChip("残り目安", estimatedRuns ? `約${formatInteger(estimatedRuns)}回` : "-")}
+      </div>
+    </div>
+    <div class="route-coverage-missing">
+      <span>未取得町</span>
+      <strong>${escapeHtml(missingTowns.slice(0, 18).join("、") || "なし")}</strong>
     </div>
   `;
 }

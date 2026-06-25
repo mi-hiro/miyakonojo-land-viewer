@@ -511,6 +511,7 @@ const state = {
   listLayout: "cards",
   listPage: 1,
   listPageSize: DEFAULT_LIST_PAGE_SIZE,
+  tableScrollSuppressUntil: 0,
   mapLayerType: "standard",
   map: null,
   mapBaseLayers: null,
@@ -2167,6 +2168,7 @@ function renderList() {
     els.listingList.innerHTML = pageItems.map(renderListingCard).join("");
   }
   bindListingActions(els.listingList);
+  bindTableScroll(els.listingList);
   renderListPagination(pageCount);
 }
 
@@ -2323,7 +2325,8 @@ function renderCompactImage(listing) {
 
 function renderListingTable(listings) {
   return `
-    <div class="list-table-wrap">
+    <div class="list-table-wrap" data-table-scroll tabindex="0" aria-label="物件一覧表">
+      <div class="list-table-scroll-inner">
       <table class="listing-table">
         <thead>
           <tr>
@@ -2340,6 +2343,7 @@ function renderListingTable(listings) {
           ${listings.map(renderListingTableRow).join("")}
         </tbody>
       </table>
+      </div>
     </div>
   `;
 }
@@ -2351,7 +2355,7 @@ function renderListingTableRow(listing) {
   const drop = priceDropInfo(listing);
   const positionText = Number.isFinite(listing.map_latitude) ? (listing.is_approx_position ? "概算位置" : "地図あり") : "地図なし";
   return `
-    <tr data-open-listing="${escapeAttr(listing.id)}" tabindex="0" role="button" aria-label="${escapeAttr(`${shortTitle(listing)}の詳細を開く`)}">
+    <tr>
       <td>
         <strong>${escapeHtml(shortTitle(listing))}</strong>
         <span>${escapeHtml(listing.town)} / ${escapeHtml(listing.source)}</span>
@@ -2403,6 +2407,102 @@ function detailButton(id, extraClass = "") {
   `;
 }
 
+
+function bindTableScroll(root) {
+  const wrap = root.querySelector("[data-table-scroll]");
+  if (!wrap) {
+    return;
+  }
+  let startX = 0;
+  let startY = 0;
+  let startLeft = 0;
+  let dragging = false;
+  let moved = false;
+  const stopOpenAfterDrag = () => {
+    state.tableScrollSuppressUntil = Date.now() + 450;
+  };
+  const endDrag = () => {
+    if (moved) {
+      stopOpenAfterDrag();
+    }
+    dragging = false;
+    moved = false;
+    wrap.classList.remove("is-dragging");
+  };
+  const beginDrag = (clientX, clientY) => {
+    dragging = true;
+    moved = false;
+    startX = clientX;
+    startY = clientY;
+    startLeft = wrap.scrollLeft;
+    wrap.classList.add("is-dragging");
+  };
+  const moveDrag = (clientX, clientY, event) => {
+    if (!dragging) {
+      return;
+    }
+    const dx = clientX - startX;
+    const dy = clientY - startY;
+    if (Math.abs(dx) < 4 || Math.abs(dx) <= Math.abs(dy)) {
+      return;
+    }
+    moved = true;
+    wrap.scrollLeft = startLeft - dx;
+    stopOpenAfterDrag();
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  wrap.addEventListener("pointerdown", (event) => {
+    if (event.button !== undefined && event.button !== 0) {
+      return;
+    }
+    beginDrag(event.clientX, event.clientY);
+    try {
+      wrap.setPointerCapture?.(event.pointerId);
+    } catch (error) {
+      // Pointer capture is best-effort; native scrolling still works without it.
+    }
+  });
+  wrap.addEventListener("pointermove", (event) => moveDrag(event.clientX, event.clientY, event), { passive: false });
+  wrap.addEventListener("pointerup", endDrag);
+  wrap.addEventListener("pointercancel", endDrag);
+  wrap.addEventListener("mousedown", (event) => {
+    if (event.button !== 0) {
+      return;
+    }
+    beginDrag(event.clientX, event.clientY);
+    const onMove = (moveEvent) => moveDrag(moveEvent.clientX, moveEvent.clientY, moveEvent);
+    const onEnd = () => {
+      document.removeEventListener("mousemove", onMove, true);
+      document.removeEventListener("mouseup", onEnd, true);
+      endDrag();
+    };
+    document.addEventListener("mousemove", onMove, { capture: true, passive: false });
+    document.addEventListener("mouseup", onEnd, true);
+  });
+  wrap.addEventListener("touchstart", (event) => {
+    const touch = event.touches?.[0];
+    if (!touch) {
+      return;
+    }
+    beginDrag(touch.clientX, touch.clientY);
+  }, { passive: true });
+  wrap.addEventListener("touchmove", (event) => {
+    const touch = event.touches?.[0];
+    if (!touch) {
+      return;
+    }
+    moveDrag(touch.clientX, touch.clientY, event);
+  }, { passive: false });
+  wrap.addEventListener("touchend", endDrag);
+  wrap.addEventListener("touchcancel", endDrag);
+  wrap.addEventListener("click", (event) => {
+    if (Date.now() <= (state.tableScrollSuppressUntil || 0)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+}
 function bindListingActions(root) {
   void root;
 }

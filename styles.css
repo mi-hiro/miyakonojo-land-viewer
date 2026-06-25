@@ -2961,6 +2961,14 @@ body {
   font-weight: 900;
 }
 
+.app-shell.view-detail .map-toolbar {
+  display: none;
+}
+
+.app-shell.view-detail .map-stage-view {
+  display: none;
+}
+
 .map-toggle {
   min-height: 34px;
 }

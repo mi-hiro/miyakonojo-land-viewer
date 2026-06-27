@@ -1,7 +1,140 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-27T08:01:23.342357+09:00",
+  "updated_at": "2026-06-27T17:24:21.324402+09:00",
   "entries": [
+    {
+      "date": "2026-06-27",
+      "generated_at": "2026-06-27T17:06:43.430219+09:00",
+      "listing_count": 314,
+      "new_count": 8,
+      "duplicate_count": 144,
+      "excluded_count": 33,
+      "sources": [
+        {
+          "name": "アットホーム",
+          "collected_count": 144,
+          "displayed_count": 96,
+          "excluded_count": 0,
+          "error_count": 2,
+          "with_photos": 19,
+          "photo_count": 190
+        },
+        {
+          "name": "SUUMO",
+          "collected_count": 123,
+          "displayed_count": 123,
+          "excluded_count": 12,
+          "error_count": 0,
+          "with_photos": 122,
+          "photo_count": 886
+        },
+        {
+          "name": "ハトマークサイト（宅建協会）",
+          "collected_count": 92,
+          "displayed_count": 50,
+          "excluded_count": 6,
+          "error_count": 0,
+          "with_photos": 34,
+          "photo_count": 116
+        },
+        {
+          "name": "goo住宅・不動産",
+          "collected_count": 37,
+          "displayed_count": 16,
+          "excluded_count": 6,
+          "error_count": 1,
+          "with_photos": 15,
+          "photo_count": 29
+        },
+        {
+          "name": "ニフティ不動産",
+          "collected_count": 33,
+          "displayed_count": 4,
+          "excluded_count": 7,
+          "error_count": 1,
+          "with_photos": 4,
+          "photo_count": 10
+        },
+        {
+          "name": "LIFULL HOME'S",
+          "collected_count": 28,
+          "displayed_count": 24,
+          "excluded_count": 0,
+          "error_count": 1,
+          "with_photos": 24,
+          "photo_count": 141
+        },
+        {
+          "name": "Yahoo!不動産",
+          "collected_count": 1,
+          "displayed_count": 1,
+          "excluded_count": 1,
+          "error_count": 0,
+          "with_photos": 1,
+          "photo_count": 10
+        },
+        {
+          "name": "ネット不動産モールSESH 宮崎",
+          "collected_count": 0,
+          "displayed_count": 0,
+          "excluded_count": 1,
+          "error_count": 1,
+          "with_photos": 0,
+          "photo_count": 0
+        }
+      ],
+      "photos": {
+        "listings": 314,
+        "listings_with_photos": 219,
+        "with_photos": 219,
+        "photo_count": 1382
+      },
+      "athome_photos": {
+        "listings": 96,
+        "listings_with_photos": 19,
+        "with_photos": 19,
+        "photo_count": 190
+      },
+      "athome_photo_fill": {
+        "date": "2026-06-27",
+        "generated_at": "2026-06-27T06:05:49.891970+09:00",
+        "run_at": "2026-06-27T08:00:06.198985+09:00",
+        "checked": 10,
+        "updated": 5,
+        "no_image": 0,
+        "failed": 5,
+        "remaining_without_images": 76,
+        "before": {
+          "listings": 96,
+          "listings_with_photos": 15,
+          "with_photos": 15,
+          "photo_count": 150
+        },
+        "after": {
+          "listings": 96,
+          "listings_with_photos": 20,
+          "with_photos": 20,
+          "photo_count": 200
+        },
+        "added_with_photos": 5,
+        "added_photo_count": 50
+      },
+      "fixed_asset_route_values": {
+        "count": 96,
+        "town_count": 44,
+        "updated_at": "2026-06-26T23:00:22.759Z"
+      },
+      "route_values": {
+        "count": 136,
+        "checked_count": 314,
+        "matched_count": 136,
+        "updated_at": "2026-06-27T17:22:03.742143+09:00"
+      },
+      "history": {
+        "report_dates": 21,
+        "unique_listings": 477
+      }
+    },
     {
       "date": "2026-06-27",
       "generated_at": "2026-06-27T06:05:49.891970+09:00",

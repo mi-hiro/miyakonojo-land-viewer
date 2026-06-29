@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-30T02:02:18.419033+09:00",
+  "updated_at": "2026-06-30T08:03:51.199337+09:00",
   "entries": [
     {
       "date": "2026-06-30",
@@ -16,8 +16,8 @@
           "displayed_count": 90,
           "excluded_count": 0,
           "error_count": 2,
-          "with_photos": 27,
-          "photo_count": 270
+          "with_photos": 32,
+          "photo_count": 314
         },
         {
           "name": "SUUMO",
@@ -85,21 +85,44 @@
       ],
       "photos": {
         "listings": 317,
-        "listings_with_photos": 236,
-        "with_photos": 236,
-        "photo_count": 1493
+        "listings_with_photos": 241,
+        "with_photos": 241,
+        "photo_count": 1537
       },
       "athome_photos": {
         "listings": 90,
-        "listings_with_photos": 27,
-        "with_photos": 27,
-        "photo_count": 270
+        "listings_with_photos": 32,
+        "with_photos": 32,
+        "photo_count": 314
       },
-      "athome_photo_fill": null,
+      "athome_photo_fill": {
+        "date": "2026-06-30",
+        "generated_at": "2026-06-30T01:40:40.331389+09:00",
+        "run_at": "2026-06-30T08:02:06.053823+09:00",
+        "checked": 10,
+        "updated": 5,
+        "no_image": 0,
+        "failed": 5,
+        "remaining_without_images": 58,
+        "before": {
+          "listings": 90,
+          "listings_with_photos": 27,
+          "with_photos": 27,
+          "photo_count": 270
+        },
+        "after": {
+          "listings": 90,
+          "listings_with_photos": 32,
+          "with_photos": 32,
+          "photo_count": 314
+        },
+        "added_with_photos": 5,
+        "added_photo_count": 44
+      },
       "fixed_asset_route_values": {
         "count": 111,
         "town_count": 49,
-        "updated_at": "2026-06-29T14:48:55.648Z"
+        "updated_at": "2026-06-29T23:02:42.242Z"
       },
       "route_values": {
         "count": 142,

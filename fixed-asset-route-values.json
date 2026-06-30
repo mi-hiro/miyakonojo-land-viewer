@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-06-30T11:09:24.210Z",
+  "updated_at": "2026-06-30T23:00:28.370Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
     "rows": 129,
-    "input_rows": 128,
+    "input_rows": 1,
     "items": 129,
     "towns": 50,
     "min_yen_per_sqm": 700,

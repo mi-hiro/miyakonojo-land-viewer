@@ -1,18 +1,17 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-01T14:08:35.448Z",
+  "updated_at": "2026-07-01T14:12:26.963Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 143,
-    "input_rows": 142,
-    "items": 143,
+    "rows": 144,
+    "input_rows": 143,
+    "items": 144,
     "towns": 50,
     "municipalities": 2,
     "by_municipality": {
-      "未分類": 1,
-      "三股町": 1,
-      "都城市": 141
+      "三股町": 2,
+      "都城市": 142
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 44200
@@ -36,7 +35,7 @@
       "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
       "fixed_asset_classification": "固定資産税路線価情報",
       "classification": "固定資産税路線価情報",
-      "municipality": "",
+      "municipality": "三股町",
       "area_id": "",
       "area_label": "",
       "mesh_key": "",
@@ -2228,6 +2227,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-25T02:03:20.056Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5720920-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.728516527815685,
+      "longitude": 131.06706861117766,
+      "route_value_yen_per_sqm": 19900,
+      "fixed_asset_tax_route_value_yen_per_sqm": 19900,
+      "fixed_asset_unit_price_man_per_tsubo": 6.6,
+      "public_reference_unit_price_man_per_tsubo": 9.4,
+      "fixed_asset_route_id": "5720920-22",
+      "route_id": "5720920-22",
+      "fixedid": "5720920",
+      "town": "前田町",
+      "address": "前田町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-01T14:12:11.176Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

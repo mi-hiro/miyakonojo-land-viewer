@@ -2160,6 +2160,7 @@ function renderFixedAssetRouteStatus() {
   const matchedCount = state.listings.filter(
     (listing) => listing.route_value_reference?.route_value_type === "fixed_asset_tax"
   ).length;
+  const areaMeshRate = numberValue(summary.collection_progress?.area_mesh?.checked_rate) || 0;
   const values = items.map(routeValueYenPerSqm).filter((value) => value > 0);
   const minValue = numberValue(summary.min_yen_per_sqm) || (values.length ? Math.min(...values) : 0);
   const maxValue = numberValue(summary.max_yen_per_sqm) || (values.length ? Math.max(...values) : 0);
@@ -2176,7 +2177,7 @@ function renderFixedAssetRouteStatus() {
     ? `${formatInteger(routeCount)}路線・${formatInteger(townCount)}町`
     : "収集中";
   els.fixedAssetRouteMeta.textContent = routeCount
-    ? `物件照合 ${formatInteger(matchedCount)}件`
+    ? `物件照合 ${formatInteger(matchedCount)}件${areaMeshRate ? `・範囲 ${formatInteger(areaMeshRate)}%` : ""}`
     : "データ蓄積待ち";
   if (els.fixedAssetCoverageLink) {
     els.fixedAssetCoverageLink.hidden = !routeCount;
@@ -3633,6 +3634,7 @@ function renderCollectionHistory() {
             ${renderCollectionHistoryMetric("写真", `${formatInteger(row.photos?.listings_with_photos)}件`, `${formatInteger(row.photos?.photo_count)}枚`)}
             ${renderCollectionHistoryMetric("アットホーム写真", `${formatInteger(row.athome_photos?.with_photos)}件`, `${formatInteger(row.athome_photos?.photo_count)}枚`)}
             ${renderCollectionHistoryMetric("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values?.count)}路線`, `${formatInteger(row.fixed_asset_route_values?.town_count)}町`)}
+            ${renderCollectionHistoryMetric("路線価取得範囲", `${formatInteger(row.fixed_asset_route_values?.area_mesh_rate)}%`, `${formatInteger(row.fixed_asset_route_values?.area_mesh_checked)} / ${formatInteger(row.fixed_asset_route_values?.area_mesh_total)}地点`)}
             ${renderCollectionHistoryMetric("路線価照合", `${formatInteger(row.route_values?.matched_count)}件`, `確認 ${formatInteger(row.route_values?.checked_count)}件`)}
             ${renderCollectionHistoryMetric("注意", `${formatInteger(warningCount)}件`, `除外 ${formatInteger(row.excluded_count)}件`)}
           </div>
@@ -3719,11 +3721,17 @@ function normalizeCollectionHistoryPhotos(value) {
 }
 
 function normalizeCollectionHistoryRoute(value) {
+  const progress = value?.collection_progress && typeof value.collection_progress === "object" ? value.collection_progress : {};
+  const areaMesh = progress.area_mesh && typeof progress.area_mesh === "object" ? progress.area_mesh : {};
   return {
     count: Number(value?.count ?? value?.items ?? value?.rows ?? value?.matched_count ?? 0),
     town_count: Number(value?.town_count ?? value?.towns ?? 0),
     checked_count: Number(value?.checked_count ?? value?.checked ?? 0),
     matched_count: Number(value?.matched_count ?? value?.matched ?? value?.count ?? 0),
+    collection_progress: progress,
+    area_mesh_checked: Number(value?.area_mesh_checked ?? areaMesh.checked ?? 0),
+    area_mesh_total: Number(value?.area_mesh_total ?? areaMesh.total ?? 0),
+    area_mesh_rate: Number(value?.area_mesh_rate ?? areaMesh.checked_rate ?? 0),
     updated_at: value?.updated_at || "",
   };
 }
@@ -3807,10 +3815,17 @@ function buildFixedAssetCollectionStats() {
   const items = routeValuePayloadItems(state.routeValues).filter(
     (item) => item.route_value_type === "fixed_asset_tax" || Number.isFinite(Number(item.fixed_asset_tax_route_value_yen_per_sqm))
   );
+  const summary = state.routeValues?.fixed_asset_summary || {};
+  const progress = summary.collection_progress && typeof summary.collection_progress === "object" ? summary.collection_progress : {};
+  const areaMesh = progress.area_mesh && typeof progress.area_mesh === "object" ? progress.area_mesh : {};
   const towns = new Set(items.map((item) => item.town).filter(Boolean));
   return {
-    count: Number(state.routeValues?.fixed_asset_summary?.items ?? state.routeValues?.fixed_asset_summary?.rows ?? items.length),
-    town_count: Number(state.routeValues?.fixed_asset_summary?.towns ?? towns.size),
+    count: Number(summary.items ?? summary.rows ?? items.length),
+    town_count: Number(summary.towns ?? towns.size),
+    collection_progress: progress,
+    area_mesh_checked: Number(areaMesh.checked ?? 0),
+    area_mesh_total: Number(areaMesh.total ?? 0),
+    area_mesh_rate: Number(areaMesh.checked_rate ?? 0),
     updated_at: state.routeValues?.updated_at || "",
   };
 }

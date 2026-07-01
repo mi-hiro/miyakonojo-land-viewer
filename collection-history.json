@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-01T23:12:27.119118+09:00",
+  "updated_at": "2026-07-01T23:22:49.309976+09:00",
   "entries": [
     {
       "date": "2026-07-01",
@@ -122,7 +122,68 @@
       "fixed_asset_route_values": {
         "count": 144,
         "town_count": 50,
-        "updated_at": "2026-07-01T14:12:26.963Z"
+        "updated_at": "2026-07-01T14:22:49.131Z",
+        "municipalities": {
+          "三股町": 2,
+          "都城市": 142
+        },
+        "collection_progress": {
+          "all": {
+            "total": 9667,
+            "checked": 2959,
+            "remaining": 6708,
+            "checked_rate": 31
+          },
+          "listing": {
+            "total": 4884,
+            "checked": 2302,
+            "remaining": 2582,
+            "checked_rate": 47
+          },
+          "town_coverage": {
+            "total": 1383,
+            "checked": 635,
+            "remaining": 748,
+            "checked_rate": 46
+          },
+          "area_mesh": {
+            "total": 3400,
+            "checked": 22,
+            "remaining": 3378,
+            "checked_rate": 1
+          },
+          "area_mesh_by_area": {
+            "mimata": {
+              "total": 399,
+              "checked": 3,
+              "remaining": 396,
+              "checked_rate": 1
+            },
+            "miyakonojo": {
+              "total": 3001,
+              "checked": 19,
+              "remaining": 2982,
+              "checked_rate": 1
+            }
+          },
+          "by_municipality": {
+            "都城市": {
+              "total": 9268,
+              "checked": 2956,
+              "remaining": 6312,
+              "checked_rate": 32
+            },
+            "三股町": {
+              "total": 399,
+              "checked": 3,
+              "remaining": 396,
+              "checked_rate": 1
+            }
+          }
+        },
+        "area_mesh_checked": 22,
+        "area_mesh_total": 3400,
+        "area_mesh_rate": 1
       },
       "route_values": {
         "count": 134,

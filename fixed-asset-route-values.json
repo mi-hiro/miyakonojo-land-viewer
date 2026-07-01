@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-01T14:12:26.963Z",
+  "updated_at": "2026-07-01T14:22:49.131Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -12,6 +12,67 @@
     "by_municipality": {
       "三股町": 2,
       "都城市": 142
+    },
+    "collection_progress": {
+      "all": {
+        "total": 9667,
+        "checked": 2959,
+        "remaining": 6708,
+        "checked_rate": 31
+      },
+      "listing": {
+        "total": 4884,
+        "checked": 2302,
+        "remaining": 2582,
+        "checked_rate": 47
+      },
+      "town_coverage": {
+        "total": 1383,
+        "checked": 635,
+        "remaining": 748,
+        "checked_rate": 46
+      },
+      "area_mesh": {
+        "total": 3400,
+        "checked": 22,
+        "remaining": 3378,
+        "checked_rate": 1
+      },
+      "area_mesh_by_area": {
+        "mimata": {
+          "total": 399,
+          "checked": 3,
+          "remaining": 396,
+          "checked_rate": 1
+        },
+        "miyakonojo": {
+          "total": 3001,
+          "checked": 19,
+          "remaining": 2982,
+          "checked_rate": 1
+        }
+      },
+      "by_municipality": {
+        "都城市": {
+          "total": 9268,
+          "checked": 2956,
+          "remaining": 6312,
+          "checked_rate": 32
+        },
+        "三股町": {
+          "total": 399,
+          "checked": 3,
+          "remaining": 396,
+          "checked_rate": 1
+        }
+      }
+    },
+    "collection_last_run": {
+      "mode": "none",
+      "requests": 0,
+      "newRows": 0,
+      "failures": 0,
+      "note": "No pending listing points."
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 44200

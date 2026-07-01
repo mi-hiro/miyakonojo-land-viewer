@@ -3617,34 +3617,42 @@ function renderCollectionHistory() {
     return;
   }
   els.collectionHistoryList.innerHTML = rows
-    .map((row) => {
+    .map((row, index) => {
       const sources = row.sources || [];
       const warningCount = sources.reduce((sum, source) => sum + Number(source.error_count || 0), 0);
       return `
-        <article class="collection-history-card">
-          <div class="collection-history-main">
+        <details class="collection-history-card" ${index === 0 ? "open" : ""}>
+          <summary class="collection-history-main collection-history-toggle">
             <div>
               <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
               <h3>${escapeHtml(formatFullDateTime(row.generated_at || row.date))}</h3>
             </div>
-            <strong>${formatInteger(row.listing_count)}件</strong>
+            <span class="collection-history-count">
+              <strong>${formatInteger(row.listing_count)}件</strong>
+              <i data-lucide="chevron-down"></i>
+            </span>
+          </summary>
+          <div class="collection-history-body">
+            <div class="collection-history-metrics">
+              ${renderCollectionHistoryMetric("土地情報", `${formatInteger(row.listing_count)}件`, `新着 ${formatInteger(row.new_count)}件`)}
+              ${renderCollectionHistoryMetric("写真", `${formatInteger(row.photos?.listings_with_photos)}件`, `${formatInteger(row.photos?.photo_count)}枚`)}
+              ${renderCollectionHistoryMetric("アットホーム写真", `${formatInteger(row.athome_photos?.with_photos)}件`, `${formatInteger(row.athome_photos?.photo_count)}枚`)}
+              ${renderCollectionHistoryMetric("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values?.count)}路線`, `${formatInteger(row.fixed_asset_route_values?.town_count)}町`)}
+              ${renderCollectionHistoryMetric("路線価取得範囲", `${formatInteger(row.fixed_asset_route_values?.area_mesh_rate)}%`, `${formatInteger(row.fixed_asset_route_values?.area_mesh_checked)} / ${formatInteger(row.fixed_asset_route_values?.area_mesh_total)}地点`)}
+              ${renderCollectionHistoryMetric("路線価照合", `${formatInteger(row.route_values?.matched_count)}件`, `確認 ${formatInteger(row.route_values?.checked_count)}件`)}
+              ${renderCollectionHistoryMetric("注意", `${formatInteger(warningCount)}件`, `除外 ${formatInteger(row.excluded_count)}件`)}
+            </div>
+            <div class="collection-history-sources" aria-label="収集元別の取得数">
+              ${sources.map(renderCollectionHistorySource).join("")}
+            </div>
           </div>
-          <div class="collection-history-metrics">
-            ${renderCollectionHistoryMetric("土地情報", `${formatInteger(row.listing_count)}件`, `新着 ${formatInteger(row.new_count)}件`)}
-            ${renderCollectionHistoryMetric("写真", `${formatInteger(row.photos?.listings_with_photos)}件`, `${formatInteger(row.photos?.photo_count)}枚`)}
-            ${renderCollectionHistoryMetric("アットホーム写真", `${formatInteger(row.athome_photos?.with_photos)}件`, `${formatInteger(row.athome_photos?.photo_count)}枚`)}
-            ${renderCollectionHistoryMetric("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values?.count)}路線`, `${formatInteger(row.fixed_asset_route_values?.town_count)}町`)}
-            ${renderCollectionHistoryMetric("路線価取得範囲", `${formatInteger(row.fixed_asset_route_values?.area_mesh_rate)}%`, `${formatInteger(row.fixed_asset_route_values?.area_mesh_checked)} / ${formatInteger(row.fixed_asset_route_values?.area_mesh_total)}地点`)}
-            ${renderCollectionHistoryMetric("路線価照合", `${formatInteger(row.route_values?.matched_count)}件`, `確認 ${formatInteger(row.route_values?.checked_count)}件`)}
-            ${renderCollectionHistoryMetric("注意", `${formatInteger(warningCount)}件`, `除外 ${formatInteger(row.excluded_count)}件`)}
-          </div>
-          <div class="collection-history-sources" aria-label="収集元別の取得数">
-            ${sources.map(renderCollectionHistorySource).join("")}
-          </div>
-        </article>
+        </details>
       `;
     })
     .join("");
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 function renderCollectionHistoryMetric(label, value, sub) {

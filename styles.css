@@ -5859,6 +5859,19 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.96);
 }
 
+.collection-history-card:not([open]) {
+  gap: 0;
+}
+
+.collection-history-card > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.collection-history-card > summary::-webkit-details-marker {
+  display: none;
+}
+
 .collection-history-main {
   display: flex;
   align-items: center;
@@ -5877,6 +5890,29 @@ body {
   flex: 0 0 auto;
   color: var(--accent-strong);
   font-size: 20px;
+}
+
+.collection-history-count {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.collection-history-count svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-strong);
+  transition: transform 0.18s ease;
+}
+
+.collection-history-card[open] .collection-history-count svg {
+  transform: rotate(180deg);
+}
+
+.collection-history-body {
+  display: grid;
+  gap: 10px;
 }
 
 .collection-history-metrics {

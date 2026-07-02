@@ -327,18 +327,27 @@ function renderDailyTrend(rows) {
   };
   els.trendRange.textContent = `${formatShortDate(ordered.at(-1)?.date)} - ${formatShortDate(ordered[0]?.date)}`;
   els.dailyTrendChart.innerHTML = ordered.map((row) => `
-    <div class="trend-row">
-      <div class="trend-date">
-        <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
-        <small>${escapeHtml(formatTime(row.generated_at))}</small>
-      </div>
-      <div class="trend-bars">
+    <details class="history-fold-card trend-fold-card">
+      <summary class="history-fold-summary">
+        <div class="trend-date">
+          <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
+          <small>${escapeHtml(formatTime(row.generated_at))}</small>
+        </div>
+        <div class="history-fold-summary-stats">
+          <span>掲載 ${formatInteger(row.listing_count)}件</span>
+          <span>写真 ${formatInteger(row.photos.photo_count)}枚</span>
+          <span>路線価 ${formatInteger(row.route_values.matched_count)}件</span>
+          <span>固定 ${formatInteger(row.fixed_asset_route_values.count)}路線</span>
+        </div>
+        <i data-lucide="chevron-down"></i>
+      </summary>
+      <div class="trend-bars history-fold-body">
         ${trendBar("掲載", row.listing_count, max.listing, "listing")}
         ${trendBar("写真", row.photos.photo_count, max.photos, "photos")}
         ${trendBar("路線価照合", row.route_values.matched_count, max.route, "route")}
         ${trendBar("固定資産税路線価", row.fixed_asset_route_values.count, max.fixed, "fixed")}
       </div>
-    </div>
+    </details>
   `).join("");
 }
 
@@ -453,27 +462,38 @@ function renderAthomePhotoTrend(rows) {
     const rate = stats.listings ? Math.round((stats.with_photos / stats.listings) * 100) : 0;
     const isLatest = sameMoment(row.generated_at, latest.generated_at) || row.date === latest.date;
     return `
-      <div class="athome-photo-row ${isLatest ? "latest" : ""}">
-        <div class="athome-photo-date">
-          <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
-          <small>${escapeHtml(formatTime(row.generated_at))}</small>
-        </div>
-        <div class="athome-photo-bars">
-          ${athomePhotoBar("対象物件", stats.listings, max.listings, "listings", "件")}
-          ${athomePhotoBar("写真付き", stats.with_photos, max.withPhotos, "with-photos", "件")}
-          ${athomePhotoBar("写真枚数", stats.photo_count, max.photoCount, "photo-count", "枚")}
-        </div>
-        <div class="athome-photo-rate">
-          <span>写真付き率</span>
-          <strong>${formatInteger(rate)}%</strong>
-        </div>
-        ${fill ? renderAthomePhotoFillStats(fill) : `
-          <div class="athome-photo-fill missing">
-            <span>写真のみ収集</span>
-            <strong>記録なし</strong>
+      <details class="history-fold-card athome-photo-fold ${isLatest ? "latest" : ""}">
+        <summary class="history-fold-summary athome-photo-summary">
+          <div class="athome-photo-date">
+            <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
+            <small>${escapeHtml(formatTime(row.generated_at))}</small>
           </div>
-        `}
-      </div>
+          <div class="history-fold-summary-stats">
+            <span>対象 ${formatInteger(stats.listings)}件</span>
+            <span>写真付き ${formatInteger(stats.with_photos)}件</span>
+            <span>写真 ${formatInteger(stats.photo_count)}枚</span>
+            <span>率 ${formatInteger(rate)}%</span>
+          </div>
+          <i data-lucide="chevron-down"></i>
+        </summary>
+        <div class="athome-photo-fold-body">
+          <div class="athome-photo-bars">
+            ${athomePhotoBar("対象物件", stats.listings, max.listings, "listings", "件")}
+            ${athomePhotoBar("写真付き", stats.with_photos, max.withPhotos, "with-photos", "件")}
+            ${athomePhotoBar("写真枚数", stats.photo_count, max.photoCount, "photo-count", "枚")}
+          </div>
+          <div class="athome-photo-rate">
+            <span>写真付き率</span>
+            <strong>${formatInteger(rate)}%</strong>
+          </div>
+          ${fill ? renderAthomePhotoFillStats(fill) : `
+            <div class="athome-photo-fill missing">
+              <span>写真のみ収集</span>
+              <strong>記録なし</strong>
+            </div>
+          `}
+        </div>
+      </details>
     `;
   }).join("");
   if (!ordered.length) {

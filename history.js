@@ -77,7 +77,7 @@ function buildRows(collectionHistory, latest, routeValues, fixedAssetRouteValues
   }
   return rows
     .filter(Boolean)
-    .sort((a, b) => dateValue(b.generated_at || b.date) - dateValue(a.generated_at || a.date))
+    .sort(sortRowsDesc)
     .slice(0, 90);
 }
 
@@ -108,6 +108,10 @@ function buildCurrentRow(latest, routeValues, fixedAssetRouteValues) {
   const athomeListings = listings.filter((listing) => String(listing.source || "").includes("アットホーム"));
   const routeItems = Array.isArray(routeValues?.items) ? routeValues.items : [];
   const fixedItems = Array.isArray(fixedAssetRouteValues?.items) ? fixedAssetRouteValues.items : [];
+  const fixedSummary = fixedAssetRouteValues?.summary || {};
+  const fixedProgress = fixedSummary.collection_progress || {};
+  const fixedAreaMesh = normalizeProgressRecord(fixedProgress.area_mesh);
+  const fixedAreaMeshByArea = normalizeProgressGroups(fixedProgress.area_mesh_by_area);
   const routeMatched = new Set(routeItems.map((item) => item.listing_id || item.id).filter(Boolean)).size;
   return {
     date: latest.report_date || localDate(new Date()),
@@ -125,8 +129,14 @@ function buildCurrentRow(latest, routeValues, fixedAssetRouteValues) {
       photo_count: athomeListings.reduce((sum, listing) => sum + imageUrls(listing).length, 0),
     },
     fixed_asset_route_values: {
-      count: fixedItems.length,
-      town_count: new Set(fixedItems.map((item) => item.town || item.address).filter(Boolean)).size,
+      count: toNumber(fixedSummary.items ?? fixedSummary.rows ?? fixedItems.length),
+      town_count: toNumber(fixedSummary.towns) || new Set(fixedItems.map((item) => item.town || item.address).filter(Boolean)).size,
+      municipalities: fixedSummary.by_municipality || {},
+      collection_progress: fixedProgress,
+      area_mesh_checked: toNumber(fixedAreaMesh.checked),
+      area_mesh_total: toNumber(fixedAreaMesh.total),
+      area_mesh_rate: toNumber(fixedAreaMesh.checked_rate),
+      area_mesh_by_area: fixedAreaMeshByArea,
       updated_at: fixedAssetRouteValues?.updated_at || "",
     },
     route_values: {
@@ -226,11 +236,22 @@ function normalizeAthomePhotoFill(fill) {
 }
 
 function normalizeRoute(route) {
+  const progress = route?.collection_progress && typeof route.collection_progress === "object"
+    ? route.collection_progress
+    : {};
+  const areaMesh = normalizeProgressRecord(progress.area_mesh);
+  const areaMeshByArea = normalizeProgressGroups(progress.area_mesh_by_area);
   return {
     count: toNumber(route?.count),
     checked_count: toNumber(route?.checked_count),
     matched_count: toNumber(route?.matched_count),
     town_count: toNumber(route?.town_count),
+    municipalities: route?.municipalities || route?.by_municipality || {},
+    collection_progress: progress,
+    area_mesh_checked: toNumber(route?.area_mesh_checked ?? areaMesh.checked),
+    area_mesh_total: toNumber(route?.area_mesh_total ?? areaMesh.total),
+    area_mesh_rate: toNumber(route?.area_mesh_rate ?? areaMesh.checked_rate),
+    area_mesh_by_area: areaMeshByArea,
     updated_at: route?.updated_at || "",
   };
 }
@@ -276,7 +297,7 @@ function renderSummaryCards(latest, previous) {
     {
       label: "固定資産税路線価",
       value: `${formatInteger(latest.fixed_asset_route_values.count)}路線`,
-      sub: `${formatInteger(latest.fixed_asset_route_values.town_count)}町 ${deltaText(latest.fixed_asset_route_values.count, previous?.fixed_asset_route_values?.count)}`,
+      sub: `${formatInteger(latest.fixed_asset_route_values.town_count)}町 / 範囲${formatInteger(latest.fixed_asset_route_values.area_mesh_rate)}% ${deltaText(latest.fixed_asset_route_values.count, previous?.fixed_asset_route_values?.count)}`,
       icon: "database",
     },
     {
@@ -297,15 +318,15 @@ function renderSummaryCards(latest, previous) {
 }
 
 function renderDailyTrend(rows) {
-  const chronological = rows.slice().reverse();
+  const ordered = rows.slice().sort(sortRowsDesc);
   const max = {
-    listing: Math.max(...chronological.map((row) => row.listing_count), 1),
-    photos: Math.max(...chronological.map((row) => row.photos.photo_count), 1),
-    route: Math.max(...chronological.map((row) => row.route_values.matched_count), 1),
-    fixed: Math.max(...chronological.map((row) => row.fixed_asset_route_values.count), 1),
+    listing: Math.max(...ordered.map((row) => row.listing_count), 1),
+    photos: Math.max(...ordered.map((row) => row.photos.photo_count), 1),
+    route: Math.max(...ordered.map((row) => row.route_values.matched_count), 1),
+    fixed: Math.max(...ordered.map((row) => row.fixed_asset_route_values.count), 1),
   };
-  els.trendRange.textContent = `${formatShortDate(chronological[0]?.date)} - ${formatShortDate(chronological.at(-1)?.date)}`;
-  els.dailyTrendChart.innerHTML = chronological.map((row) => `
+  els.trendRange.textContent = `${formatShortDate(ordered.at(-1)?.date)} - ${formatShortDate(ordered[0]?.date)}`;
+  els.dailyTrendChart.innerHTML = ordered.map((row) => `
     <div class="trend-row">
       <div class="trend-date">
         <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
@@ -408,7 +429,7 @@ function renderPhotoTrend(rows) {
 
 function renderAthomePhotoTrend(rows) {
   if (!els.athomePhotoTrendChart) return;
-  const chronological = rows.slice().reverse();
+  const ordered = rows.slice().sort(sortRowsDesc);
   const latest = rows[0];
   const latestStats = latest.athome_photos || normalizePhotos();
   const latestFill = latest.athome_photo_fill;
@@ -416,9 +437,9 @@ function renderAthomePhotoTrend(rows) {
   const pending = latestStats.listings > 0 && latestStats.photo_count === 0 && previousPhotoData;
   const latestRate = latestStats.listings ? Math.round((latestStats.with_photos / latestStats.listings) * 100) : 0;
   const max = {
-    listings: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.listings)), 1),
-    withPhotos: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.with_photos)), 1),
-    photoCount: Math.max(...chronological.map((row) => toNumber(row.athome_photos?.photo_count)), 1),
+    listings: Math.max(...ordered.map((row) => toNumber(row.athome_photos?.listings)), 1),
+    withPhotos: Math.max(...ordered.map((row) => toNumber(row.athome_photos?.with_photos)), 1),
+    photoCount: Math.max(...ordered.map((row) => toNumber(row.athome_photos?.photo_count)), 1),
   };
 
   els.athomePhotoSummary.innerHTML = `
@@ -426,7 +447,7 @@ function renderAthomePhotoTrend(rows) {
       ${pending ? "本日分は写真補完待ちの可能性" : latestFill ? `写真補完 +${formatInteger(latestFill.added_photo_count)}枚` : `最新 ${formatInteger(latestStats.photo_count)}枚`}
     </span>
   `;
-  els.athomePhotoTrendChart.innerHTML = chronological.map((row) => {
+  els.athomePhotoTrendChart.innerHTML = ordered.map((row) => {
     const stats = row.athome_photos || normalizePhotos();
     const fill = row.athome_photo_fill;
     const rate = stats.listings ? Math.round((stats.with_photos / stats.listings) * 100) : 0;
@@ -455,7 +476,7 @@ function renderAthomePhotoTrend(rows) {
       </div>
     `;
   }).join("");
-  if (!chronological.length) {
+  if (!ordered.length) {
     els.athomePhotoTrendChart.innerHTML = `<div class="empty-state">アットホーム写真の履歴はまだありません</div>`;
   }
   if (els.athomePhotoSummary && !pending) {
@@ -482,6 +503,9 @@ function renderAthomePhotoFillStats(fill) {
 
 function renderRouteCoverageHistory(rows, latestData, fixedAssetRouteValues) {
   if (!els.routeCoverageHistoryPanel || !els.routeCoverageHistorySummary) return;
+  const latestRoute = rows[0]?.fixed_asset_route_values || normalizeRoute();
+  const fixedSummary = fixedAssetRouteValues?.summary || {};
+  const municipalityRows = fixedAssetMunicipalityRows(latestRoute, fixedSummary);
   const listings = Array.isArray(latestData?.listings) ? latestData.listings : [];
   const targetTowns = new Set(listings.map((listing) => String(listing.town || "").trim()).filter(Boolean));
   const fixedItems = Array.isArray(fixedAssetRouteValues?.items) ? fixedAssetRouteValues.items : [];
@@ -504,9 +528,24 @@ function renderRouteCoverageHistory(rows, latestData, fixedAssetRouteValues) {
       <div class="route-coverage-history-stats">
         ${metricChip("取得済み町", `${formatInteger(coveredTowns.size)}町`)}
         ${metricChip("未取得町", `${formatInteger(missingTowns.length)}町`)}
-        ${metricChip("取得路線", `${formatInteger(fixedItems.length)}路線`)}
+        ${metricChip("取得路線", `${formatInteger(latestRoute.count || fixedItems.length)}路線`)}
+        ${metricChip("範囲取得率", `${formatInteger(latestRoute.area_mesh_rate)}%`)}
         ${metricChip("残り目安", estimatedRuns ? `約${formatInteger(estimatedRuns)}回` : "-")}
       </div>
+    </div>
+    <div class="route-coverage-history-areas">
+      ${municipalityRows.map((area) => `
+        <article class="route-coverage-area-card">
+          <div>
+            <span>${escapeHtml(area.label)}</span>
+            <strong>${formatInteger(area.routeCount)}路線</strong>
+          </div>
+          <div class="route-coverage-area-meter">
+            <i style="width:${Math.max(2, Math.min(100, area.rate))}%"></i>
+          </div>
+          <small>取得率 ${formatInteger(area.rate)}% / 取得範囲 ${formatInteger(area.meshChecked)}地点 / ${formatInteger(area.meshTotal)}地点</small>
+        </article>
+      `).join("")}
     </div>
     <div class="route-coverage-missing">
       <span>未取得町</span>
@@ -527,26 +566,92 @@ function athomePhotoBar(label, value, max, tone, unit) {
 }
 
 function renderTimeline(rows) {
-  els.timeline.innerHTML = rows.map((row) => `
-    <article class="history-timeline-card">
-      <div class="history-timeline-main">
-        <div>
-          <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
-          <h3>${escapeHtml(formatDateTime(row.generated_at || row.date))}</h3>
+  const ordered = rows.slice().sort(sortRowsDesc);
+  els.timeline.innerHTML = ordered.map((row) => `
+    <details class="history-timeline-card">
+      <summary class="history-timeline-summary">
+        <div class="history-timeline-main">
+          <div>
+            <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
+            <h3>${escapeHtml(formatDateTime(row.generated_at || row.date))}</h3>
+          </div>
+          <strong>${formatInteger(row.listing_count)}件</strong>
         </div>
-        <strong>${formatInteger(row.listing_count)}件</strong>
+        <div class="history-timeline-summary-stats">
+          <span>新着 ${formatInteger(row.new_count)}</span>
+          <span>写真 ${formatInteger(row.photos.photo_count)}枚</span>
+          <span>路線価範囲 ${formatInteger(row.fixed_asset_route_values.area_mesh_rate)}%</span>
+        </div>
+        <i data-lucide="chevron-down"></i>
+      </summary>
+      <div class="history-timeline-body">
+        <div class="history-timeline-metrics">
+          ${metricChip("新着", `${formatInteger(row.new_count)}件`)}
+          ${metricChip("写真", `${formatInteger(row.photos.listings_with_photos)}件 / ${formatInteger(row.photos.photo_count)}枚`)}
+          ${metricChip("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values.count)}路線 / ${formatInteger(row.fixed_asset_route_values.town_count)}町 / 範囲${formatInteger(row.fixed_asset_route_values.area_mesh_rate)}%`)}
+          ${metricChip("路線価照合", `${formatInteger(row.route_values.matched_count)}件`)}
+        </div>
+        <details class="history-timeline-source-details">
+          <summary>
+            <span>情報元別</span>
+            <strong>${formatInteger((row.sources || []).length)}サイト</strong>
+          </summary>
+          <div class="history-timeline-sources">
+            ${(row.sources || []).map((source) => `<span>${escapeHtml(source.name)} ${formatInteger(source.displayed_count)}件</span>`).join("")}
+          </div>
+        </details>
       </div>
-      <div class="history-timeline-metrics">
-        ${metricChip("新着", `${formatInteger(row.new_count)}件`)}
-        ${metricChip("写真", `${formatInteger(row.photos.listings_with_photos)}件 / ${formatInteger(row.photos.photo_count)}枚`)}
-        ${metricChip("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values.count)}路線 / ${formatInteger(row.fixed_asset_route_values.town_count)}町`)}
-        ${metricChip("路線価照合", `${formatInteger(row.route_values.matched_count)}件`)}
-      </div>
-      <div class="history-timeline-sources">
-        ${(row.sources || []).map((source) => `<span>${escapeHtml(source.name)} ${formatInteger(source.displayed_count)}件</span>`).join("")}
-      </div>
-    </article>
+    </details>
   `).join("");
+}
+
+function fixedAssetMunicipalityRows(route, summary) {
+  const routeCounts = {
+    ...(summary?.by_municipality || {}),
+    ...(route?.municipalities || {}),
+  };
+  const routeProgress = route?.collection_progress || {};
+  const progress = Object.keys(routeProgress).length ? routeProgress : summary?.collection_progress || {};
+  const byMunicipality = normalizeProgressGroups(progress.by_municipality);
+  const routeArea = route?.area_mesh_by_area || {};
+  const byArea = Object.keys(routeArea).length ? routeArea : normalizeProgressGroups(progress.area_mesh_by_area);
+  return ["都城市", "三股町"].map((label) => {
+    const areaKey = label.includes("三股") ? "mimata" : "miyakonojo";
+    const municipalityProgress = normalizeProgressRecord(byMunicipality[label]);
+    const meshProgress = normalizeProgressRecord(byArea[areaKey]);
+    return {
+      label,
+      routeCount: toNumber(routeCounts[label]),
+      rate: toNumber(municipalityProgress.checked_rate || meshProgress.checked_rate),
+      checked: toNumber(municipalityProgress.checked),
+      total: toNumber(municipalityProgress.total),
+      meshChecked: toNumber(meshProgress.checked),
+      meshTotal: toNumber(meshProgress.total),
+    };
+  }).filter((row) => row.routeCount || row.total || row.meshTotal);
+}
+
+function normalizeProgressGroups(groups) {
+  if (!groups || typeof groups !== "object") return {};
+  return Object.fromEntries(
+    Object.entries(groups).map(([key, value]) => [key, normalizeProgressRecord(value)])
+  );
+}
+
+function normalizeProgressRecord(record) {
+  if (!record || typeof record !== "object") {
+    return { total: 0, checked: 0, remaining: 0, checked_rate: 0 };
+  }
+  return {
+    total: toNumber(record.total),
+    checked: toNumber(record.checked),
+    remaining: toNumber(record.remaining),
+    checked_rate: toNumber(record.checked_rate),
+  };
+}
+
+function sortRowsDesc(a, b) {
+  return dateValue(b.generated_at || b.date) - dateValue(a.generated_at || a.date);
 }
 
 function metricChip(label, value) {

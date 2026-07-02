@@ -3617,15 +3617,18 @@ function renderCollectionHistory() {
     return;
   }
   els.collectionHistoryList.innerHTML = rows
-    .map((row, index) => {
+    .map((row) => {
       const sources = row.sources || [];
       const warningCount = sources.reduce((sum, source) => sum + Number(source.error_count || 0), 0);
       return `
-        <details class="collection-history-card" ${index === 0 ? "open" : ""}>
+        <details class="collection-history-card">
           <summary class="collection-history-main collection-history-toggle">
             <div>
               <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
               <h3>${escapeHtml(formatFullDateTime(row.generated_at || row.date))}</h3>
+              <small class="collection-history-quick">
+                新着 ${formatInteger(row.new_count)}件 / 写真 ${formatInteger(row.photos?.photo_count)}枚 / 路線価範囲 ${formatInteger(row.fixed_asset_route_values?.area_mesh_rate)}%
+              </small>
             </div>
             <span class="collection-history-count">
               <strong>${formatInteger(row.listing_count)}件</strong>
@@ -3642,9 +3645,7 @@ function renderCollectionHistory() {
               ${renderCollectionHistoryMetric("路線価照合", `${formatInteger(row.route_values?.matched_count)}件`, `確認 ${formatInteger(row.route_values?.checked_count)}件`)}
               ${renderCollectionHistoryMetric("注意", `${formatInteger(warningCount)}件`, `除外 ${formatInteger(row.excluded_count)}件`)}
             </div>
-            <div class="collection-history-sources" aria-label="収集元別の取得数">
-              ${sources.map(renderCollectionHistorySource).join("")}
-            </div>
+            ${renderCollectionHistorySourceDetails(sources)}
           </div>
         </details>
       `;
@@ -3662,6 +3663,24 @@ function renderCollectionHistoryMetric(label, value, sub) {
       <strong>${escapeHtml(value)}</strong>
       <small>${escapeHtml(sub || "")}</small>
     </div>
+  `;
+}
+
+function renderCollectionHistorySourceDetails(sources) {
+  if (!sources.length) {
+    return "";
+  }
+  return `
+    <details class="collection-history-source-details">
+      <summary>
+        <span>収集元別詳細</span>
+        <strong>${formatInteger(sources.length)}件</strong>
+        <i data-lucide="chevron-down"></i>
+      </summary>
+      <div class="collection-history-sources" aria-label="収集元別の取得数">
+        ${sources.map(renderCollectionHistorySource).join("")}
+      </div>
+    </details>
   `;
 }
 

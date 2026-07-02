@@ -34,81 +34,105 @@
         </section>
 
         <section class="history-layout-grid">
-          <article class="history-glass-panel history-panel-wide">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel history-panel-wide">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Trend</p>
                 <h2>日別推移</h2>
               </div>
-              <span id="historyTrendRange" class="dashboard-summary">-</span>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div class="history-section-meta"><span id="historyTrendRange" class="dashboard-summary">-</span></div>
+              <div id="dailyTrendCumulative" class="history-cumulative-chart"></div>
+              <div id="dailyTrendChart" class="daily-trend-chart"></div>
             </div>
-            <div id="dailyTrendChart" class="daily-trend-chart"></div>
-          </article>
+          </details>
 
-          <article class="history-glass-panel">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Diff</p>
                 <h2>前回からの変化</h2>
               </div>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div id="historyDeltaList" class="history-delta-list"></div>
             </div>
-            <div id="historyDeltaList" class="history-delta-list"></div>
-          </article>
+          </details>
 
-          <article class="history-glass-panel history-panel-wide">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel history-panel-wide">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Sources</p>
                 <h2>情報元別の取得状況</h2>
               </div>
-              <span id="sourceChartSummary" class="dashboard-summary">最新回</span>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div class="history-section-meta"><span id="sourceChartSummary" class="dashboard-summary">最新回</span></div>
+              <div id="sourceHistoryChart" class="source-history-chart"></div>
             </div>
-            <div id="sourceHistoryChart" class="source-history-chart"></div>
-          </article>
+          </details>
 
-          <article class="history-glass-panel">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Photos</p>
                 <h2>写真取得の変化</h2>
               </div>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div id="photoTrendPanel" class="photo-trend-panel"></div>
             </div>
-            <div id="photoTrendPanel" class="photo-trend-panel"></div>
-          </article>
+          </details>
 
-          <article class="history-glass-panel history-panel-full">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel history-panel-full">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Athome Photos</p>
                 <h2>アットホーム写真補完</h2>
               </div>
-              <span id="athomePhotoSummary" class="dashboard-summary">-</span>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div class="history-section-meta"><span id="athomePhotoSummary" class="dashboard-summary">-</span></div>
+              <div id="athomePhotoCumulative" class="history-cumulative-chart"></div>
+              <div id="athomePhotoTrendChart" class="athome-photo-trend-chart"></div>
             </div>
-            <div id="athomePhotoTrendChart" class="athome-photo-trend-chart"></div>
-          </article>
+          </details>
 
-          <article class="history-glass-panel history-panel-full">
-            <div class="history-panel-head">
+          <details class="history-glass-panel history-section-panel history-panel-full">
+            <summary class="history-section-summary">
               <div>
                 <p class="dashboard-kicker">Route Coverage</p>
                 <h2>固定資産税路線価の取得進捗</h2>
               </div>
-              <span id="routeCoverageHistorySummary" class="dashboard-summary">-</span>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="history-section-body">
+              <div class="history-section-meta"><span id="routeCoverageHistorySummary" class="dashboard-summary">-</span></div>
+              <div id="routeCoverageHistoryPanel" class="route-coverage-history-panel"></div>
             </div>
-            <div id="routeCoverageHistoryPanel" class="route-coverage-history-panel"></div>
-          </article>
+          </details>
         </section>
 
-        <section class="history-glass-panel">
-          <div class="history-panel-head">
+        <details class="history-glass-panel history-section-panel">
+          <summary class="history-section-summary">
             <div>
               <p class="dashboard-kicker">Timeline</p>
               <h2>取得履歴一覧</h2>
             </div>
-            <span id="historyRowCount" class="dashboard-summary">-</span>
+            <i data-lucide="chevron-down"></i>
+          </summary>
+          <div class="history-section-body">
+            <div class="history-section-meta"><span id="historyRowCount" class="dashboard-summary">-</span></div>
+            <div id="timelineCumulative" class="history-cumulative-chart"></div>
+            <div id="historyTimeline" class="history-timeline"></div>
           </div>
-          <div id="historyTimeline" class="history-timeline"></div>
-        </section>
+        </details>
       </main>
     </div>
 

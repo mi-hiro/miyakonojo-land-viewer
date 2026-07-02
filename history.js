@@ -5,16 +5,19 @@ const els = {
   updatedAt: document.getElementById("historyUpdatedAt"),
   summaryCards: document.getElementById("historySummaryCards"),
   trendRange: document.getElementById("historyTrendRange"),
+  dailyTrendCumulative: document.getElementById("dailyTrendCumulative"),
   dailyTrendChart: document.getElementById("dailyTrendChart"),
   deltaList: document.getElementById("historyDeltaList"),
   sourceChartSummary: document.getElementById("sourceChartSummary"),
   sourceHistoryChart: document.getElementById("sourceHistoryChart"),
   photoTrendPanel: document.getElementById("photoTrendPanel"),
   athomePhotoSummary: document.getElementById("athomePhotoSummary"),
+  athomePhotoCumulative: document.getElementById("athomePhotoCumulative"),
   athomePhotoTrendChart: document.getElementById("athomePhotoTrendChart"),
   routeCoverageHistorySummary: document.getElementById("routeCoverageHistorySummary"),
   routeCoverageHistoryPanel: document.getElementById("routeCoverageHistoryPanel"),
   rowCount: document.getElementById("historyRowCount"),
+  timelineCumulative: document.getElementById("timelineCumulative"),
   timeline: document.getElementById("historyTimeline"),
 };
 
@@ -326,29 +329,26 @@ function renderDailyTrend(rows) {
     fixed: Math.max(...ordered.map((row) => row.fixed_asset_route_values.count), 1),
   };
   els.trendRange.textContent = `${formatShortDate(ordered.at(-1)?.date)} - ${formatShortDate(ordered[0]?.date)}`;
-  els.dailyTrendChart.innerHTML = ordered.map((row) => `
-    <details class="history-fold-card trend-fold-card">
-      <summary class="history-fold-summary">
-        <div class="trend-date">
-          <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
-          <small>${escapeHtml(formatTime(row.generated_at))}</small>
-        </div>
-        <div class="history-fold-summary-stats">
-          <span>掲載 ${formatInteger(row.listing_count)}件</span>
-          <span>写真 ${formatInteger(row.photos.photo_count)}枚</span>
-          <span>路線価 ${formatInteger(row.route_values.matched_count)}件</span>
-          <span>固定 ${formatInteger(row.fixed_asset_route_values.count)}路線</span>
-        </div>
-        <i data-lucide="chevron-down"></i>
-      </summary>
-      <div class="trend-bars history-fold-body">
+  renderCumulativeChart(els.dailyTrendCumulative, ordered, [
+    { label: "掲載件数", value: (row) => row.listing_count, tone: "listing" },
+    { label: "写真枚数", value: (row) => row.photos.photo_count, tone: "photos" },
+    { label: "路線価照合", value: (row) => row.route_values.matched_count, tone: "route" },
+    { label: "固定資産税路線価", value: (row) => row.fixed_asset_route_values.count, tone: "fixed" },
+  ]);
+  els.dailyTrendChart.innerHTML = renderMonthGroups(ordered, (row) => `
+    <div class="trend-row">
+      <div class="trend-date">
+        <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
+        <small>${escapeHtml(formatTime(row.generated_at))}</small>
+      </div>
+      <div class="trend-bars">
         ${trendBar("掲載", row.listing_count, max.listing, "listing")}
         ${trendBar("写真", row.photos.photo_count, max.photos, "photos")}
         ${trendBar("路線価照合", row.route_values.matched_count, max.route, "route")}
         ${trendBar("固定資産税路線価", row.fixed_asset_route_values.count, max.fixed, "fixed")}
       </div>
-    </details>
-  `).join("");
+    </div>
+  `);
 }
 
 function trendBar(label, value, max, tone) {
@@ -456,46 +456,40 @@ function renderAthomePhotoTrend(rows) {
       ${pending ? "本日分は写真補完待ちの可能性" : latestFill ? `写真補完 +${formatInteger(latestFill.added_photo_count)}枚` : `最新 ${formatInteger(latestStats.photo_count)}枚`}
     </span>
   `;
-  els.athomePhotoTrendChart.innerHTML = ordered.map((row) => {
+  renderCumulativeChart(els.athomePhotoCumulative, ordered, [
+    { label: "対象物件", value: (row) => row.athome_photos?.listings, tone: "listing" },
+    { label: "写真付き", value: (row) => row.athome_photos?.with_photos, tone: "photos" },
+    { label: "写真枚数", value: (row) => row.athome_photos?.photo_count, tone: "fixed" },
+  ]);
+  els.athomePhotoTrendChart.innerHTML = renderMonthGroups(ordered, (row) => {
     const stats = row.athome_photos || normalizePhotos();
     const fill = row.athome_photo_fill;
     const rate = stats.listings ? Math.round((stats.with_photos / stats.listings) * 100) : 0;
     const isLatest = sameMoment(row.generated_at, latest.generated_at) || row.date === latest.date;
     return `
-      <details class="history-fold-card athome-photo-fold ${isLatest ? "latest" : ""}">
-        <summary class="history-fold-summary athome-photo-summary">
-          <div class="athome-photo-date">
-            <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
-            <small>${escapeHtml(formatTime(row.generated_at))}</small>
-          </div>
-          <div class="history-fold-summary-stats">
-            <span>対象 ${formatInteger(stats.listings)}件</span>
-            <span>写真付き ${formatInteger(stats.with_photos)}件</span>
-            <span>写真 ${formatInteger(stats.photo_count)}枚</span>
-            <span>率 ${formatInteger(rate)}%</span>
-          </div>
-          <i data-lucide="chevron-down"></i>
-        </summary>
-        <div class="athome-photo-fold-body">
-          <div class="athome-photo-bars">
-            ${athomePhotoBar("対象物件", stats.listings, max.listings, "listings", "件")}
-            ${athomePhotoBar("写真付き", stats.with_photos, max.withPhotos, "with-photos", "件")}
-            ${athomePhotoBar("写真枚数", stats.photo_count, max.photoCount, "photo-count", "枚")}
-          </div>
-          <div class="athome-photo-rate">
-            <span>写真付き率</span>
-            <strong>${formatInteger(rate)}%</strong>
-          </div>
-          ${fill ? renderAthomePhotoFillStats(fill) : `
-            <div class="athome-photo-fill missing">
-              <span>写真のみ収集</span>
-              <strong>記録なし</strong>
-            </div>
-          `}
+      <div class="athome-photo-row ${isLatest ? "latest" : ""}">
+        <div class="athome-photo-date">
+          <strong>${escapeHtml(formatShortDate(row.date || row.generated_at))}</strong>
+          <small>${escapeHtml(formatTime(row.generated_at))}</small>
         </div>
-      </details>
+        <div class="athome-photo-bars">
+          ${athomePhotoBar("対象物件", stats.listings, max.listings, "listings", "件")}
+          ${athomePhotoBar("写真付き", stats.with_photos, max.withPhotos, "with-photos", "件")}
+          ${athomePhotoBar("写真枚数", stats.photo_count, max.photoCount, "photo-count", "枚")}
+        </div>
+        <div class="athome-photo-rate">
+          <span>写真付き率</span>
+          <strong>${formatInteger(rate)}%</strong>
+        </div>
+        ${fill ? renderAthomePhotoFillStats(fill) : `
+          <div class="athome-photo-fill missing">
+            <span>写真のみ収集</span>
+            <strong>記録なし</strong>
+          </div>
+        `}
+      </div>
     `;
-  }).join("");
+  });
   if (!ordered.length) {
     els.athomePhotoTrendChart.innerHTML = `<div class="empty-state">アットホーム写真の履歴はまだありません</div>`;
   }
@@ -587,23 +581,20 @@ function athomePhotoBar(label, value, max, tone, unit) {
 
 function renderTimeline(rows) {
   const ordered = rows.slice().sort(sortRowsDesc);
-  els.timeline.innerHTML = ordered.map((row) => `
-    <details class="history-timeline-card">
-      <summary class="history-timeline-summary">
-        <div class="history-timeline-main">
-          <div>
-            <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
-            <h3>${escapeHtml(formatDateTime(row.generated_at || row.date))}</h3>
-          </div>
-          <strong>${formatInteger(row.listing_count)}件</strong>
+  renderCumulativeChart(els.timelineCumulative, ordered, [
+    { label: "掲載件数", value: (row) => row.listing_count, tone: "listing" },
+    { label: "写真枚数", value: (row) => row.photos.photo_count, tone: "photos" },
+    { label: "固定資産税路線価", value: (row) => row.fixed_asset_route_values.count, tone: "fixed" },
+  ]);
+  els.timeline.innerHTML = renderMonthGroups(ordered, (row) => `
+    <article class="history-timeline-card">
+      <div class="history-timeline-main">
+        <div>
+          <span class="dashboard-kicker">${escapeHtml(row.date || "取得日")}</span>
+          <h3>${escapeHtml(formatDateTime(row.generated_at || row.date))}</h3>
         </div>
-        <div class="history-timeline-summary-stats">
-          <span>新着 ${formatInteger(row.new_count)}</span>
-          <span>写真 ${formatInteger(row.photos.photo_count)}枚</span>
-          <span>路線価範囲 ${formatInteger(row.fixed_asset_route_values.area_mesh_rate)}%</span>
-        </div>
-        <i data-lucide="chevron-down"></i>
-      </summary>
+        <strong>${formatInteger(row.listing_count)}件</strong>
+      </div>
       <div class="history-timeline-body">
         <div class="history-timeline-metrics">
           ${metricChip("新着", `${formatInteger(row.new_count)}件`)}
@@ -611,18 +602,69 @@ function renderTimeline(rows) {
           ${metricChip("固定資産税路線価", `${formatInteger(row.fixed_asset_route_values.count)}路線 / ${formatInteger(row.fixed_asset_route_values.town_count)}町 / 範囲${formatInteger(row.fixed_asset_route_values.area_mesh_rate)}%`)}
           ${metricChip("路線価照合", `${formatInteger(row.route_values.matched_count)}件`)}
         </div>
-        <details class="history-timeline-source-details">
-          <summary>
-            <span>情報元別</span>
-            <strong>${formatInteger((row.sources || []).length)}サイト</strong>
-          </summary>
-          <div class="history-timeline-sources">
-            ${(row.sources || []).map((source) => `<span>${escapeHtml(source.name)} ${formatInteger(source.displayed_count)}件</span>`).join("")}
-          </div>
-        </details>
+        <div class="history-timeline-sources">
+          ${(row.sources || []).map((source) => `<span>${escapeHtml(source.name)} ${formatInteger(source.displayed_count)}件</span>`).join("")}
+        </div>
+      </div>
+    </article>
+  `);
+}
+
+function renderMonthGroups(rows, renderRow) {
+  const grouped = groupRowsByMonth(rows);
+  return grouped.map(([month, monthRows], index) => `
+    <details class="history-month-group" ${index === 0 ? "open" : ""}>
+      <summary class="history-month-summary">
+        <span>${escapeHtml(month)}</span>
+        <strong>${formatInteger(monthRows.length)}回分</strong>
+        <i data-lucide="chevron-down"></i>
+      </summary>
+      <div class="history-month-body">
+        ${monthRows.map(renderRow).join("")}
       </div>
     </details>
   `).join("");
+}
+
+function groupRowsByMonth(rows) {
+  const groups = new Map();
+  rows.forEach((row) => {
+    const month = formatMonth(row.generated_at || row.date);
+    if (!groups.has(month)) groups.set(month, []);
+    groups.get(month).push(row);
+  });
+  return [...groups.entries()];
+}
+
+function renderCumulativeChart(target, rows, metrics) {
+  if (!target) return;
+  const chronological = rows.slice().sort((a, b) => dateValue(a.generated_at || a.date) - dateValue(b.generated_at || b.date));
+  const points = chronological.slice(-30);
+  if (!points.length) {
+    target.innerHTML = "";
+    return;
+  }
+  target.innerHTML = metrics.map((metric) => {
+    const values = points.map((row) => toNumber(metric.value(row)));
+    const max = Math.max(...values, 1);
+    const latest = values.at(-1) || 0;
+    return `
+      <div class="history-cumulative-row ${metric.tone}">
+        <div class="history-cumulative-label">
+          <span>${escapeHtml(metric.label)}</span>
+          <strong>${formatInteger(latest)}</strong>
+        </div>
+        <div class="history-cumulative-bars" aria-label="${escapeHtml(metric.label)}の推移">
+          ${values.map((value, index) => `
+            <i
+              style="height:${Math.max(8, Math.round((value / max) * 100))}%"
+              title="${escapeHtml(formatShortDate(points[index].date || points[index].generated_at))} ${formatInteger(value)}"
+            ></i>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
 }
 
 function fixedAssetMunicipalityRows(route, summary) {
@@ -750,6 +792,13 @@ function formatShortDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return String(value).slice(5) || String(value);
   return date.toLocaleDateString("ja-JP", { month: "numeric", day: "numeric" });
+}
+
+function formatMonth(value) {
+  if (!value) return "日付未設定";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return String(value).slice(0, 7) || "日付未設定";
+  return date.toLocaleDateString("ja-JP", { year: "numeric", month: "long" });
 }
 
 function formatTime(value) {

@@ -6466,6 +6466,57 @@ body {
   border-radius: 26px;
 }
 
+.history-section-panel {
+  display: block;
+}
+
+.history-section-panel > summary {
+  list-style: none;
+}
+
+.history-section-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.history-section-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.history-section-summary h2 {
+  margin: 0;
+  font-size: clamp(17px, 1.5vw, 22px);
+}
+
+.history-section-summary svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  color: #1292a5;
+  transition: transform 0.18s ease;
+}
+
+.history-section-panel[open] > .history-section-summary svg {
+  transform: rotate(180deg);
+}
+
+.history-section-body {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 207, 218, 0.42);
+}
+
+.history-section-meta {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .history-panel-head {
   display: flex;
   align-items: center;
@@ -6480,6 +6531,120 @@ body {
 .history-timeline {
   display: grid;
   gap: 10px;
+}
+
+.history-cumulative-chart {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(231, 254, 255, 0.38)),
+    rgba(255, 255, 255, 0.42);
+}
+
+.history-cumulative-row {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 10px;
+  align-items: end;
+  min-height: 52px;
+}
+
+.history-cumulative-label {
+  display: grid;
+  gap: 2px;
+}
+
+.history-cumulative-label span {
+  color: #557087;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.history-cumulative-label strong {
+  color: #102739;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.history-cumulative-bars {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  height: 46px;
+  min-width: 0;
+  padding: 4px 6px;
+  border-radius: 12px;
+  background: rgba(219, 238, 248, 0.5);
+}
+
+.history-cumulative-bars i {
+  flex: 1 1 3px;
+  min-width: 3px;
+  border-radius: 999px 999px 4px 4px;
+  background: linear-gradient(180deg, #21c4d4, #078da2);
+  box-shadow: 0 0 14px rgba(28, 197, 212, 0.22);
+}
+
+.history-cumulative-row.photos .history-cumulative-bars i {
+  background: linear-gradient(180deg, #76d275, #0f9d77);
+}
+
+.history-cumulative-row.route .history-cumulative-bars i {
+  background: linear-gradient(180deg, #6aa7ff, #1b77e6);
+}
+
+.history-cumulative-row.fixed .history-cumulative-bars i {
+  background: linear-gradient(180deg, #ffc76b, #f28b28);
+}
+
+.history-month-group {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.history-month-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: #123349;
+  font-weight: 950;
+  cursor: pointer;
+  list-style: none;
+}
+
+.history-month-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.history-month-group > summary strong {
+  margin-left: auto;
+  color: #417083;
+  font-size: 12px;
+}
+
+.history-month-group > summary svg {
+  width: 17px;
+  height: 17px;
+  color: #1292a5;
+  transition: transform 0.18s ease;
+}
+
+.history-month-group[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+.history-month-body {
+  display: grid;
+  gap: 8px;
+  padding: 0 10px 10px;
 }
 
 .trend-row {
@@ -6516,8 +6681,8 @@ body {
   display: none;
 }
 
-.history-fold-card:not([open]) > :not(summary),
-.history-timeline-card:not([open]) > :not(summary) {
+details.history-fold-card:not([open]) > :not(summary),
+details.history-timeline-card:not([open]) > :not(summary) {
   display: none !important;
 }
 
@@ -7025,7 +7190,7 @@ body {
   transition: transform 0.18s ease;
 }
 
-.history-timeline-card[open] .history-timeline-summary > svg {
+details.history-timeline-card[open] .history-timeline-summary > svg {
   transform: rotate(180deg);
 }
 
@@ -7099,7 +7264,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  padding: 0 10px 10px;
+  padding: 0;
 }
 
 .history-timeline-sources span {
@@ -7263,6 +7428,15 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .history-cumulative-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .history-cumulative-bars {
+    height: 38px;
+  }
+
   .history-fold-summary {
     grid-template-columns: minmax(0, 1fr) 22px;
   }
@@ -7316,6 +7490,14 @@ body {
   .history-summary-cards,
   .history-timeline-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .history-section-summary {
+    min-height: 42px;
+  }
+
+  .history-month-group > summary {
+    min-height: 40px;
   }
 }
 /* Table touch scroll reinforcement */

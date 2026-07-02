@@ -646,25 +646,43 @@ function renderCumulativeChart(target, rows, metrics) {
   }
   target.innerHTML = metrics.map((metric) => {
     const values = points.map((row) => toNumber(metric.value(row)));
-    const max = Math.max(...values, 1);
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
     const latest = values.at(-1) || 0;
+    const start = values[0] || 0;
+    const diff = latest - start;
+    const previous = values.length > 1 ? values.at(-2) : latest;
+    const previousDiff = latest - previous;
+    const trendClass = diff > 0 ? "up" : diff < 0 ? "down" : "flat";
     return `
-      <div class="history-cumulative-row ${metric.tone}">
+      <div class="history-cumulative-row ${metric.tone} ${trendClass}">
         <div class="history-cumulative-label">
           <span>${escapeHtml(metric.label)}</span>
           <strong>${formatInteger(latest)}</strong>
+          <small>${range ? `${formatSigned(diff)} / 前回${formatSigned(previousDiff)}` : "変化なし"}</small>
         </div>
         <div class="history-cumulative-bars" aria-label="${escapeHtml(metric.label)}の推移">
           ${values.map((value, index) => `
             <i
-              style="height:${Math.max(8, Math.round((value / max) * 100))}%"
+              class="${index && value > values[index - 1] ? "rise" : index && value < values[index - 1] ? "fall" : "same"}"
+              style="height:${changeBarHeight(value, min, range)}%"
               title="${escapeHtml(formatShortDate(points[index].date || points[index].generated_at))} ${formatInteger(value)}"
             ></i>
           `).join("")}
         </div>
+        <div class="history-cumulative-range">
+          <span>最小 ${formatInteger(min)}</span>
+          <span>最大 ${formatInteger(max)}</span>
+        </div>
       </div>
     `;
   }).join("");
+}
+
+function changeBarHeight(value, min, range) {
+  if (!range) return 48;
+  return Math.max(12, Math.min(100, Math.round(((toNumber(value) - min) / range) * 88) + 12));
 }
 
 function fixedAssetMunicipalityRows(route, summary) {

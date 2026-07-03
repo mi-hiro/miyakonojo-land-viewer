@@ -1,80 +1,80 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-03T01:22:35.629Z",
+  "updated_at": "2026-07-03T13:32:31.554Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 162,
-    "input_rows": 161,
-    "items": 162,
+    "rows": 165,
+    "input_rows": 164,
+    "items": 165,
     "towns": 50,
     "municipalities": 2,
     "by_municipality": {
-      "三股町": 4,
-      "都城市": 158
+      "三股町": 6,
+      "都城市": 159
     },
     "collection_progress": {
       "all": {
-        "total": 9710,
-        "checked": 3535,
-        "remaining": 6175,
-        "checked_rate": 36
+        "total": 9800,
+        "checked": 3788,
+        "remaining": 6012,
+        "checked_rate": 39
       },
       "listing": {
-        "total": 4950,
-        "checked": 2465,
-        "remaining": 2485,
-        "checked_rate": 50
+        "total": 5016,
+        "checked": 2573,
+        "remaining": 2443,
+        "checked_rate": 51
       },
       "town_coverage": {
-        "total": 1360,
-        "checked": 688,
-        "remaining": 672,
-        "checked_rate": 51
+        "total": 1384,
+        "checked": 713,
+        "remaining": 671,
+        "checked_rate": 52
       },
       "area_mesh": {
         "total": 3400,
-        "checked": 382,
-        "remaining": 3018,
-        "checked_rate": 11
+        "checked": 502,
+        "remaining": 2898,
+        "checked_rate": 15
       },
       "area_mesh_by_area": {
         "mimata": {
           "total": 399,
-          "checked": 45,
-          "remaining": 354,
-          "checked_rate": 11
+          "checked": 59,
+          "remaining": 340,
+          "checked_rate": 15
         },
         "miyakonojo": {
           "total": 3001,
-          "checked": 337,
-          "remaining": 2664,
-          "checked_rate": 11
+          "checked": 443,
+          "remaining": 2558,
+          "checked_rate": 15
         }
       },
       "by_municipality": {
         "都城市": {
-          "total": 9311,
-          "checked": 3490,
-          "remaining": 5821,
-          "checked_rate": 37
+          "total": 9401,
+          "checked": 3729,
+          "remaining": 5672,
+          "checked_rate": 40
         },
         "三股町": {
           "total": 399,
-          "checked": 45,
-          "remaining": 354,
-          "checked_rate": 11
+          "checked": 59,
+          "remaining": 340,
+          "checked_rate": 15
         }
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-07-03T01:22:35.530Z",
+      "ran_at": "2026-07-03T13:32:31.450Z",
       "mode": "browser",
       "requests": 200,
       "selected_points": 200,
       "selected_area_mesh_points": 120,
-      "selected_listing_points": 61,
-      "selected_town_coverage_points": 19,
+      "selected_listing_points": 59,
+      "selected_town_coverage_points": 21,
       "selected_points_by_area": {
         "都城市": 80,
         "mimata": 14,
@@ -84,14 +84,42 @@
         "都城市": 186,
         "三股町": 14
       },
-      "all_points": 9710,
-      "new_rows": 2,
+      "all_points": 9800,
+      "new_rows": 3,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 44200
   },
   "items": [
+    {
+      "id": "fixed-asset-5713250-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.79601097202891,
+      "longitude": 131.06245055514916,
+      "route_value_yen_per_sqm": 2700,
+      "fixed_asset_tax_route_value_yen_per_sqm": 2700,
+      "fixed_asset_unit_price_man_per_tsubo": 0.9,
+      "public_reference_unit_price_man_per_tsubo": 1.3,
+      "fixed_asset_route_id": "5713250-22",
+      "route_id": "5713250-22",
+      "fixedid": "5713250",
+      "town": "",
+      "address": "",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "三股町",
+      "area_id": "mimata",
+      "area_label": "北諸県郡三股町全域",
+      "mesh_key": "mimata:131.061138,31.795764",
+      "collection_point_type": "area_mesh",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-03T13:26:28.303Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
     {
       "id": "fixed-asset-5715921-22",
       "route_value_type": "fixed_asset_tax",
@@ -118,6 +146,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-02T01:39:20.538Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5721408-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.749541944755094,
+      "longitude": 131.0613141664158,
+      "route_value_yen_per_sqm": 4700,
+      "fixed_asset_tax_route_value_yen_per_sqm": 4700,
+      "fixed_asset_unit_price_man_per_tsubo": 1.6,
+      "public_reference_unit_price_man_per_tsubo": 2.2,
+      "fixed_asset_route_id": "5721408-22",
+      "route_id": "5721408-22",
+      "fixedid": "5721408",
+      "town": "",
+      "address": "",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "三股町",
+      "area_id": "mimata",
+      "area_label": "北諸県郡三股町全域",
+      "mesh_key": "mimata:131.061128,31.750848",
+      "collection_point_type": "area_mesh",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-03T13:26:11.542Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -510,6 +566,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-18T12:32:41.979Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5724160-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.753683055678664,
+      "longitude": 131.03752916673784,
+      "route_value_yen_per_sqm": 4100,
+      "fixed_asset_tax_route_value_yen_per_sqm": 4100,
+      "fixed_asset_unit_price_man_per_tsubo": 1.4,
+      "public_reference_unit_price_man_per_tsubo": 1.9,
+      "fixed_asset_route_id": "5724160-22",
+      "route_id": "5724160-22",
+      "fixedid": "5724160",
+      "town": "横市町",
+      "address": "横市町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-03T13:25:08.195Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

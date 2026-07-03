@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-03T20:45:56.640233+09:00",
+  "updated_at": "2026-07-03T22:32:31.830350+09:00",
   "entries": [
     {
       "date": "2026-07-03",
@@ -120,70 +120,70 @@
         "added_photo_count": 50
       },
       "fixed_asset_route_values": {
-        "count": 162,
+        "count": 165,
         "town_count": 50,
-        "updated_at": "2026-07-03T01:22:35.629Z",
+        "updated_at": "2026-07-03T13:32:31.554Z",
         "municipalities": {
-          "三股町": 4,
-          "都城市": 158
+          "三股町": 6,
+          "都城市": 159
         },
         "collection_progress": {
           "all": {
-            "total": 9710,
-            "checked": 3535,
-            "remaining": 6175,
-            "checked_rate": 36
+            "total": 9800,
+            "checked": 3788,
+            "remaining": 6012,
+            "checked_rate": 39
           },
           "listing": {
-            "total": 4950,
-            "checked": 2465,
-            "remaining": 2485,
-            "checked_rate": 50
+            "total": 5016,
+            "checked": 2573,
+            "remaining": 2443,
+            "checked_rate": 51
           },
           "town_coverage": {
-            "total": 1360,
-            "checked": 688,
-            "remaining": 672,
-            "checked_rate": 51
+            "total": 1384,
+            "checked": 713,
+            "remaining": 671,
+            "checked_rate": 52
           },
           "area_mesh": {
             "total": 3400,
-            "checked": 382,
-            "remaining": 3018,
-            "checked_rate": 11
+            "checked": 502,
+            "remaining": 2898,
+            "checked_rate": 15
           },
           "area_mesh_by_area": {
             "mimata": {
               "total": 399,
-              "checked": 45,
-              "remaining": 354,
-              "checked_rate": 11
+              "checked": 59,
+              "remaining": 340,
+              "checked_rate": 15
             },
             "miyakonojo": {
               "total": 3001,
-              "checked": 337,
-              "remaining": 2664,
-              "checked_rate": 11
+              "checked": 443,
+              "remaining": 2558,
+              "checked_rate": 15
             }
           },
           "by_municipality": {
             "都城市": {
-              "total": 9311,
-              "checked": 3490,
-              "remaining": 5821,
-              "checked_rate": 37
+              "total": 9401,
+              "checked": 3729,
+              "remaining": 5672,
+              "checked_rate": 40
             },
             "三股町": {
               "total": 399,
-              "checked": 45,
-              "remaining": 354,
-              "checked_rate": 11
+              "checked": 59,
+              "remaining": 340,
+              "checked_rate": 15
             }
           }
         },
-        "area_mesh_checked": 382,
+        "area_mesh_checked": 502,
         "area_mesh_total": 3400,
-        "area_mesh_rate": 11
+        "area_mesh_rate": 15
       },
       "route_values": {
         "count": 135,

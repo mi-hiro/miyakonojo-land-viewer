@@ -7940,3 +7940,68 @@ details.history-timeline-card[open] .history-timeline-summary > svg {
   top: auto;
   margin: 0 0 10px;
 }
+
+/* Final mobile header override: keep live info visible and prevent summary cards from clipping. */
+@media (max-width: 640px) {
+  .app-shell.device-mobile .topbar {
+    grid-template-columns: minmax(104px, 1fr) minmax(68px, auto) auto;
+  }
+
+  .app-shell.device-mobile .topbar-live {
+    display: flex;
+    flex: 0 1 auto;
+    justify-content: center;
+    gap: 0;
+    min-width: 0;
+    margin-inline: 0;
+  }
+
+  .app-shell.device-mobile .topbar-live-row:first-child {
+    display: none;
+  }
+
+  .app-shell.device-mobile .topbar-live-row {
+    max-width: 92px;
+    padding: 6px 7px;
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .app-shell.device-mobile .topbar-live-row svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .app-shell.device-mobile .topbar-live-row span {
+    max-width: 36px;
+  }
+
+  .app-shell.device-mobile .topbar-live-row #weatherText {
+    max-width: 40px;
+  }
+
+  .app-shell.device-mobile .summary-band {
+    display: grid;
+    grid-template-columns: minmax(80px, 0.72fr) minmax(92px, 0.84fr) minmax(138px, 1.28fr);
+    width: 100%;
+    overflow: visible;
+  }
+
+  .app-shell.device-mobile .summary-item,
+  .app-shell.device-mobile .route-data-summary {
+    min-width: 0;
+    flex-basis: auto;
+  }
+
+  .app-shell.device-mobile .route-data-summary {
+    grid-column: auto;
+  }
+
+  .app-shell.device-mobile .route-data-summary strong {
+    font-size: 14px;
+  }
+
+  .app-shell.device-mobile .route-data-meta {
+    display: none;
+  }
+}

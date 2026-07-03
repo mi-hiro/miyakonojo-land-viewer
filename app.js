@@ -881,15 +881,15 @@ function loadCurrentWeather() {
 
 function weatherCodeLabel(code) {
   if (!Number.isFinite(code)) return "";
-  if (code === 0) return "快晴";
-  if ([1, 2].includes(code)) return "晴れ";
-  if (code === 3) return "くもり";
-  if ([45, 48].includes(code)) return "霧";
-  if ([51, 53, 55, 56, 57].includes(code)) return "霧雨";
-  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "雨";
-  if ([71, 73, 75, 77, 85, 86].includes(code)) return "雪";
-  if ([95, 96, 99].includes(code)) return "雷雨";
-  return "天気";
+  if (code === 0) return "☀️ 快晴";
+  if ([1, 2].includes(code)) return "🌤️ 晴れ";
+  if (code === 3) return "☁️ くもり";
+  if ([45, 48].includes(code)) return "🌫️ 霧";
+  if ([51, 53, 55, 56, 57].includes(code)) return "🌦️ 霧雨";
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "🌧️ 雨";
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return "❄️ 雪";
+  if ([95, 96, 99].includes(code)) return "⛈️ 雷雨";
+  return "🌡️ 天気";
 }
 
 function activateView(viewName) {

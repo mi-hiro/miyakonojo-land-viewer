@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-04T12:57:01.298Z",
+  "updated_at": "2026-07-04T23:00:23.466Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
     "rows": 176,
-    "input_rows": 175,
+    "input_rows": 1,
     "items": 176,
     "towns": 51,
     "municipalities": 2,
@@ -13,81 +13,8 @@
       "三股町": 7,
       "都城市": 169
     },
-    "collection_progress": {
-      "all": {
-        "total": 9756,
-        "checked": 4174,
-        "remaining": 5582,
-        "checked_rate": 43
-      },
-      "listing": {
-        "total": 4950,
-        "checked": 2649,
-        "remaining": 2301,
-        "checked_rate": 54
-      },
-      "town_coverage": {
-        "total": 1406,
-        "checked": 783,
-        "remaining": 623,
-        "checked_rate": 56
-      },
-      "area_mesh": {
-        "total": 3400,
-        "checked": 742,
-        "remaining": 2658,
-        "checked_rate": 22
-      },
-      "area_mesh_by_area": {
-        "mimata": {
-          "total": 399,
-          "checked": 87,
-          "remaining": 312,
-          "checked_rate": 22
-        },
-        "miyakonojo": {
-          "total": 3001,
-          "checked": 655,
-          "remaining": 2346,
-          "checked_rate": 22
-        }
-      },
-      "by_municipality": {
-        "都城市": {
-          "total": 9357,
-          "checked": 4087,
-          "remaining": 5270,
-          "checked_rate": 44
-        },
-        "三股町": {
-          "total": 399,
-          "checked": 87,
-          "remaining": 312,
-          "checked_rate": 22
-        }
-      }
-    },
-    "collection_last_run": {
-      "ran_at": "2026-07-04T12:57:01.198Z",
-      "mode": "browser",
-      "requests": 200,
-      "selected_points": 200,
-      "selected_area_mesh_points": 120,
-      "selected_listing_points": 41,
-      "selected_town_coverage_points": 39,
-      "selected_points_by_area": {
-        "都城市": 80,
-        "mimata": 14,
-        "miyakonojo": 106
-      },
-      "selected_points_by_municipality": {
-        "都城市": 186,
-        "三股町": 14
-      },
-      "all_points": 9756,
-      "new_rows": 6,
-      "failures": 0
-    },
+    "collection_progress": null,
+    "collection_last_run": null,
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 44200
   },

@@ -1,7 +1,148 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-04T08:01:52.511143+09:00",
+  "updated_at": "2026-07-04T09:49:42.361912+09:00",
   "entries": [
+    {
+      "date": "2026-07-04",
+      "generated_at": "2026-07-04T09:34:13.883847+09:00",
+      "listing_count": 332,
+      "new_count": 8,
+      "duplicate_count": 208,
+      "excluded_count": 35,
+      "sources": [
+        {
+          "name": "アットホーム",
+          "collected_count": 144,
+          "displayed_count": 90,
+          "excluded_count": 0,
+          "error_count": 2,
+          "with_photos": 51,
+          "photo_count": 504
+        },
+        {
+          "name": "SUUMO",
+          "collected_count": 127,
+          "displayed_count": 127,
+          "excluded_count": 11,
+          "error_count": 0,
+          "with_photos": 126,
+          "photo_count": 917
+        },
+        {
+          "name": "ハトマークサイト（宅建協会）",
+          "collected_count": 92,
+          "displayed_count": 55,
+          "excluded_count": 6,
+          "error_count": 0,
+          "with_photos": 39,
+          "photo_count": 151
+        },
+        {
+          "name": "goo住宅・不動産",
+          "collected_count": 76,
+          "displayed_count": 23,
+          "excluded_count": 8,
+          "error_count": 1,
+          "with_photos": 21,
+          "photo_count": 40
+        },
+        {
+          "name": "ニフティ不動産",
+          "collected_count": 72,
+          "displayed_count": 12,
+          "excluded_count": 8,
+          "error_count": 1,
+          "with_photos": 12,
+          "photo_count": 37
+        },
+        {
+          "name": "LIFULL HOME'S",
+          "collected_count": 28,
+          "displayed_count": 24,
+          "excluded_count": 0,
+          "error_count": 1,
+          "with_photos": 24,
+          "photo_count": 123
+        },
+        {
+          "name": "Yahoo!不動産",
+          "collected_count": 1,
+          "displayed_count": 1,
+          "excluded_count": 1,
+          "error_count": 0,
+          "with_photos": 1,
+          "photo_count": 10
+        },
+        {
+          "name": "ネット不動産モールSESH 宮崎",
+          "collected_count": 0,
+          "displayed_count": 0,
+          "excluded_count": 1,
+          "error_count": 1,
+          "with_photos": 0,
+          "photo_count": 0
+        }
+      ],
+      "photos": {
+        "listings": 332,
+        "listings_with_photos": 274,
+        "with_photos": 274,
+        "photo_count": 1782
+      },
+      "athome_photos": {
+        "listings": 90,
+        "listings_with_photos": 51,
+        "with_photos": 51,
+        "photo_count": 504
+      },
+      "athome_photo_fill": {
+        "date": "2026-07-04",
+        "generated_at": "2026-07-04T07:09:17.409265+09:00",
+        "run_at": "2026-07-04T08:00:34.490187+09:00",
+        "checked": 10,
+        "updated": 5,
+        "no_image": 0,
+        "failed": 5,
+        "remaining_without_images": 39,
+        "before": {
+          "listings": 90,
+          "listings_with_photos": 46,
+          "with_photos": 46,
+          "photo_count": 454
+        },
+        "after": {
+          "listings": 90,
+          "listings_with_photos": 51,
+          "with_photos": 51,
+          "photo_count": 504
+        },
+        "added_with_photos": 5,
+        "added_photo_count": 50
+      },
+      "fixed_asset_route_values": {
+        "count": 165,
+        "town_count": 50,
+        "updated_at": "2026-07-03T23:00:43.304Z",
+        "municipalities": {
+          "三股町": 6,
+          "都城市": 159
+        },
+        "collection_progress": {},
+        "area_mesh_checked": 0,
+        "area_mesh_total": 0,
+        "area_mesh_rate": 0
+      },
+      "route_values": {
+        "count": 142,
+        "checked_count": 332,
+        "matched_count": 142,
+        "updated_at": "2026-07-04T09:47:56.832912+09:00"
+      },
+      "history": {
+        "report_dates": 28,
+        "unique_listings": 504
+      }
+    },
     {
       "date": "2026-07-04",
       "generated_at": "2026-07-04T07:09:17.409265+09:00",

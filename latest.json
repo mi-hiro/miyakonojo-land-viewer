@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-07-05T15:37:52.329713+09:00",
+  "generated_at": "2026-07-05T20:02:29.464885+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -219,12 +219,16 @@
       "zoning": null
     },
     {
-      "address": "宮崎県都城市上長飯町",
-      "building_coverage_ratio_percent": null,
-      "floor_area_ratio_percent": null,
-      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000195/9364/x493640000195.html",
-      "image_url": null,
-      "image_urls": [],
+      "address": "都城市上長飯町",
+      "building_coverage_ratio_percent": 70.0,
+      "floor_area_ratio_percent": 200.0,
+      "id": "https://www.homes.co.jp/tochi/b-93640000195/",
+      "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
+      "image_urls": [
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg",
+        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg"
+      ],
       "is_cheap_new": false,
       "is_new": false,
       "land_area_sqm": 692.39,
@@ -237,10 +241,10 @@
       "remarks": null,
       "restrictions": null,
       "road_details": null,
-      "search_text": "宮崎県都城市上長飯町 土地 上長飯町 宮崎県都城市上長飯町 goo住宅・不動産",
-      "source": "goo住宅・不動産",
-      "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000195/9364/x493640000195.html",
-      "title": "宮崎県都城市上長飯町 土地",
+      "search_text": "土地 都城市上長飯町 (西都城駅) https://www.homes.co.jp/tochi/b-93640000195/ https://image3.ho 上長飯町 都城市上長飯町 LIFULL HOME'S",
+      "source": "LIFULL HOME'S",
+      "source_url": "https://www.homes.co.jp/tochi/b-93640000195/",
+      "title": "土地 都城市上長飯町 (西都城駅) https://www.homes.co.jp/tochi/b-93640000195/ https://image3.ho",
       "town": "上長飯町",
       "unit_price_man_per_tsubo": 6.5,
       "zoning": null
@@ -303,22 +307,14 @@
       "zoning": "無指定"
     },
     {
-      "address": "都城市上長飯町",
-      "building_coverage_ratio_percent": 60.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://www.homes.co.jp/tochi/b-32220290001873/",
-      "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
+      "address": "宮崎県都城市上長飯町",
+      "building_coverage_ratio_percent": null,
+      "floor_area_ratio_percent": null,
+      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/32220290001873/3222029/x432220290001873.html",
+      "image_url": "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F3222029%25252Fsale%25252F1873%25252F2%25252F1%25252Fd62h.jpg",
       "image_urls": [
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg",
-        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F2%2F1%2Fd62h.jpg",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F0%2F3%2F7v27.jpg&width=600&height=600",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F0%2F5%2F280b.jpg&width=600&height=600",
-        "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F3222029%2Fgyousha%2Fimage%2F1-20220521094529.jpg",
-        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
-        "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F3222029%2Fgyousha%2Fimage%2F1-20220521094529.jpg&width=640",
-        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F1%2F2%2F6e0i.jpg"
+        "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F3222029%25252Fsale%25252F1873%25252F2%25252F1%25252Fd62h.jpg",
+        "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F3222029%25252Fsale%25252F1873%25252F1%25252F2%25252F6e0i.jpg"
       ],
       "is_cheap_new": false,
       "is_new": false,
@@ -329,15 +325,53 @@
       "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 850.0,
-      "remarks": null,
+      "remarks": "【都城市上長飯町 土地】100坪超え 北西角地 更地 建築条件なし",
       "restrictions": null,
       "road_details": null,
-      "search_text": "土地 都城市上長飯町 (小鷹神社バス停) https://www.homes.co.jp/tochi/b-32220290001873/ https://ima 上長飯町 都城市上長飯町 LIFULL HOME'S",
+      "search_text": "宮崎県都城市上長飯町 土地 上長飯町 宮崎県都城市上長飯町 goo住宅・不動産 【都城市上長飯町 土地】100坪超え 北西角地 更地 建築条件なし",
+      "source": "goo住宅・不動産",
+      "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/32220290001873/3222029/x432220290001873.html",
+      "title": "宮崎県都城市上長飯町 土地",
+      "town": "上長飯町",
+      "unit_price_man_per_tsubo": 7.46,
+      "zoning": null
+    },
+    {
+      "address": "都城市上長飯町",
+      "building_coverage_ratio_percent": 60.0,
+      "floor_area_ratio_percent": 200.0,
+      "id": "https://www.homes.co.jp/tochi/b-32220290001873/",
+      "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
+      "image_urls": [
+        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
+        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F2%2F1%2Fd62h.jpg",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F0%2F3%2F7v27.jpg&width=600&height=600",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F0%2F5%2F280b.jpg&width=600&height=600",
+        "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F3222029%2Fgyousha%2Fimage%2F1-20220521094529.jpg",
+        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
+        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
+        "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F3222029%2Fgyousha%2Fimage%2F1-20220521094529.jpg&width=640"
+      ],
+      "is_cheap_new": false,
+      "is_new": false,
+      "land_area_sqm": 50.0,
+      "land_area_tsubo": 15.13,
+      "latitude": null,
+      "longitude": null,
+      "new_reason": "",
+      "parcel_number": null,
+      "price_man_yen": 850.0,
+      "remarks": null,
+      "restrictions": null,
+      "road_details": "その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病",
+      "search_text": "土地 都城市上長飯町 (小鷹神社バス停) https://www.homes.co.jp/tochi/b-32220290001873/ https://ima 上長飯町 都城市上長飯町 LIFULL HOME'S その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病",
       "source": "LIFULL HOME'S",
       "source_url": "https://www.homes.co.jp/tochi/b-32220290001873/",
       "title": "土地 都城市上長飯町 (小鷹神社バス停) https://www.homes.co.jp/tochi/b-32220290001873/ https://ima",
       "town": "上長飯町",
-      "unit_price_man_per_tsubo": 7.46,
+      "unit_price_man_per_tsubo": 56.2,
       "zoning": null
     },
     {
@@ -1629,15 +1663,15 @@
       "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
       "image_urls": [
         "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
-        "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F63%2F2%2F2%2Fjuju.jpg",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg&width=120&height=120",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=208&height=138",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=200&height=200",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=600&height=600",
         "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0127450%2Fgyousha%2Fimage%2F1-20241130094940.jpg",
-        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_2_132000_132000.jpg%3Ft%3D20240907144137",
-        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_3_132000_132000.jpg%3Ft%3D20240907144137"
+        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_2_132000_132000.jpg%3Ft%3D20240907144137"
       ],
       "is_cheap_new": false,
       "is_new": false,
@@ -8135,44 +8169,6 @@
       "zoning": null
     },
     {
-      "address": "都城市都原町",
-      "building_coverage_ratio_percent": 50.0,
-      "floor_area_ratio_percent": 100.0,
-      "id": "https://www.homes.co.jp/tochi/b-32221170000876/",
-      "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F2%2F1%2Fd62h.jpg",
-      "image_urls": [
-        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F3222029%2Fsale%2F1873%2F2%2F1%2Fd62h.jpg",
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Ft9pz3m6ukp0woj5.jpg",
-        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
-        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-        "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Foopa3m6ukp0woja.jpg&width=600&height=600",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Fv9eq3m6ukp0wojb.jpg&width=600&height=600",
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F41h23m6ukp0woj6.jpg",
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Fxwz43m6ukp0woj7.jpg",
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F990k3m6ukp0woj8.jpg"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 50.0,
-      "land_area_tsubo": 15.13,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 500.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": "その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病院 800ｍ以内 小学校 800ｍ以内 上下水道 地盤調査済 整形地 前面道路6m以上 平坦地 高台 公園 400ｍ以内 中学校 800",
-      "search_text": "土地 都城市都原町 (都原) https://www.homes.co.jp/tochi/b-32221170000876/ https://image3.ho 都原町 都城市都原町 LIFULL HOME'S その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病院 800ｍ以内 小学校 800ｍ以内 上下水道 地盤調査済 整形地 前面道路6m以上 平坦地 高台 公園 400ｍ以内 中学校 800",
-      "source": "LIFULL HOME'S",
-      "source_url": "https://www.homes.co.jp/tochi/b-32221170000876/",
-      "title": "土地 都城市都原町 (都原) https://www.homes.co.jp/tochi/b-32221170000876/ https://image3.ho",
-      "town": "都原町",
-      "unit_price_man_per_tsubo": 33.06,
-      "zoning": null
-    },
-    {
       "address": "都城市 都島町（西都城駅）",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
@@ -11333,7 +11329,7 @@
     {
       "collected_count": 27,
       "errors": [
-        "物件詳細ページの写真取得に一部失敗しました（21件）。"
+        "物件詳細ページの写真取得に一部失敗しました（22件）。"
       ],
       "excluded_count": 0,
       "name": "LIFULL HOME'S",
@@ -11366,11 +11362,11 @@
       "url": "https://house.goo.ne.jp/buy/kyushu_la/area_miyazaki/45202.html"
     },
     {
-      "collected_count": 73,
+      "collected_count": 71,
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 7,
+      "excluded_count": 9,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11392,10 +11388,10 @@
     }
   ],
   "summary": {
-    "duplicate_count": 198,
-    "excluded_count": 34,
+    "duplicate_count": 196,
+    "excluded_count": 36,
     "listing_count": 339,
-    "overall_average_unit_price_man_per_tsubo": 4.38
+    "overall_average_unit_price_man_per_tsubo": 4.45
   },
   "towns": [
     {
@@ -11427,6 +11423,13 @@
       "town": "下川東"
     },
     {
+      "average_unit_price_man_per_tsubo": 12.42,
+      "listing_count": 8,
+      "maximum_unit_price_man_per_tsubo": 56.2,
+      "minimum_unit_price_man_per_tsubo": 4.0,
+      "town": "上長飯町"
+    },
+    {
       "average_unit_price_man_per_tsubo": 11.99,
       "listing_count": 1,
       "maximum_unit_price_man_per_tsubo": 11.99,
@@ -11446,13 +11449,6 @@
       "maximum_unit_price_man_per_tsubo": 15.28,
       "minimum_unit_price_man_per_tsubo": 7.77,
       "town": "若葉町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 10.19,
-      "listing_count": 7,
-      "maximum_unit_price_man_per_tsubo": 33.06,
-      "minimum_unit_price_man_per_tsubo": 5.34,
-      "town": "都原町"
     },
     {
       "average_unit_price_man_per_tsubo": 9.91,
@@ -11553,11 +11549,11 @@
       "town": "太郎坊町"
     },
     {
-      "average_unit_price_man_per_tsubo": 6.16,
-      "listing_count": 7,
-      "maximum_unit_price_man_per_tsubo": 7.46,
-      "minimum_unit_price_man_per_tsubo": 4.0,
-      "town": "上長飯町"
+      "average_unit_price_man_per_tsubo": 6.38,
+      "listing_count": 6,
+      "maximum_unit_price_man_per_tsubo": 8.5,
+      "minimum_unit_price_man_per_tsubo": 5.34,
+      "town": "都原町"
     },
     {
       "average_unit_price_man_per_tsubo": 5.65,

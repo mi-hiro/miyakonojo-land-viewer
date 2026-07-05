@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-05T08:01:01.166178+09:00",
+  "updated_at": "2026-07-05T10:25:39.530092+09:00",
   "entries": [
     {
       "date": "2026-07-05",
@@ -120,17 +120,70 @@
         "added_photo_count": 50
       },
       "fixed_asset_route_values": {
-        "count": 176,
+        "count": 184,
         "town_count": 51,
-        "updated_at": "2026-07-04T23:00:23.466Z",
+        "updated_at": "2026-07-05T01:25:39.348Z",
         "municipalities": {
-          "三股町": 7,
-          "都城市": 169
+          "三股町": 9,
+          "都城市": 175
         },
-        "collection_progress": {},
-        "area_mesh_checked": 0,
-        "area_mesh_total": 0,
-        "area_mesh_rate": 0
+        "collection_progress": {
+          "all": {
+            "total": 9756,
+            "checked": 4374,
+            "remaining": 5382,
+            "checked_rate": 45
+          },
+          "listing": {
+            "total": 4950,
+            "checked": 2706,
+            "remaining": 2244,
+            "checked_rate": 55
+          },
+          "town_coverage": {
+            "total": 1406,
+            "checked": 806,
+            "remaining": 600,
+            "checked_rate": 57
+          },
+          "area_mesh": {
+            "total": 3400,
+            "checked": 862,
+            "remaining": 2538,
+            "checked_rate": 25
+          },
+          "area_mesh_by_area": {
+            "mimata": {
+              "total": 399,
+              "checked": 101,
+              "remaining": 298,
+              "checked_rate": 25
+            },
+            "miyakonojo": {
+              "total": 3001,
+              "checked": 761,
+              "remaining": 2240,
+              "checked_rate": 25
+            }
+          },
+          "by_municipality": {
+            "都城市": {
+              "total": 9357,
+              "checked": 4273,
+              "remaining": 5084,
+              "checked_rate": 46
+            },
+            "三股町": {
+              "total": 399,
+              "checked": 101,
+              "remaining": 298,
+              "checked_rate": 25
+            }
+          }
+        },
+        "area_mesh_checked": 862,
+        "area_mesh_total": 3400,
+        "area_mesh_rate": 25
       },
       "route_values": {
         "count": 141,

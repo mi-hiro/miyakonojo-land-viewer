@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-06T07:24:53.941557+09:00",
+  "updated_at": "2026-07-06T08:01:28.087239+09:00",
   "entries": [
     {
       "date": "2026-07-06",
@@ -16,8 +16,8 @@
           "displayed_count": 98,
           "excluded_count": 0,
           "error_count": 2,
-          "with_photos": 55,
-          "photo_count": 544
+          "with_photos": 60,
+          "photo_count": 594
         },
         {
           "name": "SUUMO",
@@ -85,82 +85,52 @@
       ],
       "photos": {
         "listings": 336,
-        "listings_with_photos": 275,
-        "with_photos": 275,
-        "photo_count": 1870
+        "listings_with_photos": 280,
+        "with_photos": 280,
+        "photo_count": 1920
       },
       "athome_photos": {
         "listings": 98,
-        "listings_with_photos": 55,
-        "with_photos": 55,
-        "photo_count": 544
+        "listings_with_photos": 60,
+        "with_photos": 60,
+        "photo_count": 594
       },
-      "athome_photo_fill": null,
+      "athome_photo_fill": {
+        "date": "2026-07-06",
+        "generated_at": "2026-07-06T07:07:08.046153+09:00",
+        "run_at": "2026-07-06T08:00:10.820425+09:00",
+        "checked": 10,
+        "updated": 5,
+        "no_image": 0,
+        "failed": 5,
+        "remaining_without_images": 38,
+        "before": {
+          "listings": 98,
+          "listings_with_photos": 55,
+          "with_photos": 55,
+          "photo_count": 544
+        },
+        "after": {
+          "listings": 98,
+          "listings_with_photos": 60,
+          "with_photos": 60,
+          "photo_count": 594
+        },
+        "added_with_photos": 5,
+        "added_photo_count": 50
+      },
       "fixed_asset_route_values": {
         "count": 195,
         "town_count": 51,
-        "updated_at": "2026-07-05T13:01:15.706Z",
+        "updated_at": "2026-07-05T23:00:27.156Z",
         "municipalities": {
           "三股町": 11,
           "都城市": 184
         },
-        "collection_progress": {
-          "all": {
-            "total": 9734,
-            "checked": 4516,
-            "remaining": 5218,
-            "checked_rate": 46
-          },
-          "listing": {
-            "total": 4950,
-            "checked": 2762,
-            "remaining": 2188,
-            "checked_rate": 56
-          },
-          "town_coverage": {
-            "total": 1384,
-            "checked": 772,
-            "remaining": 612,
-            "checked_rate": 56
-          },
-          "area_mesh": {
-            "total": 3400,
-            "checked": 982,
-            "remaining": 2418,
-            "checked_rate": 29
-          },
-          "area_mesh_by_area": {
-            "mimata": {
-              "total": 399,
-              "checked": 115,
-              "remaining": 284,
-              "checked_rate": 29
-            },
-            "miyakonojo": {
-              "total": 3001,
-              "checked": 867,
-              "remaining": 2134,
-              "checked_rate": 29
-            }
-          },
-          "by_municipality": {
-            "都城市": {
-              "total": 9335,
-              "checked": 4401,
-              "remaining": 4934,
-              "checked_rate": 47
-            },
-            "三股町": {
-              "total": 399,
-              "checked": 115,
-              "remaining": 284,
-              "checked_rate": 29
-            }
-          }
-        },
-        "area_mesh_checked": 982,
-        "area_mesh_total": 3400,
-        "area_mesh_rate": 29
+        "collection_progress": {},
+        "area_mesh_checked": 0,
+        "area_mesh_total": 0,
+        "area_mesh_rate": 0
       },
       "route_values": {
         "count": 139,

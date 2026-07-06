@@ -44,6 +44,44 @@
         "coordinates": [
           [
             [
+              131.07789427042007,
+              31.741667251304364
+            ],
+            [
+              131.07789427042007,
+              31.739582368569856
+            ],
+            [
+              131.075000166893,
+              31.739582368569856
+            ],
+            [
+              131.075000166893,
+              31.741667251304364
+            ],
+            [
+              131.07789427042007,
+              31.741667251304364
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "api_id": "XKT025",
+        "color": "#7c3aed",
+        "level": "5",
+        "note": "砂礫質台地",
+        "source": "不動産情報ライブラリAPI / 国土数値情報",
+        "type": "液状化発生傾向"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
               131.07187539339066,
               31.73749972003712
             ],
@@ -87910,44 +87948,6 @@
         "coordinates": [
           [
             [
-              131.0937488079071,
-              31.72500056415288
-            ],
-            [
-              131.0937488079071,
-              31.72708349365689
-            ],
-            [
-              131.09687626361847,
-              31.72708349365689
-            ],
-            [
-              131.09687626361847,
-              31.72500056415288
-            ],
-            [
-              131.0937488079071,
-              31.72500056415288
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "properties": {
-        "api_id": "XKT025",
-        "color": "#7c3aed",
-        "level": "5",
-        "note": "砂礫質台地",
-        "source": "不動産情報ライブラリAPI / 国土数値情報",
-        "type": "液状化発生傾向"
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          [
-            [
               131.01197630167007,
               31.77916659286622
             ],
@@ -88422,6 +88422,44 @@
             [
               131.07187539339066,
               31.718810816132077
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "api_id": "XKT025",
+        "color": "#7c3aed",
+        "level": "5",
+        "note": "砂礫質台地",
+        "source": "不動産情報ライブラリAPI / 国土数値情報",
+        "type": "液状化発生傾向"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              131.07187539339066,
+              31.714582932761687
+            ],
+            [
+              131.07187539339066,
+              31.716666096370204
+            ],
+            [
+              131.075000166893,
+              31.716666096370204
+            ],
+            [
+              131.075000166893,
+              31.714582932761687
+            ],
+            [
+              131.07187539339066,
+              31.714582932761687
             ]
           ]
         ],
@@ -94324,6 +94362,44 @@
         "color": "#7c3aed",
         "level": "5",
         "note": "砂礫質台地",
+        "source": "不動産情報ライブラリAPI / 国土数値情報",
+        "type": "液状化発生傾向"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              131.0562488436699,
+              31.6750007810941
+            ],
+            [
+              131.0562488436699,
+              31.67708255094597
+            ],
+            [
+              131.05937629938126,
+              31.67708255094597
+            ],
+            [
+              131.05937629938126,
+              31.6750007810941
+            ],
+            [
+              131.0562488436699,
+              31.6750007810941
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "api_id": "XKT025",
+        "color": "#7c3aed",
+        "level": "4",
+        "note": "谷底低地（傾斜≧1/100）",
         "source": "不動産情報ライブラリAPI / 国土数値情報",
         "type": "液状化発生傾向"
       },
@@ -128662,44 +128738,6 @@
         "coordinates": [
           [
             [
-              131.12183958292007,
-              31.772916617674085
-            ],
-            [
-              131.12183958292007,
-              31.770832438661657
-            ],
-            [
-              131.11874967813492,
-              31.770832438661657
-            ],
-            [
-              131.11874967813492,
-              31.772916617674085
-            ],
-            [
-              131.12183958292007,
-              31.772916617674085
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "properties": {
-        "api_id": "XKT025",
-        "color": "#7c3aed",
-        "level": "5",
-        "note": "砂礫質台地",
-        "source": "不動産情報ライブラリAPI / 国土数値情報",
-        "type": "液状化発生傾向"
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          [
-            [
               131.12187445163727,
               31.78422828438218
             ],
@@ -128728,6 +128766,44 @@
         "color": "#7c3aed",
         "level": "3",
         "note": "谷底低地（傾斜＜1/100）",
+        "source": "不動産情報ライブラリAPI / 国土数値情報",
+        "type": "液状化発生傾向"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              131.12183958292007,
+              31.772916617674085
+            ],
+            [
+              131.12183958292007,
+              31.770832438661657
+            ],
+            [
+              131.11874967813492,
+              31.770832438661657
+            ],
+            [
+              131.11874967813492,
+              31.772916617674085
+            ],
+            [
+              131.12183958292007,
+              31.772916617674085
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "api_id": "XKT025",
+        "color": "#7c3aed",
+        "level": "5",
+        "note": "砂礫質台地",
         "source": "不動産情報ライブラリAPI / 国土数値情報",
         "type": "液状化発生傾向"
       },
@@ -139720,7 +139796,7 @@
     {
       "address": "都城市 一万城町（三股駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139743,7 +139819,7 @@
     {
       "address": "都城市 一万城町（三股駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139766,7 +139842,7 @@
     {
       "address": "宮崎県都城市一万城町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139778,18 +139854,64 @@
         }
       ],
       "latitude": 31.721836,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_3fac058bfdc533efa2788d217c06ffe6/",
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8c107934039931b4864e3d91336d4276/",
       "longitude": 131.093353,
       "note": "住所検索: 宮崎県都城市一万城町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
       "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_3fac058bfdc533efa2788d217c06ffe6/",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8c107934039931b4864e3d91336d4276/",
       "status": "attention",
       "town": "一万城町"
     },
     {
+      "address": "宮崎県都城市一万城町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.721836,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8e5a7c1e93e8343f99e432d203717d46/",
+      "longitude": 131.093353,
+      "note": "住所検索: 宮崎県都城市一万城町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8e5a7c1e93e8343f99e432d203717d46/",
+      "status": "attention",
+      "town": "一万城町"
+    },
+    {
+      "address": "宮崎県都城市上川東２丁目",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.740925,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_82e232a879d43c7a8eff170b8547f456/",
+      "longitude": 131.075882,
+      "note": "住所検索: 宮崎県都城市上川東二丁目で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_82e232a879d43c7a8eff170b8547f456/",
+      "status": "attention",
+      "town": "上川東"
+    },
+    {
       "address": "宮崎県都城市上川東１",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -139812,7 +139934,7 @@
     {
       "address": "都城市 上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139835,7 +139957,7 @@
     {
       "address": "宮崎県都城市上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -139858,7 +139980,7 @@
     {
       "address": "都城市上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139881,7 +140003,7 @@
     {
       "address": "都城市上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139904,7 +140026,7 @@
     {
       "address": "宮崎県都城市上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139934,7 +140056,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -139963,7 +140085,7 @@
     {
       "address": "都城市上長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -139984,9 +140106,32 @@
       "town": "上長飯町"
     },
     {
+      "address": "宮崎県都城市上長飯町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.71126,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_7b42404db35e3d39910c2c59c789feaf/",
+      "longitude": 131.085678,
+      "note": "住所検索: 宮崎県都城市上長飯町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_7b42404db35e3d39910c2c59c789feaf/",
+      "status": "attention",
+      "town": "上長飯町"
+    },
+    {
       "address": "宮崎県都城市下川東２",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140009,7 +140154,7 @@
     {
       "address": "宮崎県都城市下川東２",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140032,7 +140177,7 @@
     {
       "address": "都城市下水流町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140055,7 +140200,7 @@
     {
       "address": "宮崎県都城市下水流町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140078,7 +140223,7 @@
     {
       "address": "都城市 下長飯町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140101,7 +140246,7 @@
     {
       "address": "都城市下長飯町土地",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140124,30 +140269,7 @@
     {
       "address": "宮崎県都城市下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.703911,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4c519765d6c0375295f66d21c7bca5ae/",
-      "longitude": 131.061096,
-      "note": "住所検索: 宮崎県都城市下長飯町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4c519765d6c0375295f66d21c7bca5ae/",
-      "status": "attention",
-      "town": "下長飯町"
-    },
-    {
-      "address": "宮崎県都城市下長飯町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140170,7 +140292,7 @@
     {
       "address": "都城市 下長飯町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140193,7 +140315,7 @@
     {
       "address": "宮崎県都城市下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140216,7 +140338,7 @@
     {
       "address": "宮崎県都城市下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140239,7 +140361,7 @@
     {
       "address": "宮崎県都城市下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140262,7 +140384,7 @@
     {
       "address": "宮崎県都城市下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140285,7 +140407,7 @@
     {
       "address": "都城市 下長飯町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140308,7 +140430,7 @@
     {
       "address": "都城市 丸谷町（万ケ塚駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140331,7 +140453,7 @@
     {
       "address": "宮崎県都城市丸谷町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140354,7 +140476,7 @@
     {
       "address": "宮崎県都城市久保原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140377,7 +140499,7 @@
     {
       "address": "宮崎県都城市久保原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140400,7 +140522,7 @@
     {
       "address": "宮崎県都城市久保原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140423,7 +140545,7 @@
     {
       "address": "宮崎県都城市久保原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140446,7 +140568,7 @@
     {
       "address": "宮崎県都城市乙房町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140469,7 +140591,7 @@
     {
       "address": "宮崎県都城市乙房町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140492,7 +140614,7 @@
     {
       "address": "宮崎県都城市乙房町2356-3",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140515,7 +140637,7 @@
     {
       "address": "都城市 乙房町（日向庄内駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140538,7 +140660,7 @@
     {
       "address": "都城市 乙房町（日向庄内駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140561,7 +140683,7 @@
     {
       "address": "都城市五十町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140584,7 +140706,7 @@
     {
       "address": "都城市五十町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140607,7 +140729,7 @@
     {
       "address": "都城市五十町の広々敷地！80坪超のゆとりで叶える",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140630,7 +140752,7 @@
     {
       "address": "宮崎県都城市五十町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140653,7 +140775,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140676,7 +140798,7 @@
     {
       "address": "都城市 今町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140699,7 +140821,7 @@
     {
       "address": "都城市 今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140722,30 +140844,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.687969,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_3cabfd460f3f3fbd9ff54e7c9e3d05f2/",
-      "longitude": 131.03157,
-      "note": "住所検索: 宮崎県都城市今町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_3cabfd460f3f3fbd9ff54e7c9e3d05f2/",
-      "status": "attention",
-      "town": "今町"
-    },
-    {
-      "address": "宮崎県都城市今町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140768,7 +140867,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140791,7 +140890,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140814,7 +140913,7 @@
     {
       "address": "都城市 今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140837,7 +140936,7 @@
     {
       "address": "都城市 今町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -140860,7 +140959,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140883,7 +140982,7 @@
     {
       "address": "宮崎県都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140906,7 +141005,7 @@
     {
       "address": "都城市今町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140929,7 +141028,7 @@
     {
       "address": "宮崎県都城市前田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140952,7 +141051,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140975,7 +141074,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -140998,7 +141097,7 @@
     {
       "address": "都城市 南横市町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141021,7 +141120,7 @@
     {
       "address": "都城市南横市町に",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141044,7 +141143,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141067,7 +141166,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141090,7 +141189,7 @@
     {
       "address": "都城市 南横市町（五十市駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141113,7 +141212,7 @@
     {
       "address": "都城市 南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141136,7 +141235,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141159,7 +141258,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141182,7 +141281,7 @@
     {
       "address": "宮崎県都城市南横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141205,7 +141304,7 @@
     {
       "address": "宮崎県都城市南鷹尾町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141228,7 +141327,7 @@
     {
       "address": "都城市 南鷹尾町（五十市駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141251,7 +141350,7 @@
     {
       "address": "宮崎県都城市南鷹尾町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141272,32 +141371,9 @@
       "town": "南鷹尾町"
     },
     {
-      "address": "宮崎県都城市南鷹尾町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.718719,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_532ecaa940153d37b3388eb47a79aa5c/",
-      "longitude": 131.04213,
-      "note": "住所検索: 宮崎県都城市南鷹尾町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_532ecaa940153d37b3388eb47a79aa5c/",
-      "status": "attention",
-      "town": "南鷹尾町"
-    },
-    {
       "address": "都城市 南鷹尾町（五十市駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141320,7 +141396,7 @@
     {
       "address": "都城市 吉之元町（霧島神宮駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141343,7 +141419,7 @@
     {
       "address": "宮崎県都城市夏尾町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141366,7 +141442,7 @@
     {
       "address": "都城市 大岩田町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141389,7 +141465,7 @@
     {
       "address": "宮崎県都城市大岩田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141412,7 +141488,7 @@
     {
       "address": "宮崎県都城市大岩田町6266-1",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141435,7 +141511,7 @@
     {
       "address": "宮崎県都城市大岩田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141458,7 +141534,7 @@
     {
       "address": "宮崎県都城市大岩田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141479,9 +141555,32 @@
       "town": "大岩田町"
     },
     {
+      "address": "都城市大岩田町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "3",
+          "note": "谷底低地（傾斜＜1/100）",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.700188,
+      "listing_id": "https://www.homes.co.jp/tochi/b-93640000075/",
+      "longitude": 131.051529,
+      "note": "住所検索: 宮崎県都城市大岩田町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://www.homes.co.jp/tochi/b-93640000075/",
+      "status": "attention",
+      "town": "大岩田町"
+    },
+    {
       "address": "宮崎県都城市大王町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141511,7 +141610,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141553,7 +141652,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141588,7 +141687,7 @@
     {
       "address": "都城市 大王町（都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141611,7 +141710,7 @@
     {
       "address": "都城市 大王町（都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141634,7 +141733,7 @@
     {
       "address": "宮崎県都城市大王町1241番2",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141657,7 +141756,7 @@
     {
       "address": "宮崎県都城市太郎坊町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141693,7 +141792,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141741,7 +141840,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141789,7 +141888,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -141824,7 +141923,7 @@
     {
       "address": "宮崎県都城市太郎坊町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141847,7 +141946,7 @@
     {
       "address": "宮崎県都城市太郎坊町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141870,7 +141969,7 @@
     {
       "address": "宮崎県都城市太郎坊町1542番",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141893,7 +141992,7 @@
     {
       "address": "宮崎県都城市姫城町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141923,7 +142022,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141959,7 +142058,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -141995,7 +142094,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142031,7 +142130,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142060,7 +142159,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142083,7 +142182,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142106,7 +142205,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142129,7 +142228,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142152,7 +142251,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142175,7 +142274,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142198,7 +142297,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142221,7 +142320,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142244,7 +142343,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142267,7 +142366,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142290,7 +142389,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142313,7 +142412,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142336,7 +142435,7 @@
     {
       "address": "都城市 安久町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142359,7 +142458,7 @@
     {
       "address": "都城市 安久町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142382,7 +142481,7 @@
     {
       "address": "都城市 安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142405,7 +142504,7 @@
     {
       "address": "都城市 安久町（都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142428,7 +142527,7 @@
     {
       "address": "都城市 安久町（都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142451,7 +142550,7 @@
     {
       "address": "都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142474,7 +142573,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142497,7 +142596,7 @@
     {
       "address": "宮崎県都城市安久町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142533,7 +142632,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142581,7 +142680,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142629,7 +142728,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142677,7 +142776,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142725,7 +142824,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142758,57 +142857,9 @@
       "town": "宮丸町"
     },
     {
-      "address": "宮崎県都城市宮丸町",
-      "affected_hazards": [
-        {
-          "api_id": "XKT026",
-          "level": "3.0m以上5.0m未満",
-          "note": "萩原川 / 宮崎県",
-          "type": "洪水浸水想定区域（想定最大規模）"
-        },
-        {
-          "api_id": "XKT026",
-          "level": "5.0m以上10.0m未満",
-          "note": "大淀川 / 九州地方整備局",
-          "type": "洪水浸水想定区域（想定最大規模）"
-        }
-      ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        },
-        {
-          "api_id": "XKT026",
-          "level": "3.0m以上5.0m未満",
-          "note": "萩原川 / 宮崎県",
-          "type": "洪水浸水想定区域（想定最大規模）"
-        },
-        {
-          "api_id": "XKT026",
-          "level": "5.0m以上10.0m未満",
-          "note": "大淀川 / 九州地方整備局",
-          "type": "洪水浸水想定区域（想定最大規模）"
-        }
-      ],
-      "latitude": 31.730078,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4a359d8e4b01302f9bf29dd0df8d1fc5/",
-      "longitude": 131.056702,
-      "note": "住所検索: 宮崎県都城市宮丸町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4a359d8e4b01302f9bf29dd0df8d1fc5/",
-      "status": "affected",
-      "town": "宮丸町"
-    },
-    {
       "address": "都城市 山之口町富吉（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142831,7 +142882,7 @@
     {
       "address": "宮崎県都城市山之口町富吉",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142854,7 +142905,7 @@
     {
       "address": "宮崎県都城市山之口町富吉",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142877,7 +142928,7 @@
     {
       "address": "都城市山之口町富吉",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142900,7 +142951,7 @@
     {
       "address": "宮崎県都城市山之口町富吉1673－1の一部",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142923,7 +142974,7 @@
     {
       "address": "宮崎県都城市山之口町富吉字飯起2828番6",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142946,7 +142997,7 @@
     {
       "address": "宮崎県都城市山之口町花木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -142969,7 +143020,7 @@
     {
       "address": "都城市 山之口町花木（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -142992,7 +143043,7 @@
     {
       "address": "宮崎県都城市山之口町花木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143015,7 +143066,7 @@
     {
       "address": "都城市 山之口町花木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143038,7 +143089,7 @@
     {
       "address": "都城市 山之口町花木（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143061,7 +143112,7 @@
     {
       "address": "宮崎県都城市山之口町花木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143084,7 +143135,7 @@
     {
       "address": "宮崎県都城市山之口町花木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143107,7 +143158,7 @@
     {
       "address": "都城市 山田町中霧島（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143130,7 +143181,7 @@
     {
       "address": "宮崎県都城市山田町中霧島",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143153,7 +143204,7 @@
     {
       "address": "都城市 山田町中霧島",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143176,7 +143227,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143199,7 +143250,7 @@
     {
       "address": "都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143222,7 +143273,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143245,7 +143296,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143268,7 +143319,7 @@
     {
       "address": "都城市 山田町山田（万ケ塚駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143291,7 +143342,7 @@
     {
       "address": "都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143314,7 +143365,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143337,7 +143388,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143360,7 +143411,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143383,7 +143434,7 @@
     {
       "address": "宮崎県都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143406,7 +143457,7 @@
     {
       "address": "都城市山田町山田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143429,7 +143480,7 @@
     {
       "address": "都城市 平塚町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143452,7 +143503,7 @@
     {
       "address": "宮崎県都城市平塚町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143475,7 +143526,7 @@
     {
       "address": "宮崎県都城市平塚町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143498,7 +143549,7 @@
     {
       "address": "宮崎県都城市平塚町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143521,7 +143572,7 @@
     {
       "address": "宮崎県都城市平塚町10068-9",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143544,7 +143595,7 @@
     {
       "address": "都城市平江町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143567,7 +143618,7 @@
     {
       "address": "都城市平江町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143590,7 +143641,7 @@
     {
       "address": "宮崎県都城市平江町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143613,7 +143664,7 @@
     {
       "address": "宮崎県都城市広原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143634,32 +143685,9 @@
       "town": "広原町"
     },
     {
-      "address": "宮崎県都城市広原町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.726942,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_49591ef4b2a93ef4b284d10589050fe6/",
-      "longitude": 131.094528,
-      "note": "住所検索: 宮崎県都城市広原町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_49591ef4b2a93ef4b284d10589050fe6/",
-      "status": "attention",
-      "town": "広原町"
-    },
-    {
       "address": "都城市 庄内町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143682,7 +143710,7 @@
     {
       "address": "宮崎県都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143705,7 +143733,7 @@
     {
       "address": "宮崎県都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143728,7 +143756,7 @@
     {
       "address": "宮崎県都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143751,7 +143779,7 @@
     {
       "address": "宮崎県都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143774,7 +143802,7 @@
     {
       "address": "都城市 庄内町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143797,7 +143825,7 @@
     {
       "address": "都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143820,7 +143848,7 @@
     {
       "address": "宮崎県都城市庄内町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -143843,7 +143871,7 @@
     {
       "address": "都城市 庄内町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143866,7 +143894,7 @@
     {
       "address": "都城市 庄内町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143889,7 +143917,7 @@
     {
       "address": "都城市 志比田町（日向庄内駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143912,7 +143940,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143935,30 +143963,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.745335,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_404cd3c04df93d1e962d416e6554e5a7/",
-      "longitude": 131.057312,
-      "note": "住所検索: 宮崎県都城市志比田町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_404cd3c04df93d1e962d416e6554e5a7/",
-      "status": "attention",
-      "town": "志比田町"
-    },
-    {
-      "address": "宮崎県都城市志比田町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -143981,7 +143986,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144004,7 +144009,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144027,7 +144032,7 @@
     {
       "address": "都城市 志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144050,7 +144055,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144073,7 +144078,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144096,7 +144101,7 @@
     {
       "address": "都城市 志比田町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144119,7 +144124,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144142,7 +144147,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144165,7 +144170,7 @@
     {
       "address": "宮崎県都城市志比田町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144188,7 +144193,7 @@
     {
       "address": "宮崎県都城市早水町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144211,7 +144216,7 @@
     {
       "address": "宮崎県都城市早水町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144234,7 +144239,7 @@
     {
       "address": "都城市早水町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144257,7 +144262,7 @@
     {
       "address": "都城市早水町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144280,7 +144285,7 @@
     {
       "address": "宮崎県都城市早鈴町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144302,6 +144307,29 @@
     },
     {
       "address": "宮崎県都城市早鈴町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.71594,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8c64c1dd537c3e9391ec9e28d425586e/",
+      "longitude": 131.074921,
+      "note": "住所検索: 宮崎県都城市早鈴町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_8c64c1dd537c3e9391ec9e28d425586e/",
+      "status": "attention",
+      "town": "早鈴町"
+    },
+    {
+      "address": "宮崎県都城市早鈴町",
       "affected_hazards": [
         {
           "api_id": "XKT026",
@@ -144310,7 +144338,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144339,7 +144367,7 @@
     {
       "address": "宮崎県都城市早鈴町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144362,7 +144390,7 @@
     {
       "address": "宮崎県都城市栄町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144385,7 +144413,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144408,7 +144436,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144431,7 +144459,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144454,7 +144482,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144477,7 +144505,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144500,7 +144528,7 @@
     {
       "address": "都城市 梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144523,7 +144551,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144546,7 +144574,7 @@
     {
       "address": "都城市 梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144569,7 +144597,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144592,7 +144620,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144615,7 +144643,7 @@
     {
       "address": "宮崎県都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144638,21 +144666,21 @@
     {
       "address": "都城市梅北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "高",
       "hazards": [
         {
           "api_id": "XKT025",
           "informational": "true",
-          "level": "5",
-          "note": "火山山麓地",
+          "level": "4",
+          "note": "谷底低地（傾斜≧1/100）",
           "type": "液状化発生傾向"
         }
       ],
-      "latitude": 31.662567,
+      "latitude": 31.675130437834,
       "listing_id": "https://www.homes.co.jp/tochi/b-1430010000021/",
-      "longitude": 131.055374,
-      "note": "住所検索: 宮崎県都城市梅北町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "longitude": 131.05643500592,
+      "note": "掲載緯度経度で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
       "source": "不動産情報ライブラリAPI / 国土数値情報",
       "source_url": "https://www.homes.co.jp/tochi/b-1430010000021/",
       "status": "attention",
@@ -144661,7 +144689,7 @@
     {
       "address": "宮崎県都城市横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144684,7 +144712,7 @@
     {
       "address": "宮崎県都城市横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144707,7 +144735,7 @@
     {
       "address": "宮崎県都城市横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144730,7 +144758,7 @@
     {
       "address": "都城市 横市町（五十市駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144753,7 +144781,7 @@
     {
       "address": "宮崎県都城市横市町6464番1",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144776,7 +144804,7 @@
     {
       "address": "都城市横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144799,7 +144827,7 @@
     {
       "address": "宮崎県都城市横市町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144835,7 +144863,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144883,7 +144911,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -144931,7 +144959,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144966,7 +144994,7 @@
     {
       "address": "宮崎県都城市祝吉１-1番26",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -144989,7 +145017,7 @@
     {
       "address": "宮崎県都城市立野町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145012,7 +145040,7 @@
     {
       "address": "宮崎県都城市立野町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145054,7 +145082,7 @@
           "type": "土砂災害特別警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145108,7 +145136,7 @@
           "type": "土砂災害特別警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145143,7 +145171,7 @@
     {
       "address": "宮崎県都城市若葉町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145166,7 +145194,7 @@
     {
       "address": "宮崎県都城市若葉町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145189,7 +145217,7 @@
     {
       "address": "宮崎県都城市若葉町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145212,7 +145240,7 @@
     {
       "address": "都城市 菓子野町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145235,7 +145263,7 @@
     {
       "address": "都城市 菓子野町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145258,7 +145286,7 @@
     {
       "address": "宮崎県都城市菖蒲原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145281,7 +145309,7 @@
     {
       "address": "都城市 蓑原町（五十市駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145304,7 +145332,7 @@
     {
       "address": "宮崎県都城市蓑原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145327,7 +145355,7 @@
     {
       "address": "宮崎県都城市蓑原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145350,7 +145378,7 @@
     {
       "address": "都城市 蓑原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145373,7 +145401,7 @@
     {
       "address": "宮崎県都城市蓑原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145396,7 +145424,7 @@
     {
       "address": "宮崎県都城市蓑原町2456",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145419,7 +145447,7 @@
     {
       "address": "宮崎県都城市蓑原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145440,32 +145468,9 @@
       "town": "蓑原町"
     },
     {
-      "address": "宮崎県都城市蓑原町",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "5",
-          "note": "砂礫質台地",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.732201,
-      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4a315004eba336049d579b1165e570fd/",
-      "longitude": 131.027084,
-      "note": "住所検索: 宮崎県都城市蓑原町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_4a315004eba336049d579b1165e570fd/",
-      "status": "attention",
-      "town": "蓑原町"
-    },
-    {
       "address": "宮崎県都城市豊満町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145488,7 +145493,7 @@
     {
       "address": "都城市豊満町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145511,7 +145516,30 @@
     {
       "address": "宮崎県都城市豊満町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "山地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.689632,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_1b93ef3f79e2311da49f60a27929b3eb/",
+      "longitude": 131.11113,
+      "note": "住所検索: 宮崎県都城市豊満町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_1b93ef3f79e2311da49f60a27929b3eb/",
+      "status": "attention",
+      "town": "豊満町"
+    },
+    {
+      "address": "宮崎県都城市豊満町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145534,7 +145562,7 @@
     {
       "address": "宮崎県都城市郡元町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145557,7 +145585,7 @@
     {
       "address": "宮崎県都城市郡元町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145580,7 +145608,7 @@
     {
       "address": "宮崎県都城市郡元町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145603,7 +145631,7 @@
     {
       "address": "都城市郡元町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145633,7 +145661,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145662,7 +145690,7 @@
     {
       "address": "宮崎県都城市都北町3604-1",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145692,7 +145720,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145721,7 +145749,7 @@
     {
       "address": "宮崎県都城市都北町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145751,7 +145779,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145780,7 +145808,7 @@
     {
       "address": "都城市都原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145803,7 +145831,7 @@
     {
       "address": "宮崎県都城市都原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145826,7 +145854,7 @@
     {
       "address": "都城市 都原町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145849,7 +145877,7 @@
     {
       "address": "宮崎県都城市都原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -145870,9 +145898,32 @@
       "town": "都原町"
     },
     {
+      "address": "宮崎県都城市都原町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.734838,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_7fde5d5bdf8734b8aed39768150ad57f/",
+      "longitude": 131.041229,
+      "note": "住所検索: 宮崎県都城市都原町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_7fde5d5bdf8734b8aed39768150ad57f/",
+      "status": "attention",
+      "town": "都原町"
+    },
+    {
       "address": "都城市 都原町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145895,7 +145946,7 @@
     {
       "address": "都城市 都原町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145918,7 +145969,7 @@
     {
       "address": "都城市 都島町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145941,7 +145992,7 @@
     {
       "address": "都城市 都島町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -145971,7 +146022,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146000,7 +146051,7 @@
     {
       "address": "都城市 都島町（西都城駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146023,7 +146074,7 @@
     {
       "address": "宮崎県都城市都島町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146046,7 +146097,7 @@
     {
       "address": "宮崎県都城市都島町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146069,7 +146120,7 @@
     {
       "address": "宮崎県都城市都島町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146092,7 +146143,7 @@
     {
       "address": "都城市 野々美谷町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146115,7 +146166,7 @@
     {
       "address": "宮崎県都城市野々美谷町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146138,7 +146189,7 @@
     {
       "address": "宮崎県都城市野々美谷町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146161,7 +146212,7 @@
     {
       "address": "都城市 関之尾町（谷頭駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146184,7 +146235,7 @@
     {
       "address": "宮崎県都城市関之尾町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146207,7 +146258,7 @@
     {
       "address": "宮崎県都城市高城町四家",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146230,7 +146281,7 @@
     {
       "address": "宮崎県都城市高城町四家",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146253,7 +146304,7 @@
     {
       "address": "宮崎県都城市高城町大井手須田木3664",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146276,7 +146327,7 @@
     {
       "address": "都城市 高城町大井手（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146299,7 +146350,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146322,7 +146373,7 @@
     {
       "address": "宮崎県都城市高城町大井手2471-1",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146345,7 +146396,7 @@
     {
       "address": "都城市 高城町大井手（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146368,7 +146419,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146391,7 +146442,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146414,7 +146465,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146437,7 +146488,7 @@
     {
       "address": "都城市 高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146460,7 +146511,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146483,7 +146534,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146506,7 +146557,7 @@
     {
       "address": "都城市 高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146529,7 +146580,7 @@
     {
       "address": "都城市 高城町大井手（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146552,7 +146603,7 @@
     {
       "address": "都城市 高城町大井手（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146575,7 +146626,7 @@
     {
       "address": "都城市 高城町大井手（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146598,7 +146649,7 @@
     {
       "address": "宮崎県都城市高城町大井手",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146621,7 +146672,7 @@
     {
       "address": "宮崎県都城市高城町有水",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146644,7 +146695,7 @@
     {
       "address": "都城市 高城町有水（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146667,7 +146718,7 @@
     {
       "address": "宮崎県都城市高城町桜木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146688,9 +146739,32 @@
       "town": "高城町桜木"
     },
     {
+      "address": "都城市高城町桜木",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "3",
+          "note": "谷底低地（傾斜＜1/100）",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.783981,
+      "listing_id": "https://www.homes.co.jp/tochi/b-1562460000075/",
+      "longitude": 131.122742,
+      "note": "住所検索: 宮崎県都城市高城町桜木で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://www.homes.co.jp/tochi/b-1562460000075/",
+      "status": "attention",
+      "town": "高城町桜木"
+    },
+    {
       "address": "宮崎県都城市高城町桜木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146713,7 +146787,7 @@
     {
       "address": "宮崎県都城市高城町桜木",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146736,7 +146810,7 @@
     {
       "address": "都城市 高城町桜木（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146757,29 +146831,6 @@
       "town": "高城町桜木"
     },
     {
-      "address": "都城市高城町桜木",
-      "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
-      "confidence": "中",
-      "hazards": [
-        {
-          "api_id": "XKT025",
-          "informational": "true",
-          "level": "3",
-          "note": "谷底低地（傾斜＜1/100）",
-          "type": "液状化発生傾向"
-        }
-      ],
-      "latitude": 31.783981,
-      "listing_id": "https://www.homes.co.jp/tochi/b-1562460000075/",
-      "longitude": 131.122742,
-      "note": "住所検索: 宮崎県都城市高城町桜木で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
-      "source": "不動産情報ライブラリAPI / 国土数値情報",
-      "source_url": "https://www.homes.co.jp/tochi/b-1562460000075/",
-      "status": "attention",
-      "town": "高城町桜木"
-    },
-    {
       "address": "宮崎県都城市高城町石山",
       "affected_hazards": [
         {
@@ -146795,7 +146846,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146830,7 +146881,7 @@
     {
       "address": "都城市 高城町石山（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146860,7 +146911,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146889,7 +146940,7 @@
     {
       "address": "宮崎県都城市高城町石山",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146912,7 +146963,7 @@
     {
       "address": "都城市 高城町石山（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -146948,7 +146999,7 @@
           "type": "土砂災害警戒区域 / 急傾斜地の崩壊"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -146983,7 +147034,7 @@
     {
       "address": "宮崎県都城市高城町穂満坊３０４８番５",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147013,7 +147064,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147049,7 +147100,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147085,7 +147136,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147121,7 +147172,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147150,7 +147201,7 @@
     {
       "address": "宮崎県都城市高城町穂満坊",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147180,7 +147231,7 @@
           "type": "洪水浸水想定区域（想定最大規模）"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147209,7 +147260,7 @@
     {
       "address": "宮崎県都城市高城町穂満坊",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147232,7 +147283,7 @@
     {
       "address": "都城市 高城町高城（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147255,7 +147306,7 @@
     {
       "address": "都城市 高崎町前田（日向前田駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147278,7 +147329,7 @@
     {
       "address": "都城市 高崎町前田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147301,7 +147352,7 @@
     {
       "address": "宮崎県都城市高崎町前田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147324,7 +147375,7 @@
     {
       "address": "都城市 高崎町大牟田（高崎新田駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147347,7 +147398,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147370,7 +147421,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147400,7 +147451,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147429,7 +147480,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147452,7 +147503,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147475,7 +147526,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147498,7 +147549,7 @@
     {
       "address": "都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147521,7 +147572,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147544,7 +147595,7 @@
     {
       "address": "都城市 高崎町大牟田（高崎新田駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147567,7 +147618,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147590,7 +147641,7 @@
     {
       "address": "宮崎県都城市高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147613,7 +147664,7 @@
     {
       "address": "都城市 高崎町大牟田",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147636,7 +147687,7 @@
     {
       "address": "宮崎県都城市高崎町東霧島",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147659,7 +147710,7 @@
     {
       "address": "宮崎県都城市高崎町江平",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147682,7 +147733,7 @@
     {
       "address": "都城市 高崎町縄瀬（東高崎駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147705,7 +147756,7 @@
     {
       "address": "宮崎県都城市高崎町縄瀬",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147728,7 +147779,7 @@
     {
       "address": "宮崎県都城市高木町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147751,7 +147802,7 @@
     {
       "address": "都城市 高木町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147774,7 +147825,7 @@
     {
       "address": "宮崎県都城市高木町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147795,9 +147846,32 @@
       "town": "高木町"
     },
     {
+      "address": "宮崎県都城市高木町",
+      "affected_hazards": [],
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
+      "confidence": "中",
+      "hazards": [
+        {
+          "api_id": "XKT025",
+          "informational": "true",
+          "level": "5",
+          "note": "砂礫質台地",
+          "type": "液状化発生傾向"
+        }
+      ],
+      "latitude": 31.784111,
+      "listing_id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_1bc9b2cf6d873439994eba41c291fda1/",
+      "longitude": 131.106628,
+      "note": "住所検索: 宮崎県都城市高木町で自動判定。API原典と自治体ハザードマップ表示が完全一致しない場合があります。",
+      "source": "不動産情報ライブラリAPI / 国土数値情報",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_1bc9b2cf6d873439994eba41c291fda1/",
+      "status": "attention",
+      "town": "高木町"
+    },
+    {
       "address": "都城市 高木町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147820,7 +147894,7 @@
     {
       "address": "都城市 高木町（山之口駅）",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147843,7 +147917,7 @@
     {
       "address": "都城市 高木町",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147866,7 +147940,7 @@
     {
       "address": "都城市 鷹尾４丁目",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147889,7 +147963,7 @@
     {
       "address": "宮崎県都城市鷹尾１",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147925,7 +147999,7 @@
           "type": "土砂災害特別警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -147960,7 +148034,7 @@
     {
       "address": "宮崎県都城市鷹尾１",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -147990,7 +148064,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148026,7 +148100,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148062,7 +148136,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148098,7 +148172,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148127,7 +148201,7 @@
     {
       "address": "宮崎県都城市鷹尾３",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148157,7 +148231,7 @@
           "type": "土砂災害警戒区域 / 土石流"
         }
       ],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148186,7 +148260,7 @@
     {
       "address": "都城市 鷹尾３丁目",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "中",
       "hazards": [
         {
@@ -148209,7 +148283,7 @@
     {
       "address": "宮崎県都城市鷹尾３-4406-6～15",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148232,7 +148306,7 @@
     {
       "address": "宮崎県都城市鷹尾２",
       "affected_hazards": [],
-      "checked_at": "2026-07-06T16:18:09.470309+09:00",
+      "checked_at": "2026-07-06T21:50:29.208082+09:00",
       "confidence": "高",
       "hazards": [
         {
@@ -148293,11 +148367,11 @@
   "schema_version": 1,
   "source": "不動産情報ライブラリAPI / 国土数値情報",
   "summary": {
-    "affected_count": 41,
-    "checked_count": 338,
+    "affected_count": 40,
+    "checked_count": 339,
     "error_count": 0,
-    "listing_count": 338,
+    "listing_count": 339,
     "skipped_count": 0
   },
-  "updated_at": "2026-07-06T16:18:09.470309+09:00"
+  "updated_at": "2026-07-06T21:50:29.208082+09:00"
 }

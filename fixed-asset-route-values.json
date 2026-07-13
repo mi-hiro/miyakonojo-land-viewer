@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-12T12:40:17.856Z",
+  "updated_at": "2026-07-13T01:15:29.425Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -15,66 +15,66 @@
     },
     "collection_progress": {
       "all": {
-        "total": 9666,
-        "checked": 7051,
-        "remaining": 2615,
-        "checked_rate": 73
+        "total": 9667,
+        "checked": 7251,
+        "remaining": 2416,
+        "checked_rate": 75
       },
       "listing": {
         "total": 4884,
-        "checked": 3368,
-        "remaining": 1516,
-        "checked_rate": 69
+        "checked": 3403,
+        "remaining": 1481,
+        "checked_rate": 70
       },
       "town_coverage": {
-        "total": 1382,
-        "checked": 1021,
-        "remaining": 361,
-        "checked_rate": 74
+        "total": 1383,
+        "checked": 1066,
+        "remaining": 317,
+        "checked_rate": 77
       },
       "area_mesh": {
         "total": 3400,
-        "checked": 2662,
-        "remaining": 738,
-        "checked_rate": 78
+        "checked": 2782,
+        "remaining": 618,
+        "checked_rate": 82
       },
       "area_mesh_by_area": {
         "mimata": {
           "total": 399,
-          "checked": 311,
-          "remaining": 88,
-          "checked_rate": 78
+          "checked": 325,
+          "remaining": 74,
+          "checked_rate": 81
         },
         "miyakonojo": {
           "total": 3001,
-          "checked": 2351,
-          "remaining": 650,
-          "checked_rate": 78
+          "checked": 2457,
+          "remaining": 544,
+          "checked_rate": 82
         }
       },
       "by_municipality": {
         "都城市": {
-          "total": 9267,
-          "checked": 6740,
-          "remaining": 2527,
-          "checked_rate": 73
+          "total": 9268,
+          "checked": 6926,
+          "remaining": 2342,
+          "checked_rate": 75
         },
         "三股町": {
           "total": 399,
-          "checked": 311,
-          "remaining": 88,
-          "checked_rate": 78
+          "checked": 325,
+          "remaining": 74,
+          "checked_rate": 81
         }
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-07-12T12:40:17.747Z",
+      "ran_at": "2026-07-13T01:15:29.331Z",
       "mode": "browser",
       "requests": 200,
       "selected_points": 200,
       "selected_area_mesh_points": 120,
-      "selected_listing_points": 49,
-      "selected_town_coverage_points": 31,
+      "selected_listing_points": 35,
+      "selected_town_coverage_points": 45,
       "selected_points_by_area": {
         "都城市": 80,
         "mimata": 14,
@@ -84,8 +84,8 @@
         "都城市": 186,
         "三股町": 14
       },
-      "all_points": 9666,
-      "new_rows": 6,
+      "all_points": 9667,
+      "new_rows": 0,
       "failures": 0
     },
     "min_yen_per_sqm": 700,

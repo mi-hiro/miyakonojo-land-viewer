@@ -1,80 +1,80 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-13T01:15:29.425Z",
+  "updated_at": "2026-07-13T13:47:18.377Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 284,
-    "input_rows": 283,
-    "items": 284,
-    "towns": 51,
+    "rows": 287,
+    "input_rows": 286,
+    "items": 287,
+    "towns": 52,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 271
+      "都城市": 274
     },
     "collection_progress": {
       "all": {
-        "total": 9667,
-        "checked": 7251,
-        "remaining": 2416,
-        "checked_rate": 75
+        "total": 9798,
+        "checked": 7237,
+        "remaining": 2561,
+        "checked_rate": 74
       },
       "listing": {
-        "total": 4884,
-        "checked": 3403,
-        "remaining": 1481,
-        "checked_rate": 70
+        "total": 5016,
+        "checked": 3386,
+        "remaining": 1630,
+        "checked_rate": 68
       },
       "town_coverage": {
-        "total": 1383,
-        "checked": 1066,
-        "remaining": 317,
-        "checked_rate": 77
+        "total": 1382,
+        "checked": 949,
+        "remaining": 433,
+        "checked_rate": 69
       },
       "area_mesh": {
         "total": 3400,
-        "checked": 2782,
-        "remaining": 618,
-        "checked_rate": 82
+        "checked": 2902,
+        "remaining": 498,
+        "checked_rate": 85
       },
       "area_mesh_by_area": {
         "mimata": {
           "total": 399,
-          "checked": 325,
-          "remaining": 74,
-          "checked_rate": 81
+          "checked": 339,
+          "remaining": 60,
+          "checked_rate": 85
         },
         "miyakonojo": {
           "total": 3001,
-          "checked": 2457,
-          "remaining": 544,
-          "checked_rate": 82
+          "checked": 2563,
+          "remaining": 438,
+          "checked_rate": 85
         }
       },
       "by_municipality": {
         "都城市": {
-          "total": 9268,
-          "checked": 6926,
-          "remaining": 2342,
-          "checked_rate": 75
+          "total": 9399,
+          "checked": 6898,
+          "remaining": 2501,
+          "checked_rate": 73
         },
         "三股町": {
           "total": 399,
-          "checked": 325,
-          "remaining": 74,
-          "checked_rate": 81
+          "checked": 339,
+          "remaining": 60,
+          "checked_rate": 85
         }
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-07-13T01:15:29.331Z",
+      "ran_at": "2026-07-13T13:47:18.265Z",
       "mode": "browser",
       "requests": 200,
       "selected_points": 200,
       "selected_area_mesh_points": 120,
-      "selected_listing_points": 35,
-      "selected_town_coverage_points": 45,
+      "selected_listing_points": 49,
+      "selected_town_coverage_points": 31,
       "selected_points_by_area": {
         "都城市": 80,
         "mimata": 14,
@@ -84,8 +84,8 @@
         "都城市": 186,
         "三股町": 14
       },
-      "all_points": 9667,
-      "new_rows": 0,
+      "all_points": 9798,
+      "new_rows": 3,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -1686,6 +1686,90 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-02T01:36:23.720Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5722208-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.822415694578808,
+      "longitude": 131.10942930556814,
+      "route_value_yen_per_sqm": 1600,
+      "fixed_asset_tax_route_value_yen_per_sqm": 1600,
+      "fixed_asset_unit_price_man_per_tsubo": 0.5,
+      "public_reference_unit_price_man_per_tsubo": 0.8,
+      "fixed_asset_route_id": "5722208-22",
+      "route_id": "5722208-22",
+      "fixedid": "5722208",
+      "town": "下水流町",
+      "address": "下水流町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-13T13:38:39.643Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5722209-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.82281000008163,
+      "longitude": 131.11034486082684,
+      "route_value_yen_per_sqm": 1600,
+      "fixed_asset_tax_route_value_yen_per_sqm": 1600,
+      "fixed_asset_unit_price_man_per_tsubo": 0.5,
+      "public_reference_unit_price_man_per_tsubo": 0.8,
+      "fixed_asset_route_id": "5722209-22",
+      "route_id": "5722209-22",
+      "fixedid": "5722209",
+      "town": "下水流町",
+      "address": "下水流町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-13T13:37:31.090Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5722222-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.82494319467284,
+      "longitude": 131.10727277806643,
+      "route_value_yen_per_sqm": 1600,
+      "fixed_asset_tax_route_value_yen_per_sqm": 1600,
+      "fixed_asset_unit_price_man_per_tsubo": 0.5,
+      "public_reference_unit_price_man_per_tsubo": 0.8,
+      "fixed_asset_route_id": "5722222-22",
+      "route_id": "5722222-22",
+      "fixedid": "5722222",
+      "town": "下水流町",
+      "address": "下水流町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-13T13:37:48.319Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

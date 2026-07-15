@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-07-15T14:27:07.938688+09:00",
+  "generated_at": "2026-07-15T19:45:39.215236+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -620,13 +620,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F316%2F78939316%2F78939316_0004.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F316%2F78939316%2F78939316_0005.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 1136.12,
       "land_area_tsubo": 343.68,
       "latitude": 31.7050027649918,
       "longitude": 131.062693772109,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 548.0,
       "remarks": null,
@@ -1725,15 +1725,15 @@
       "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
       "image_urls": [
         "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
-        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg&width=120&height=120",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=208&height=138",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=200&height=200",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137",
         "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_1_132000_132000.jpg%3Ft%3D20240907144137&width=600&height=600",
         "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0127450%2Fgyousha%2Fimage%2F1-20241130094940.jpg",
-        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_2_132000_132000.jpg%3Ft%3D20240907144137",
-        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_3_132000_132000.jpg%3Ft%3D20240907144137"
+        "https://image.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2F1015e617%2F27459_33182_2_132000_132000.jpg%3Ft%3D20240907144137"
       ],
       "is_cheap_new": false,
       "is_new": false,
@@ -1942,33 +1942,6 @@
       "town": "南横市町",
       "unit_price_man_per_tsubo": 5.8,
       "zoning": "ヒント"
-    },
-    {
-      "address": "宮崎県都城市南横市町",
-      "building_coverage_ratio_percent": 70.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://www.hatomarksite.com/search/zentaku/bukken/5104169071",
-      "image_url": null,
-      "image_urls": [],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 185.92,
-      "land_area_tsubo": 56.24,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 350.0,
-      "remarks": " / 更地渡、建築条件無",
-      "restrictions": " / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積",
-      "road_details": " / 【一方】 西 公道 その他ランニングコスト その他一時金 条件等 更地渡、建築条件無 性能評価 セットバック",
-      "search_text": "hide-room-name-area d-none\"> 宮崎県都城市南横市町 日豊本線西都城駅 徒歩45分 価格 350万円 坪単価 6.23万円 土地面積  南横市町 宮崎県都城市南横市町 ハトマークサイト（宅建協会） 無指定  / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積  / 更地渡、建築条件無  / 【一方】 西 公道 その他ランニングコスト その他一時金 条件等 更地渡、建築条件無 性能評価 セットバック",
-      "source": "ハトマークサイト（宅建協会）",
-      "source_url": "https://www.hatomarksite.com/search/zentaku/bukken/5104169071",
-      "title": "hide-room-name-area d-none\"> 宮崎県都城市南横市町 日豊本線西都城駅 徒歩45分 価格 350万円 坪単価 6.23万円 土地面積 ",
-      "town": "南横市町",
-      "unit_price_man_per_tsubo": 6.22,
-      "zoning": "無指定"
     },
     {
       "address": "宮崎県都城市南横市町",
@@ -2535,33 +2508,6 @@
       "town": "大王町",
       "unit_price_man_per_tsubo": 6.71,
       "zoning": null
-    },
-    {
-      "address": "宮崎県都城市大王町",
-      "building_coverage_ratio_percent": 60.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://www.hatomarksite.com/search/zentaku/bukken/5103528413",
-      "image_url": null,
-      "image_urls": [],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 157.56,
-      "land_area_tsubo": 47.66,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 410.0,
-      "remarks": " / 更地渡、建築条件無",
-      "restrictions": " / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積",
-      "road_details": " / 【角地】 北西 公道／南西 公道 その他ランニングコスト その他一時金 条件等 更地渡、建築条件無 性能評価 セットバック",
-      "search_text": "hide-room-name-area d-none\"> 宮崎県都城市大王町 日豊本線西都城駅 徒歩14分 価格 410万円 坪単価 8.61万円 土地面積 公 大王町 宮崎県都城市大王町 ハトマークサイト（宅建協会） 準工業地域  / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積  / 更地渡、建築条件無  / 【角地】 北西 公道／南西 公道 その他ランニングコスト その他一時金 条件等 更地渡、建築条件無 性能評価 セットバック",
-      "source": "ハトマークサイト（宅建協会）",
-      "source_url": "https://www.hatomarksite.com/search/zentaku/bukken/5103528413",
-      "title": "hide-room-name-area d-none\"> 宮崎県都城市大王町 日豊本線西都城駅 徒歩14分 価格 410万円 坪単価 8.61万円 土地面積 公",
-      "town": "大王町",
-      "unit_price_man_per_tsubo": 8.6,
-      "zoning": "準工業地域"
     },
     {
       "address": "宮崎県都城市大王町",
@@ -7237,13 +7183,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F119%2F20978119%2F20978119_0003.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F119%2F20978119%2F20978119_0004.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 642.0,
       "land_area_tsubo": 194.21,
       "latitude": 31.7288488868467,
       "longitude": 131.032946782536,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 548.0,
       "remarks": null,
@@ -10904,13 +10850,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0002.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0003.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 311.32,
       "land_area_tsubo": 94.17,
       "latitude": 31.7265666309184,
       "longitude": 131.051330375036,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 400.0,
       "remarks": null,
@@ -10966,13 +10912,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F247%2F20259247%2F20259247_0003.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F247%2F20259247%2F20259247_0004.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 289.87,
       "land_area_tsubo": 87.69,
       "latitude": 31.7265666309184,
       "longitude": 131.051330375036,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 400.0,
       "remarks": null,
@@ -11283,18 +11229,18 @@
       "url": "https://estate.sesh.jp/miyazaki/estate/buy/land/list/p/skts-45202"
     },
     {
-      "collected_count": 93,
+      "collected_count": 92,
       "errors": [],
-      "excluded_count": 5,
+      "excluded_count": 6,
       "name": "ハトマークサイト（宅建協会）",
       "url": "https://www.hatomarksite.com/search/zentaku/buy/land/area/45/list?price_b_from=&price_b_to=&key_word=&land_tb_price_b_from=&land_tb_price_b_to=&land_area_all_from=&land_area_all_to=&land_area_unit=UNIT30&eki_walk=&m_adr%5B%5D=45202"
     }
   ],
   "summary": {
-    "duplicate_count": 204,
-    "excluded_count": 36,
-    "listing_count": 332,
-    "overall_average_unit_price_man_per_tsubo": 4.35
+    "duplicate_count": 205,
+    "excluded_count": 37,
+    "listing_count": 330,
+    "overall_average_unit_price_man_per_tsubo": 4.33
   },
   "towns": [
     {
@@ -11347,18 +11293,18 @@
       "town": "平江町"
     },
     {
+      "average_unit_price_man_per_tsubo": 10.77,
+      "listing_count": 6,
+      "maximum_unit_price_man_per_tsubo": 14.25,
+      "minimum_unit_price_man_per_tsubo": 6.71,
+      "town": "大王町"
+    },
+    {
       "average_unit_price_man_per_tsubo": 10.63,
       "listing_count": 3,
       "maximum_unit_price_man_per_tsubo": 15.28,
       "minimum_unit_price_man_per_tsubo": 7.77,
       "town": "若葉町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 10.46,
-      "listing_count": 7,
-      "maximum_unit_price_man_per_tsubo": 14.25,
-      "minimum_unit_price_man_per_tsubo": 6.71,
-      "town": "大王町"
     },
     {
       "average_unit_price_man_per_tsubo": 9.91,
@@ -11424,8 +11370,8 @@
       "town": "久保原町"
     },
     {
-      "average_unit_price_man_per_tsubo": 6.5,
-      "listing_count": 11,
+      "average_unit_price_man_per_tsubo": 6.53,
+      "listing_count": 10,
       "maximum_unit_price_man_per_tsubo": 8.61,
       "minimum_unit_price_man_per_tsubo": 3.29,
       "town": "南横市町"

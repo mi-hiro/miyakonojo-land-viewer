@@ -1,36 +1,36 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-18T01:05:40.207Z",
+  "updated_at": "2026-07-18T12:39:22.036Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 349,
-    "input_rows": 348,
-    "items": 349,
+    "rows": 354,
+    "input_rows": 353,
+    "items": 354,
     "towns": 53,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 336
+      "都城市": 341
     },
     "collection_progress": {
       "all": {
-        "total": 9743,
-        "checked": 8617,
-        "remaining": 1126,
-        "checked_rate": 88
+        "total": 9776,
+        "checked": 8865,
+        "remaining": 911,
+        "checked_rate": 91
       },
       "listing": {
-        "total": 4983,
-        "checked": 4138,
-        "remaining": 845,
-        "checked_rate": 83
+        "total": 5016,
+        "checked": 4298,
+        "remaining": 718,
+        "checked_rate": 86
       },
       "town_coverage": {
         "total": 1360,
-        "checked": 1079,
-        "remaining": 281,
-        "checked_rate": 79
+        "checked": 1167,
+        "remaining": 193,
+        "checked_rate": 86
       },
       "area_mesh": {
         "total": 3400,
@@ -54,10 +54,10 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9344,
-          "checked": 8218,
-          "remaining": 1126,
-          "checked_rate": 88
+          "total": 9377,
+          "checked": 8466,
+          "remaining": 911,
+          "checked_rate": 90
         },
         "三股町": {
           "total": 399,
@@ -68,21 +68,21 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-07-18T01:05:40.132Z",
+      "ran_at": "2026-07-18T12:39:21.921Z",
       "mode": "browser",
       "requests": 200,
       "selected_points": 200,
       "selected_area_mesh_points": 0,
-      "selected_listing_points": 143,
-      "selected_town_coverage_points": 57,
+      "selected_listing_points": 148,
+      "selected_town_coverage_points": 52,
       "selected_points_by_area": {
         "都城市": 200
       },
       "selected_points_by_municipality": {
         "都城市": 200
       },
-      "all_points": 9743,
-      "new_rows": 14,
+      "all_points": 9776,
+      "new_rows": 5,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -1910,6 +1910,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5726148-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.740424722623032,
+      "longitude": 131.0714837500252,
+      "route_value_yen_per_sqm": 16300,
+      "fixed_asset_tax_route_value_yen_per_sqm": 16300,
+      "fixed_asset_unit_price_man_per_tsubo": 5.4,
+      "public_reference_unit_price_man_per_tsubo": 7.7,
+      "fixed_asset_route_id": "5726148-22",
+      "route_id": "5726148-22",
+      "fixedid": "5726148",
+      "town": "下川東",
+      "address": "下川東",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-18T12:28:51.881Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5718217-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.703269305584143,
@@ -2719,6 +2747,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-25T10:35:19.905Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5720210-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.7432130553384,
+      "longitude": 131.09101902765616,
+      "route_value_yen_per_sqm": 18500,
+      "fixed_asset_tax_route_value_yen_per_sqm": 18500,
+      "fixed_asset_unit_price_man_per_tsubo": 6.1,
+      "public_reference_unit_price_man_per_tsubo": 8.7,
+      "fixed_asset_route_id": "5720210-22",
+      "route_id": "5720210-22",
+      "fixedid": "5720210",
+      "town": "郡元町",
+      "address": "郡元町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-18T12:29:05.153Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -4066,6 +4122,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5717435-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.78352708340833,
+      "longitude": 131.1084006942868,
+      "route_value_yen_per_sqm": 8300,
+      "fixed_asset_tax_route_value_yen_per_sqm": 8300,
+      "fixed_asset_unit_price_man_per_tsubo": 2.7,
+      "public_reference_unit_price_man_per_tsubo": 3.9,
+      "fixed_asset_route_id": "5717435-22",
+      "route_id": "5717435-22",
+      "fixedid": "5717435",
+      "town": "高木町",
+      "address": "高木町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-18T12:38:19.348Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5719096-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.792359166942163,
@@ -4206,6 +4290,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5728896-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.784217777578533,
+      "longitude": 131.1128323613246,
+      "route_value_yen_per_sqm": 8300,
+      "fixed_asset_tax_route_value_yen_per_sqm": 8300,
+      "fixed_asset_unit_price_man_per_tsubo": 2.7,
+      "public_reference_unit_price_man_per_tsubo": 3.9,
+      "fixed_asset_route_id": "5728896-22",
+      "route_id": "5728896-22",
+      "fixedid": "5728896",
+      "town": "高木町",
+      "address": "高木町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-18T12:38:06.454Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5728897-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.783585972364904,
@@ -4315,6 +4427,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-10T13:31:42.024Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5724674-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.683467222484495,
+      "longitude": 131.03356305579058,
+      "route_value_yen_per_sqm": 3300,
+      "fixed_asset_tax_route_value_yen_per_sqm": 3300,
+      "fixed_asset_unit_price_man_per_tsubo": 1.1,
+      "public_reference_unit_price_man_per_tsubo": 1.6,
+      "fixed_asset_route_id": "5724674-22",
+      "route_id": "5724674-22",
+      "fixedid": "5724674",
+      "town": "今町",
+      "address": "今町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-07-18T12:33:12.527Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

@@ -1,36 +1,36 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-01T01:13:18.158Z",
+  "updated_at": "2026-08-01T12:45:33.983Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 380,
-    "input_rows": 379,
-    "items": 380,
-    "towns": 53,
+    "rows": 383,
+    "input_rows": 382,
+    "items": 383,
+    "towns": 54,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 367
+      "都城市": 370
     },
     "collection_progress": {
       "all": {
-        "total": 9686,
-        "checked": 9208,
-        "remaining": 478,
-        "checked_rate": 95
+        "total": 9598,
+        "checked": 8771,
+        "remaining": 827,
+        "checked_rate": 91
       },
       "listing": {
-        "total": 4950,
-        "checked": 4555,
-        "remaining": 395,
-        "checked_rate": 92
+        "total": 4818,
+        "checked": 4279,
+        "remaining": 539,
+        "checked_rate": 89
       },
       "town_coverage": {
-        "total": 1336,
-        "checked": 1253,
-        "remaining": 83,
-        "checked_rate": 94
+        "total": 1380,
+        "checked": 1092,
+        "remaining": 288,
+        "checked_rate": 79
       },
       "area_mesh": {
         "total": 3400,
@@ -54,10 +54,10 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9287,
-          "checked": 8809,
-          "remaining": 478,
-          "checked_rate": 95
+          "total": 9199,
+          "checked": 8372,
+          "remaining": 827,
+          "checked_rate": 91
         },
         "三股町": {
           "total": 399,
@@ -68,21 +68,21 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-08-01T01:13:18.028Z",
+      "ran_at": "2026-08-01T12:45:33.904Z",
       "mode": "browser",
       "requests": 200,
       "selected_points": 200,
       "selected_area_mesh_points": 0,
-      "selected_listing_points": 181,
-      "selected_town_coverage_points": 19,
+      "selected_listing_points": 85,
+      "selected_town_coverage_points": 115,
       "selected_points_by_area": {
         "都城市": 200
       },
       "selected_points_by_municipality": {
         "都城市": 200
       },
-      "all_points": 9686,
-      "new_rows": 5,
+      "all_points": 9598,
+      "new_rows": 3,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -2271,6 +2271,62 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-30T10:49:53.085Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5718568-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.832267777935755,
+      "longitude": 130.9090718052198,
+      "route_value_yen_per_sqm": 1200,
+      "fixed_asset_tax_route_value_yen_per_sqm": 1200,
+      "fixed_asset_unit_price_man_per_tsubo": 0.4,
+      "public_reference_unit_price_man_per_tsubo": 0.6,
+      "fixed_asset_route_id": "5718568-22",
+      "route_id": "5718568-22",
+      "fixedid": "5718568",
+      "town": "吉之元町",
+      "address": "吉之元町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-08-01T12:35:05.820Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5719225-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.836556249971125,
+      "longitude": 130.9066416666298,
+      "route_value_yen_per_sqm": 2200,
+      "fixed_asset_tax_route_value_yen_per_sqm": 2200,
+      "fixed_asset_unit_price_man_per_tsubo": 0.7,
+      "public_reference_unit_price_man_per_tsubo": 1,
+      "fixed_asset_route_id": "5719225-22",
+      "route_id": "5719225-22",
+      "fixedid": "5719225",
+      "town": "吉之元町",
+      "address": "吉之元町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "listing",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-08-01T12:35:29.665Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -9719,6 +9775,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-06-26T03:13:14.498Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5721245-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.737127361039057,
+      "longitude": 131.05905333374454,
+      "route_value_yen_per_sqm": 14300,
+      "fixed_asset_tax_route_value_yen_per_sqm": 14300,
+      "fixed_asset_unit_price_man_per_tsubo": 4.7,
+      "public_reference_unit_price_man_per_tsubo": 6.8,
+      "fixed_asset_route_id": "5721245-22",
+      "route_id": "5721245-22",
+      "fixedid": "5721245",
+      "town": "平江町",
+      "address": "平江町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-08-01T12:45:30.923Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

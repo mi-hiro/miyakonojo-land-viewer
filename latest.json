@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-08-02T00:58:00.847020+09:00",
+  "generated_at": "2026-08-02T07:00:09.844856+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -509,10 +509,10 @@
       "zoning": "無指定"
     },
     {
-      "address": "都城市 下長飯町",
+      "address": "都城市 下長飯町（西都城駅）",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
-      "id": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "id": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
       "image_url": null,
       "image_urls": [],
       "is_cheap_new": false,
@@ -525,12 +525,12 @@
       "parcel_number": null,
       "price_man_yen": 500.0,
       "remarks": null,
-      "restrictions": "面積 －",
+      "restrictions": "面積 なし",
       "road_details": null,
-      "search_text": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地  下長飯町 都城市 下長飯町 アットホーム 面積 －",
+      "search_text": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住 下長飯町 都城市 下長飯町（西都城駅） アットホーム 面積 なし",
       "source": "アットホーム",
-      "source_url": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "title": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地 ",
+      "source_url": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "title": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住",
       "town": "下長飯町",
       "unit_price_man_per_tsubo": 1.39,
       "zoning": null
@@ -1209,8 +1209,8 @@
     },
     {
       "address": "宮崎県都城市五十町",
-      "building_coverage_ratio_percent": null,
-      "floor_area_ratio_percent": null,
+      "building_coverage_ratio_percent": 70.0,
+      "floor_area_ratio_percent": 200.0,
       "id": "https://www.hatomarksite.com/search/zentaku/bukken/5104620802",
       "image_url": "https://storage3.zentaku.or.jp/prod/027/193130/regsys/5104620802/image/8710b941-80eb-4ea2-be09-98c04782f218.jpg",
       "image_urls": [
@@ -1225,10 +1225,10 @@
       "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 407.0,
-      "remarks": null,
-      "restrictions": null,
+      "remarks": " / 現況渡 / 管理番号2765",
+      "restrictions": " / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積",
       "road_details": null,
-      "search_text": "宮崎県都城市五十町 日豊本線五十市駅 徒歩23分 価格 407万円 坪単価 1.1万円 土地面積 公簿1,230.09㎡(約372.1坪) 最適用途 その他用地 五十町 宮崎県都城市五十町 ハトマークサイト（宅建協会） （株）物件ハート",
+      "search_text": "宮崎県都城市五十町 日豊本線五十市駅 徒歩23分 価格 407万円 坪単価 1.1万円 土地面積 公簿1,230.09㎡(約372.1坪) 最適用途 その他用地 五十町 宮崎県都城市五十町 ハトマークサイト（宅建協会） （株）物件ハート  / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積  / 現況渡 / 管理番号2765",
       "source": "ハトマークサイト（宅建協会）",
       "source_url": "https://www.hatomarksite.com/search/zentaku/bukken/5104620802",
       "title": "宮崎県都城市五十町 日豊本線五十市駅 徒歩23分 価格 407万円 坪単価 1.1万円 土地面積 公簿1,230.09㎡(約372.1坪) 最適用途 その他用地",
@@ -3757,13 +3757,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F199%2F75512199%2F75512199_0007.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F199%2F75512199%2F75512199_0008.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 366.73,
       "land_area_tsubo": 110.94,
       "latitude": 31.728025090791,
       "longitude": 131.057340809832,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 700.0,
       "remarks": null,
@@ -5117,21 +5117,21 @@
       "is_new": false,
       "land_area_sqm": 678.0,
       "land_area_tsubo": 205.1,
-      "latitude": null,
-      "longitude": null,
+      "latitude": 31.737265327898,
+      "longitude": 131.06535988267,
       "new_reason": "",
       "parcel_number": null,
-      "price_man_yen": 1742.5,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地 都城市平江町 (ガード下) https://www.homes.co.jp/tochi/b-1562460000062/ https://image1.h 平江町 都城市平江町 LIFULL HOME'S",
+      "price_man_yen": 1742.0,
+      "remarks": " / ※境界はイメージになります",
+      "restrictions": " / 不要",
+      "road_details": " / 角地 ( 西 6m 公道 間口28.2m ) ( 北 5m 公道 間口17m )",
+      "search_text": "土地 都城市平江町 (ガード下) https://www.homes.co.jp/tochi/b-1562460000062/ https://image1.h 平江町 都城市平江町 LIFULL HOME'S 準工業地域  / 不要  / ※境界はイメージになります  / 角地 ( 西 6m 公道 間口28.2m ) ( 北 5m 公道 間口17m )",
       "source": "LIFULL HOME'S",
       "source_url": "https://www.homes.co.jp/tochi/b-1562460000062/",
       "title": "土地 都城市平江町 (ガード下) https://www.homes.co.jp/tochi/b-1562460000062/ https://image1.h",
       "town": "平江町",
-      "unit_price_man_per_tsubo": 8.5,
-      "zoning": null
+      "unit_price_man_per_tsubo": 8.49,
+      "zoning": "準工業地域"
     },
     {
       "address": "都城市平江町",
@@ -11347,12 +11347,12 @@
         "https://suumo.jp/edit/include/theme/img/T9tsl018.jpg"
       ],
       "is_cheap_new": false,
-      "is_new": true,
+      "is_new": false,
       "land_area_sqm": 266.98,
       "land_area_tsubo": 80.76,
       "latitude": 31.7214056974724,
       "longitude": 131.040240333309,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 640.0,
       "remarks": null,
@@ -11456,7 +11456,7 @@
     {
       "collected_count": 26,
       "errors": [
-        "物件詳細ページの写真取得に一部失敗しました（21件）。"
+        "物件詳細ページの写真取得に一部失敗しました（20件）。"
       ],
       "excluded_count": 0,
       "name": "LIFULL HOME'S",
@@ -11489,11 +11489,11 @@
       "url": "https://house.goo.ne.jp/buy/kyushu_la/area_miyazaki/45202.html"
     },
     {
-      "collected_count": 68,
+      "collected_count": 69,
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 12,
+      "excluded_count": 11,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11508,17 +11508,15 @@
     },
     {
       "collected_count": 93,
-      "errors": [
-        "物件詳細ページの写真取得に一部失敗しました（1件）。"
-      ],
+      "errors": [],
       "excluded_count": 5,
       "name": "ハトマークサイト（宅建協会）",
       "url": "https://www.hatomarksite.com/search/zentaku/buy/land/area/45/list?price_b_from=&price_b_to=&key_word=&land_tb_price_b_from=&land_tb_price_b_to=&land_area_all_from=&land_area_all_to=&land_area_unit=UNIT30&eki_walk=&m_adr%5B%5D=45202"
     }
   ],
   "summary": {
-    "duplicate_count": 178,
-    "excluded_count": 47,
+    "duplicate_count": 179,
+    "excluded_count": 46,
     "listing_count": 341,
     "overall_average_unit_price_man_per_tsubo": 4.36
   },

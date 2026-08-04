@@ -1,7 +1,178 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-04T20:36:23.197943+09:00",
+  "updated_at": "2026-08-04T22:28:45.098682+09:00",
   "entries": [
+    {
+      "date": "2026-08-04",
+      "generated_at": "2026-08-04T22:28:44.765000+09:00",
+      "listing_count": 329,
+      "new_count": 6,
+      "duplicate_count": 189,
+      "excluded_count": 49,
+      "sources": [
+        {
+          "name": "アットホーム",
+          "collected_count": 137,
+          "displayed_count": 93,
+          "excluded_count": 0,
+          "error_count": 2,
+          "with_photos": 64,
+          "photo_count": 640
+        },
+        {
+          "name": "SUUMO",
+          "collected_count": 119,
+          "displayed_count": 119,
+          "excluded_count": 14,
+          "error_count": 0,
+          "with_photos": 118,
+          "photo_count": 824
+        },
+        {
+          "name": "ハトマークサイト（宅建協会）",
+          "collected_count": 92,
+          "displayed_count": 57,
+          "excluded_count": 6,
+          "error_count": 0,
+          "with_photos": 42,
+          "photo_count": 150
+        },
+        {
+          "name": "goo住宅・不動産",
+          "collected_count": 73,
+          "displayed_count": 31,
+          "excluded_count": 14,
+          "error_count": 1,
+          "with_photos": 30,
+          "photo_count": 57
+        },
+        {
+          "name": "ニフティ不動産",
+          "collected_count": 67,
+          "displayed_count": 8,
+          "excluded_count": 13,
+          "error_count": 1,
+          "with_photos": 8,
+          "photo_count": 43
+        },
+        {
+          "name": "LIFULL HOME'S",
+          "collected_count": 29,
+          "displayed_count": 21,
+          "excluded_count": 0,
+          "error_count": 1,
+          "with_photos": 21,
+          "photo_count": 123
+        },
+        {
+          "name": "Yahoo!不動産",
+          "collected_count": 1,
+          "displayed_count": 0,
+          "excluded_count": 1,
+          "error_count": 0,
+          "with_photos": 0,
+          "photo_count": 0
+        },
+        {
+          "name": "ネット不動産モールSESH 宮崎",
+          "collected_count": 0,
+          "displayed_count": 0,
+          "excluded_count": 1,
+          "error_count": 1,
+          "with_photos": 0,
+          "photo_count": 0
+        }
+      ],
+      "photos": {
+        "listings": 329,
+        "listings_with_photos": 283,
+        "with_photos": 283,
+        "photo_count": 1837
+      },
+      "athome_photos": {
+        "listings": 93,
+        "listings_with_photos": 64,
+        "with_photos": 64,
+        "photo_count": 640
+      },
+      "athome_photo_fill": null,
+      "fixed_asset_route_values": {
+        "count": 441,
+        "town_count": 54,
+        "updated_at": "2026-08-04T13:28:44.881Z",
+        "municipalities": {
+          "三股町": 13,
+          "都城市": 428
+        },
+        "collection_progress": {
+          "all": {
+            "total": 9442,
+            "checked": 9242,
+            "remaining": 200,
+            "checked_rate": 98
+          },
+          "listing": {
+            "total": 4686,
+            "checked": 4539,
+            "remaining": 147,
+            "checked_rate": 97
+          },
+          "town_coverage": {
+            "total": 1356,
+            "checked": 1303,
+            "remaining": 53,
+            "checked_rate": 96
+          },
+          "area_mesh": {
+            "total": 3400,
+            "checked": 3400,
+            "remaining": 0,
+            "checked_rate": 100
+          },
+          "area_mesh_by_area": {
+            "mimata": {
+              "total": 399,
+              "checked": 399,
+              "remaining": 0,
+              "checked_rate": 100
+            },
+            "miyakonojo": {
+              "total": 3001,
+              "checked": 3001,
+              "remaining": 0,
+              "checked_rate": 100
+            }
+          },
+          "by_municipality": {
+            "都城市": {
+              "total": 9043,
+              "checked": 8843,
+              "remaining": 200,
+              "checked_rate": 98
+            },
+            "三股町": {
+              "total": 399,
+              "checked": 399,
+              "remaining": 0,
+              "checked_rate": 100
+            }
+          }
+        },
+        "area_mesh_checked": 3400,
+        "area_mesh_total": 3400,
+        "area_mesh_rate": 100
+      },
+      "route_values": {
+        "count": 139,
+        "checked_count": 329,
+        "matched_count": 139,
+        "updated_at": "2026-08-04T20:34:29.677392+09:00"
+      },
+      "history": {
+        "report_dates": 47,
+        "unique_listings": 629
+      }
+    },
     {
       "date": "2026-08-04",
       "generated_at": "2026-08-04T20:20:37.369680+09:00",
@@ -20998,177 +21169,6 @@
         "checked_count": 319,
         "matched_count": 139,
         "updated_at": "2026-07-02T07:40:26.940525+09:00"
-      },
-      "history": {
-        "report_dates": 26,
-        "unique_listings": 494
-      }
-    },
-    {
-      "date": "2026-07-02",
-      "generated_at": "2026-07-02T02:11:31.624406+09:00",
-      "listing_count": 313,
-      "new_count": 8,
-      "duplicate_count": 146,
-      "excluded_count": 32,
-      "sources": [
-        {
-          "name": "アットホーム",
-          "collected_count": 144,
-          "displayed_count": 91,
-          "excluded_count": 0,
-          "error_count": 2,
-          "with_photos": 37,
-          "photo_count": 364
-        },
-        {
-          "name": "SUUMO",
-          "collected_count": 124,
-          "displayed_count": 124,
-          "excluded_count": 12,
-          "error_count": 0,
-          "with_photos": 123,
-          "photo_count": 892
-        },
-        {
-          "name": "ハトマークサイト（宅建協会）",
-          "collected_count": 92,
-          "displayed_count": 55,
-          "excluded_count": 6,
-          "error_count": 0,
-          "with_photos": 39,
-          "photo_count": 152
-        },
-        {
-          "name": "goo住宅・不動産",
-          "collected_count": 38,
-          "displayed_count": 13,
-          "excluded_count": 4,
-          "error_count": 1,
-          "with_photos": 12,
-          "photo_count": 23
-        },
-        {
-          "name": "ニフティ不動産",
-          "collected_count": 32,
-          "displayed_count": 5,
-          "excluded_count": 8,
-          "error_count": 1,
-          "with_photos": 5,
-          "photo_count": 11
-        },
-        {
-          "name": "LIFULL HOME'S",
-          "collected_count": 28,
-          "displayed_count": 24,
-          "excluded_count": 0,
-          "error_count": 1,
-          "with_photos": 24,
-          "photo_count": 123
-        },
-        {
-          "name": "Yahoo!不動産",
-          "collected_count": 1,
-          "displayed_count": 1,
-          "excluded_count": 1,
-          "error_count": 0,
-          "with_photos": 1,
-          "photo_count": 10
-        },
-        {
-          "name": "ネット不動産モールSESH 宮崎",
-          "collected_count": 0,
-          "displayed_count": 0,
-          "excluded_count": 1,
-          "error_count": 1,
-          "with_photos": 0,
-          "photo_count": 0
-        }
-      ],
-      "photos": {
-        "listings": 313,
-        "listings_with_photos": 241,
-        "with_photos": 241,
-        "photo_count": 1575
-      },
-      "athome_photos": {
-        "listings": 91,
-        "listings_with_photos": 37,
-        "with_photos": 37,
-        "photo_count": 364
-      },
-      "athome_photo_fill": null,
-      "fixed_asset_route_values": {
-        "count": 144,
-        "town_count": 50,
-        "updated_at": "2026-07-01T14:22:49.131Z",
-        "municipalities": {
-          "三股町": 2,
-          "都城市": 142
-        },
-        "collection_progress": {
-          "all": {
-            "total": 9667,
-            "checked": 2959,
-            "remaining": 6708,
-            "checked_rate": 31
-          },
-          "listing": {
-            "total": 4884,
-            "checked": 2302,
-            "remaining": 2582,
-            "checked_rate": 47
-          },
-          "town_coverage": {
-            "total": 1383,
-            "checked": 635,
-            "remaining": 748,
-            "checked_rate": 46
-          },
-          "area_mesh": {
-            "total": 3400,
-            "checked": 22,
-            "remaining": 3378,
-            "checked_rate": 1
-          },
-          "area_mesh_by_area": {
-            "mimata": {
-              "total": 399,
-              "checked": 3,
-              "remaining": 396,
-              "checked_rate": 1
-            },
-            "miyakonojo": {
-              "total": 3001,
-              "checked": 19,
-              "remaining": 2982,
-              "checked_rate": 1
-            }
-          },
-          "by_municipality": {
-            "都城市": {
-              "total": 9268,
-              "checked": 2956,
-              "remaining": 6312,
-              "checked_rate": 32
-            },
-            "三股町": {
-              "total": 399,
-              "checked": 3,
-              "remaining": 396,
-              "checked_rate": 1
-            }
-          }
-        },
-        "area_mesh_checked": 22,
-        "area_mesh_total": 3400,
-        "area_mesh_rate": 1
-      },
-      "route_values": {
-        "count": 134,
-        "checked_count": 313,
-        "matched_count": 134,
-        "updated_at": "2026-07-02T02:29:09.200149+09:00"
       },
       "history": {
         "report_dates": 26,

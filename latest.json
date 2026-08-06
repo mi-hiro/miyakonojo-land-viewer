@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-08-06T14:45:13.570016+09:00",
+  "generated_at": "2026-08-06T20:19:17.689939+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -4118,10 +4118,10 @@
       "remarks": " / 現況渡、建築条件無",
       "restrictions": " / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積",
       "road_details": " / 【一方】 北 幅:5m 公道 その他ランニングコスト その他一時金 無 条件等",
-      "search_text": "con/icon_history.svg\"> 宮崎県都城市山之口町富吉 日豊本線山之口駅 徒歩18分 価格 350万円 坪単価 1.47万円 土地面積 公簿79 山之口町富吉 宮崎県都城市山之口町富吉 ハトマークサイト（宅建協会） 準工業地域  / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積  / 現況渡、建築条件無  / 【一方】 北 幅:5m 公道 その他ランニングコスト その他一時金 無 条件等",
+      "search_text": "de-room-name-area d-none\"> 宮崎県都城市山之口町富吉 日豊本線山之口駅 徒歩18分 価格 350万円 坪単価 1.47万円 土地面積  山之口町富吉 宮崎県都城市山之口町富吉 ハトマークサイト（宅建協会） 準工業地域  / 法令上の制限 再建築 開発許可等番号 分譲 開発面積総面積 総販売面積  / 現況渡、建築条件無  / 【一方】 北 幅:5m 公道 その他ランニングコスト その他一時金 無 条件等",
       "source": "ハトマークサイト（宅建協会）",
       "source_url": "https://www.hatomarksite.com/search/zentaku/bukken/5102822651",
-      "title": "con/icon_history.svg\"> 宮崎県都城市山之口町富吉 日豊本線山之口駅 徒歩18分 価格 350万円 坪単価 1.47万円 土地面積 公簿79",
+      "title": "de-room-name-area d-none\"> 宮崎県都城市山之口町富吉 日豊本線山之口駅 徒歩18分 価格 350万円 坪単価 1.47万円 土地面積 ",
       "town": "山之口町富吉",
       "unit_price_man_per_tsubo": 1.46,
       "zoning": "準工業地域"
@@ -6654,13 +6654,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F201%2F20955201%2F20955201_0003.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F201%2F20955201%2F20955201_0004.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 2190.0,
       "land_area_tsubo": 662.48,
       "latitude": 31.7485496272494,
       "longitude": 131.026930082869,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 400.0,
       "remarks": null,
@@ -8824,18 +8824,18 @@
       "building_coverage_ratio_percent": 60.0,
       "floor_area_ratio_percent": 200.0,
       "id": "https://www.homes.co.jp/tochi/b-93640000221/",
-      "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
+      "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F45%2F2%2F1%2Fa6pa.jpg",
       "image_urls": [
-        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
-        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F179%2F2%2F2%2F069m.jpg",
+        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F45%2F2%2F1%2Fa6pa.jpg",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg&width=120&height=120",
+        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg",
         "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F2%2F2%2F8ft2.jpg",
         "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
         "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F2%2F4%2Frubn.jpg",
         "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F2%2F5%2Fyjy4.jpg",
         "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F4%2F21%2F8vm3.jpg",
         "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F4%2F22%2F5bxf.jpg",
-        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F4%2F23%2F7rth.jpg",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F4%2F24%2Fyg6q.jpg"
+        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F221%2F4%2F23%2F7rth.jpg"
       ],
       "is_cheap_new": false,
       "is_new": false,
@@ -10846,13 +10846,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0002.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0003.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 311.32,
       "land_area_tsubo": 94.17,
       "latitude": 31.7265666309184,
       "longitude": 131.051330375036,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 400.0,
       "remarks": null,
@@ -11249,7 +11249,7 @@
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 13,
+      "excluded_count": 12,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11272,7 +11272,7 @@
   ],
   "summary": {
     "duplicate_count": 188,
-    "excluded_count": 48,
+    "excluded_count": 47,
     "listing_count": 334,
     "overall_average_unit_price_man_per_tsubo": 4.63
   },

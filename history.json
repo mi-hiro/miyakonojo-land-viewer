@@ -146,7 +146,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 171,
+      "observed_count": 172,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -391,7 +391,7 @@
         "unit_price_man_per_tsubo": 10.0,
         "zoning": null
       },
-      "observed_count": 31,
+      "observed_count": 32,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -441,7 +441,7 @@
         "unit_price_man_per_tsubo": 10.0,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -499,7 +499,7 @@
         "unit_price_man_per_tsubo": 10.68,
         "zoning": null
       },
-      "observed_count": 31,
+      "observed_count": 32,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -592,7 +592,7 @@
         "unit_price_man_per_tsubo": 21.12,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -645,7 +645,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -692,7 +692,7 @@
         "unit_price_man_per_tsubo": 4.6,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -745,7 +745,7 @@
         "unit_price_man_per_tsubo": 6.36,
         "zoning": null
       },
-      "observed_count": 72,
+      "observed_count": 73,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -820,7 +820,7 @@
         "unit_price_man_per_tsubo": 6.5,
         "zoning": null
       },
-      "observed_count": 27,
+      "observed_count": 28,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -915,7 +915,7 @@
         "unit_price_man_per_tsubo": 7.0,
         "zoning": null
       },
-      "observed_count": 81,
+      "observed_count": 82,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -1047,7 +1047,7 @@
         "unit_price_man_per_tsubo": 7.23,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1241,7 +1241,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": null
       },
-      "observed_count": 77,
+      "observed_count": 78,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -1443,7 +1443,7 @@
         "unit_price_man_per_tsubo": 10.23,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1540,7 +1540,7 @@
         "unit_price_man_per_tsubo": 14.96,
         "zoning": "ヒント"
       },
-      "observed_count": 149,
+      "observed_count": 150,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -1584,7 +1584,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "無指定"
       },
-      "observed_count": 6,
+      "observed_count": 7,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -1682,7 +1682,7 @@
         "unit_price_man_per_tsubo": 2.04,
         "zoning": null
       },
-      "observed_count": 142,
+      "observed_count": 143,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1804,7 +1804,7 @@
         "unit_price_man_per_tsubo": 3.31,
         "zoning": null
       },
-      "observed_count": 147,
+      "observed_count": 148,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -1905,7 +1905,7 @@
         "unit_price_man_per_tsubo": 1.33,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1918,8 +1918,8 @@
     {
       "first_seen_date": "2026-08-02",
       "id": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-09",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-10",
       "latest": {
         "address": "都城市 下長飯町（西都城駅）",
         "building_coverage_ratio_percent": 70.0,
@@ -1947,7 +1947,7 @@
         "unit_price_man_per_tsubo": 1.39,
         "zoning": null
       },
-      "observed_count": 16,
+      "observed_count": 17,
       "price_history": [
         {
           "date": "2026-08-02",
@@ -1960,7 +1960,7 @@
     {
       "first_seen_date": "2026-07-18",
       "id": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-10",
       "latest": {
         "address": "都城市 下長飯町",
@@ -2083,7 +2083,7 @@
         "unit_price_man_per_tsubo": 1.59,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2222,7 +2222,7 @@
         "unit_price_man_per_tsubo": 1.75,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2264,7 +2264,7 @@
         "unit_price_man_per_tsubo": 1.83,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2310,7 +2310,7 @@
         "unit_price_man_per_tsubo": 1.96,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2363,7 +2363,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2462,7 +2462,7 @@
         "unit_price_man_per_tsubo": 3.64,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2557,7 +2557,7 @@
         "unit_price_man_per_tsubo": 10.23,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2648,7 +2648,7 @@
         "unit_price_man_per_tsubo": 2.08,
         "zoning": null
       },
-      "observed_count": 137,
+      "observed_count": 138,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2743,7 +2743,7 @@
         "unit_price_man_per_tsubo": 2.49,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2785,7 +2785,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": null
       },
-      "observed_count": 24,
+      "observed_count": 25,
       "price_history": [
         {
           "date": "2026-08-03",
@@ -2882,7 +2882,7 @@
         "unit_price_man_per_tsubo": 6.54,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2935,7 +2935,7 @@
         "unit_price_man_per_tsubo": 6.69,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2981,7 +2981,7 @@
         "unit_price_man_per_tsubo": 6.82,
         "zoning": null
       },
-      "observed_count": 106,
+      "observed_count": 107,
       "price_history": [
         {
           "date": "2026-06-18",
@@ -3074,7 +3074,7 @@
         "unit_price_man_per_tsubo": 7.17,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3163,7 +3163,7 @@
         "unit_price_man_per_tsubo": 1.88,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3262,7 +3262,7 @@
         "unit_price_man_per_tsubo": 2.49,
         "zoning": null
       },
-      "observed_count": 115,
+      "observed_count": 116,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -3407,7 +3407,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 151,
+      "observed_count": 152,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3460,7 +3460,7 @@
         "unit_price_man_per_tsubo": 3.55,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3513,7 +3513,7 @@
         "unit_price_man_per_tsubo": 3.99,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3557,7 +3557,7 @@
         "unit_price_man_per_tsubo": 4.35,
         "zoning": null
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-07-14",
@@ -3674,7 +3674,7 @@
         "unit_price_man_per_tsubo": 0.81,
         "zoning": null
       },
-      "observed_count": 62,
+      "observed_count": 63,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3718,7 +3718,7 @@
         "unit_price_man_per_tsubo": 1.09,
         "zoning": "（株）物件ハート"
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -3824,7 +3824,7 @@
         "unit_price_man_per_tsubo": 6.1,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3876,7 +3876,7 @@
         "unit_price_man_per_tsubo": 7.36,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3918,7 +3918,7 @@
         "unit_price_man_per_tsubo": 0.23,
         "zoning": "無指定"
       },
-      "observed_count": 83,
+      "observed_count": 84,
       "price_history": [
         {
           "date": "2026-07-07",
@@ -3965,7 +3965,7 @@
         "unit_price_man_per_tsubo": 1.23,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4063,7 +4063,7 @@
         "unit_price_man_per_tsubo": 2.02,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4162,7 +4162,7 @@
         "unit_price_man_per_tsubo": 2.09,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4251,7 +4251,7 @@
         "unit_price_man_per_tsubo": 2.4,
         "zoning": null
       },
-      "observed_count": 7,
+      "observed_count": 8,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -4302,7 +4302,7 @@
         "unit_price_man_per_tsubo": 2.43,
         "zoning": null
       },
-      "observed_count": 107,
+      "observed_count": 108,
       "price_history": [
         {
           "date": "2026-06-18",
@@ -4355,7 +4355,7 @@
         "unit_price_man_per_tsubo": 2.48,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4408,7 +4408,7 @@
         "unit_price_man_per_tsubo": 2.61,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4450,7 +4450,7 @@
         "unit_price_man_per_tsubo": 2.7,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4558,7 +4558,7 @@
         "unit_price_man_per_tsubo": 3.02,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4604,7 +4604,7 @@
         "unit_price_man_per_tsubo": 3.38,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4789,7 +4789,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": null
       },
-      "observed_count": 23,
+      "observed_count": 24,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -4890,7 +4890,7 @@
         "unit_price_man_per_tsubo": 5.42,
         "zoning": null
       },
-      "observed_count": 111,
+      "observed_count": 112,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4924,12 +4924,12 @@
           "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F354%2F77773354%2F77773354_0007.jpg&w=640&h=480"
         ],
         "is_cheap_new": false,
-        "is_new": true,
+        "is_new": false,
         "land_area_sqm": 500.25,
         "land_area_tsubo": 151.33,
         "latitude": 31.7280069319786,
         "longitude": 131.068814007779,
-        "new_reason": "掲載ブロック内に新着表示あり",
+        "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 1500.0,
         "remarks": null,
@@ -4943,7 +4943,7 @@
         "unit_price_man_per_tsubo": 9.91,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4995,7 +4995,7 @@
         "unit_price_man_per_tsubo": 16.59,
         "zoning": null
       },
-      "observed_count": 35,
+      "observed_count": 36,
       "price_history": [
         {
           "date": "2026-07-19",
@@ -5047,7 +5047,7 @@
         "unit_price_man_per_tsubo": 3.29,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5147,7 +5147,7 @@
         "unit_price_man_per_tsubo": 4.99,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5258,7 +5258,7 @@
         "unit_price_man_per_tsubo": 5.8,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5346,7 +5346,7 @@
         "unit_price_man_per_tsubo": 6.83,
         "zoning": "ヒント"
       },
-      "observed_count": 174,
+      "observed_count": 175,
       "price_history": [
         {
           "date": "2026-06-09",
@@ -5399,7 +5399,7 @@
         "unit_price_man_per_tsubo": 7.37,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5452,7 +5452,7 @@
         "unit_price_man_per_tsubo": 7.51,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5498,7 +5498,7 @@
         "unit_price_man_per_tsubo": 7.85,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5544,7 +5544,7 @@
         "unit_price_man_per_tsubo": 8.01,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5639,7 +5639,7 @@
         "unit_price_man_per_tsubo": 8.61,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5852,7 +5852,7 @@
         "unit_price_man_per_tsubo": 5.79,
         "zoning": "ヒント"
       },
-      "observed_count": 19,
+      "observed_count": 20,
       "price_history": [
         {
           "date": "2026-08-05",
@@ -5897,7 +5897,7 @@
         "unit_price_man_per_tsubo": 6.97,
         "zoning": "ヒント"
       },
-      "observed_count": 40,
+      "observed_count": 41,
       "price_history": [
         {
           "date": "2026-07-18",
@@ -5985,7 +5985,7 @@
         "unit_price_man_per_tsubo": 7.61,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6030,7 +6030,7 @@
         "unit_price_man_per_tsubo": 7.98,
         "zoning": "ヒント"
       },
-      "observed_count": 40,
+      "observed_count": 41,
       "price_history": [
         {
           "date": "2026-07-18",
@@ -6210,7 +6210,7 @@
         "unit_price_man_per_tsubo": 0.34,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6310,7 +6310,7 @@
         "unit_price_man_per_tsubo": 0.49,
         "zoning": "無指定"
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -6363,7 +6363,7 @@
         "unit_price_man_per_tsubo": 0.3,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6523,7 +6523,7 @@
         "unit_price_man_per_tsubo": 0.61,
         "zoning": null
       },
-      "observed_count": 63,
+      "observed_count": 64,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -6592,7 +6592,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": null
       },
-      "observed_count": 122,
+      "observed_count": 123,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -6705,7 +6705,7 @@
         "unit_price_man_per_tsubo": 1.01,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6749,7 +6749,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": null
       },
-      "observed_count": 153,
+      "observed_count": 154,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -6794,7 +6794,7 @@
         "unit_price_man_per_tsubo": 2.67,
         "zoning": null
       },
-      "observed_count": 87,
+      "observed_count": 88,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -6954,7 +6954,7 @@
         "unit_price_man_per_tsubo": 6.71,
         "zoning": null
       },
-      "observed_count": 70,
+      "observed_count": 71,
       "price_history": [
         {
           "date": "2026-07-10",
@@ -7042,7 +7042,7 @@
         "unit_price_man_per_tsubo": 9.96,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7133,7 +7133,7 @@
         "unit_price_man_per_tsubo": 9.97,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7186,7 +7186,7 @@
         "unit_price_man_per_tsubo": 11.74,
         "zoning": null
       },
-      "observed_count": 151,
+      "observed_count": 152,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7228,7 +7228,7 @@
         "unit_price_man_per_tsubo": 12.0,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7281,7 +7281,7 @@
         "unit_price_man_per_tsubo": 14.25,
         "zoning": "非線引き区域"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7326,7 +7326,7 @@
         "unit_price_man_per_tsubo": 37.8,
         "zoning": null
       },
-      "observed_count": 18,
+      "observed_count": 19,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -7512,7 +7512,7 @@
         "unit_price_man_per_tsubo": 4.5,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7655,7 +7655,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7697,7 +7697,7 @@
         "unit_price_man_per_tsubo": 5.51,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7750,7 +7750,7 @@
         "unit_price_man_per_tsubo": 7.48,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7803,7 +7803,7 @@
         "unit_price_man_per_tsubo": 8.81,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7908,7 +7908,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": "ヒント"
       },
-      "observed_count": 134,
+      "observed_count": 135,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -8047,7 +8047,7 @@
         "unit_price_man_per_tsubo": 10.36,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8139,7 +8139,7 @@
         "unit_price_man_per_tsubo": 11.56,
         "zoning": "ヒント"
       },
-      "observed_count": 161,
+      "observed_count": 162,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8192,7 +8192,7 @@
         "unit_price_man_per_tsubo": 16.89,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8281,7 +8281,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8334,7 +8334,7 @@
         "unit_price_man_per_tsubo": 1.06,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8387,7 +8387,7 @@
         "unit_price_man_per_tsubo": 1.11,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8438,7 +8438,7 @@
         "unit_price_man_per_tsubo": 1.19,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8526,7 +8526,7 @@
         "unit_price_man_per_tsubo": 1.2,
         "zoning": "無指定"
       },
-      "observed_count": 6,
+      "observed_count": 7,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -8568,7 +8568,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8621,7 +8621,7 @@
         "unit_price_man_per_tsubo": 1.5,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8674,7 +8674,7 @@
         "unit_price_man_per_tsubo": 1.68,
         "zoning": null
       },
-      "observed_count": 107,
+      "observed_count": 108,
       "price_history": [
         {
           "date": "2026-07-01",
@@ -8773,7 +8773,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8876,7 +8876,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8918,7 +8918,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": null
       },
-      "observed_count": 30,
+      "observed_count": 31,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -9058,7 +9058,7 @@
         "unit_price_man_per_tsubo": 2.81,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9215,7 +9215,7 @@
         "unit_price_man_per_tsubo": 2.9,
         "zoning": null
       },
-      "observed_count": 100,
+      "observed_count": 101,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9367,7 +9367,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": "ヒント"
       },
-      "observed_count": 10,
+      "observed_count": 11,
       "price_history": [
         {
           "date": "2026-08-07",
@@ -9508,7 +9508,7 @@
         "unit_price_man_per_tsubo": 3.33,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9594,7 +9594,7 @@
         "unit_price_man_per_tsubo": 3.82,
         "zoning": null
       },
-      "observed_count": 45,
+      "observed_count": 46,
       "price_history": [
         {
           "date": "2026-07-16",
@@ -9738,7 +9738,7 @@
         "unit_price_man_per_tsubo": 3.93,
         "zoning": null
       },
-      "observed_count": 27,
+      "observed_count": 28,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9780,7 +9780,7 @@
         "unit_price_man_per_tsubo": 4.11,
         "zoning": null
       },
-      "observed_count": 7,
+      "observed_count": 8,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -9879,7 +9879,7 @@
         "unit_price_man_per_tsubo": 4.74,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9932,7 +9932,7 @@
         "unit_price_man_per_tsubo": 4.79,
         "zoning": null
       },
-      "observed_count": 70,
+      "observed_count": 71,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9976,7 +9976,7 @@
         "unit_price_man_per_tsubo": 6.1,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10021,7 +10021,7 @@
         "unit_price_man_per_tsubo": 8.27,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10066,7 +10066,7 @@
         "unit_price_man_per_tsubo": 5.59,
         "zoning": null
       },
-      "observed_count": 64,
+      "observed_count": 65,
       "price_history": [
         {
           "date": "2026-07-05",
@@ -10241,7 +10241,7 @@
         "unit_price_man_per_tsubo": 6.31,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10328,7 +10328,7 @@
         "unit_price_man_per_tsubo": 7.1,
         "zoning": null
       },
-      "observed_count": 56,
+      "observed_count": 57,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -10454,7 +10454,7 @@
         "unit_price_man_per_tsubo": 8.02,
         "zoning": "ヒント"
       },
-      "observed_count": 87,
+      "observed_count": 88,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -10553,7 +10553,7 @@
         "unit_price_man_per_tsubo": 11.53,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10737,7 +10737,7 @@
         "unit_price_man_per_tsubo": 0.56,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10782,7 +10782,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": "無指定"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10828,7 +10828,7 @@
         "unit_price_man_per_tsubo": 1.31,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10872,7 +10872,7 @@
         "unit_price_man_per_tsubo": 1.46,
         "zoning": "準工業地域"
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -10917,7 +10917,7 @@
         "unit_price_man_per_tsubo": 1.48,
         "zoning": null
       },
-      "observed_count": 42,
+      "observed_count": 43,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -11073,7 +11073,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11122,7 +11122,7 @@
         "unit_price_man_per_tsubo": 4.65,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11277,7 +11277,7 @@
         "unit_price_man_per_tsubo": 1.41,
         "zoning": "ヒント"
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -11329,7 +11329,7 @@
         "unit_price_man_per_tsubo": 0.76,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11427,7 +11427,7 @@
         "unit_price_man_per_tsubo": 1.3,
         "zoning": null
       },
-      "observed_count": 138,
+      "observed_count": 139,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -11618,7 +11618,7 @@
         "unit_price_man_per_tsubo": 2.99,
         "zoning": null
       },
-      "observed_count": 47,
+      "observed_count": 48,
       "price_history": [
         {
           "date": "2026-07-16",
@@ -11713,7 +11713,7 @@
         "unit_price_man_per_tsubo": 3.02,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11917,7 +11917,7 @@
         "unit_price_man_per_tsubo": 4.19,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11961,7 +11961,7 @@
         "unit_price_man_per_tsubo": 4.34,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -12050,7 +12050,7 @@
         "unit_price_man_per_tsubo": 6.92,
         "zoning": null
       },
-      "observed_count": 113,
+      "observed_count": 114,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -12215,7 +12215,7 @@
         "unit_price_man_per_tsubo": 1.9,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12358,7 +12358,7 @@
         "unit_price_man_per_tsubo": 2.7,
         "zoning": null
       },
-      "observed_count": 85,
+      "observed_count": 86,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12469,7 +12469,7 @@
         "unit_price_man_per_tsubo": 3.61,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12511,7 +12511,7 @@
         "unit_price_man_per_tsubo": 0.44,
         "zoning": "無指定"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12609,7 +12609,7 @@
         "unit_price_man_per_tsubo": 0.45,
         "zoning": null
       },
-      "observed_count": 43,
+      "observed_count": 44,
       "price_history": [
         {
           "date": "2026-07-05",
@@ -12666,7 +12666,7 @@
         "unit_price_man_per_tsubo": 0.5,
         "zoning": null
       },
-      "observed_count": 30,
+      "observed_count": 31,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -12755,7 +12755,7 @@
         "unit_price_man_per_tsubo": 0.65,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12801,7 +12801,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12896,7 +12896,7 @@
         "unit_price_man_per_tsubo": 1.24,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12995,7 +12995,7 @@
         "unit_price_man_per_tsubo": 1.39,
         "zoning": null
       },
-      "observed_count": 81,
+      "observed_count": 82,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -13105,7 +13105,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13149,7 +13149,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": "無指定"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13238,7 +13238,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "第二種住居地域"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13379,7 +13379,7 @@
         "unit_price_man_per_tsubo": 2.1,
         "zoning": null
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -13424,7 +13424,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": null
       },
-      "observed_count": 64,
+      "observed_count": 65,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -13536,7 +13536,7 @@
         "unit_price_man_per_tsubo": 0.26,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13582,7 +13582,7 @@
         "unit_price_man_per_tsubo": 1.78,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13719,7 +13719,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13766,7 +13766,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13819,7 +13819,7 @@
         "unit_price_man_per_tsubo": 5.75,
         "zoning": "ヒント"
       },
-      "observed_count": 144,
+      "observed_count": 145,
       "price_history": [
         {
           "date": "2026-06-19",
@@ -13832,7 +13832,7 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_03028ba1a00530ef9fe9b459fd47e924/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-10",
       "latest": {
         "address": "宮崎県都城市平江町",
@@ -13925,7 +13925,7 @@
         "unit_price_man_per_tsubo": 8.5,
         "zoning": null
       },
-      "observed_count": 73,
+      "observed_count": 74,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14098,12 +14098,12 @@
         "building_coverage_ratio_percent": 80.0,
         "floor_area_ratio_percent": 300.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000028/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Ft9pz3m6ukp0woj5.jpg",
+        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F67%2F2%2F1%2Fvzl6.jpg&width=208&height=138",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Ft9pz3m6ukp0woj5.jpg",
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F28%2F2%2F2%2Fgykn.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F67%2F2%2F1%2Fvzl6.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F67%2F2%2F1%2Fvzl6.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F28%2F2%2F2%2Fgykn.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Ft9pz3m6ukp0woj5.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F8%2F2%2F2%2Fm1uy.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F2%2F9mqv.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F69%2F2%2F2%2Fljvr.jpg",
@@ -14131,7 +14131,7 @@
         "unit_price_man_per_tsubo": 10.37,
         "zoning": null
       },
-      "observed_count": 84,
+      "observed_count": 85,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -14176,7 +14176,7 @@
         "unit_price_man_per_tsubo": 12.01,
         "zoning": null
       },
-      "observed_count": 116,
+      "observed_count": 117,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -14269,7 +14269,7 @@
         "unit_price_man_per_tsubo": 6.96,
         "zoning": "第一種低層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14367,7 +14367,7 @@
         "unit_price_man_per_tsubo": 0.52,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14415,7 +14415,7 @@
         "unit_price_man_per_tsubo": 1.52,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14428,8 +14428,8 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_09fb868a142f3af0b06eadaa839bc10e/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-09",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-10",
       "latest": {
         "address": "宮崎県都城市庄内町",
         "building_coverage_ratio_percent": 70.0,
@@ -14462,7 +14462,7 @@
         "unit_price_man_per_tsubo": 1.74,
         "zoning": null
       },
-      "observed_count": 86,
+      "observed_count": 87,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -14507,7 +14507,7 @@
         "unit_price_man_per_tsubo": 1.99,
         "zoning": "無指定"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14555,7 +14555,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "無指定"
       },
-      "observed_count": 98,
+      "observed_count": 99,
       "price_history": [
         {
           "date": "2026-07-03",
@@ -14597,7 +14597,7 @@
         "unit_price_man_per_tsubo": 2.09,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14695,7 +14695,7 @@
         "unit_price_man_per_tsubo": 2.96,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14748,7 +14748,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14801,7 +14801,7 @@
         "unit_price_man_per_tsubo": 3.37,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14954,7 +14954,7 @@
         "unit_price_man_per_tsubo": 1.5,
         "zoning": null
       },
-      "observed_count": 128,
+      "observed_count": 129,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -15064,7 +15064,7 @@
         "unit_price_man_per_tsubo": 1.66,
         "zoning": null
       },
-      "observed_count": 146,
+      "observed_count": 147,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -15248,7 +15248,7 @@
         "unit_price_man_per_tsubo": 2.24,
         "zoning": "ヒント"
       },
-      "observed_count": 87,
+      "observed_count": 88,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15297,7 +15297,7 @@
         "unit_price_man_per_tsubo": 2.27,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15343,7 +15343,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15438,7 +15438,7 @@
         "unit_price_man_per_tsubo": 3.8,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15491,7 +15491,7 @@
         "unit_price_man_per_tsubo": 4.18,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15539,7 +15539,7 @@
         "unit_price_man_per_tsubo": 4.77,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15581,7 +15581,7 @@
         "unit_price_man_per_tsubo": 5.68,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15679,7 +15679,7 @@
         "unit_price_man_per_tsubo": 6.24,
         "zoning": null
       },
-      "observed_count": 120,
+      "observed_count": 121,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15732,7 +15732,7 @@
         "unit_price_man_per_tsubo": 7.41,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15766,12 +15766,12 @@
           "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F269%2F21020269%2F21020269_0010.jpg&w=640&h=480"
         ],
         "is_cheap_new": false,
-        "is_new": false,
+        "is_new": true,
         "land_area_sqm": 599.37,
         "land_area_tsubo": 181.31,
         "latitude": 31.7389056540921,
         "longitude": 131.050707330192,
-        "new_reason": "",
+        "new_reason": "掲載ブロック内に新着表示あり",
         "parcel_number": null,
         "price_man_yen": 1500.0,
         "remarks": null,
@@ -15785,7 +15785,7 @@
         "unit_price_man_per_tsubo": 8.27,
         "zoning": "ヒント"
       },
-      "observed_count": 179,
+      "observed_count": 180,
       "price_history": [
         {
           "date": "2026-06-08",
@@ -15933,7 +15933,7 @@
         "unit_price_man_per_tsubo": 6.15,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16040,7 +16040,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16085,7 +16085,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 61,
+      "observed_count": 62,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -16203,7 +16203,7 @@
         "unit_price_man_per_tsubo": 8.51,
         "zoning": "準工業地域"
       },
-      "observed_count": 69,
+      "observed_count": 70,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16249,7 +16249,7 @@
         "unit_price_man_per_tsubo": 4.33,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16295,7 +16295,7 @@
         "unit_price_man_per_tsubo": 6.22,
         "zoning": null
       },
-      "observed_count": 31,
+      "observed_count": 32,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -16343,7 +16343,7 @@
         "unit_price_man_per_tsubo": 10.0,
         "zoning": "ヒント"
       },
-      "observed_count": 123,
+      "observed_count": 124,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -16440,7 +16440,7 @@
         "unit_price_man_per_tsubo": 12.0,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16492,7 +16492,7 @@
         "unit_price_man_per_tsubo": 17.77,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16540,7 +16540,7 @@
         "unit_price_man_per_tsubo": 17.81,
         "zoning": null
       },
-      "observed_count": 6,
+      "observed_count": 7,
       "price_history": [
         {
           "date": "2026-07-11",
@@ -16734,7 +16734,7 @@
         "unit_price_man_per_tsubo": 0.65,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16779,7 +16779,7 @@
         "unit_price_man_per_tsubo": 0.72,
         "zoning": null
       },
-      "observed_count": 147,
+      "observed_count": 148,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -16824,7 +16824,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 62,
+      "observed_count": 63,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -16866,7 +16866,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16912,7 +16912,7 @@
         "unit_price_man_per_tsubo": 1.35,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16954,7 +16954,7 @@
         "unit_price_man_per_tsubo": 1.45,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17007,7 +17007,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": null
       },
-      "observed_count": 130,
+      "observed_count": 131,
       "price_history": [
         {
           "date": "2026-06-23",
@@ -17051,7 +17051,7 @@
         "unit_price_man_per_tsubo": 1.5,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17150,7 +17150,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17196,7 +17196,7 @@
         "unit_price_man_per_tsubo": 1.52,
         "zoning": "無指定"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17288,7 +17288,7 @@
         "unit_price_man_per_tsubo": 1.82,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17372,7 +17372,7 @@
         "unit_price_man_per_tsubo": 2.06,
         "zoning": null
       },
-      "observed_count": 7,
+      "observed_count": 8,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -17465,7 +17465,7 @@
         "unit_price_man_per_tsubo": 2.94,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17478,7 +17478,7 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_03984f49bd7330deb38928932933bd51/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-10",
       "latest": {
         "address": "宮崎県都城市梅北町",
@@ -17608,7 +17608,7 @@
         "unit_price_man_per_tsubo": 5.0,
         "zoning": null
       },
-      "observed_count": 53,
+      "observed_count": 54,
       "price_history": [
         {
           "date": "2026-07-09",
@@ -17748,7 +17748,7 @@
         "unit_price_man_per_tsubo": 0.38,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17842,7 +17842,7 @@
         "unit_price_man_per_tsubo": 0.39,
         "zoning": "無指定"
       },
-      "observed_count": 114,
+      "observed_count": 115,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -17889,7 +17889,7 @@
         "unit_price_man_per_tsubo": 0.6,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17984,7 +17984,7 @@
         "unit_price_man_per_tsubo": 0.76,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18139,7 +18139,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18192,7 +18192,7 @@
         "unit_price_man_per_tsubo": 1.3,
         "zoning": "ヒント"
       },
-      "observed_count": 59,
+      "observed_count": 60,
       "price_history": [
         {
           "date": "2026-07-13",
@@ -18234,7 +18234,7 @@
         "unit_price_man_per_tsubo": 2.99,
         "zoning": null
       },
-      "observed_count": 69,
+      "observed_count": 70,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -18340,7 +18340,7 @@
         "unit_price_man_per_tsubo": 4.51,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18382,7 +18382,7 @@
         "unit_price_man_per_tsubo": 4.02,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18424,7 +18424,7 @@
         "unit_price_man_per_tsubo": 6.12,
         "zoning": null
       },
-      "observed_count": 113,
+      "observed_count": 114,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -18477,7 +18477,7 @@
         "unit_price_man_per_tsubo": 9.06,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18671,7 +18671,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 20,
+      "observed_count": 21,
       "price_history": [
         {
           "date": "2026-06-20",
@@ -18718,7 +18718,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18771,7 +18771,7 @@
         "unit_price_man_per_tsubo": 7.31,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18866,7 +18866,7 @@
         "unit_price_man_per_tsubo": 0.35,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19009,7 +19009,7 @@
         "unit_price_man_per_tsubo": 0.69,
         "zoning": null
       },
-      "observed_count": 102,
+      "observed_count": 103,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -19070,7 +19070,7 @@
         "unit_price_man_per_tsubo": 7.77,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19120,7 +19120,7 @@
         "unit_price_man_per_tsubo": 8.85,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19206,7 +19206,7 @@
         "unit_price_man_per_tsubo": 15.28,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19305,7 +19305,7 @@
         "unit_price_man_per_tsubo": 1.55,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19358,7 +19358,7 @@
         "unit_price_man_per_tsubo": 2.85,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19404,7 +19404,7 @@
         "unit_price_man_per_tsubo": 9.67,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19510,7 +19510,7 @@
         "unit_price_man_per_tsubo": 1.64,
         "zoning": null
       },
-      "observed_count": 159,
+      "observed_count": 160,
       "price_history": [
         {
           "date": "2026-06-13",
@@ -19652,7 +19652,7 @@
         "unit_price_man_per_tsubo": 3.89,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19751,7 +19751,7 @@
         "unit_price_man_per_tsubo": 5.26,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19982,7 +19982,7 @@
         "unit_price_man_per_tsubo": 7.01,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20161,7 +20161,7 @@
         "unit_price_man_per_tsubo": 7.65,
         "zoning": "第一種低層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20307,7 +20307,7 @@
         "unit_price_man_per_tsubo": 0.52,
         "zoning": null
       },
-      "observed_count": 69,
+      "observed_count": 70,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -20505,7 +20505,7 @@
         "unit_price_man_per_tsubo": 1.01,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20663,7 +20663,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20708,7 +20708,7 @@
         "unit_price_man_per_tsubo": 41.32,
         "zoning": null
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -20756,7 +20756,7 @@
         "unit_price_man_per_tsubo": 4.39,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20798,7 +20798,7 @@
         "unit_price_man_per_tsubo": 4.61,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20844,7 +20844,7 @@
         "unit_price_man_per_tsubo": 5.11,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20943,7 +20943,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": "ヒント"
       },
-      "observed_count": 64,
+      "observed_count": 65,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -20990,7 +20990,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": "ヒント"
       },
-      "observed_count": 64,
+      "observed_count": 65,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -21088,7 +21088,7 @@
         "unit_price_man_per_tsubo": 8.04,
         "zoning": null
       },
-      "observed_count": 108,
+      "observed_count": 109,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21179,7 +21179,7 @@
         "unit_price_man_per_tsubo": 9.15,
         "zoning": null
       },
-      "observed_count": 9,
+      "observed_count": 10,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -21276,7 +21276,7 @@
         "unit_price_man_per_tsubo": 2.31,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21329,7 +21329,7 @@
         "unit_price_man_per_tsubo": 4.01,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21382,7 +21382,7 @@
         "unit_price_man_per_tsubo": 5.21,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21435,7 +21435,7 @@
         "unit_price_man_per_tsubo": 5.48,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21482,7 +21482,7 @@
         "unit_price_man_per_tsubo": 7.55,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21540,7 +21540,7 @@
     {
       "first_seen_date": "2026-06-10",
       "id": "https://www.homes.co.jp/tochi/b-32221170000876/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-10",
       "latest": {
         "address": "都城市都原町",
@@ -21649,7 +21649,7 @@
         "unit_price_man_per_tsubo": 5.62,
         "zoning": null
       },
-      "observed_count": 87,
+      "observed_count": 88,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -21846,7 +21846,7 @@
         "unit_price_man_per_tsubo": 5.75,
         "zoning": null
       },
-      "observed_count": 92,
+      "observed_count": 93,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21911,7 +21911,7 @@
         "unit_price_man_per_tsubo": 6.06,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22010,7 +22010,7 @@
         "unit_price_man_per_tsubo": 6.5,
         "zoning": null
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -22096,7 +22096,7 @@
         "unit_price_man_per_tsubo": 7.01,
         "zoning": "ヒント"
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -22511,7 +22511,7 @@
         "unit_price_man_per_tsubo": 1.06,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22553,7 +22553,7 @@
         "unit_price_man_per_tsubo": 4.57,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22598,7 +22598,7 @@
         "unit_price_man_per_tsubo": 4.59,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22643,7 +22643,7 @@
         "unit_price_man_per_tsubo": 4.75,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -22831,7 +22831,7 @@
         "unit_price_man_per_tsubo": 5.1,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 113,
+      "observed_count": 114,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -22884,7 +22884,7 @@
         "unit_price_man_per_tsubo": 5.46,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22996,7 +22996,7 @@
         "unit_price_man_per_tsubo": 6.08,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23055,7 +23055,7 @@
         "unit_price_man_per_tsubo": 0.6,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23156,7 +23156,7 @@
         "unit_price_man_per_tsubo": 0.96,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23204,7 +23204,7 @@
         "unit_price_man_per_tsubo": 2.67,
         "zoning": "ヒント"
       },
-      "observed_count": 112,
+      "observed_count": 113,
       "price_history": [
         {
           "date": "2026-06-30",
@@ -23302,7 +23302,7 @@
         "unit_price_man_per_tsubo": 1.27,
         "zoning": null
       },
-      "observed_count": 50,
+      "observed_count": 51,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23458,7 +23458,7 @@
         "unit_price_man_per_tsubo": 1.77,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 151,
+      "observed_count": 152,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23500,7 +23500,7 @@
         "unit_price_man_per_tsubo": 2.19,
         "zoning": "無指定"
       },
-      "observed_count": 20,
+      "observed_count": 21,
       "price_history": [
         {
           "date": "2026-08-04",
@@ -23588,7 +23588,7 @@
         "unit_price_man_per_tsubo": 0.47,
         "zoning": "無指定"
       },
-      "observed_count": 170,
+      "observed_count": 171,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23636,7 +23636,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": "無指定"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23688,7 +23688,7 @@
         "unit_price_man_per_tsubo": 0.46,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23786,7 +23786,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": null
       },
-      "observed_count": 30,
+      "observed_count": 31,
       "price_history": [
         {
           "date": "2026-08-02",
@@ -23839,7 +23839,7 @@
         "unit_price_man_per_tsubo": 1.14,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23932,7 +23932,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": null
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -23985,7 +23985,7 @@
         "unit_price_man_per_tsubo": 1.26,
         "zoning": null
       },
-      "observed_count": 21,
+      "observed_count": 22,
       "price_history": [
         {
           "date": "2026-07-14",
@@ -24038,7 +24038,7 @@
         "unit_price_man_per_tsubo": 1.45,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24083,7 +24083,7 @@
         "unit_price_man_per_tsubo": 1.58,
         "zoning": null
       },
-      "observed_count": 21,
+      "observed_count": 22,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -24189,7 +24189,7 @@
         "unit_price_man_per_tsubo": 1.69,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24275,7 +24275,7 @@
         "unit_price_man_per_tsubo": 1.85,
         "zoning": null
       },
-      "observed_count": 153,
+      "observed_count": 154,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -24319,7 +24319,7 @@
         "unit_price_man_per_tsubo": 1.92,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24460,7 +24460,7 @@
         "unit_price_man_per_tsubo": 1.94,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24650,7 +24650,7 @@
         "unit_price_man_per_tsubo": 2.05,
         "zoning": null
       },
-      "observed_count": 35,
+      "observed_count": 36,
       "price_history": [
         {
           "date": "2026-06-08",
@@ -24727,7 +24727,7 @@
         "unit_price_man_per_tsubo": 2.32,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24786,7 +24786,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24838,7 +24838,7 @@
         "unit_price_man_per_tsubo": 2.41,
         "zoning": "ヒント"
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -24883,7 +24883,7 @@
         "unit_price_man_per_tsubo": 2.48,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -25084,7 +25084,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": null
       },
-      "observed_count": 106,
+      "observed_count": 107,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -25126,7 +25126,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": null
       },
-      "observed_count": 154,
+      "observed_count": 155,
       "price_history": [
         {
           "date": "2026-06-15",
@@ -25168,13 +25168,84 @@
         "unit_price_man_per_tsubo": 3.88,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
           "land_area_sqm": 100.43,
           "price_man_yen": 118,
           "unit_price_man_per_tsubo": 3.88
+        }
+      ]
+    },
+    {
+      "first_seen_date": "2026-06-08",
+      "id": "https://www.homes.co.jp/tochi/b-93640000014/",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-10",
+      "latest": {
+        "address": "都城市高城町有水",
+        "building_coverage_ratio_percent": 70.0,
+        "floor_area_ratio_percent": 200.0,
+        "id": "https://www.homes.co.jp/tochi/b-93640000014/",
+        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
+        "image_urls": [
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F2%2F2%2Fvi1w.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F7%2F2%2F2%2F15pl.jpg",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=208&height=138",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
+          "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F21%2Fub1b.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F22%2Ffpc8.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F23%2Fijzy.jpg"
+        ],
+        "is_cheap_new": false,
+        "is_new": false,
+        "land_area_sqm": 6076.0,
+        "land_area_tsubo": 1837.99,
+        "latitude": null,
+        "longitude": null,
+        "new_reason": "",
+        "parcel_number": null,
+        "price_man_yen": 50.0,
+        "remarks": null,
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "土地 都城市高城町有水 https://www.homes.co.jp/tochi/b-93640000014/ https://image1.homes.jp 高城町有水 都城市高城町有水 LIFULL HOME'S",
+        "source": "LIFULL HOME'S",
+        "source_url": "https://www.homes.co.jp/tochi/b-93640000014/",
+        "title": "土地 都城市高城町有水 https://www.homes.co.jp/tochi/b-93640000014/ https://image1.homes.jp",
+        "town": "高城町有水",
+        "unit_price_man_per_tsubo": 0.03,
+        "zoning": null
+      },
+      "observed_count": 46,
+      "price_history": [
+        {
+          "date": "2026-06-08",
+          "land_area_sqm": 50,
+          "price_man_yen": 50,
+          "unit_price_man_per_tsubo": 3.31
+        },
+        {
+          "date": "2026-06-08",
+          "land_area_sqm": 6076,
+          "price_man_yen": 50,
+          "unit_price_man_per_tsubo": 0.03
+        },
+        {
+          "date": "2026-08-10",
+          "land_area_sqm": 50.0,
+          "price_man_yen": 50.0,
+          "unit_price_man_per_tsubo": 3.31
+        },
+        {
+          "date": "2026-08-10",
+          "land_area_sqm": 6076.0,
+          "price_man_yen": 50.0,
+          "unit_price_man_per_tsubo": 0.03
         }
       ]
     },
@@ -25217,71 +25288,6 @@
           "land_area_sqm": 1686,
           "price_man_yen": 150,
           "unit_price_man_per_tsubo": 0.29
-        }
-      ]
-    },
-    {
-      "first_seen_date": "2026-06-08",
-      "id": "https://www.homes.co.jp/tochi/b-93640000014/",
-      "is_currently_listed": true,
-      "last_seen_date": "2026-08-10",
-      "latest": {
-        "address": "都城市高城町有水",
-        "building_coverage_ratio_percent": 70.0,
-        "floor_area_ratio_percent": 200.0,
-        "id": "https://www.homes.co.jp/tochi/b-93640000014/",
-        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
-        "image_urls": [
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F2%2F2%2Fvi1w.jpg",
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F7%2F2%2F2%2F15pl.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=208&height=138",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F21%2Fub1b.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F22%2Ffpc8.jpg",
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F23%2Fijzy.jpg"
-        ],
-        "is_cheap_new": false,
-        "is_new": false,
-        "land_area_sqm": 50.0,
-        "land_area_tsubo": 15.13,
-        "latitude": null,
-        "longitude": null,
-        "new_reason": "",
-        "parcel_number": null,
-        "price_man_yen": 50.0,
-        "remarks": null,
-        "restrictions": null,
-        "road_details": "その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病院 800ｍ以内 小学校 800ｍ以内 上下水道 地盤調査済 整形地 前面道路6m以上 平坦地",
-        "search_text": "土地 都城市高城町有水 https://www.homes.co.jp/tochi/b-93640000014/ https://image1.homes.jp 高城町有水 都城市高城町有水 LIFULL HOME'S その他のこだわり条件 古家あり 更地 自由設計対応 見学可能 販売予定 総戸数・総区画数30以上 コンビニ 400ｍ以内 スーパー 800ｍ以内 総合病院 800ｍ以内 小学校 800ｍ以内 上下水道 地盤調査済 整形地 前面道路6m以上 平坦地",
-        "source": "LIFULL HOME'S",
-        "source_url": "https://www.homes.co.jp/tochi/b-93640000014/",
-        "title": "土地 都城市高城町有水 https://www.homes.co.jp/tochi/b-93640000014/ https://image1.homes.jp",
-        "town": "高城町有水",
-        "unit_price_man_per_tsubo": 3.31,
-        "zoning": null
-      },
-      "observed_count": 45,
-      "price_history": [
-        {
-          "date": "2026-06-08",
-          "land_area_sqm": 50,
-          "price_man_yen": 50,
-          "unit_price_man_per_tsubo": 3.31
-        },
-        {
-          "date": "2026-06-08",
-          "land_area_sqm": 6076,
-          "price_man_yen": 50,
-          "unit_price_man_per_tsubo": 0.03
-        },
-        {
-          "date": "2026-08-10",
-          "land_area_sqm": 50.0,
-          "price_man_yen": 50.0,
-          "unit_price_man_per_tsubo": 3.31
         }
       ]
     },
@@ -25379,7 +25385,7 @@
         "unit_price_man_per_tsubo": 1.56,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25432,7 +25438,7 @@
         "unit_price_man_per_tsubo": 1.72,
         "zoning": "無指定"
       },
-      "observed_count": 69,
+      "observed_count": 70,
       "price_history": [
         {
           "date": "2026-06-11",
@@ -25544,7 +25550,7 @@
         "unit_price_man_per_tsubo": 1.89,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25684,7 +25690,7 @@
         "unit_price_man_per_tsubo": 2.02,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -25953,7 +25959,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -26273,7 +26279,7 @@
         "unit_price_man_per_tsubo": 0.5,
         "zoning": null
       },
-      "observed_count": 17,
+      "observed_count": 18,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -26546,7 +26552,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": null
       },
-      "observed_count": 29,
+      "observed_count": 30,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -26878,7 +26884,7 @@
         "unit_price_man_per_tsubo": 2.54,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27026,7 +27032,7 @@
         "unit_price_man_per_tsubo": 0.98,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27116,7 +27122,7 @@
         "unit_price_man_per_tsubo": 2.01,
         "zoning": null
       },
-      "observed_count": 88,
+      "observed_count": 89,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -27269,7 +27275,7 @@
         "unit_price_man_per_tsubo": 2.74,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27311,7 +27317,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": null
       },
-      "observed_count": 157,
+      "observed_count": 158,
       "price_history": [
         {
           "date": "2026-06-14",
@@ -27410,7 +27416,7 @@
         "unit_price_man_per_tsubo": 3.37,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27507,13 +27513,66 @@
         "unit_price_man_per_tsubo": 3.47,
         "zoning": "ヒント"
       },
-      "observed_count": 155,
+      "observed_count": 156,
       "price_history": [
         {
           "date": "2026-06-13",
           "land_area_sqm": 780.67,
           "price_man_yen": 820,
           "unit_price_man_per_tsubo": 3.47
+        }
+      ]
+    },
+    {
+      "first_seen_date": "2026-08-10",
+      "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_78707673/",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-10",
+      "latest": {
+        "address": "宮崎県都城市高城町穂満坊2797番地",
+        "building_coverage_ratio_percent": 60.0,
+        "floor_area_ratio_percent": 200.0,
+        "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_78707673/",
+        "image_url": "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0001.jpg&w=640&h=480",
+        "image_urls": [
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0001.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0002.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0005.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0003.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0006.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0009.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0004.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0007.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0010.jpg&w=640&h=480",
+          "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F673%2F78707673%2F78707673_0008.jpg&w=640&h=480"
+        ],
+        "is_cheap_new": false,
+        "is_new": false,
+        "land_area_sqm": 828.54,
+        "land_area_tsubo": 250.63,
+        "latitude": 31.8037584999789,
+        "longitude": 131.130323467626,
+        "new_reason": "",
+        "parcel_number": null,
+        "price_man_yen": 981.0,
+        "remarks": null,
+        "restrictions": " / ・道路 ヒント 無、南2.8ｍ幅（接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 土地状況 ヒント 更地 造成完了時期 ヒント / ・道路 ヒント 無、南2.8ｍ幅（接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 諸費用 ヒント 取引にかかる費用：所有権移転登記 仲介手数料など / 事項 / 要、景観法による規制有 / 担当者：松永 / 寺園、設備：公営水道、本下水",
+        "road_details": "円／坪 建ぺい率・容積率 60％・200％ 掲載写真 おすすめ写真がそろってます 区画図 土地写真 前面道路 周辺環境 / 接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 土地状況 ヒント 更地 造成完了時期 ヒント - 住所 宮崎県都城市高城町穂満坊2797番地 [ ■ 周辺環境 ]",
+        "search_text": "高城町・約250坪の住宅・集合住宅向け敷地。 高城町穂満坊 宮崎県都城市高城町穂満坊2797番地 SUUMO 第一種住居地域  / ・道路 ヒント 無、南2.8ｍ幅（接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 土地状況 ヒント 更地 造成完了時期 ヒント / ・道路 ヒント 無、南2.8ｍ幅（接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 諸費用 ヒント 取引にかかる費用：所有権移転登記 仲介手数料など / 事項 / 要、景観法による規制有 / 担当者：松永 / 寺園、設備：公営水道、本下水 円／坪 建ぺい率・容積率 60％・200％ 掲載写真 おすすめ写真がそろってます 区画図 土地写真 前面道路 周辺環境 / 接道幅35ｍ）、北4.5ｍ幅（接道幅37ｍ） 土地状況 ヒント 更地 造成完了時期 ヒント - 住所 宮崎県都城市高城町穂満坊2797番地 [ ■ 周辺環境 ]",
+        "source": "SUUMO",
+        "source_url": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_78707673/",
+        "title": "高城町・約250坪の住宅・集合住宅向け敷地。",
+        "town": "高城町穂満坊",
+        "unit_price_man_per_tsubo": 3.91,
+        "zoning": "第一種住居地域"
+      },
+      "observed_count": 1,
+      "price_history": [
+        {
+          "date": "2026-08-10",
+          "land_area_sqm": 828.54,
+          "price_man_yen": 981.0,
+          "unit_price_man_per_tsubo": 3.91
         }
       ]
     },
@@ -27605,7 +27664,7 @@
         "unit_price_man_per_tsubo": 3.96,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27650,7 +27709,7 @@
         "unit_price_man_per_tsubo": 4.9,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27737,7 +27796,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": "ヒント"
       },
-      "observed_count": 10,
+      "observed_count": 11,
       "price_history": [
         {
           "date": "2026-08-07",
@@ -28059,7 +28118,7 @@
         "unit_price_man_per_tsubo": 0.51,
         "zoning": null
       },
-      "observed_count": 107,
+      "observed_count": 108,
       "price_history": [
         {
           "date": "2026-06-27",
@@ -28184,7 +28243,7 @@
         "unit_price_man_per_tsubo": 0.21,
         "zoning": null
       },
-      "observed_count": 88,
+      "observed_count": 89,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -28322,7 +28381,7 @@
         "unit_price_man_per_tsubo": 0.89,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28469,7 +28528,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 177,
+      "observed_count": 178,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28522,7 +28581,7 @@
         "unit_price_man_per_tsubo": 2.11,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28606,7 +28665,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": "準工業地域"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28656,7 +28715,7 @@
         "unit_price_man_per_tsubo": 2.73,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28768,7 +28827,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": null
       },
-      "observed_count": 68,
+      "observed_count": 69,
       "price_history": [
         {
           "date": "2026-06-11",
@@ -28884,7 +28943,7 @@
         "unit_price_man_per_tsubo": 3.41,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28937,7 +28996,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28982,7 +29041,7 @@
         "unit_price_man_per_tsubo": 3.57,
         "zoning": null
       },
-      "observed_count": 119,
+      "observed_count": 120,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -29085,7 +29144,7 @@
         "unit_price_man_per_tsubo": 3.76,
         "zoning": "近隣商業地域"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29138,7 +29197,7 @@
         "unit_price_man_per_tsubo": 4.5,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29234,7 +29293,7 @@
         "unit_price_man_per_tsubo": 41.32,
         "zoning": null
       },
-      "observed_count": 117,
+      "observed_count": 118,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -29292,7 +29351,7 @@
         "unit_price_man_per_tsubo": 2.37,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29440,7 +29499,7 @@
         "unit_price_man_per_tsubo": 0.69,
         "zoning": null
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -29535,7 +29594,7 @@
         "unit_price_man_per_tsubo": 0.82,
         "zoning": null
       },
-      "observed_count": 93,
+      "observed_count": 94,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -29633,7 +29692,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 91,
+      "observed_count": 92,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -29906,7 +29965,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29959,7 +30018,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30166,7 +30225,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30263,7 +30322,7 @@
         "unit_price_man_per_tsubo": 3.67,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30362,7 +30421,7 @@
         "unit_price_man_per_tsubo": 4.2,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30461,7 +30520,7 @@
         "unit_price_man_per_tsubo": 0.63,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30514,7 +30573,7 @@
         "unit_price_man_per_tsubo": 2.37,
         "zoning": "ヒント"
       },
-      "observed_count": 182,
+      "observed_count": 183,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30615,7 +30674,7 @@
         "unit_price_man_per_tsubo": 3.6,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30660,7 +30719,7 @@
         "unit_price_man_per_tsubo": 4.25,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30749,7 +30808,7 @@
         "unit_price_man_per_tsubo": 4.29,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30836,7 +30895,7 @@
         "unit_price_man_per_tsubo": 4.56,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30925,7 +30984,7 @@
         "unit_price_man_per_tsubo": 5.04,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30978,7 +31037,7 @@
         "unit_price_man_per_tsubo": 5.34,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31025,7 +31084,7 @@
         "unit_price_man_per_tsubo": 5.37,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31119,7 +31178,7 @@
         "unit_price_man_per_tsubo": 6.48,
         "zoning": "第二種中高層住居専用地域"
       },
-      "observed_count": 15,
+      "observed_count": 16,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -31161,7 +31220,7 @@
         "unit_price_man_per_tsubo": 6.75,
         "zoning": null
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31248,7 +31307,7 @@
         "unit_price_man_per_tsubo": 7.06,
         "zoning": null
       },
-      "observed_count": 57,
+      "observed_count": 58,
       "price_history": [
         {
           "date": "2026-07-13",
@@ -31301,7 +31360,7 @@
         "unit_price_man_per_tsubo": 7.92,
         "zoning": "ヒント"
       },
-      "observed_count": 34,
+      "observed_count": 35,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -31354,7 +31413,7 @@
         "unit_price_man_per_tsubo": 7.99,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31407,7 +31466,7 @@
         "unit_price_man_per_tsubo": 10.31,
         "zoning": "ヒント"
       },
-      "observed_count": 181,
+      "observed_count": 182,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31608,12 +31667,12 @@
   ],
   "schema_version": 1,
   "summary": {
-    "current_average_unit_price_man_per_tsubo": 4.52,
-    "current_listing_count": 346,
+    "current_average_unit_price_man_per_tsubo": 4.49,
+    "current_listing_count": 345,
     "first_observed_date": "2026-06-07",
-    "historical_average_unit_price_man_per_tsubo": 5.01,
+    "historical_average_unit_price_man_per_tsubo": 5.0,
     "last_observed_date": "2026-08-10",
-    "unique_listing_count": 641
+    "unique_listing_count": 642
   },
   "towns": [
     {
@@ -31653,15 +31712,6 @@
       "town": "大王町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 3.31,
-      "current_listing_count": 1,
-      "historical_average_unit_price_man_per_tsubo": 14.97,
-      "historical_unique_listing_count": 3,
-      "maximum_unit_price_man_per_tsubo": 41.32,
-      "minimum_unit_price_man_per_tsubo": 0.29,
-      "town": "高城町有水"
-    },
-    {
       "current_average_unit_price_man_per_tsubo": 11.7,
       "current_listing_count": 4,
       "historical_average_unit_price_man_per_tsubo": 14.77,
@@ -31669,6 +31719,15 @@
       "maximum_unit_price_man_per_tsubo": 41.32,
       "minimum_unit_price_man_per_tsubo": 8.0,
       "town": "姫城町"
+    },
+    {
+      "current_average_unit_price_man_per_tsubo": 0.03,
+      "current_listing_count": 1,
+      "historical_average_unit_price_man_per_tsubo": 13.88,
+      "historical_unique_listing_count": 3,
+      "maximum_unit_price_man_per_tsubo": 41.32,
+      "minimum_unit_price_man_per_tsubo": 0.03,
+      "town": "高城町有水"
     },
     {
       "current_average_unit_price_man_per_tsubo": 6.4,
@@ -31725,8 +31784,8 @@
       "town": "宮丸町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 9.79,
-      "current_listing_count": 4,
+      "current_average_unit_price_man_per_tsubo": 10.29,
+      "current_listing_count": 3,
       "historical_average_unit_price_man_per_tsubo": 10.26,
       "historical_unique_listing_count": 6,
       "maximum_unit_price_man_per_tsubo": 12.01,
@@ -31851,8 +31910,8 @@
       "town": "上長飯町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 6.05,
-      "current_listing_count": 6,
+      "current_average_unit_price_man_per_tsubo": 6.19,
+      "current_listing_count": 5,
       "historical_average_unit_price_man_per_tsubo": 6.65,
       "historical_unique_listing_count": 17,
       "maximum_unit_price_man_per_tsubo": 10.67,
@@ -31986,6 +32045,15 @@
       "town": "五十町"
     },
     {
+      "current_average_unit_price_man_per_tsubo": 3.19,
+      "current_listing_count": 9,
+      "historical_average_unit_price_man_per_tsubo": 3.05,
+      "historical_unique_listing_count": 15,
+      "maximum_unit_price_man_per_tsubo": 4.9,
+      "minimum_unit_price_man_per_tsubo": 0.98,
+      "town": "高城町穂満坊"
+    },
+    {
       "current_average_unit_price_man_per_tsubo": 2.97,
       "current_listing_count": 9,
       "historical_average_unit_price_man_per_tsubo": 3.01,
@@ -31993,15 +32061,6 @@
       "maximum_unit_price_man_per_tsubo": 10.23,
       "minimum_unit_price_man_per_tsubo": 1.33,
       "town": "下長飯町"
-    },
-    {
-      "current_average_unit_price_man_per_tsubo": 3.1,
-      "current_listing_count": 8,
-      "historical_average_unit_price_man_per_tsubo": 2.98,
-      "historical_unique_listing_count": 14,
-      "maximum_unit_price_man_per_tsubo": 4.9,
-      "minimum_unit_price_man_per_tsubo": 0.98,
-      "town": "高城町穂満坊"
     },
     {
       "current_average_unit_price_man_per_tsubo": 2.94,
@@ -32058,8 +32117,8 @@
       "town": "乙房町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 1.82,
-      "current_listing_count": 15,
+      "current_average_unit_price_man_per_tsubo": 1.72,
+      "current_listing_count": 14,
       "historical_average_unit_price_man_per_tsubo": 2.38,
       "historical_unique_listing_count": 25,
       "maximum_unit_price_man_per_tsubo": 13.22,
@@ -32094,8 +32153,8 @@
       "town": "下水流町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 2.22,
-      "current_listing_count": 8,
+      "current_average_unit_price_man_per_tsubo": 2.17,
+      "current_listing_count": 9,
       "historical_average_unit_price_man_per_tsubo": 2.28,
       "historical_unique_listing_count": 11,
       "maximum_unit_price_man_per_tsubo": 3.37,
@@ -32238,5 +32297,5 @@
       "town": "夏尾町"
     }
   ],
-  "updated_at": "2026-08-10T00:33:40.022155+09:00"
+  "updated_at": "2026-08-10T06:46:42.899337+09:00"
 }

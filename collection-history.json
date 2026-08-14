@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-14T07:15:01.374008+09:00",
+  "updated_at": "2026-08-14T09:07:08.161906+09:00",
   "entries": [
     {
       "date": "2026-08-14",
@@ -99,21 +99,21 @@
       "fixed_asset_route_values": {
         "count": 508,
         "town_count": 55,
-        "updated_at": "2026-08-13T12:14:37.104Z",
+        "updated_at": "2026-08-14T00:07:07.176Z",
         "municipalities": {
           "三股町": 13,
           "都城市": 495
         },
         "collection_progress": {
           "all": {
-            "total": 9778,
-            "checked": 9778,
+            "total": 9745,
+            "checked": 9745,
             "remaining": 0,
             "checked_rate": 100
           },
           "listing": {
-            "total": 4950,
-            "checked": 4950,
+            "total": 4917,
+            "checked": 4917,
             "remaining": 0,
             "checked_rate": 100
           },
@@ -145,8 +145,8 @@
           },
           "by_municipality": {
             "都城市": {
-              "total": 9379,
-              "checked": 9379,
+              "total": 9346,
+              "checked": 9346,
               "remaining": 0,
               "checked_rate": 100
             },

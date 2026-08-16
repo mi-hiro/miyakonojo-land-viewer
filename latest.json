@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-08-17T00:17:01.949352+09:00",
+  "generated_at": "2026-08-17T06:25:27.239764+09:00",
   "listings": [
     {
       "address": "宮崎県都城市一万城町",
@@ -460,10 +460,10 @@
       "zoning": "無指定"
     },
     {
-      "address": "都城市 下長飯町",
+      "address": "都城市 下長飯町（西都城駅）",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
-      "id": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "id": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
       "image_url": null,
       "image_urls": [],
       "is_cheap_new": false,
@@ -476,12 +476,12 @@
       "parcel_number": null,
       "price_man_yen": 500.0,
       "remarks": null,
-      "restrictions": "面積 －",
+      "restrictions": "面積 なし",
       "road_details": null,
-      "search_text": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地  下長飯町 都城市 下長飯町 アットホーム 面積 －",
+      "search_text": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住 下長飯町 都城市 下長飯町（西都城駅） アットホーム 面積 なし",
       "source": "アットホーム",
-      "source_url": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "title": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地 ",
+      "source_url": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "title": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住",
       "town": "下長飯町",
       "unit_price_man_per_tsubo": 1.39,
       "zoning": null
@@ -1335,13 +1335,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F245%2F78348245%2F78348245_0004.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F245%2F78348245%2F78348245_0005.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 2291.0,
       "land_area_tsubo": 693.03,
       "latitude": 31.6898648366852,
       "longitude": 131.036119395235,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 850.0,
       "remarks": null,
@@ -2818,6 +2818,39 @@
       "zoning": "ヒント"
     },
     {
+      "address": "宮崎県都城市太郎坊町",
+      "building_coverage_ratio_percent": 70.0,
+      "floor_area_ratio_percent": 200.0,
+      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_08bf6e44111636b39f2098f8afc33736/",
+      "image_url": "https://img4.athome.jp/image_files/index/bukken/6987861950/2.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
+      "image_urls": [
+        "https://img4.athome.jp/image_files/index/bukken/6987861950/2.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
+        "https://img4.athome.jp/image_files/index/bukken/6987861950/1.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
+        "https://img4.athome.jp/image_files/index/bukken/6984681340/1.jpeg?height=280&width=280&stno10105&attimestamp=20250708093627",
+        "https://img4.athome.jp/image_files/index/bukken/6977372482/3.jpeg?height=280&width=280&stno10105&attimestamp=20260217175633",
+        "https://img4.athome.jp/image_files/index/bukken/1101345214/3.jpeg?height=280&width=280&stno10105&attimestamp=20260526124324"
+      ],
+      "is_cheap_new": false,
+      "is_new": false,
+      "land_area_sqm": 479.99,
+      "land_area_tsubo": 145.2,
+      "latitude": null,
+      "longitude": null,
+      "new_reason": "",
+      "parcel_number": null,
+      "price_man_yen": 726.0,
+      "remarks": null,
+      "restrictions": null,
+      "road_details": null,
+      "search_text": "土地・売地 宮崎県都城市太郎坊町 太郎坊町 宮崎県都城市太郎坊町 ニフティ不動産",
+      "source": "ニフティ不動産",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_08bf6e44111636b39f2098f8afc33736/",
+      "title": "土地・売地 宮崎県都城市太郎坊町",
+      "town": "太郎坊町",
+      "unit_price_man_per_tsubo": 5.0,
+      "zoning": null
+    },
+    {
       "address": "都城市 太郎坊町",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
@@ -3360,9 +3393,9 @@
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
       "id": "https://www.homes.co.jp/tochi/b-93640000234/",
-      "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
+      "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F179%2F2%2F2%2F069m.jpg",
       "image_urls": [
-        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
+        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F179%2F2%2F2%2F069m.jpg",
         "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F63%2F2%2F2%2Fjuju.jpg",
         "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F234%2F2%2F2%2Fhxbq.jpg",
         "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F234%2F2%2F6%2F81e9.jpg",
@@ -6084,13 +6117,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F058%2F74055058%2F74055058_0002.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F058%2F74055058%2F74055058_0003.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 649.0,
       "land_area_tsubo": 196.32,
       "latitude": 31.7195848170951,
       "longitude": 131.070737195688,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 850.0,
       "remarks": null,
@@ -10971,13 +11004,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0002.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F246%2F20259246%2F20259246_0003.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 311.32,
       "land_area_tsubo": 94.17,
       "latitude": 31.7265666309184,
       "longitude": 131.051330375036,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 400.0,
       "remarks": null,
@@ -11370,11 +11403,11 @@
       "url": "https://house.goo.ne.jp/buy/kyushu_la/area_miyazaki/45202.html"
     },
     {
-      "collected_count": 67,
+      "collected_count": 69,
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 14,
+      "excluded_count": 12,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11396,10 +11429,10 @@
     }
   ],
   "summary": {
-    "duplicate_count": 185,
-    "excluded_count": 49,
-    "listing_count": 338,
-    "overall_average_unit_price_man_per_tsubo": 4.37
+    "duplicate_count": 186,
+    "excluded_count": 47,
+    "listing_count": 339,
+    "overall_average_unit_price_man_per_tsubo": 4.38
   },
   "towns": [
     {
@@ -11550,18 +11583,18 @@
       "town": "甲斐元町"
     },
     {
-      "average_unit_price_man_per_tsubo": 6.26,
-      "listing_count": 5,
-      "maximum_unit_price_man_per_tsubo": 8.81,
-      "minimum_unit_price_man_per_tsubo": 4.5,
-      "town": "太郎坊町"
-    },
-    {
       "average_unit_price_man_per_tsubo": 6.14,
       "listing_count": 6,
       "maximum_unit_price_man_per_tsubo": 7.5,
       "minimum_unit_price_man_per_tsubo": 4.0,
       "town": "上長飯町"
+    },
+    {
+      "average_unit_price_man_per_tsubo": 6.05,
+      "listing_count": 6,
+      "maximum_unit_price_man_per_tsubo": 8.81,
+      "minimum_unit_price_man_per_tsubo": 4.5,
+      "town": "太郎坊町"
     },
     {
       "average_unit_price_man_per_tsubo": 5.65,

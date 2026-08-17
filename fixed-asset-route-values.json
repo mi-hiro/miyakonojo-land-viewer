@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-17T11:55:00.445Z",
+  "updated_at": "2026-08-17T23:45:58.752Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -68,22 +68,11 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-08-17T11:55:00.340Z",
-      "mode": "browser",
-      "requests": 58,
-      "selected_points": 58,
-      "selected_area_mesh_points": 0,
-      "selected_listing_points": 33,
-      "selected_town_coverage_points": 25,
-      "selected_points_by_area": {
-        "都城市": 58
-      },
-      "selected_points_by_municipality": {
-        "都城市": 58
-      },
-      "all_points": 9754,
-      "new_rows": 3,
-      "failures": 0
+      "mode": "none",
+      "requests": 0,
+      "newRows": 0,
+      "failures": 0,
+      "note": "No pending listing points."
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 315000

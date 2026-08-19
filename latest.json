@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-08-20T00:26:40.430695+09:00",
+  "generated_at": "2026-08-20T06:30:26.384108+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -508,10 +508,10 @@
       "zoning": "無指定"
     },
     {
-      "address": "都城市 下長飯町",
+      "address": "都城市 下長飯町（西都城駅）",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
-      "id": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "id": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
       "image_url": null,
       "image_urls": [],
       "is_cheap_new": false,
@@ -524,12 +524,12 @@
       "parcel_number": null,
       "price_man_yen": 500.0,
       "remarks": null,
-      "restrictions": "面積 －",
+      "restrictions": "面積 なし",
       "road_details": null,
-      "search_text": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地  下長飯町 都城市 下長飯町 アットホーム 面積 －",
+      "search_text": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住 下長飯町 都城市 下長飯町（西都城駅） アットホーム 面積 なし",
       "source": "アットホーム",
-      "source_url": "https://www.athome.co.jp/tochi/6984834994/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "title": "土地 都城市 下長飯町 その他用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 その他用地 ",
+      "source_url": "https://www.athome.co.jp/tochi/1106922914/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
+      "title": "土地 都城市 下長飯町（西都城駅） 住宅用地 500 万円 坪単価 1.39万円 権利 所有権 土地面積 1,192.57m² (360.75坪) 最適用途 住",
       "town": "下長飯町",
       "unit_price_man_per_tsubo": 1.39,
       "zoning": null
@@ -1368,13 +1368,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F245%2F78348245%2F78348245_0004.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F245%2F78348245%2F78348245_0005.jpg&w=640&h=480"
       ],
-      "is_cheap_new": true,
-      "is_new": true,
+      "is_cheap_new": false,
+      "is_new": false,
       "land_area_sqm": 2291.0,
       "land_area_tsubo": 693.03,
       "latitude": 31.6898648366852,
       "longitude": 131.036119395235,
-      "new_reason": "掲載ブロック内に新着表示あり",
+      "new_reason": "",
       "parcel_number": null,
       "price_man_yen": 850.0,
       "remarks": null,
@@ -3425,10 +3425,10 @@
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
       "id": "https://www.homes.co.jp/tochi/b-93640000234/",
-      "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Fd4kq2rwf8vcvbl1.jpg",
+      "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
       "image_urls": [
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Fd4kq2rwf8vcvbl1.jpg",
-        "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F52%2F2%2F1%2Fr6ck.jpg",
+        "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
+        "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
         "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F234%2F2%2F2%2Fhxbq.jpg",
         "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F234%2F2%2F6%2F81e9.jpg",
         "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F234%2F2%2F7%2F08xm.jpg",
@@ -6152,13 +6152,13 @@
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F058%2F74055058%2F74055058_0002.jpg&w=640&h=480",
         "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F058%2F74055058%2F74055058_0003.jpg&w=640&h=480"
       ],
-      "is_cheap_new": false,
-      "is_new": false,
+      "is_cheap_new": true,
+      "is_new": true,
       "land_area_sqm": 649.0,
       "land_area_tsubo": 196.32,
       "latitude": 31.7195848170951,
       "longitude": 131.070737195688,
-      "new_reason": "",
+      "new_reason": "掲載ブロック内に新着表示あり",
       "parcel_number": null,
       "price_man_yen": 850.0,
       "remarks": null,
@@ -11437,7 +11437,7 @@
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 15,
+      "excluded_count": 14,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11460,7 +11460,7 @@
   ],
   "summary": {
     "duplicate_count": 187,
-    "excluded_count": 48,
+    "excluded_count": 47,
     "listing_count": 339,
     "overall_average_unit_price_man_per_tsubo": 4.29
   },

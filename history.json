@@ -140,7 +140,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 174,
+      "observed_count": 175,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -153,8 +153,8 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.athome.co.jp/tochi/6990278987/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 一万城町（三股駅）",
         "building_coverage_ratio_percent": 60.0,
@@ -193,7 +193,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 194,
+      "observed_count": 195,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -206,7 +206,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000232/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市一万城町",
@@ -684,7 +684,7 @@
         "unit_price_man_per_tsubo": 21.12,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -737,7 +737,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -880,7 +880,7 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000195/9364/x493640000195.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市上長飯町",
@@ -925,18 +925,19 @@
     {
       "first_seen_date": "2026-07-05",
       "id": "https://www.homes.co.jp/tochi/b-93640000195/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市上長飯町",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000195/",
-        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F169%2F2%2F2%2Fgfyk.jpg&width=208&height=138",
+        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F104%2F2%2F2%2Frwwc.jpg",
         "image_urls": [
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F104%2F2%2F2%2Frwwc.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F169%2F2%2F2%2Fgfyk.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F169%2F2%2F2%2Fgfyk.jpg",
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F47%2F2%2F2%2F6g55.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F59%2F2%2F2%2F0dtw.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F75%2F2%2F1%2Ffqbb.jpg&width=208&height=138",
@@ -962,7 +963,7 @@
         "unit_price_man_per_tsubo": 6.5,
         "zoning": null
       },
-      "observed_count": 81,
+      "observed_count": 82,
       "price_history": [
         {
           "date": "2026-07-05",
@@ -1007,7 +1008,7 @@
         "unit_price_man_per_tsubo": 7.0,
         "zoning": null
       },
-      "observed_count": 101,
+      "observed_count": 102,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -1141,7 +1142,7 @@
         "unit_price_man_per_tsubo": 7.23,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1335,7 +1336,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": null
       },
-      "observed_count": 122,
+      "observed_count": 123,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -1537,7 +1538,7 @@
         "unit_price_man_per_tsubo": 10.23,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1634,7 +1635,7 @@
         "unit_price_man_per_tsubo": 14.96,
         "zoning": "ヒント"
       },
-      "observed_count": 194,
+      "observed_count": 195,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -1681,7 +1682,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "無指定"
       },
-      "observed_count": 51,
+      "observed_count": 52,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -1779,7 +1780,7 @@
         "unit_price_man_per_tsubo": 2.04,
         "zoning": null
       },
-      "observed_count": 187,
+      "observed_count": 188,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -1901,7 +1902,7 @@
         "unit_price_man_per_tsubo": 3.31,
         "zoning": null
       },
-      "observed_count": 192,
+      "observed_count": 193,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -2002,7 +2003,7 @@
         "unit_price_man_per_tsubo": 1.33,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2086,7 +2087,7 @@
         "unit_price_man_per_tsubo": 1.39,
         "zoning": null
       },
-      "observed_count": 42,
+      "observed_count": 43,
       "price_history": [
         {
           "date": "2026-07-18",
@@ -2099,7 +2100,7 @@
     {
       "first_seen_date": "2026-08-20",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_20130de0035334bdad94472d04b8e0c9/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市下長飯町",
@@ -2225,7 +2226,7 @@
         "unit_price_man_per_tsubo": 1.59,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2320,7 +2321,7 @@
         "unit_price_man_per_tsubo": 1.75,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2362,7 +2363,7 @@
         "unit_price_man_per_tsubo": 1.83,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2408,7 +2409,7 @@
         "unit_price_man_per_tsubo": 1.96,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2461,7 +2462,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2560,7 +2561,7 @@
         "unit_price_man_per_tsubo": 3.64,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2800,7 +2801,7 @@
         "unit_price_man_per_tsubo": 2.08,
         "zoning": null
       },
-      "observed_count": 161,
+      "observed_count": 162,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2897,7 +2898,7 @@
         "unit_price_man_per_tsubo": 2.49,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -2939,7 +2940,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": null
       },
-      "observed_count": 69,
+      "observed_count": 70,
       "price_history": [
         {
           "date": "2026-08-03",
@@ -3036,7 +3037,7 @@
         "unit_price_man_per_tsubo": 6.54,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3089,7 +3090,7 @@
         "unit_price_man_per_tsubo": 6.69,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3135,7 +3136,7 @@
         "unit_price_man_per_tsubo": 6.82,
         "zoning": null
       },
-      "observed_count": 151,
+      "observed_count": 152,
       "price_history": [
         {
           "date": "2026-06-18",
@@ -3228,7 +3229,7 @@
         "unit_price_man_per_tsubo": 7.17,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3317,7 +3318,7 @@
         "unit_price_man_per_tsubo": 1.88,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3384,8 +3385,8 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000052/9364/x493640000052.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市乙房町",
         "building_coverage_ratio_percent": null,
@@ -3416,7 +3417,7 @@
         "unit_price_man_per_tsubo": 2.49,
         "zoning": null
       },
-      "observed_count": 147,
+      "observed_count": 148,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -3429,7 +3430,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000052/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市乙房町",
@@ -3563,7 +3564,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 196,
+      "observed_count": 197,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3616,7 +3617,7 @@
         "unit_price_man_per_tsubo": 3.55,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3669,7 +3670,7 @@
         "unit_price_man_per_tsubo": 3.99,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -3713,7 +3714,7 @@
         "unit_price_man_per_tsubo": 4.35,
         "zoning": null
       },
-      "observed_count": 100,
+      "observed_count": 101,
       "price_history": [
         {
           "date": "2026-07-14",
@@ -3726,8 +3727,8 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000018/9364/x493640000018.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市五十町",
         "building_coverage_ratio_percent": null,
@@ -3758,7 +3759,7 @@
         "unit_price_man_per_tsubo": 0.81,
         "zoning": null
       },
-      "observed_count": 148,
+      "observed_count": 149,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -3795,7 +3796,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000018/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市五十町",
@@ -3874,7 +3875,7 @@
         "unit_price_man_per_tsubo": 1.09,
         "zoning": "（株）物件ハート"
       },
-      "observed_count": 78,
+      "observed_count": 79,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -3980,7 +3981,7 @@
         "unit_price_man_per_tsubo": 6.1,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4074,7 +4075,7 @@
         "unit_price_man_per_tsubo": 0.23,
         "zoning": "無指定"
       },
-      "observed_count": 128,
+      "observed_count": 129,
       "price_history": [
         {
           "date": "2026-07-07",
@@ -4121,7 +4122,7 @@
         "unit_price_man_per_tsubo": 1.23,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4219,7 +4220,7 @@
         "unit_price_man_per_tsubo": 2.02,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4318,7 +4319,7 @@
         "unit_price_man_per_tsubo": 2.09,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4378,8 +4379,8 @@
     {
       "first_seen_date": "2026-08-08",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000227/9364/x493640000227.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市今町",
         "building_coverage_ratio_percent": null,
@@ -4410,7 +4411,7 @@
         "unit_price_man_per_tsubo": 2.4,
         "zoning": null
       },
-      "observed_count": 45,
+      "observed_count": 46,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -4423,7 +4424,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000227/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市今町",
@@ -4506,7 +4507,7 @@
         "unit_price_man_per_tsubo": 2.43,
         "zoning": null
       },
-      "observed_count": 152,
+      "observed_count": 153,
       "price_history": [
         {
           "date": "2026-06-18",
@@ -4559,7 +4560,7 @@
         "unit_price_man_per_tsubo": 2.48,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4612,7 +4613,7 @@
         "unit_price_man_per_tsubo": 2.61,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4654,7 +4655,7 @@
         "unit_price_man_per_tsubo": 2.7,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4762,7 +4763,7 @@
         "unit_price_man_per_tsubo": 3.02,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4808,7 +4809,7 @@
         "unit_price_man_per_tsubo": 3.38,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -4863,7 +4864,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_5c870e11f9be3e9795a8368553de3bf5/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市今町8377-1",
@@ -4952,25 +4953,25 @@
     {
       "first_seen_date": "2026-08-01",
       "id": "https://www.homes.co.jp/tochi/b-93640000088/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-14",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市今町",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000088/",
-        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F42%2F2%2F2%2Frybb.jpg&width=208&height=138",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F2%2F2%2Fil51.jpg",
         "image_urls": [
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F2%2F2%2Fil51.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F42%2F2%2F2%2Frybb.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F42%2F2%2F2%2Frybb.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F83%2F2%2F2%2Ftiu5.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F1%2F1%2Fxxgq.jpg&width=600&height=600",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F5%2Fxnyf.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F6%2Fjxe4.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F7%2Fu98v.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F4%2F21%2Fv3vt.jpg",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png"
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F4%2F21%2Fv3vt.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -4992,7 +4993,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": null
       },
-      "observed_count": 33,
+      "observed_count": 34,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -5106,7 +5107,7 @@
     {
       "first_seen_date": "2026-08-01",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000088/9364/x493640000088.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市今町",
@@ -5197,7 +5198,7 @@
         "unit_price_man_per_tsubo": 9.91,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5249,7 +5250,7 @@
         "unit_price_man_per_tsubo": 16.59,
         "zoning": null
       },
-      "observed_count": 80,
+      "observed_count": 81,
       "price_history": [
         {
           "date": "2026-07-19",
@@ -5296,7 +5297,7 @@
         "unit_price_man_per_tsubo": 0.5,
         "zoning": "無指定"
       },
-      "observed_count": 8,
+      "observed_count": 9,
       "price_history": [
         {
           "date": "2026-08-19",
@@ -5348,7 +5349,7 @@
         "unit_price_man_per_tsubo": 3.29,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5448,7 +5449,7 @@
         "unit_price_man_per_tsubo": 4.99,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5559,7 +5560,7 @@
         "unit_price_man_per_tsubo": 5.8,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5647,7 +5648,7 @@
         "unit_price_man_per_tsubo": 6.83,
         "zoning": "ヒント"
       },
-      "observed_count": 219,
+      "observed_count": 220,
       "price_history": [
         {
           "date": "2026-06-09",
@@ -5700,7 +5701,7 @@
         "unit_price_man_per_tsubo": 7.37,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5753,7 +5754,7 @@
         "unit_price_man_per_tsubo": 7.51,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5799,7 +5800,7 @@
         "unit_price_man_per_tsubo": 7.85,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5845,7 +5846,7 @@
         "unit_price_man_per_tsubo": 8.01,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -5940,7 +5941,7 @@
         "unit_price_man_per_tsubo": 8.61,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6154,7 +6155,7 @@
         "unit_price_man_per_tsubo": 5.79,
         "zoning": "ヒント"
       },
-      "observed_count": 64,
+      "observed_count": 65,
       "price_history": [
         {
           "date": "2026-08-05",
@@ -6200,7 +6201,7 @@
         "unit_price_man_per_tsubo": 6.97,
         "zoning": "ヒント"
       },
-      "observed_count": 85,
+      "observed_count": 86,
       "price_history": [
         {
           "date": "2026-07-18",
@@ -6288,7 +6289,7 @@
         "unit_price_man_per_tsubo": 7.61,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6335,7 +6336,7 @@
         "unit_price_man_per_tsubo": 7.98,
         "zoning": "ヒント"
       },
-      "observed_count": 85,
+      "observed_count": 86,
       "price_history": [
         {
           "date": "2026-07-18",
@@ -6431,7 +6432,7 @@
         "unit_price_man_per_tsubo": 10.19,
         "zoning": null
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -6515,7 +6516,7 @@
         "unit_price_man_per_tsubo": 0.34,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6615,7 +6616,7 @@
         "unit_price_man_per_tsubo": 0.49,
         "zoning": "無指定"
       },
-      "observed_count": 78,
+      "observed_count": 79,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -6668,7 +6669,7 @@
         "unit_price_man_per_tsubo": 0.3,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6775,7 +6776,7 @@
         "unit_price_man_per_tsubo": 0.61,
         "zoning": null
       },
-      "observed_count": 138,
+      "observed_count": 139,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -6859,51 +6860,6 @@
           "land_area_sqm": 807.71,
           "price_man_yen": 150.0,
           "unit_price_man_per_tsubo": 0.61
-        }
-      ]
-    },
-    {
-      "first_seen_date": "2026-06-16",
-      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
-      "is_currently_listed": true,
-      "last_seen_date": "2026-08-21",
-      "latest": {
-        "address": "宮崎県都城市大岩田町",
-        "building_coverage_ratio_percent": null,
-        "floor_area_ratio_percent": null,
-        "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
-        "image_url": "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F2%25252F2%25252F0km7.jpg",
-        "image_urls": [
-          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F2%25252F2%25252F0km7.jpg",
-          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F1%25252F1%25252F3bpa.jpg"
-        ],
-        "is_cheap_new": false,
-        "is_new": false,
-        "land_area_sqm": 644.0,
-        "land_area_tsubo": 194.81,
-        "latitude": null,
-        "longitude": null,
-        "new_reason": "",
-        "parcel_number": null,
-        "price_man_yen": 195.0,
-        "remarks": "日豊本線西都城駅から徒歩42分。南向き公道に接道し、幅員5.2m、接面38.2mです",
-        "restrictions": null,
-        "road_details": "し、幅員5.2m、接面38.2mです",
-        "search_text": "宮崎県都城市大岩田町 土地 大岩田町 宮崎県都城市大岩田町 goo住宅・不動産 日豊本線西都城駅から徒歩42分。南向き公道に接道し、幅員5.2m、接面38.2mです し、幅員5.2m、接面38.2mです",
-        "source": "goo住宅・不動産",
-        "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
-        "title": "宮崎県都城市大岩田町 土地",
-        "town": "大岩田町",
-        "unit_price_man_per_tsubo": 1.0,
-        "zoning": null
-      },
-      "observed_count": 134,
-      "price_history": [
-        {
-          "date": "2026-06-16",
-          "land_area_sqm": 644.0,
-          "price_man_yen": 195.0,
-          "unit_price_man_per_tsubo": 1.0
         }
       ]
     },
@@ -7010,7 +6966,7 @@
         "unit_price_man_per_tsubo": 1.01,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7054,7 +7010,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": null
       },
-      "observed_count": 198,
+      "observed_count": 199,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -7067,7 +7023,7 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000142/9364/x493640000142.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市大岩田町",
@@ -7112,18 +7068,20 @@
     {
       "first_seen_date": "2026-06-08",
       "id": "https://www.homes.co.jp/tochi/b-93640000142/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市大岩田町",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000142/",
-        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F2%2Fbisk.jpg",
+        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg&width=208&height=138",
         "image_urls": [
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F2%2Fbisk.jpg",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg&width=208&height=138",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F2%2Fbisk.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F210%2F2%2F2%2F1t6u.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F185%2F2%2F2%2Fpy5l.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F182%2F2%2F2%2Fa0gq.jpg",
@@ -7149,7 +7107,7 @@
         "unit_price_man_per_tsubo": 2.67,
         "zoning": null
       },
-      "observed_count": 100,
+      "observed_count": 101,
       "price_history": [
         {
           "date": "2026-06-08",
@@ -7241,6 +7199,57 @@
       ]
     },
     {
+      "first_seen_date": "2026-06-16",
+      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
+      "latest": {
+        "address": "宮崎県都城市大岩田町",
+        "building_coverage_ratio_percent": null,
+        "floor_area_ratio_percent": null,
+        "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
+        "image_url": "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F2%25252F2%25252F0km7.jpg",
+        "image_urls": [
+          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage2.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F2%25252F2%25252F0km7.jpg",
+          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F163%25252F1%25252F1%25252F3bpa.jpg"
+        ],
+        "is_cheap_new": false,
+        "is_new": false,
+        "land_area_sqm": 40.0,
+        "land_area_tsubo": 12.1,
+        "latitude": null,
+        "longitude": null,
+        "new_reason": "",
+        "parcel_number": null,
+        "price_man_yen": 500.0,
+        "remarks": "日豊本線西都城駅から徒歩42分。南向き公道に接道し、幅員5.2m、接面38.2mです",
+        "restrictions": null,
+        "road_details": "し、幅員5.2m、接面38.2mです。 チェックした物件を一括で お気に入りに追加 資料請求・お問い合わせをする(無料) チェックした物件をまとめて お気に入りに追加 資料請求・お問い合わせをする(無料) 232 件 表示件数 20件 40件 60件 80件 1 2 3 4 5 … 6 次へ 条件を選択",
+        "search_text": "宮崎県都城市大岩田町 土地 大岩田町 宮崎県都城市大岩田町 goo住宅・不動産 日豊本線西都城駅から徒歩42分。南向き公道に接道し、幅員5.2m、接面38.2mです し、幅員5.2m、接面38.2mです。 チェックした物件を一括で お気に入りに追加 資料請求・お問い合わせをする(無料) チェックした物件をまとめて お気に入りに追加 資料請求・お問い合わせをする(無料) 232 件 表示件数 20件 40件 60件 80件 1 2 3 4 5 … 6 次へ 条件を選択",
+        "source": "goo住宅・不動産",
+        "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000163/9364/x493640000163.html",
+        "title": "宮崎県都城市大岩田町 土地",
+        "town": "大岩田町",
+        "unit_price_man_per_tsubo": 41.32,
+        "zoning": null
+      },
+      "observed_count": 135,
+      "price_history": [
+        {
+          "date": "2026-06-16",
+          "land_area_sqm": 644.0,
+          "price_man_yen": 195.0,
+          "unit_price_man_per_tsubo": 1.0
+        },
+        {
+          "date": "2026-08-21",
+          "land_area_sqm": 40.0,
+          "price_man_yen": 500.0,
+          "unit_price_man_per_tsubo": 41.32
+        }
+      ]
+    },
+    {
       "first_seen_date": "2026-07-10",
       "id": "https://www.athome.co.jp/tochi/6991437933/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
       "is_currently_listed": true,
@@ -7272,7 +7281,7 @@
         "unit_price_man_per_tsubo": 6.71,
         "zoning": null
       },
-      "observed_count": 115,
+      "observed_count": 116,
       "price_history": [
         {
           "date": "2026-07-10",
@@ -7360,7 +7369,7 @@
         "unit_price_man_per_tsubo": 9.96,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7451,7 +7460,7 @@
         "unit_price_man_per_tsubo": 9.97,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7504,7 +7513,7 @@
         "unit_price_man_per_tsubo": 11.74,
         "zoning": null
       },
-      "observed_count": 196,
+      "observed_count": 197,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7546,7 +7555,7 @@
         "unit_price_man_per_tsubo": 12.0,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7599,7 +7608,7 @@
         "unit_price_man_per_tsubo": 14.25,
         "zoning": "非線引き区域"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7612,7 +7621,7 @@
     {
       "first_seen_date": "2026-08-01",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000210/9364/x493640000210.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市大王町",
@@ -7657,17 +7666,18 @@
     {
       "first_seen_date": "2026-08-04",
       "id": "https://www.homes.co.jp/tochi/b-93640000210/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市大王町",
         "building_coverage_ratio_percent": 60.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000210/",
-        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F163%2F2%2F2%2F0km7.jpg",
+        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
         "image_urls": [
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F163%2F2%2F2%2F0km7.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F210%2F2%2F2%2F1t6u.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F163%2F2%2F2%2F0km7.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F99%2F2%2F2%2Fbllg.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F182%2F2%2F2%2Fa0gq.jpg"
         ],
@@ -7691,7 +7701,7 @@
         "unit_price_man_per_tsubo": 37.8,
         "zoning": null
       },
-      "observed_count": 49,
+      "observed_count": 50,
       "price_history": [
         {
           "date": "2026-08-04",
@@ -7844,7 +7854,7 @@
         "unit_price_man_per_tsubo": 4.5,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -7857,8 +7867,8 @@
     {
       "first_seen_date": "2026-08-04",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_08bf6e44111636b39f2098f8afc33736/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市太郎坊町",
         "building_coverage_ratio_percent": 70.0,
@@ -7892,7 +7902,7 @@
         "unit_price_man_per_tsubo": 5.0,
         "zoning": null
       },
-      "observed_count": 13,
+      "observed_count": 14,
       "price_history": [
         {
           "date": "2026-08-04",
@@ -7987,7 +7997,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8029,7 +8039,7 @@
         "unit_price_man_per_tsubo": 5.51,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8082,7 +8092,7 @@
         "unit_price_man_per_tsubo": 7.48,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8135,7 +8145,7 @@
         "unit_price_man_per_tsubo": 8.81,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8240,7 +8250,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": "ヒント"
       },
-      "observed_count": 179,
+      "observed_count": 180,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -8379,7 +8389,7 @@
         "unit_price_man_per_tsubo": 10.36,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8471,7 +8481,7 @@
         "unit_price_man_per_tsubo": 11.56,
         "zoning": "ヒント"
       },
-      "observed_count": 206,
+      "observed_count": 207,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8524,7 +8534,7 @@
         "unit_price_man_per_tsubo": 16.89,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8613,7 +8623,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8666,7 +8676,7 @@
         "unit_price_man_per_tsubo": 1.06,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8719,7 +8729,7 @@
         "unit_price_man_per_tsubo": 1.11,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8770,7 +8780,7 @@
         "unit_price_man_per_tsubo": 1.19,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8858,7 +8868,7 @@
         "unit_price_man_per_tsubo": 1.2,
         "zoning": "無指定"
       },
-      "observed_count": 51,
+      "observed_count": 52,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -8900,7 +8910,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -8953,7 +8963,7 @@
         "unit_price_man_per_tsubo": 1.5,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9006,7 +9016,7 @@
         "unit_price_man_per_tsubo": 1.68,
         "zoning": null
       },
-      "observed_count": 152,
+      "observed_count": 153,
       "price_history": [
         {
           "date": "2026-07-01",
@@ -9019,8 +9029,8 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000234/9364/x493640000234.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-13",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市安久町",
         "building_coverage_ratio_percent": 70.0,
@@ -9051,7 +9061,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 1,
+      "observed_count": 2,
       "price_history": [
         {
           "date": "2026-08-13",
@@ -9194,7 +9204,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9207,7 +9217,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000234/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市安久町",
@@ -9350,7 +9360,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9363,7 +9373,7 @@
     {
       "first_seen_date": "2026-06-17",
       "id": "https://www.athome.co.jp/tochi/1109283603/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 安久町（西都城駅）",
@@ -9405,25 +9415,25 @@
     {
       "first_seen_date": "2026-06-15",
       "id": "https://www.homes.co.jp/tochi/b-93640000141/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市安久町",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000141/",
-        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F209%2F2%2F2%2F4nje.jpg",
+        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
         "image_urls": [
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F209%2F2%2F2%2F4nje.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F195%2F2%2F2%2Fbv48.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F2%2Fbisk.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F209%2F2%2F2%2F4nje.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F103%2F2%2F2%2F0lz0.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F4%2Fzn4i.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F5%2F6m4s.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F6%2Ft16d.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F2%2F9%2F5y0r.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F4%2F21%2Fan21.jpg",
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F4%2F22%2Fbgg5.jpg"
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F141%2F4%2F21%2Fan21.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -9445,7 +9455,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": null
       },
-      "observed_count": 42,
+      "observed_count": 43,
       "price_history": [
         {
           "date": "2026-06-15",
@@ -9532,7 +9542,7 @@
         "unit_price_man_per_tsubo": 2.81,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9689,7 +9699,7 @@
         "unit_price_man_per_tsubo": 2.9,
         "zoning": null
       },
-      "observed_count": 141,
+      "observed_count": 142,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -9765,51 +9775,6 @@
       ]
     },
     {
-      "first_seen_date": "2026-08-04",
-      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-04",
-      "latest": {
-        "address": "宮崎県都城市安久町",
-        "building_coverage_ratio_percent": null,
-        "floor_area_ratio_percent": null,
-        "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
-        "image_url": "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F2%25252F2%25252F0lz0.jpg",
-        "image_urls": [
-          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F2%25252F2%25252F0lz0.jpg",
-          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F1%25252F1%25252Fv5ob.jpg"
-        ],
-        "is_cheap_new": false,
-        "is_new": false,
-        "land_area_sqm": 488.0,
-        "land_area_tsubo": 147.62,
-        "latitude": null,
-        "longitude": null,
-        "new_reason": "",
-        "parcel_number": null,
-        "price_man_yen": 443.0,
-        "remarks": null,
-        "restrictions": null,
-        "road_details": null,
-        "search_text": "宮崎県都城市安久町 土地 安久町 宮崎県都城市安久町 goo住宅・不動産",
-        "source": "goo住宅・不動産",
-        "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
-        "title": "宮崎県都城市安久町 土地",
-        "town": "安久町",
-        "unit_price_man_per_tsubo": 3.0,
-        "zoning": null
-      },
-      "observed_count": 1,
-      "price_history": [
-        {
-          "date": "2026-08-04",
-          "land_area_sqm": 488.0,
-          "price_man_yen": 443.0,
-          "unit_price_man_per_tsubo": 3.0
-        }
-      ]
-    },
-    {
       "first_seen_date": "2026-08-07",
       "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_21448521/",
       "is_currently_listed": true,
@@ -9841,7 +9806,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": "ヒント"
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-08-07",
@@ -9982,7 +9947,7 @@
         "unit_price_man_per_tsubo": 3.33,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10068,7 +10033,7 @@
         "unit_price_man_per_tsubo": 3.82,
         "zoning": null
       },
-      "observed_count": 90,
+      "observed_count": 91,
       "price_history": [
         {
           "date": "2026-07-16",
@@ -10186,40 +10151,40 @@
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000019/",
-        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
+        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F153%2F2%2F2%2Fvqyy.jpg&width=208&height=138",
         "image_urls": [
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F153%2F2%2F2%2Fvqyy.jpg&width=208&height=138",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F153%2F2%2F2%2Fvqyy.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F2%2F2%2Fil51.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F4%2F21%2Fxpss.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F4%2F22%2Fx2fn.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F4%2F23%2F9h0x.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F4%2F24%2F3y9o.jpg",
           "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F9%2F5%2Fwuv7.jpg&width=600&height=600",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F19%2F9%2F7%2Fe0n3.jpg&width=600&height=600"
+          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 294.11,
         "land_area_tsubo": 88.97,
-        "latitude": 31.685546280169,
-        "longitude": 131.07492700183,
+        "latitude": null,
+        "longitude": null,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 350.0,
-        "remarks": " / [物件コード]189501-1692",
-        "restrictions": " / 面積 / 不要",
-        "road_details": " / 一方 ( 南 3.5m 公道 ) セットバック 有",
-        "search_text": "土地 都城市安久町 (都城駅) https://www.homes.co.jp/tochi/b-93640000019/ https://image2.home 安久町 都城市安久町 LIFULL HOME'S 無指定  / 面積 / 不要  / [物件コード]189501-1692  / 一方 ( 南 3.5m 公道 ) セットバック 有",
+        "remarks": null,
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "土地 都城市安久町 (都城駅) https://www.homes.co.jp/tochi/b-93640000019/ https://image2.home 安久町 都城市安久町 LIFULL HOME'S",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-93640000019/",
         "title": "土地 都城市安久町 (都城駅) https://www.homes.co.jp/tochi/b-93640000019/ https://image2.home",
         "town": "安久町",
         "unit_price_man_per_tsubo": 3.93,
-        "zoning": "無指定"
+        "zoning": null
       },
-      "observed_count": 48,
+      "observed_count": 49,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10261,7 +10226,7 @@
         "unit_price_man_per_tsubo": 3.98,
         "zoning": null
       },
-      "observed_count": 27,
+      "observed_count": 28,
       "price_history": [
         {
           "date": "2026-08-14",
@@ -10274,8 +10239,8 @@
     {
       "first_seen_date": "2026-08-08",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000231/9364/x493640000231.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市安久町",
         "building_coverage_ratio_percent": null,
@@ -10306,7 +10271,7 @@
         "unit_price_man_per_tsubo": 4.11,
         "zoning": null
       },
-      "observed_count": 45,
+      "observed_count": 46,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -10319,7 +10284,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000231/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市安久町",
@@ -10450,7 +10415,7 @@
         "unit_price_man_per_tsubo": 4.74,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10547,7 +10512,7 @@
         "unit_price_man_per_tsubo": 6.1,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10592,13 +10557,64 @@
         "unit_price_man_per_tsubo": 8.27,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
           "land_area_sqm": 121.96,
           "price_man_yen": 305,
           "unit_price_man_per_tsubo": 8.27
+        }
+      ]
+    },
+    {
+      "first_seen_date": "2026-08-04",
+      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
+      "latest": {
+        "address": "宮崎県都城市安久町",
+        "building_coverage_ratio_percent": null,
+        "floor_area_ratio_percent": null,
+        "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
+        "image_url": "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F2%25252F2%25252F0lz0.jpg",
+        "image_urls": [
+          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F2%25252F2%25252F0lz0.jpg",
+          "https://img.house.goo.ne.jp/la/4/https%253A%252F%252Fimage1.homes.jp%252Fsmallimg%252Fimage.php%253Ffile%253Dhttp%25253A%25252F%25252Fimg.homes.jp%25252F9364%25252Fsale%25252F103%25252F1%25252F1%25252Fv5ob.jpg"
+        ],
+        "is_cheap_new": false,
+        "is_new": false,
+        "land_area_sqm": 40.0,
+        "land_area_tsubo": 12.1,
+        "latitude": null,
+        "longitude": null,
+        "new_reason": "",
+        "parcel_number": null,
+        "price_man_yen": 500.0,
+        "remarks": null,
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "宮崎県都城市安久町 土地 安久町 宮崎県都城市安久町 goo住宅・不動産",
+        "source": "goo住宅・不動産",
+        "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000103/9364/x493640000103.html",
+        "title": "宮崎県都城市安久町 土地",
+        "town": "安久町",
+        "unit_price_man_per_tsubo": 41.32,
+        "zoning": null
+      },
+      "observed_count": 2,
+      "price_history": [
+        {
+          "date": "2026-08-04",
+          "land_area_sqm": 488.0,
+          "price_man_yen": 443.0,
+          "unit_price_man_per_tsubo": 3.0
+        },
+        {
+          "date": "2026-08-21",
+          "land_area_sqm": 40.0,
+          "price_man_yen": 500.0,
+          "unit_price_man_per_tsubo": 41.32
         }
       ]
     },
@@ -10682,7 +10698,7 @@
         "unit_price_man_per_tsubo": 5.59,
         "zoning": null
       },
-      "observed_count": 78,
+      "observed_count": 79,
       "price_history": [
         {
           "date": "2026-07-05",
@@ -10857,7 +10873,7 @@
         "unit_price_man_per_tsubo": 6.31,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -10912,8 +10928,8 @@
     {
       "first_seen_date": "2026-06-22",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000025/9364/x493640000025.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市宮丸町",
         "building_coverage_ratio_percent": null,
@@ -10944,7 +10960,7 @@
         "unit_price_man_per_tsubo": 7.1,
         "zoning": null
       },
-      "observed_count": 85,
+      "observed_count": 86,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -10957,7 +10973,7 @@
     {
       "first_seen_date": "2026-06-14",
       "id": "https://www.homes.co.jp/tochi/b-93640000025/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市宮丸町",
@@ -11070,7 +11086,7 @@
         "unit_price_man_per_tsubo": 8.02,
         "zoning": "ヒント"
       },
-      "observed_count": 132,
+      "observed_count": 133,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -11169,7 +11185,7 @@
         "unit_price_man_per_tsubo": 11.53,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11353,7 +11369,7 @@
         "unit_price_man_per_tsubo": 0.56,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11398,7 +11414,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": "無指定"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11444,7 +11460,7 @@
         "unit_price_man_per_tsubo": 1.31,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11488,7 +11504,7 @@
         "unit_price_man_per_tsubo": 1.46,
         "zoning": "準工業地域"
       },
-      "observed_count": 78,
+      "observed_count": 79,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -11533,7 +11549,7 @@
         "unit_price_man_per_tsubo": 1.48,
         "zoning": null
       },
-      "observed_count": 84,
+      "observed_count": 85,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -11689,7 +11705,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11738,7 +11754,7 @@
         "unit_price_man_per_tsubo": 4.65,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -11901,7 +11917,7 @@
         "unit_price_man_per_tsubo": 1.41,
         "zoning": "ヒント"
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -11953,7 +11969,7 @@
         "unit_price_man_per_tsubo": 0.76,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12011,7 +12027,7 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.athome.co.jp/tochi/1107250203/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 山之口町花木（山之口駅）",
@@ -12064,25 +12080,25 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000131/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-13",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山之口町花木",
         "building_coverage_ratio_percent": 60.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000131/",
-        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg&width=208&height=138",
+        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F26%2F2%2F2%2Fm6d1.jpg",
         "image_urls": [
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F26%2F2%2F2%2Fm6d1.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F131%2F2%2F2%2Fzjeu.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F131%2F2%2F2%2Fzjeu.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F197%2F2%2F2%2F7p08.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F17%2F2%2F2%2Fl210.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2Ft9pz3m6ukp0woj5.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg&width=208&height=138",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F99%2F2%2F2%2Fbllg.jpg"
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F156246%2Fsale%2F1%2F2%2F1%2F96zm.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -12104,7 +12120,7 @@
         "unit_price_man_per_tsubo": 1.3,
         "zoning": null
       },
-      "observed_count": 52,
+      "observed_count": 53,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12244,7 +12260,7 @@
         "unit_price_man_per_tsubo": 2.99,
         "zoning": null
       },
-      "observed_count": 92,
+      "observed_count": 93,
       "price_history": [
         {
           "date": "2026-07-16",
@@ -12339,7 +12355,7 @@
         "unit_price_man_per_tsubo": 3.02,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12543,7 +12559,7 @@
         "unit_price_man_per_tsubo": 4.19,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12587,7 +12603,7 @@
         "unit_price_man_per_tsubo": 4.34,
         "zoning": null
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -12644,8 +12660,8 @@
     {
       "first_seen_date": "2026-06-22",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000032/9364/x493640000032.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市山之口町花木",
         "building_coverage_ratio_percent": null,
@@ -12676,7 +12692,7 @@
         "unit_price_man_per_tsubo": 6.92,
         "zoning": null
       },
-      "observed_count": 142,
+      "observed_count": 143,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -12689,7 +12705,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000032/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山之口町花木",
@@ -12841,7 +12857,7 @@
         "unit_price_man_per_tsubo": 1.9,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -12860,8 +12876,8 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000021/9364/x493640000021.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市山田町中霧島",
         "building_coverage_ratio_percent": null,
@@ -12892,7 +12908,7 @@
         "unit_price_man_per_tsubo": 2.7,
         "zoning": null
       },
-      "observed_count": 112,
+      "observed_count": 113,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -12949,7 +12965,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000021/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山田町中霧島",
@@ -13095,7 +13111,7 @@
         "unit_price_man_per_tsubo": 3.61,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13137,7 +13153,7 @@
         "unit_price_man_per_tsubo": 0.44,
         "zoning": "無指定"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13150,8 +13166,8 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000027/9364/x493640000027.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市山田町山田",
         "building_coverage_ratio_percent": null,
@@ -13182,7 +13198,7 @@
         "unit_price_man_per_tsubo": 0.45,
         "zoning": null
       },
-      "observed_count": 92,
+      "observed_count": 93,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -13195,7 +13211,7 @@
     {
       "first_seen_date": "2026-07-05",
       "id": "https://www.homes.co.jp/tochi/b-93640000027/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山田町山田",
@@ -13292,7 +13308,7 @@
         "unit_price_man_per_tsubo": 0.5,
         "zoning": null
       },
-      "observed_count": 38,
+      "observed_count": 39,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -13382,7 +13398,7 @@
         "unit_price_man_per_tsubo": 0.65,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13428,7 +13444,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13523,7 +13539,7 @@
         "unit_price_man_per_tsubo": 1.24,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13590,7 +13606,7 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000026/9364/x493640000026.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市山田町山田",
@@ -13635,17 +13651,18 @@
     {
       "first_seen_date": "2026-06-23",
       "id": "https://www.homes.co.jp/tochi/b-93640000026/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-11",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山田町山田",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000026/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F2%2Ftvrp.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F2%2Ftvrp.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F26%2F2%2F2%2Fm6d1.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F12%2F2%2F2%2Fpn2p.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F12%2F2%2F2%2Fpn2p.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
@@ -13671,7 +13688,7 @@
         "unit_price_man_per_tsubo": 1.39,
         "zoning": null
       },
-      "observed_count": 81,
+      "observed_count": 82,
       "price_history": [
         {
           "date": "2026-06-23",
@@ -13733,7 +13750,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13777,7 +13794,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": "無指定"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -13866,7 +13883,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "第二種住居地域"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14007,7 +14024,7 @@
         "unit_price_man_per_tsubo": 2.1,
         "zoning": null
       },
-      "observed_count": 78,
+      "observed_count": 79,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -14020,8 +14037,8 @@
     {
       "first_seen_date": "2026-06-26",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000011/9364/x493640000011.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市山田町山田",
         "building_coverage_ratio_percent": null,
@@ -14052,7 +14069,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": null
       },
-      "observed_count": 93,
+      "observed_count": 94,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -14071,7 +14088,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000011/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市山田町山田",
@@ -14164,7 +14181,7 @@
         "unit_price_man_per_tsubo": 0.26,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14210,7 +14227,7 @@
         "unit_price_man_per_tsubo": 1.78,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14223,7 +14240,7 @@
     {
       "first_seen_date": "2026-08-02",
       "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_064a69787dfd3dcc827e96ab701c83b5/",
-      "is_currently_listed": false,
+      "is_currently_listed": true,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市平塚町",
@@ -14261,7 +14278,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 27,
+      "observed_count": 28,
       "price_history": [
         {
           "date": "2026-08-02",
@@ -14352,7 +14369,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14399,7 +14416,7 @@
         "unit_price_man_per_tsubo": 5.01,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -14685,8 +14702,8 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000028/9364/x493640000028.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市平江町",
         "building_coverage_ratio_percent": null,
@@ -14717,7 +14734,7 @@
         "unit_price_man_per_tsubo": 10.37,
         "zoning": null
       },
-      "observed_count": 93,
+      "observed_count": 94,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -14730,7 +14747,7 @@
     {
       "first_seen_date": "2026-06-22",
       "id": "https://www.homes.co.jp/tochi/b-93640000028/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市平江町",
@@ -14835,10 +14852,11 @@
         "building_coverage_ratio_percent": 60.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000008/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F32%2F2%2F2%2Fcn72.jpg",
+        "image_url": "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F2%2F2%2Fwk40.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F32%2F2%2F2%2Fcn72.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F2%2F2%2Fwk40.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F8%2F2%2F2%2Fm1uy.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F32%2F2%2F2%2Fcn72.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
@@ -14864,7 +14882,7 @@
         "unit_price_man_per_tsubo": 12.01,
         "zoning": null
       },
-      "observed_count": 53,
+      "observed_count": 54,
       "price_history": [
         {
           "date": "2026-07-09",
@@ -14909,7 +14927,7 @@
         "unit_price_man_per_tsubo": 6.96,
         "zoning": "第一種低層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15007,7 +15025,7 @@
         "unit_price_man_per_tsubo": 0.52,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15055,7 +15073,7 @@
         "unit_price_man_per_tsubo": 1.52,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15106,7 +15124,7 @@
         "unit_price_man_per_tsubo": 1.74,
         "zoning": null
       },
-      "observed_count": 125,
+      "observed_count": 126,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -15151,7 +15169,7 @@
         "unit_price_man_per_tsubo": 1.99,
         "zoning": "無指定"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15199,7 +15217,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": "無指定"
       },
-      "observed_count": 143,
+      "observed_count": 144,
       "price_history": [
         {
           "date": "2026-07-03",
@@ -15241,7 +15259,7 @@
         "unit_price_man_per_tsubo": 2.09,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15339,7 +15357,7 @@
         "unit_price_man_per_tsubo": 2.96,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15392,7 +15410,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15445,7 +15463,7 @@
         "unit_price_man_per_tsubo": 3.37,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15558,7 +15576,7 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.athome.co.jp/tochi/1081543089/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 志比田町（日向庄内駅）",
@@ -15611,47 +15629,47 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.homes.co.jp/tochi/b-93640000061/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市志比田町",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000061/",
-        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
+        "image_url": "https://image3.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2Fbc4c557d%2F3300_176960_1_132000_132000.jpg",
         "image_urls": [
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=https%3A%2F%2Fcdn-lambda-img.cloud.ielove.jp%2Fimage%2Fsale%2Fbc4c557d%2F3300_176960_1_132000_132000.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F2%2Ftvrp.jpg",
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F108%2F2%2F2%2F01jy.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F197%2F2%2F2%2F7p08.jpg",
           "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F5%2F46sv.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F6%2F91f2.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F7%2Fd0kl.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F8%2Fx3dr.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F9%2Ftmy9.jpg"
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F9%2Ftmy9.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F10%2Fhw76.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F61%2F2%2F11%2Fg3bk.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 1159.46,
         "land_area_tsubo": 350.74,
-        "latitude": null,
-        "longitude": null,
+        "latitude": 31.755318017721,
+        "longitude": 131.04940278329,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 526.0,
-        "remarks": null,
-        "restrictions": null,
-        "road_details": null,
-        "search_text": "土地 都城市志比田町 (日向庄内駅) https://www.homes.co.jp/tochi/b-93640000061/ https://image2.h 志比田町 都城市志比田町 LIFULL HOME'S",
+        "remarks": " / 再建築不可 [物件コード]189501-3099",
+        "restrictions": " / 面積 / 不要",
+        "road_details": " / 一方 ( 南 2m 公道 )",
+        "search_text": "土地 都城市志比田町 (日向庄内駅) https://www.homes.co.jp/tochi/b-93640000061/ https://image2.h 志比田町 都城市志比田町 LIFULL HOME'S 無指定  / 面積 / 不要  / 再建築不可 [物件コード]189501-3099  / 一方 ( 南 2m 公道 )",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-93640000061/",
         "title": "土地 都城市志比田町 (日向庄内駅) https://www.homes.co.jp/tochi/b-93640000061/ https://image2.h",
         "town": "志比田町",
         "unit_price_man_per_tsubo": 1.5,
-        "zoning": null
+        "zoning": "無指定"
       },
-      "observed_count": 67,
+      "observed_count": 68,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15708,7 +15726,7 @@
         "unit_price_man_per_tsubo": 1.66,
         "zoning": null
       },
-      "observed_count": 154,
+      "observed_count": 155,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -15899,7 +15917,7 @@
         "unit_price_man_per_tsubo": 2.24,
         "zoning": "ヒント"
       },
-      "observed_count": 132,
+      "observed_count": 133,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15948,7 +15966,7 @@
         "unit_price_man_per_tsubo": 2.27,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -15994,7 +16012,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16089,7 +16107,7 @@
         "unit_price_man_per_tsubo": 3.8,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16142,7 +16160,7 @@
         "unit_price_man_per_tsubo": 4.18,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16190,7 +16208,7 @@
         "unit_price_man_per_tsubo": 4.77,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16232,7 +16250,7 @@
         "unit_price_man_per_tsubo": 5.68,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16330,7 +16348,7 @@
         "unit_price_man_per_tsubo": 6.24,
         "zoning": null
       },
-      "observed_count": 144,
+      "observed_count": 145,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16448,7 +16466,7 @@
         "unit_price_man_per_tsubo": 7.41,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16501,7 +16519,7 @@
         "unit_price_man_per_tsubo": 8.27,
         "zoning": "ヒント"
       },
-      "observed_count": 224,
+      "observed_count": 225,
       "price_history": [
         {
           "date": "2026-06-08",
@@ -16590,7 +16608,7 @@
         "unit_price_man_per_tsubo": 6.15,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16697,7 +16715,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -16710,8 +16728,8 @@
     {
       "first_seen_date": "2026-06-26",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000012/9364/x493640000012.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市早水町",
         "building_coverage_ratio_percent": null,
@@ -16742,7 +16760,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": null
       },
-      "observed_count": 102,
+      "observed_count": 103,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -16755,7 +16773,7 @@
     {
       "first_seen_date": "2026-06-08",
       "id": "https://www.homes.co.jp/tochi/b-93640000012/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市早水町",
@@ -16906,7 +16924,7 @@
         "unit_price_man_per_tsubo": 4.33,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17000,7 +17018,7 @@
         "unit_price_man_per_tsubo": 10.0,
         "zoning": "ヒント"
       },
-      "observed_count": 168,
+      "observed_count": 169,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -17097,7 +17115,7 @@
         "unit_price_man_per_tsubo": 12.0,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17149,7 +17167,7 @@
         "unit_price_man_per_tsubo": 17.77,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17405,7 +17423,7 @@
         "unit_price_man_per_tsubo": 0.65,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17418,8 +17436,8 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000235/9364/x493640000235.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-13",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市梅北町",
         "building_coverage_ratio_percent": null,
@@ -17450,7 +17468,7 @@
         "unit_price_man_per_tsubo": 0.7,
         "zoning": null
       },
-      "observed_count": 1,
+      "observed_count": 2,
       "price_history": [
         {
           "date": "2026-08-13",
@@ -17463,7 +17481,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000235/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市梅北町",
@@ -17548,7 +17566,7 @@
         "unit_price_man_per_tsubo": 0.72,
         "zoning": null
       },
-      "observed_count": 192,
+      "observed_count": 193,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -17593,7 +17611,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 107,
+      "observed_count": 108,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -17635,7 +17653,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17681,7 +17699,7 @@
         "unit_price_man_per_tsubo": 1.35,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17723,7 +17741,7 @@
         "unit_price_man_per_tsubo": 1.45,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17776,7 +17794,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": null
       },
-      "observed_count": 175,
+      "observed_count": 176,
       "price_history": [
         {
           "date": "2026-06-23",
@@ -17820,7 +17838,7 @@
         "unit_price_man_per_tsubo": 1.5,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17919,7 +17937,7 @@
         "unit_price_man_per_tsubo": 1.51,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -17965,7 +17983,7 @@
         "unit_price_man_per_tsubo": 1.52,
         "zoning": "無指定"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18057,7 +18075,7 @@
         "unit_price_man_per_tsubo": 1.82,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18112,8 +18130,8 @@
     {
       "first_seen_date": "2026-08-08",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000229/9364/x493640000229.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市梅北町",
         "building_coverage_ratio_percent": null,
@@ -18144,7 +18162,7 @@
         "unit_price_man_per_tsubo": 2.06,
         "zoning": null
       },
-      "observed_count": 45,
+      "observed_count": 46,
       "price_history": [
         {
           "date": "2026-08-08",
@@ -18157,7 +18175,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://www.homes.co.jp/tochi/b-93640000229/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市梅北町",
@@ -18282,7 +18300,7 @@
         "unit_price_man_per_tsubo": 2.94,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18425,7 +18443,7 @@
         "unit_price_man_per_tsubo": 5.0,
         "zoning": null
       },
-      "observed_count": 98,
+      "observed_count": 99,
       "price_history": [
         {
           "date": "2026-07-09",
@@ -18565,7 +18583,7 @@
         "unit_price_man_per_tsubo": 0.38,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18659,7 +18677,7 @@
         "unit_price_man_per_tsubo": 0.39,
         "zoning": "無指定"
       },
-      "observed_count": 159,
+      "observed_count": 160,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -18706,7 +18724,7 @@
         "unit_price_man_per_tsubo": 0.6,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18801,7 +18819,7 @@
         "unit_price_man_per_tsubo": 0.76,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -18956,7 +18974,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19009,7 +19027,7 @@
         "unit_price_man_per_tsubo": 1.3,
         "zoning": "ヒント"
       },
-      "observed_count": 104,
+      "observed_count": 105,
       "price_history": [
         {
           "date": "2026-07-13",
@@ -19071,40 +19089,40 @@
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-1459060000079/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F231%2F2%2F2%2Fk5qo.jpg",
+        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F149457%2Fsale%2F26%2F2%2F1%2Faupr.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F231%2F2%2F2%2Fk5qo.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F149457%2Fsale%2F26%2F2%2F1%2Faupr.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F2%2F1%2Ftors.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F131285%2Fsale%2F633%2F2%2F2%2Frv4v.jpg",
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F21%2F2%2F2%2Fkmp1.jpg",
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F17%2F2%2F2%2Fl210.jpg",
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F143001%2Fsale%2F21%2F2%2F1%2Fj00o.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F65%2F2%2F1%2Fkksr.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=%2Fdata%2F0145906%2Fgyousha%2Fimage%2F3-20220302132204.jpg",
           "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png"
+          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F1%2F2%2Foncu.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F9%2F3%2Fx6xg.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F9%2F4%2Fm7ep.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F9%2F5%2F1f0f.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F145906%2Fsale%2F79%2F9%2F6%2Fs7mm.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 291.67,
         "land_area_tsubo": 88.23,
-        "latitude": null,
-        "longitude": null,
+        "latitude": 31.755465584485,
+        "longitude": 131.03879399466,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 264.0,
         "remarks": null,
-        "restrictions": null,
-        "road_details": null,
-        "search_text": "土地 都城市横市町 (日向庄内駅) https://www.homes.co.jp/tochi/b-1459060000079/ https://image4. 横市町 都城市横市町 LIFULL HOME'S",
+        "restrictions": " / 不要",
+        "road_details": " / 角地 ( 北西 5m 公道 間口21m ) ( 北東 8m 公道 間口32m ) セットバック 無",
+        "search_text": "土地 都城市横市町 (日向庄内駅) https://www.homes.co.jp/tochi/b-1459060000079/ https://image4. 横市町 都城市横市町 LIFULL HOME'S 無指定  / 不要  / 角地 ( 北西 5m 公道 間口21m ) ( 北東 8m 公道 間口32m ) セットバック 無",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-1459060000079/",
         "title": "土地 都城市横市町 (日向庄内駅) https://www.homes.co.jp/tochi/b-1459060000079/ https://image4.",
         "town": "横市町",
         "unit_price_man_per_tsubo": 2.99,
-        "zoning": null
+        "zoning": "無指定"
       },
-      "observed_count": 100,
+      "observed_count": 101,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -19157,7 +19175,7 @@
         "unit_price_man_per_tsubo": 4.51,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19199,7 +19217,7 @@
         "unit_price_man_per_tsubo": 4.02,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19241,7 +19259,7 @@
         "unit_price_man_per_tsubo": 6.12,
         "zoning": null
       },
-      "observed_count": 158,
+      "observed_count": 159,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -19294,7 +19312,7 @@
         "unit_price_man_per_tsubo": 9.06,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19490,7 +19508,7 @@
         "unit_price_man_per_tsubo": 4.03,
         "zoning": "ヒント"
       },
-      "observed_count": 37,
+      "observed_count": 38,
       "price_history": [
         {
           "date": "2026-08-12",
@@ -19586,7 +19604,7 @@
         "unit_price_man_per_tsubo": 4.0,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19639,7 +19657,7 @@
         "unit_price_man_per_tsubo": 7.31,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19734,7 +19752,7 @@
         "unit_price_man_per_tsubo": 0.35,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -19795,7 +19813,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.athome.co.jp/tochi/1102922303/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 美川町（谷頭駅）",
@@ -19837,47 +19855,47 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000085/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市美川町",
         "building_coverage_ratio_percent": 120.0,
         "floor_area_ratio_percent": 120.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000085/",
-        "image_url": "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F75%2F2%2F2%2Fdte8.jpg",
+        "image_url": "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F224%2F2%2F2%2F56tu.jpg",
         "image_urls": [
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F75%2F2%2F2%2Fdte8.jpg",
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F224%2F2%2F2%2F56tu.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F2%2Fqnjg.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F75%2F2%2F2%2Fdte8.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F6%2Fxpnp.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F7%2Fx0zq.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F8%2F9w56.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F9%2F7a2z.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F10%2F9xtl.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F11%2F4e7a.jpg",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png"
+          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 576.82,
         "land_area_tsubo": 174.49,
-        "latitude": 31.795768505447,
-        "longitude": 130.97421146966,
+        "latitude": null,
+        "longitude": null,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 120.0,
-        "remarks": " / ゆったりとした敷地で開放感のある空間が広がっています。周囲は自然に囲まれ穏やかな雰囲気を感じられます。建築プランにも柔軟に対応しやすい間取りです。アプローチ部分も広く使いやすいです / [物件コード]189501-3594",
-        "restrictions": " / 面積 / 不要",
-        "road_details": " / 一方 ( 西 4m 公道 )",
-        "search_text": "土地 都城市美川町 (谷頭駅) https://www.homes.co.jp/tochi/b-93640000085/ https://image3.home 美川町 都城市美川町 LIFULL HOME'S 都市計画区域外  / 面積 / 不要  / ゆったりとした敷地で開放感のある空間が広がっています。周囲は自然に囲まれ穏やかな雰囲気を感じられます。建築プランにも柔軟に対応しやすい間取りです。アプローチ部分も広く使いやすいです / [物件コード]189501-3594  / 一方 ( 西 4m 公道 )",
+        "remarks": null,
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "土地 都城市美川町 (谷頭駅) https://www.homes.co.jp/tochi/b-93640000085/ https://image3.home 美川町 都城市美川町 LIFULL HOME'S",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-93640000085/",
         "title": "土地 都城市美川町 (谷頭駅) https://www.homes.co.jp/tochi/b-93640000085/ https://image3.home",
         "town": "美川町",
         "unit_price_man_per_tsubo": 0.69,
-        "zoning": "都市計画区域外"
+        "zoning": null
       },
-      "observed_count": 131,
+      "observed_count": 132,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -19950,7 +19968,7 @@
         "unit_price_man_per_tsubo": 7.77,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20000,7 +20018,7 @@
         "unit_price_man_per_tsubo": 8.85,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20053,6 +20071,48 @@
       ]
     },
     {
+      "first_seen_date": "2026-08-21",
+      "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000239/9364/x493640000239.html",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
+      "latest": {
+        "address": "宮崎県都城市若葉町",
+        "building_coverage_ratio_percent": null,
+        "floor_area_ratio_percent": null,
+        "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000239/9364/x493640000239.html",
+        "image_url": null,
+        "image_urls": [],
+        "is_cheap_new": false,
+        "is_new": false,
+        "land_area_sqm": 428.68,
+        "land_area_tsubo": 129.68,
+        "latitude": null,
+        "longitude": null,
+        "new_reason": "",
+        "parcel_number": null,
+        "price_man_yen": 1560.0,
+        "remarks": "スーパーや学校が徒歩圏内にある立地に整った形の土地が登場しました。解体後に引き渡し予定です",
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "宮崎県都城市若葉町 土地 若葉町 宮崎県都城市若葉町 goo住宅・不動産 スーパーや学校が徒歩圏内にある立地に整った形の土地が登場しました。解体後に引き渡し予定です",
+        "source": "goo住宅・不動産",
+        "source_url": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000239/9364/x493640000239.html",
+        "title": "宮崎県都城市若葉町 土地",
+        "town": "若葉町",
+        "unit_price_man_per_tsubo": 12.03,
+        "zoning": null
+      },
+      "observed_count": 1,
+      "price_history": [
+        {
+          "date": "2026-08-21",
+          "land_area_sqm": 428.68,
+          "price_man_yen": 1560.0,
+          "unit_price_man_per_tsubo": 12.03
+        }
+      ]
+    },
+    {
       "first_seen_date": "2026-06-07",
       "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_79144581/",
       "is_currently_listed": true,
@@ -20086,7 +20146,7 @@
         "unit_price_man_per_tsubo": 15.28,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20185,7 +20245,7 @@
         "unit_price_man_per_tsubo": 1.55,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20238,7 +20298,7 @@
         "unit_price_man_per_tsubo": 2.85,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20284,7 +20344,7 @@
         "unit_price_man_per_tsubo": 9.67,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20390,7 +20450,7 @@
         "unit_price_man_per_tsubo": 1.64,
         "zoning": null
       },
-      "observed_count": 204,
+      "observed_count": 205,
       "price_history": [
         {
           "date": "2026-06-13",
@@ -20532,7 +20592,7 @@
         "unit_price_man_per_tsubo": 3.89,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20631,7 +20691,7 @@
         "unit_price_man_per_tsubo": 5.26,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -20862,7 +20922,7 @@
         "unit_price_man_per_tsubo": 7.01,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21041,7 +21101,7 @@
         "unit_price_man_per_tsubo": 7.65,
         "zoning": "第一種低層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21187,7 +21247,7 @@
         "unit_price_man_per_tsubo": 0.52,
         "zoning": null
       },
-      "observed_count": 93,
+      "observed_count": 94,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -21386,7 +21446,7 @@
         "unit_price_man_per_tsubo": 1.01,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21399,7 +21459,7 @@
     {
       "first_seen_date": "2026-06-08",
       "id": "https://www.homes.co.jp/tochi/b-93640000010/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市豊満町",
@@ -21491,7 +21551,7 @@
         "unit_price_man_per_tsubo": 1.97,
         "zoning": null
       },
-      "observed_count": 61,
+      "observed_count": 62,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -21544,7 +21604,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21637,7 +21697,7 @@
         "unit_price_man_per_tsubo": 4.39,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21679,7 +21739,7 @@
         "unit_price_man_per_tsubo": 4.61,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21725,7 +21785,7 @@
         "unit_price_man_per_tsubo": 5.11,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -21824,7 +21884,7 @@
         "unit_price_man_per_tsubo": 7.5,
         "zoning": "ヒント"
       },
-      "observed_count": 109,
+      "observed_count": 110,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -21871,7 +21931,7 @@
         "unit_price_man_per_tsubo": 8.0,
         "zoning": "ヒント"
       },
-      "observed_count": 109,
+      "observed_count": 110,
       "price_history": [
         {
           "date": "2026-07-12",
@@ -21969,7 +22029,7 @@
         "unit_price_man_per_tsubo": 8.04,
         "zoning": null
       },
-      "observed_count": 150,
+      "observed_count": 151,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22061,7 +22121,7 @@
         "unit_price_man_per_tsubo": 9.15,
         "zoning": null
       },
-      "observed_count": 26,
+      "observed_count": 27,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -22158,7 +22218,7 @@
         "unit_price_man_per_tsubo": 2.31,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22211,7 +22271,7 @@
         "unit_price_man_per_tsubo": 4.01,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22264,7 +22324,7 @@
         "unit_price_man_per_tsubo": 5.21,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22317,7 +22377,7 @@
         "unit_price_man_per_tsubo": 5.48,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22364,7 +22424,7 @@
         "unit_price_man_per_tsubo": 7.55,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -22411,7 +22471,7 @@
         "unit_price_man_per_tsubo": 8.32,
         "zoning": "ヒント"
       },
-      "observed_count": 11,
+      "observed_count": 12,
       "price_history": [
         {
           "date": "2026-08-18",
@@ -22546,8 +22606,8 @@
     {
       "first_seen_date": "2026-06-26",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000095/9364/x493640000095.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市都原町",
         "building_coverage_ratio_percent": null,
@@ -22578,7 +22638,7 @@
         "unit_price_man_per_tsubo": 5.62,
         "zoning": null
       },
-      "observed_count": 119,
+      "observed_count": 120,
       "price_history": [
         {
           "date": "2026-06-26",
@@ -22591,7 +22651,7 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://www.homes.co.jp/tochi/b-93640000095/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市都原町",
@@ -22724,7 +22784,7 @@
         "unit_price_man_per_tsubo": 5.75,
         "zoning": null
       },
-      "observed_count": 117,
+      "observed_count": 118,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -22842,7 +22902,7 @@
         "unit_price_man_per_tsubo": 6.06,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23027,7 +23087,7 @@
         "unit_price_man_per_tsubo": 7.01,
         "zoning": "ヒント"
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -23240,7 +23300,7 @@
     {
       "first_seen_date": "2026-06-29",
       "id": "https://www.homes.co.jp/tochi/b-93640000096/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市都原町",
@@ -23317,7 +23377,7 @@
     {
       "first_seen_date": "2026-08-13",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000153/9364/x493640000153.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市都原町",
@@ -23493,7 +23553,7 @@
         "unit_price_man_per_tsubo": 1.06,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23535,7 +23595,7 @@
         "unit_price_man_per_tsubo": 4.57,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23580,7 +23640,7 @@
         "unit_price_man_per_tsubo": 4.59,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23625,7 +23685,7 @@
         "unit_price_man_per_tsubo": 4.75,
         "zoning": null
       },
-      "observed_count": 60,
+      "observed_count": 61,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -23814,7 +23874,7 @@
         "unit_price_man_per_tsubo": 5.1,
         "zoning": "第一種中高層住居専用地域"
       },
-      "observed_count": 158,
+      "observed_count": 159,
       "price_history": [
         {
           "date": "2026-06-29",
@@ -23867,7 +23927,7 @@
         "unit_price_man_per_tsubo": 5.46,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -23979,7 +24039,7 @@
         "unit_price_man_per_tsubo": 6.08,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24038,7 +24098,7 @@
         "unit_price_man_per_tsubo": 0.6,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24139,7 +24199,7 @@
         "unit_price_man_per_tsubo": 0.96,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24187,7 +24247,7 @@
         "unit_price_man_per_tsubo": 2.67,
         "zoning": "ヒント"
       },
-      "observed_count": 157,
+      "observed_count": 158,
       "price_history": [
         {
           "date": "2026-06-30",
@@ -24245,7 +24305,7 @@
     {
       "first_seen_date": "2026-06-07",
       "id": "https://www.athome.co.jp/tochi/1103187203/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 関之尾町（谷頭駅）",
@@ -24298,25 +24358,25 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000087/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-14",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市関之尾町",
         "building_coverage_ratio_percent": 120.0,
         "floor_area_ratio_percent": 120.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000087/",
-        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F59%2F2%2F2%2F0dtw.jpg",
+        "image_url": "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F2%2F2%2Fvi1w.jpg",
         "image_urls": [
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F59%2F2%2F2%2F0dtw.jpg",
+          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F2%2F2%2Fvi1w.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F2%2F9mqv.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F59%2F2%2F2%2F0dtw.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F54%2F2%2F2%2Fiy79.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F2%2Fqnjg.jpg",
           "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F5%2Fvew5.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F6%2Fow6h.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F4%2F21%2F08u8.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F4%2F22%2Fv8c5.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F4%2F23%2F4cev.jpg"
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F4%2F22%2Fv8c5.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -24338,7 +24398,7 @@
         "unit_price_man_per_tsubo": 1.27,
         "zoning": null
       },
-      "observed_count": 138,
+      "observed_count": 139,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -24441,7 +24501,7 @@
         "unit_price_man_per_tsubo": 1.77,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 196,
+      "observed_count": 197,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24483,7 +24543,7 @@
         "unit_price_man_per_tsubo": 2.19,
         "zoning": "無指定"
       },
-      "observed_count": 65,
+      "observed_count": 66,
       "price_history": [
         {
           "date": "2026-08-04",
@@ -24571,7 +24631,7 @@
         "unit_price_man_per_tsubo": 0.47,
         "zoning": "無指定"
       },
-      "observed_count": 215,
+      "observed_count": 216,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24619,7 +24679,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": "無指定"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24671,7 +24731,7 @@
         "unit_price_man_per_tsubo": 0.46,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24716,7 +24776,7 @@
         "unit_price_man_per_tsubo": 1.0,
         "zoning": null
       },
-      "observed_count": 11,
+      "observed_count": 12,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -24834,7 +24894,7 @@
         "unit_price_man_per_tsubo": 1.14,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -24847,8 +24907,8 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000005/9364/x493640000005.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市高城町大井手",
         "building_coverage_ratio_percent": null,
@@ -24879,7 +24939,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": null
       },
-      "observed_count": 121,
+      "observed_count": 122,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -24892,7 +24952,7 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000005/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高城町大井手",
@@ -25035,7 +25095,7 @@
         "unit_price_man_per_tsubo": 1.45,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25080,7 +25140,7 @@
         "unit_price_man_per_tsubo": 1.58,
         "zoning": null
       },
-      "observed_count": 31,
+      "observed_count": 32,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -25198,7 +25258,7 @@
         "unit_price_man_per_tsubo": 1.69,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25284,7 +25344,7 @@
         "unit_price_man_per_tsubo": 1.85,
         "zoning": null
       },
-      "observed_count": 198,
+      "observed_count": 199,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -25328,7 +25388,7 @@
         "unit_price_man_per_tsubo": 1.92,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25469,7 +25529,7 @@
         "unit_price_man_per_tsubo": 1.94,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25514,7 +25574,7 @@
         "unit_price_man_per_tsubo": 2.05,
         "zoning": null
       },
-      "observed_count": 128,
+      "observed_count": 129,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -25738,7 +25798,7 @@
         "unit_price_man_per_tsubo": 2.32,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25797,7 +25857,7 @@
         "unit_price_man_per_tsubo": 2.33,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -25849,7 +25909,7 @@
         "unit_price_man_per_tsubo": 2.41,
         "zoning": "ヒント"
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -25894,7 +25954,7 @@
         "unit_price_man_per_tsubo": 2.48,
         "zoning": null
       },
-      "observed_count": 54,
+      "observed_count": 55,
       "price_history": [
         {
           "date": "2026-07-08",
@@ -26095,7 +26155,7 @@
         "unit_price_man_per_tsubo": 2.5,
         "zoning": null
       },
-      "observed_count": 151,
+      "observed_count": 152,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -26137,7 +26197,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": null
       },
-      "observed_count": 199,
+      "observed_count": 200,
       "price_history": [
         {
           "date": "2026-06-15",
@@ -26179,7 +26239,7 @@
         "unit_price_man_per_tsubo": 3.88,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -26199,18 +26259,18 @@
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000014/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F28%2F2%2F2%2Fgykn.jpg",
+        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F2%2Fqnjg.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F28%2F2%2F2%2Fgykn.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F2%2Fqnjg.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F2%2F2%2Fvi1w.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F28%2F2%2F2%2Fgykn.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F88%2F2%2F2%2Fd0jg.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F7%2F2%2F2%2F15pl.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F10%2F2%2F2%2Fkuhy.jpg",
           "https://image.homes.jp/smallimg/image.php?file=%2Fdata%2F0009364%2Fgyousha%2Fimage%2F4-20250901130430.jpg",
-          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F21%2Fub1b.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F22%2Ffpc8.jpg"
+          "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F14%2F4%2F21%2Fub1b.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -26232,7 +26292,7 @@
         "unit_price_man_per_tsubo": 0.03,
         "zoning": null
       },
-      "observed_count": 66,
+      "observed_count": 67,
       "price_history": [
         {
           "date": "2026-06-08",
@@ -26396,7 +26456,7 @@
         "unit_price_man_per_tsubo": 1.56,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -26561,7 +26621,7 @@
         "unit_price_man_per_tsubo": 1.89,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -26616,7 +26676,7 @@
     {
       "first_seen_date": "2026-06-16",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000187/9364/x493640000187.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市高城町桜木",
@@ -26661,47 +26721,47 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://www.homes.co.jp/tochi/b-93640000187/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高城町桜木",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000187/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F222%2F2%2F2%2Fmoes.jpg",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F96%2F2%2F2%2F03ck.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F222%2F2%2F2%2Fmoes.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F96%2F2%2F2%2F03ck.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F2%2F2%2Fwk40.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F222%2F2%2F2%2Fmoes.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F4%2F21%2F8ie0.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F4%2F22%2Fgg5r.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F4%2F23%2F6sn2.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F4%2F24%2Fde9z.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F4%2F25%2F65jn.jpg",
           "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1.png",
-          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F187%2F3%2F3%2F7w0n.jpg&width=600&height=600"
+          "https://www.homes.co.jp/temprano/assets/images/shared/homes-kun/homes-kun-1@2x.png"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 735.0,
         "land_area_tsubo": 222.34,
-        "latitude": 31.784756358875,
-        "longitude": 131.12309775474,
+        "latitude": null,
+        "longitude": null,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 450.0,
-        "remarks": " / 周辺には緑が広がり落ち着いた環境に位置しています。建物や施設が点在しており利便性を感じられます。敷地の広さもしっかりと確保されています。南側には田畑が広がり開放感があります。周辺の施設も徒歩圏内です / 集落住環境保全型地区 [物件コード]189501-4714",
-        "restrictions": " / 面積 / 不要",
-        "road_details": " / 二方 ( 西 5.2m 公道 間口5.2m )",
-        "search_text": "土地 都城市高城町桜木 (山之口駅) https://www.homes.co.jp/tochi/b-93640000187/ https://image1.h 高城町桜木 都城市高城町桜木 LIFULL HOME'S 無指定  / 面積 / 不要  / 周辺には緑が広がり落ち着いた環境に位置しています。建物や施設が点在しており利便性を感じられます。敷地の広さもしっかりと確保されています。南側には田畑が広がり開放感があります。周辺の施設も徒歩圏内です / 集落住環境保全型地区 [物件コード]189501-4714  / 二方 ( 西 5.2m 公道 間口5.2m )",
+        "remarks": null,
+        "restrictions": null,
+        "road_details": null,
+        "search_text": "土地 都城市高城町桜木 (山之口駅) https://www.homes.co.jp/tochi/b-93640000187/ https://image1.h 高城町桜木 都城市高城町桜木 LIFULL HOME'S",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-93640000187/",
         "title": "土地 都城市高城町桜木 (山之口駅) https://www.homes.co.jp/tochi/b-93640000187/ https://image1.h",
         "town": "高城町桜木",
         "unit_price_man_per_tsubo": 2.02,
-        "zoning": "無指定"
+        "zoning": null
       },
-      "observed_count": 72,
+      "observed_count": 73,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -26970,7 +27030,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27147,7 +27207,7 @@
         "unit_price_man_per_tsubo": 0.29,
         "zoning": null
       },
-      "observed_count": 150,
+      "observed_count": 151,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -27309,7 +27369,7 @@
     {
       "first_seen_date": "2026-08-01",
       "id": "https://www.athome.co.jp/tochi/1103742414/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 高城町石山",
@@ -27351,20 +27411,20 @@
     {
       "first_seen_date": "2026-08-04",
       "id": "https://www.homes.co.jp/tochi/b-93640000169/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-20",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高城町石山",
         "building_coverage_ratio_percent": 70.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000169/",
-        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
+        "image_url": "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg&width=208&height=138",
         "image_urls": [
-          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg&width=208&height=138",
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F169%2F2%2F2%2Fgfyk.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F169%2F2%2F2%2Fgfyk.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg&width=208&height=138",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg"
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F180%2F2%2F2%2Flovv.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
@@ -27386,7 +27446,7 @@
         "unit_price_man_per_tsubo": 0.5,
         "zoning": null
       },
-      "observed_count": 28,
+      "observed_count": 29,
       "price_history": [
         {
           "date": "2026-08-04",
@@ -27570,7 +27630,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": null
       },
-      "observed_count": 37,
+      "observed_count": 38,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -27910,7 +27970,7 @@
         "unit_price_man_per_tsubo": 2.54,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28058,7 +28118,7 @@
         "unit_price_man_per_tsubo": 0.98,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28103,7 +28163,7 @@
         "unit_price_man_per_tsubo": 1.95,
         "zoning": null
       },
-      "observed_count": 71,
+      "observed_count": 72,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -28148,7 +28208,7 @@
         "unit_price_man_per_tsubo": 2.01,
         "zoning": null
       },
-      "observed_count": 133,
+      "observed_count": 134,
       "price_history": [
         {
           "date": "2026-06-16",
@@ -28301,7 +28361,7 @@
         "unit_price_man_per_tsubo": 2.74,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28343,7 +28403,7 @@
         "unit_price_man_per_tsubo": 3.34,
         "zoning": null
       },
-      "observed_count": 202,
+      "observed_count": 203,
       "price_history": [
         {
           "date": "2026-06-14",
@@ -28442,7 +28502,7 @@
         "unit_price_man_per_tsubo": 3.37,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28539,7 +28599,7 @@
         "unit_price_man_per_tsubo": 3.47,
         "zoning": "ヒント"
       },
-      "observed_count": 200,
+      "observed_count": 201,
       "price_history": [
         {
           "date": "2026-06-13",
@@ -28592,7 +28652,7 @@
         "unit_price_man_per_tsubo": 3.91,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 45,
+      "observed_count": 46,
       "price_history": [
         {
           "date": "2026-08-10",
@@ -28690,7 +28750,7 @@
         "unit_price_man_per_tsubo": 3.96,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28735,7 +28795,7 @@
         "unit_price_man_per_tsubo": 4.9,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -28822,7 +28882,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": "ヒント"
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-08-07",
@@ -29104,7 +29164,7 @@
     {
       "first_seen_date": "2026-06-27",
       "id": "https://www.athome.co.jp/tochi/1104237714/?DOWN=1&BKLISTID=001LPC&SEARCHDIV=1&sref=list_simple",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市 高崎町前田",
@@ -29157,17 +29217,18 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000175/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-13",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高崎町前田",
         "building_coverage_ratio_percent": 250.0,
         "floor_area_ratio_percent": 250.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000175/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F76%2F2%2F2%2F33uz.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F76%2F2%2F2%2F33uz.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F175%2F2%2F2%2Fpfng.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F220%2F2%2F2%2F63gy.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F26%2F2%2F2%2Fm6d1.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F184%2F2%2F2%2Fa9u3.jpg",
           "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F163%2F2%2F2%2F0km7.jpg",
@@ -29194,7 +29255,7 @@
         "unit_price_man_per_tsubo": 0.51,
         "zoning": null
       },
-      "observed_count": 59,
+      "observed_count": 60,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -29271,7 +29332,7 @@
         "unit_price_man_per_tsubo": 0.21,
         "zoning": null
       },
-      "observed_count": 127,
+      "observed_count": 128,
       "price_history": [
         {
           "date": "2026-06-22",
@@ -29410,7 +29471,7 @@
         "unit_price_man_per_tsubo": 0.89,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29423,7 +29484,7 @@
     {
       "first_seen_date": "2026-06-22",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000134/9364/x493640000134.html",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市高崎町大牟田",
@@ -29480,18 +29541,19 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000134/",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-17",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高崎町大牟田",
         "building_coverage_ratio_percent": 50.0,
         "floor_area_ratio_percent": 100.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000134/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F77%2F2%2F2%2Fu0i6.jpg",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F230%2F2%2F2%2Fb622.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F77%2F2%2F2%2Fu0i6.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F230%2F2%2F2%2Fb622.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F134%2F2%2F2%2F61fr.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F77%2F2%2F2%2Fu0i6.jpg",
           "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F185%2F2%2F2%2Fpy5l.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F95%2F2%2F2%2F7nfe.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F85%2F2%2F2%2Fqnjg.jpg",
@@ -29517,7 +29579,7 @@
         "unit_price_man_per_tsubo": 0.99,
         "zoning": null
       },
-      "observed_count": 70,
+      "observed_count": 71,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -29615,7 +29677,7 @@
         "unit_price_man_per_tsubo": 1.21,
         "zoning": "第一種住居地域"
       },
-      "observed_count": 222,
+      "observed_count": 223,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29668,7 +29730,7 @@
         "unit_price_man_per_tsubo": 2.11,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29752,7 +29814,7 @@
         "unit_price_man_per_tsubo": 2.12,
         "zoning": "準工業地域"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29802,7 +29864,7 @@
         "unit_price_man_per_tsubo": 2.73,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -29855,7 +29917,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": null
       },
-      "observed_count": 129,
+      "observed_count": 130,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30030,7 +30092,7 @@
         "unit_price_man_per_tsubo": 3.41,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30083,7 +30145,7 @@
         "unit_price_man_per_tsubo": 3.5,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30160,40 +30222,40 @@
         "building_coverage_ratio_percent": 60.0,
         "floor_area_ratio_percent": 200.0,
         "id": "https://www.homes.co.jp/tochi/b-93640000009/",
-        "image_url": "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F235%2F2%2F2%2F35tt.jpg",
+        "image_url": "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F2%2F9mqv.jpg",
         "image_urls": [
-          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F235%2F2%2F2%2F35tt.jpg",
+          "https://image2.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F87%2F2%2F2%2F9mqv.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=208&height=138",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg",
+          "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F235%2F2%2F2%2F35tt.jpg",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=200&height=200",
           "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F2%2F90nf.jpg&width=600&height=600",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F3%2Fp3xb.jpg",
           "https://image4.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F5%2Fjtvp.jpg",
           "https://image3.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F2%2F8%2Fxl2h.jpg",
-          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F4%2F21%2Fxsgk.jpg",
-          "https://image1.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F4%2F22%2Fdyw9.jpg"
+          "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F9%2F4%2F21%2Fxsgk.jpg"
         ],
         "is_cheap_new": false,
         "is_new": false,
         "land_area_sqm": 231.36,
         "land_area_tsubo": 69.99,
-        "latitude": 31.868781374538,
-        "longitude": 131.07621033219,
+        "latitude": null,
+        "longitude": null,
         "new_reason": "",
         "parcel_number": null,
         "price_man_yen": 250.0,
-        "remarks": " / 特定用途制限地域、土地利用誘導地区 [物件コード]189501-1179",
-        "restrictions": " / 5㎡ / 面積 / 不要",
-        "road_details": "スーパー800m以内 （センチュリー21ほっとらいふ不動産） / 二方 ( 南 12m 公道 間口10m ) ( 西 2.1m 公道 間口5m ) セットバック 5㎡",
-        "search_text": "土地 都城市高崎町大牟田 (高崎新田駅) https://www.homes.co.jp/tochi/b-93640000009/ https://image. 高崎町大牟田 都城市高崎町大牟田 LIFULL HOME'S 準工業地域  / 5㎡ / 面積 / 不要  / 特定用途制限地域、土地利用誘導地区 [物件コード]189501-1179 スーパー800m以内 （センチュリー21ほっとらいふ不動産） / 二方 ( 南 12m 公道 間口10m ) ( 西 2.1m 公道 間口5m ) セットバック 5㎡",
+        "remarks": null,
+        "restrictions": null,
+        "road_details": "スーパー800m以内 （センチュリー21ほっとらいふ不動産）",
+        "search_text": "土地 都城市高崎町大牟田 (高崎新田駅) https://www.homes.co.jp/tochi/b-93640000009/ https://image. 高崎町大牟田 都城市高崎町大牟田 LIFULL HOME'S スーパー800m以内 （センチュリー21ほっとらいふ不動産）",
         "source": "LIFULL HOME'S",
         "source_url": "https://www.homes.co.jp/tochi/b-93640000009/",
         "title": "土地 都城市高崎町大牟田 (高崎新田駅) https://www.homes.co.jp/tochi/b-93640000009/ https://image.",
         "town": "高崎町大牟田",
         "unit_price_man_per_tsubo": 3.57,
-        "zoning": "準工業地域"
+        "zoning": null
       },
-      "observed_count": 50,
+      "observed_count": 51,
       "price_history": [
         {
           "date": "2026-06-24",
@@ -30235,7 +30297,7 @@
         "unit_price_man_per_tsubo": 3.76,
         "zoning": "近隣商業地域"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30288,7 +30350,7 @@
         "unit_price_man_per_tsubo": 4.5,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30391,7 +30453,7 @@
         "unit_price_man_per_tsubo": 2.37,
         "zoning": "都市計画区域外"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -30539,7 +30601,7 @@
         "unit_price_man_per_tsubo": 0.69,
         "zoning": null
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -30634,7 +30696,7 @@
         "unit_price_man_per_tsubo": 0.82,
         "zoning": null
       },
-      "observed_count": 133,
+      "observed_count": 134,
       "price_history": [
         {
           "date": "2026-06-12",
@@ -30700,8 +30762,8 @@
     {
       "first_seen_date": "2026-07-04",
       "id": "https://house.goo.ne.jp/buy/la/detail/4/45202/93640000007/9364/x493640000007.html",
-      "is_currently_listed": false,
-      "last_seen_date": "2026-08-18",
+      "is_currently_listed": true,
+      "last_seen_date": "2026-08-21",
       "latest": {
         "address": "宮崎県都城市高崎町縄瀬",
         "building_coverage_ratio_percent": null,
@@ -30732,7 +30794,7 @@
         "unit_price_man_per_tsubo": 2.0,
         "zoning": null
       },
-      "observed_count": 125,
+      "observed_count": 126,
       "price_history": [
         {
           "date": "2026-07-04",
@@ -30789,7 +30851,7 @@
     {
       "first_seen_date": "2026-06-12",
       "id": "https://www.homes.co.jp/tochi/b-93640000007/",
-      "is_currently_listed": true,
+      "is_currently_listed": false,
       "last_seen_date": "2026-08-21",
       "latest": {
         "address": "都城市高崎町縄瀬",
@@ -31019,7 +31081,7 @@
         "unit_price_man_per_tsubo": 0.84,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31072,7 +31134,7 @@
         "unit_price_man_per_tsubo": 1.49,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31128,7 +31190,7 @@
         "unit_price_man_per_tsubo": 3.0,
         "zoning": null
       },
-      "observed_count": 55,
+      "observed_count": 56,
       "price_history": [
         {
           "date": "2026-06-17",
@@ -31376,7 +31438,7 @@
         "unit_price_man_per_tsubo": 3.67,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31574,7 +31636,7 @@
         "unit_price_man_per_tsubo": 0.63,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31627,7 +31689,7 @@
         "unit_price_man_per_tsubo": 2.37,
         "zoning": "ヒント"
       },
-      "observed_count": 227,
+      "observed_count": 228,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31727,7 +31789,7 @@
         "unit_price_man_per_tsubo": 2.7,
         "zoning": "準工業地域"
       },
-      "observed_count": 12,
+      "observed_count": 13,
       "price_history": [
         {
           "date": "2026-08-18",
@@ -31824,7 +31886,7 @@
         "unit_price_man_per_tsubo": 4.25,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -31913,7 +31975,7 @@
         "unit_price_man_per_tsubo": 4.29,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32003,7 +32065,7 @@
         "unit_price_man_per_tsubo": 4.56,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32092,7 +32154,7 @@
         "unit_price_man_per_tsubo": 5.04,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32145,7 +32207,7 @@
         "unit_price_man_per_tsubo": 5.34,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32192,7 +32254,7 @@
         "unit_price_man_per_tsubo": 5.37,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32328,7 +32390,7 @@
         "unit_price_man_per_tsubo": 6.75,
         "zoning": null
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32415,7 +32477,7 @@
         "unit_price_man_per_tsubo": 7.06,
         "zoning": null
       },
-      "observed_count": 102,
+      "observed_count": 103,
       "price_history": [
         {
           "date": "2026-07-13",
@@ -32468,7 +32530,7 @@
         "unit_price_man_per_tsubo": 7.92,
         "zoning": "ヒント"
       },
-      "observed_count": 79,
+      "observed_count": 80,
       "price_history": [
         {
           "date": "2026-08-01",
@@ -32521,7 +32583,7 @@
         "unit_price_man_per_tsubo": 7.99,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32574,7 +32636,7 @@
         "unit_price_man_per_tsubo": 10.31,
         "zoning": "ヒント"
       },
-      "observed_count": 226,
+      "observed_count": 227,
       "price_history": [
         {
           "date": "2026-06-07",
@@ -32786,12 +32848,12 @@
   ],
   "schema_version": 1,
   "summary": {
-    "current_average_unit_price_man_per_tsubo": 4.34,
-    "current_listing_count": 340,
+    "current_average_unit_price_man_per_tsubo": 4.32,
+    "current_listing_count": 339,
     "first_observed_date": "2026-06-07",
-    "historical_average_unit_price_man_per_tsubo": 5.15,
+    "historical_average_unit_price_man_per_tsubo": 5.28,
     "last_observed_date": "2026-08-21",
-    "unique_listing_count": 661
+    "unique_listing_count": 662
   },
   "towns": [
     {
@@ -32885,10 +32947,10 @@
       "town": "祝吉"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 10.63,
-      "current_listing_count": 3,
-      "historical_average_unit_price_man_per_tsubo": 10.71,
-      "historical_unique_listing_count": 4,
+      "current_average_unit_price_man_per_tsubo": 10.98,
+      "current_listing_count": 4,
+      "historical_average_unit_price_man_per_tsubo": 10.98,
+      "historical_unique_listing_count": 5,
       "maximum_unit_price_man_per_tsubo": 15.28,
       "minimum_unit_price_man_per_tsubo": 7.77,
       "town": "若葉町"
@@ -32901,6 +32963,15 @@
       "maximum_unit_price_man_per_tsubo": 41.32,
       "minimum_unit_price_man_per_tsubo": 5.59,
       "town": "宮丸町"
+    },
+    {
+      "current_average_unit_price_man_per_tsubo": 9.36,
+      "current_listing_count": 5,
+      "historical_average_unit_price_man_per_tsubo": 10.27,
+      "historical_unique_listing_count": 9,
+      "maximum_unit_price_man_per_tsubo": 41.32,
+      "minimum_unit_price_man_per_tsubo": 0.61,
+      "town": "大岩田町"
     },
     {
       "current_average_unit_price_man_per_tsubo": 11.19,
@@ -32930,8 +33001,8 @@
       "town": "菖蒲原町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 14.95,
-      "current_listing_count": 6,
+      "current_average_unit_price_man_per_tsubo": 6.11,
+      "current_listing_count": 4,
       "historical_average_unit_price_man_per_tsubo": 9.51,
       "historical_unique_listing_count": 18,
       "maximum_unit_price_man_per_tsubo": 41.32,
@@ -33047,8 +33118,8 @@
       "town": "立野町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 6.26,
-      "current_listing_count": 5,
+      "current_average_unit_price_man_per_tsubo": 6.05,
+      "current_listing_count": 6,
       "historical_average_unit_price_man_per_tsubo": 6.05,
       "historical_unique_listing_count": 10,
       "maximum_unit_price_man_per_tsubo": 10.33,
@@ -33065,17 +33136,8 @@
       "town": "神之山町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 1.3,
-      "current_listing_count": 5,
-      "historical_average_unit_price_man_per_tsubo": 5.79,
-      "historical_unique_listing_count": 9,
-      "maximum_unit_price_man_per_tsubo": 41.32,
-      "minimum_unit_price_man_per_tsubo": 0.61,
-      "town": "大岩田町"
-    },
-    {
       "current_average_unit_price_man_per_tsubo": 1.5,
-      "current_listing_count": 5,
+      "current_listing_count": 4,
       "historical_average_unit_price_man_per_tsubo": 5.65,
       "historical_unique_listing_count": 9,
       "maximum_unit_price_man_per_tsubo": 41.32,
@@ -33092,8 +33154,8 @@
       "town": "都北町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 2.0,
-      "current_listing_count": 9,
+      "current_average_unit_price_man_per_tsubo": 2.06,
+      "current_listing_count": 8,
       "historical_average_unit_price_man_per_tsubo": 5.33,
       "historical_unique_listing_count": 18,
       "maximum_unit_price_man_per_tsubo": 45.1,
@@ -33110,8 +33172,17 @@
       "town": "蓑原町"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 5.38,
-      "current_listing_count": 13,
+      "current_average_unit_price_man_per_tsubo": 4.47,
+      "current_listing_count": 24,
+      "historical_average_unit_price_man_per_tsubo": 4.73,
+      "historical_unique_listing_count": 43,
+      "maximum_unit_price_man_per_tsubo": 41.32,
+      "minimum_unit_price_man_per_tsubo": 1.0,
+      "town": "安久町"
+    },
+    {
+      "current_average_unit_price_man_per_tsubo": 2.38,
+      "current_listing_count": 12,
       "historical_average_unit_price_man_per_tsubo": 4.5,
       "historical_unique_listing_count": 23,
       "maximum_unit_price_man_per_tsubo": 41.32,
@@ -33173,15 +33244,6 @@
       "town": "山之口町富吉"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 2.86,
-      "current_listing_count": 23,
-      "historical_average_unit_price_man_per_tsubo": 3.83,
-      "historical_unique_listing_count": 43,
-      "maximum_unit_price_man_per_tsubo": 41.32,
-      "minimum_unit_price_man_per_tsubo": 1.0,
-      "town": "安久町"
-    },
-    {
       "current_average_unit_price_man_per_tsubo": 3.5,
       "current_listing_count": 1,
       "historical_average_unit_price_man_per_tsubo": 3.5,
@@ -33218,8 +33280,8 @@
       "town": "山田町中霧島"
     },
     {
-      "current_average_unit_price_man_per_tsubo": 2.26,
-      "current_listing_count": 4,
+      "current_average_unit_price_man_per_tsubo": 2.21,
+      "current_listing_count": 5,
       "historical_average_unit_price_man_per_tsubo": 2.69,
       "historical_unique_listing_count": 7,
       "maximum_unit_price_man_per_tsubo": 5.75,
@@ -33416,5 +33478,5 @@
       "town": "夏尾町"
     }
   ],
-  "updated_at": "2026-08-21T06:39:54.857498+09:00"
+  "updated_at": "2026-08-21T12:55:40.318964+09:00"
 }

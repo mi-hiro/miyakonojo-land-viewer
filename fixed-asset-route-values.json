@@ -1,34 +1,34 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-01T15:42:35.064Z",
+  "updated_at": "2026-09-02T01:16:00.431Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 565,
-    "input_rows": 564,
-    "items": 565,
+    "rows": 568,
+    "input_rows": 567,
+    "items": 568,
     "towns": 55,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 552
+      "都城市": 555
     },
     "collection_progress": {
       "all": {
-        "total": 9799,
-        "checked": 9799,
+        "total": 9765,
+        "checked": 9765,
         "remaining": 0,
         "checked_rate": 100
       },
       "listing": {
-        "total": 5016,
-        "checked": 5016,
+        "total": 4983,
+        "checked": 4983,
         "remaining": 0,
         "checked_rate": 100
       },
       "town_coverage": {
-        "total": 1383,
-        "checked": 1383,
+        "total": 1382,
+        "checked": 1382,
         "remaining": 0,
         "checked_rate": 100
       },
@@ -54,8 +54,8 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9400,
-          "checked": 9400,
+          "total": 9366,
+          "checked": 9366,
           "remaining": 0,
           "checked_rate": 100
         },
@@ -68,21 +68,21 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-09-01T15:42:34.933Z",
+      "ran_at": "2026-09-02T01:16:00.300Z",
       "mode": "browser",
-      "requests": 181,
-      "selected_points": 181,
+      "requests": 50,
+      "selected_points": 50,
       "selected_area_mesh_points": 0,
-      "selected_listing_points": 98,
-      "selected_town_coverage_points": 83,
+      "selected_listing_points": 0,
+      "selected_town_coverage_points": 50,
       "selected_points_by_area": {
-        "都城市": 181
+        "都城市": 50
       },
       "selected_points_by_municipality": {
-        "都城市": 181
+        "都城市": 50
       },
-      "all_points": 9799,
-      "new_rows": 15,
+      "all_points": 9765,
+      "new_rows": 3,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -5155,6 +5155,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-04T01:11:16.656Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5717545-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.874379861041916,
+      "longitude": 131.06623999967644,
+      "route_value_yen_per_sqm": 6200,
+      "fixed_asset_tax_route_value_yen_per_sqm": 6200,
+      "fixed_asset_unit_price_man_per_tsubo": 2,
+      "public_reference_unit_price_man_per_tsubo": 2.9,
+      "fixed_asset_route_id": "5717545-22",
+      "route_id": "5717545-22",
+      "fixedid": "5717545",
+      "town": "高崎町大牟田",
+      "address": "高崎町大牟田",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-09-02T01:13:45.886Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -12074,6 +12102,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5724100-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.73439819472108,
+      "longitude": 131.04802291682432,
+      "route_value_yen_per_sqm": 17500,
+      "fixed_asset_tax_route_value_yen_per_sqm": 17500,
+      "fixed_asset_unit_price_man_per_tsubo": 5.8,
+      "public_reference_unit_price_man_per_tsubo": 8.3,
+      "fixed_asset_route_id": "5724100-22",
+      "route_id": "5724100-22",
+      "fixedid": "5724100",
+      "town": "都原町",
+      "address": "都原町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-09-02T01:15:23.796Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5728231-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.738265555611065,
@@ -12155,6 +12211,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-09-01T02:06:23.920Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5728243-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.73961638903529,
+      "longitude": 131.04147791672267,
+      "route_value_yen_per_sqm": 8700,
+      "fixed_asset_tax_route_value_yen_per_sqm": 8700,
+      "fixed_asset_unit_price_man_per_tsubo": 2.9,
+      "public_reference_unit_price_man_per_tsubo": 4.1,
+      "fixed_asset_route_id": "5728243-22",
+      "route_id": "5728243-22",
+      "fixedid": "5728243",
+      "town": "都原町",
+      "address": "都原町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-09-02T01:15:27.461Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

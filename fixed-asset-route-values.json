@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-02T15:13:56.540Z",
+  "updated_at": "2026-09-03T01:17:13.615Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -15,8 +15,8 @@
     },
     "collection_progress": {
       "all": {
-        "total": 9765,
-        "checked": 9765,
+        "total": 9766,
+        "checked": 9766,
         "remaining": 0,
         "checked_rate": 100
       },
@@ -27,8 +27,8 @@
         "checked_rate": 100
       },
       "town_coverage": {
-        "total": 1382,
-        "checked": 1382,
+        "total": 1383,
+        "checked": 1383,
         "remaining": 0,
         "checked_rate": 100
       },
@@ -54,8 +54,8 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9366,
-          "checked": 9366,
+          "total": 9367,
+          "checked": 9367,
           "remaining": 0,
           "checked_rate": 100
         },

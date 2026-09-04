@@ -1,6 +1,6 @@
 {
   "area": "宮崎県都城市",
-  "generated_at": "2026-09-04T16:40:11.182096+09:00",
+  "generated_at": "2026-09-04T22:06:53.834780+09:00",
   "listings": [
     {
       "address": "都城市 一万城町（三股駅）",
@@ -406,37 +406,6 @@
       "title": "土地 都城市 上長飯町（都城駅） 住宅用地 680 万円 坪単価 8.40万円 権利 所有権 土地面積 267.84m² (81.02坪) 最適用途 住宅用地 ",
       "town": "上長飯町",
       "unit_price_man_per_tsubo": 8.39,
-      "zoning": null
-    },
-    {
-      "address": "宮崎県都城市下川東１丁目",
-      "building_coverage_ratio_percent": 60.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_338e40e2c9163fcbbfa05828b5e77995/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/1058055298/2.jpeg?height=280&width=280&stno10105&attimestamp=20260517173425",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/1058055298/2.jpeg?height=280&width=280&stno10105&attimestamp=20260517173425",
-        "https://img4.athome.jp/image_files/index/bukken/1058055298/3.jpeg?height=280&width=280&stno10105&attimestamp=20260517173425",
-        "https://img4.athome.jp/image_files/index/bukken/1058055298/1.jpeg?height=280&width=280&stno10105&attimestamp=20260517173425"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 467.15,
-      "land_area_tsubo": 141.31,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 1200.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市下川東１丁目 下川東 宮崎県都城市下川東１丁目 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_338e40e2c9163fcbbfa05828b5e77995/",
-      "title": "土地・売地 宮崎県都城市下川東１丁目",
-      "town": "下川東",
-      "unit_price_man_per_tsubo": 8.49,
       "zoning": null
     },
     {
@@ -1626,6 +1595,42 @@
       "address": "宮崎県都城市今町",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
+      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_717520ca77ca3887912e1a5612de5b83/",
+      "image_url": "https://img4.athome.jp/image_files/index/bukken/6988110530/2.jpeg?height=280&width=280&stno10105&attimestamp=20260730142724",
+      "image_urls": [
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/2.jpeg?height=280&width=280&stno10105&attimestamp=20260730142724",
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/3.jpeg?height=280&width=280&stno10105&attimestamp=20260730142724",
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/1.jpeg?height=280&width=280&stno10105&attimestamp=20260730142724",
+        "https://img4.athome.jp/image_files/index/bukken/6984681340/1.jpeg?height=280&width=280&stno10105&attimestamp=20250708093627",
+        "https://img4.athome.jp/image_files/index/bukken/6977372482/3.jpeg?height=280&width=280&stno10105&attimestamp=20260217175633",
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/2.jpeg?height=280&width=280&stno10105&attimestamp=20260429082415",
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/3.jpeg?height=280&width=280&stno10105&attimestamp=20260429082415",
+        "https://img4.athome.jp/image_files/index/bukken/6988110530/1.jpeg?height=280&width=280&stno10105&attimestamp=20260429082415"
+      ],
+      "is_cheap_new": false,
+      "is_new": false,
+      "land_area_sqm": 1074.84,
+      "land_area_tsubo": 325.14,
+      "latitude": null,
+      "longitude": null,
+      "new_reason": "",
+      "parcel_number": null,
+      "price_man_yen": 790.0,
+      "remarks": null,
+      "restrictions": null,
+      "road_details": null,
+      "search_text": "土地・売地 宮崎県都城市今町 今町 宮崎県都城市今町 ニフティ不動産",
+      "source": "ニフティ不動産",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_717520ca77ca3887912e1a5612de5b83/",
+      "title": "土地・売地 宮崎県都城市今町",
+      "town": "今町",
+      "unit_price_man_per_tsubo": 2.43,
+      "zoning": null
+    },
+    {
+      "address": "宮崎県都城市今町",
+      "building_coverage_ratio_percent": 70.0,
+      "floor_area_ratio_percent": 200.0,
       "id": "https://www.hatomarksite.com/search/zentaku/bukken/5103114130",
       "image_url": "https://storage3.zentaku.or.jp/prod/045/63666/regsys/5103114130/image/33d2c725-cc89-43c8-b9fe-9ba6343c47cf.jpg",
       "image_urls": [
@@ -1869,6 +1874,37 @@
       "town": "前田町",
       "unit_price_man_per_tsubo": 9.91,
       "zoning": "ヒント"
+    },
+    {
+      "address": "宮崎県都城市北原町",
+      "building_coverage_ratio_percent": 60.0,
+      "floor_area_ratio_percent": 200.0,
+      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_5db8d06d622932d899aea61c97ce0882/",
+      "image_url": "https://img4.athome.jp/image_files/index/bukken/6989337896/2.jpeg?height=280&width=280&stno10105&attimestamp=20260718162333",
+      "image_urls": [
+        "https://img4.athome.jp/image_files/index/bukken/6989337896/2.jpeg?height=280&width=280&stno10105&attimestamp=20260718162333",
+        "https://img4.athome.jp/image_files/index/bukken/6989337896/3.jpeg?height=280&width=280&stno10105&attimestamp=20260718162333",
+        "https://img4.athome.jp/image_files/index/bukken/6989337896/1.jpeg?height=280&width=280&stno10105&attimestamp=20260718162333"
+      ],
+      "is_cheap_new": false,
+      "is_new": false,
+      "land_area_sqm": 210.97,
+      "land_area_tsubo": 63.82,
+      "latitude": null,
+      "longitude": null,
+      "new_reason": "",
+      "parcel_number": null,
+      "price_man_yen": 1059.0,
+      "remarks": null,
+      "restrictions": null,
+      "road_details": null,
+      "search_text": "土地・売地 宮崎県都城市北原町 北原町 宮崎県都城市北原町 ニフティ不動産",
+      "source": "ニフティ不動産",
+      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_5db8d06d622932d899aea61c97ce0882/",
+      "title": "土地・売地 宮崎県都城市北原町",
+      "town": "北原町",
+      "unit_price_man_per_tsubo": 16.59,
+      "zoning": null
     },
     {
       "address": "宮崎県都城市南横市町",
@@ -2973,39 +3009,6 @@
       "town": "太郎坊町",
       "unit_price_man_per_tsubo": 4.5,
       "zoning": "ヒント"
-    },
-    {
-      "address": "宮崎県都城市太郎坊町",
-      "building_coverage_ratio_percent": 70.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_08bf6e44111636b39f2098f8afc33736/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/6987861950/2.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/6987861950/2.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
-        "https://img4.athome.jp/image_files/index/bukken/6987861950/1.jpeg?height=280&width=280&stno10105&attimestamp=20260131094131",
-        "https://img4.athome.jp/image_files/index/bukken/6984681340/1.jpeg?height=280&width=280&stno10105&attimestamp=20250708093627",
-        "https://img4.athome.jp/image_files/index/bukken/6977372482/3.jpeg?height=280&width=280&stno10105&attimestamp=20260217175633",
-        "https://img4.athome.jp/image_files/index/bukken/1101345214/3.jpeg?height=280&width=280&stno10105&attimestamp=20260526124324"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 479.99,
-      "land_area_tsubo": 145.2,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 726.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市太郎坊町 太郎坊町 宮崎県都城市太郎坊町 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_08bf6e44111636b39f2098f8afc33736/",
-      "title": "土地・売地 宮崎県都城市太郎坊町",
-      "town": "太郎坊町",
-      "unit_price_man_per_tsubo": 5.0,
-      "zoning": null
     },
     {
       "address": "都城市 太郎坊町",
@@ -5248,44 +5251,6 @@
       "address": "宮崎県都城市平塚町",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_064a69787dfd3dcc827e96ab701c83b5/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/1106575914/2.jpeg?height=280&width=280&stno10105&attimestamp=20260822205233",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/2.jpeg?height=280&width=280&stno10105&attimestamp=20260822205233",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/3.jpeg?height=280&width=280&stno10105&attimestamp=20260822205233",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/1.jpeg?height=280&width=280&stno10105&attimestamp=20260822205233",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/2.jpeg?height=280&width=280&stno10105&attimestamp=20260817171229",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/3.jpeg?height=280&width=280&stno10105&attimestamp=20260817171229",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/1.jpeg?height=280&width=280&stno10105&attimestamp=20260817171229",
-        "https://suumo.jp/front/gazo/bukken/090/N010000/img/826/20745826/20745826_0001.jpg",
-        "https://suumo.jp/front/gazo/bukken/090/N010000/img/478/76934478/76934478_0006.jpg",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/2.jpeg?height=280&width=280&stno10105&attimestamp=20260719171222",
-        "https://img4.athome.jp/image_files/index/bukken/1106575914/3.jpeg?height=280&width=280&stno10105&attimestamp=20260719171222"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 1302.0,
-      "land_area_tsubo": 393.86,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 786.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市平塚町 平塚町 宮崎県都城市平塚町 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_064a69787dfd3dcc827e96ab701c83b5/",
-      "title": "土地・売地 宮崎県都城市平塚町",
-      "town": "平塚町",
-      "unit_price_man_per_tsubo": 2.0,
-      "zoning": null
-    },
-    {
-      "address": "宮崎県都城市平塚町",
-      "building_coverage_ratio_percent": 70.0,
-      "floor_area_ratio_percent": 200.0,
       "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_78998573/",
       "image_url": "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F573%2F78998573%2F78998573_0002.jpg&w=640&h=480",
       "image_urls": [
@@ -5582,44 +5547,6 @@
       "town": "庄内町",
       "unit_price_man_per_tsubo": 1.52,
       "zoning": "無指定"
-    },
-    {
-      "address": "宮崎県都城市庄内町",
-      "building_coverage_ratio_percent": 70.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_09fb868a142f3af0b06eadaa839bc10e/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/1057916298/3.jpeg?height=280&width=280&stno10105&attimestamp=20260324060848",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/1057916298/3.jpeg?height=280&width=280&stno10105&attimestamp=20260324060848",
-        "https://img4.athome.jp/image_files/index/bukken/1057916298/1.jpeg?height=280&width=280&stno10105&attimestamp=20260324060848",
-        "https://suumo.jp/front/gazo/bukken/090/N010000/img/946/21566946/21566946_0001.jpg",
-        "https://img4.athome.jp/image_files/index/bukken/1057848298/2.jpeg?height=280&width=280&stno10105&attimestamp=20260516060851",
-        "https://suumo.jp/front/gazo/bukken/090/N010000/img/336/21060336/21060336_0001.jpg",
-        "https://img4.athome.jp/image_files/index/bukken/6984263274/2.jpeg?height=280&width=280&stno10105&attimestamp=20250929160625",
-        "https://img4.athome.jp/image_files/index/bukken/6987548789/1.jpeg?height=280&width=280&stno10105&attimestamp=20250912134317",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F142%2F2%2F2%2F5c58.jpg",
-        "https://image.homes.jp/smallimg/image.php?file=http%3A%2F%2Fimg.homes.jp%2F9364%2Fsale%2F8%2F2%2F2%2Fm1uy.jpg",
-        "https://suumo.jp/front/gazo/bukken/090/N010000/img/947/71911947/71911947_0001.jpg"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 1501.0,
-      "land_area_tsubo": 454.05,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 790.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市庄内町 庄内町 宮崎県都城市庄内町 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_09fb868a142f3af0b06eadaa839bc10e/",
-      "title": "土地・売地 宮崎県都城市庄内町",
-      "town": "庄内町",
-      "unit_price_man_per_tsubo": 1.74,
-      "zoning": null
     },
     {
       "address": "宮崎県都城市庄内町",
@@ -9970,40 +9897,6 @@
       "address": "宮崎県都城市高城町桜木",
       "building_coverage_ratio_percent": 70.0,
       "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_114b0afd340c3c879946c5610c204f39/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/1107493303/2.jpeg?height=280&width=280&stno10105&attimestamp=20260627205234",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/2.jpeg?height=280&width=280&stno10105&attimestamp=20260627205234",
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/3.jpeg?height=280&width=280&stno10105&attimestamp=20260627205234",
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/1.jpeg?height=280&width=280&stno10105&attimestamp=20260627205234",
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/2.jpeg?height=280&width=280&stno10105&attimestamp=20250924174026",
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/3.jpeg?height=280&width=280&stno10105&attimestamp=20250924174026",
-        "https://img4.athome.jp/image_files/index/bukken/1107493303/1.jpeg?height=280&width=280&stno10105&attimestamp=20250924174026"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 2893.0,
-      "land_area_tsubo": 875.13,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 1600.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市高城町桜木 高城町桜木 宮崎県都城市高城町桜木 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_114b0afd340c3c879946c5610c204f39/",
-      "title": "土地・売地 宮崎県都城市高城町桜木",
-      "town": "高城町桜木",
-      "unit_price_man_per_tsubo": 1.83,
-      "zoning": null
-    },
-    {
-      "address": "宮崎県都城市高城町桜木",
-      "building_coverage_ratio_percent": 70.0,
-      "floor_area_ratio_percent": 200.0,
       "id": "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/nc_21000351/",
       "image_url": "https://img01.suumo.com/jj/resizeImage?src=gazo%2Fkaisha%2F090%2FN040001%2Fimg%2F71%2F150571_002_03_005_t_00.jpg&w=640&h=480",
       "image_urls": [
@@ -10291,36 +10184,6 @@
       "town": "高城町穂満坊",
       "unit_price_man_per_tsubo": 0.98,
       "zoning": "ヒント"
-    },
-    {
-      "address": "宮崎県都城市高城町穂満坊",
-      "building_coverage_ratio_percent": 60.0,
-      "floor_area_ratio_percent": 200.0,
-      "id": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_011fadf571433124abd66bd82c7ba451/",
-      "image_url": "https://img4.athome.jp/image_files/index/bukken/6990172355/2.jpeg?height=280&width=280&stno10105&attimestamp=20260403131020",
-      "image_urls": [
-        "https://img4.athome.jp/image_files/index/bukken/6990172355/2.jpeg?height=280&width=280&stno10105&attimestamp=20260403131020",
-        "https://img4.athome.jp/image_files/index/bukken/6990172355/3.jpeg?height=280&width=280&stno10105&attimestamp=20260403131020"
-      ],
-      "is_cheap_new": false,
-      "is_new": false,
-      "land_area_sqm": 5581.0,
-      "land_area_tsubo": 1688.25,
-      "latitude": null,
-      "longitude": null,
-      "new_reason": "",
-      "parcel_number": null,
-      "price_man_yen": 3300.0,
-      "remarks": null,
-      "restrictions": null,
-      "road_details": null,
-      "search_text": "土地・売地 宮崎県都城市高城町穂満坊 高城町穂満坊 宮崎県都城市高城町穂満坊 ニフティ不動産",
-      "source": "ニフティ不動産",
-      "source_url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/detail_011fadf571433124abd66bd82c7ba451/",
-      "title": "土地・売地 宮崎県都城市高城町穂満坊",
-      "town": "高城町穂満坊",
-      "unit_price_man_per_tsubo": 1.95,
-      "zoning": null
     },
     {
       "address": "都城市高城町穂満坊",
@@ -11805,7 +11668,7 @@
     {
       "collected_count": 28,
       "errors": [
-        "物件詳細ページの写真取得に一部失敗しました（22件）。"
+        "物件詳細ページの写真取得に一部失敗しました（23件）。"
       ],
       "excluded_count": 0,
       "name": "LIFULL HOME'S",
@@ -11838,11 +11701,11 @@
       "url": "https://house.goo.ne.jp/buy/kyushu_la/area_miyazaki/45202.html"
     },
     {
-      "collected_count": 72,
+      "collected_count": 70,
       "errors": [
         "物件詳細ページの写真取得は上限0件まで実行しました。"
       ],
-      "excluded_count": 8,
+      "excluded_count": 10,
       "name": "ニフティ不動産",
       "url": "https://myhome.nifty.com/tochi/miyazaki/miyakonojoshi_ct/"
     },
@@ -11864,10 +11727,10 @@
     }
   ],
   "summary": {
-    "duplicate_count": 177,
-    "excluded_count": 44,
-    "listing_count": 353,
-    "overall_average_unit_price_man_per_tsubo": 4.44
+    "duplicate_count": 179,
+    "excluded_count": 46,
+    "listing_count": 349,
+    "overall_average_unit_price_man_per_tsubo": 4.48
   },
   "towns": [
     {
@@ -11885,6 +11748,13 @@
       "town": "栄町"
     },
     {
+      "average_unit_price_man_per_tsubo": 16.59,
+      "listing_count": 1,
+      "maximum_unit_price_man_per_tsubo": 16.59,
+      "minimum_unit_price_man_per_tsubo": 16.59,
+      "town": "北原町"
+    },
+    {
       "average_unit_price_man_per_tsubo": 14.63,
       "listing_count": 7,
       "maximum_unit_price_man_per_tsubo": 37.8,
@@ -11892,18 +11762,18 @@
       "town": "大王町"
     },
     {
+      "average_unit_price_man_per_tsubo": 12.06,
+      "listing_count": 3,
+      "maximum_unit_price_man_per_tsubo": 14.96,
+      "minimum_unit_price_man_per_tsubo": 10.23,
+      "town": "下川東"
+    },
+    {
       "average_unit_price_man_per_tsubo": 11.75,
       "listing_count": 3,
       "maximum_unit_price_man_per_tsubo": 16.89,
       "minimum_unit_price_man_per_tsubo": 8.0,
       "town": "姫城町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 11.17,
-      "listing_count": 4,
-      "maximum_unit_price_man_per_tsubo": 14.96,
-      "minimum_unit_price_man_per_tsubo": 8.49,
-      "town": "下川東"
     },
     {
       "average_unit_price_man_per_tsubo": 10.98,
@@ -12018,6 +11888,13 @@
       "town": "甲斐元町"
     },
     {
+      "average_unit_price_man_per_tsubo": 6.26,
+      "listing_count": 5,
+      "maximum_unit_price_man_per_tsubo": 8.81,
+      "minimum_unit_price_man_per_tsubo": 4.5,
+      "town": "太郎坊町"
+    },
+    {
       "average_unit_price_man_per_tsubo": 6.08,
       "listing_count": 10,
       "maximum_unit_price_man_per_tsubo": 8.61,
@@ -12030,13 +11907,6 @@
       "maximum_unit_price_man_per_tsubo": 8.32,
       "minimum_unit_price_man_per_tsubo": 2.31,
       "town": "都北町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 6.05,
-      "listing_count": 6,
-      "maximum_unit_price_man_per_tsubo": 8.81,
-      "minimum_unit_price_man_per_tsubo": 4.5,
-      "town": "太郎坊町"
     },
     {
       "average_unit_price_man_per_tsubo": 5.65,
@@ -12102,11 +11972,18 @@
       "town": "山之口町花木"
     },
     {
-      "average_unit_price_man_per_tsubo": 2.9,
-      "listing_count": 10,
+      "average_unit_price_man_per_tsubo": 3.0,
+      "listing_count": 9,
       "maximum_unit_price_man_per_tsubo": 4.9,
       "minimum_unit_price_man_per_tsubo": 0.98,
       "town": "高城町穂満坊"
+    },
+    {
+      "average_unit_price_man_per_tsubo": 2.96,
+      "listing_count": 5,
+      "maximum_unit_price_man_per_tsubo": 5.75,
+      "minimum_unit_price_man_per_tsubo": 0.26,
+      "town": "平塚町"
     },
     {
       "average_unit_price_man_per_tsubo": 2.8,
@@ -12114,13 +11991,6 @@
       "maximum_unit_price_man_per_tsubo": 4.35,
       "minimum_unit_price_man_per_tsubo": 0.81,
       "town": "乙房町"
-    },
-    {
-      "average_unit_price_man_per_tsubo": 2.8,
-      "listing_count": 6,
-      "maximum_unit_price_man_per_tsubo": 5.75,
-      "minimum_unit_price_man_per_tsubo": 0.26,
-      "town": "平塚町"
     },
     {
       "average_unit_price_man_per_tsubo": 2.74,
@@ -12152,7 +12022,7 @@
     },
     {
       "average_unit_price_man_per_tsubo": 2.38,
-      "listing_count": 11,
+      "listing_count": 12,
       "maximum_unit_price_man_per_tsubo": 4.0,
       "minimum_unit_price_man_per_tsubo": 0.23,
       "town": "今町"
@@ -12172,25 +12042,25 @@
       "town": "丸谷町"
     },
     {
-      "average_unit_price_man_per_tsubo": 2.2,
-      "listing_count": 2,
-      "maximum_unit_price_man_per_tsubo": 2.85,
-      "minimum_unit_price_man_per_tsubo": 1.55,
-      "town": "菓子野町"
+      "average_unit_price_man_per_tsubo": 2.24,
+      "listing_count": 4,
+      "maximum_unit_price_man_per_tsubo": 3.5,
+      "minimum_unit_price_man_per_tsubo": 1.56,
+      "town": "高城町桜木"
     },
     {
-      "average_unit_price_man_per_tsubo": 2.17,
-      "listing_count": 9,
+      "average_unit_price_man_per_tsubo": 2.22,
+      "listing_count": 8,
       "maximum_unit_price_man_per_tsubo": 3.37,
       "minimum_unit_price_man_per_tsubo": 0.52,
       "town": "庄内町"
     },
     {
-      "average_unit_price_man_per_tsubo": 2.16,
-      "listing_count": 5,
-      "maximum_unit_price_man_per_tsubo": 3.5,
-      "minimum_unit_price_man_per_tsubo": 1.56,
-      "town": "高城町桜木"
+      "average_unit_price_man_per_tsubo": 2.2,
+      "listing_count": 2,
+      "maximum_unit_price_man_per_tsubo": 2.85,
+      "minimum_unit_price_man_per_tsubo": 1.55,
+      "town": "菓子野町"
     },
     {
       "average_unit_price_man_per_tsubo": 2.04,

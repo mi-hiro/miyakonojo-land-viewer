@@ -8005,3 +8005,11 @@ details.history-timeline-card[open] .history-timeline-summary > svg {
     display: none;
   }
 }
+
+/* Unknown financial values never receive bargain colors. */
+.map-pin.unknown {
+  background: #64748b;
+  color: #fff;
+}
+.listing-card.unknown { border-left-color: #64748b; }
+.badge.pending { background: #e2e8f0; color: #334155; }

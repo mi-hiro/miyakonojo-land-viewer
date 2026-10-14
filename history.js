@@ -51,10 +51,10 @@ async function fetchOptionalJson(fileName) {
   const localUrl = `./${fileName}`;
   const remoteUrl = `${RAW_BASE}${fileName}`;
   try {
-    return await fetchJson(window.location.protocol === "file:" ? localUrl : remoteUrl);
+    return await fetchJson(localUrl);
   } catch (error) {
     try {
-      return await fetchJson(window.location.protocol === "file:" ? remoteUrl : localUrl);
+      return await fetchJson(remoteUrl);
     } catch (fallbackError) {
       return null;
     }
@@ -66,6 +66,9 @@ async function fetchJson(url) {
   if (!response.ok) {
     throw new Error(`Fetch failed: ${response.status}`);
   }
+  const type = (response.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
+  const host = new URL(url, window.location.href).hostname;
+  if (type !== 'application/json' && !(host === 'raw.githubusercontent.com' && type === 'text/plain')) throw new Error('Invalid JSON Content-Type');
   return response.json();
 }
 

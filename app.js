@@ -1,3 +1,409 @@
+const LAND_CLIENT_PROTOCOL = "land-viewer-c2";
+let landWorkerInfo = null;
+let landRequiresVerifiedShell = false;
+
+function workerMessage(worker, type) {
+  return new Promise((resolve, reject) => {
+    if (!worker) { reject(new Error('Service Worker unavailable')); return; }
+    const channel = new MessageChannel();
+    const timeout = setTimeout(() => { channel.port1.close(); reject(new Error('Service Worker response timed out')); }, 3500);
+    channel.port1.onmessage = event => {
+      clearTimeout(timeout); channel.port1.close();
+      if (event.data?.error) reject(new Error(event.data.error)); else resolve(event.data);
+    };
+    worker.postMessage({type}, [channel.port2]);
+  });
+}
+
+async function initializeLandData() {
+  setStatus("読み込み中");
+  try {
+    await fetchLandText('./viewer-contracts/release.json');
+    landRequiresVerifiedShell = true;
+  } catch (error) {
+    let cachedC1 = false;
+    const stored = localStorage.getItem("miyakonojo_land_verified_v2");
+    try { cachedC1 = Boolean(JSON.parse(JSON.parse(stored).manifestText).reference_versions?.source_revision); } catch (cacheError) { /* loadData validates pre-C1 caches independently. */ }
+    if (cachedC1) landRequiresVerifiedShell = true;
+    else {
+      if (error.status !== 404 && !stored) {
+        setStatus('配信記録を取得・検証できません。査定を開始できません。');
+        els.resultCount.textContent = '取得不能';
+        els.listingList.innerHTML = '<div class="empty-state">土地データ取得不能</div>';
+        return;
+      }
+      // Only pre-C1 preview/legacy data may use the evidence-only compatibility path.
+      await loadData();
+      installLegacyReader().catch(()=>{});
+      return;
+    }
+  }
+  if (!('serviceWorker' in navigator)) {
+    setStatus('検証済みアプリ一式を利用できません。査定を開始できません。');
+    return;
+  }
+  try {
+    const registration = await navigator.serviceWorker.register('./service-worker.js', {updateViaCache:'none'});
+    if (registration.installing) {
+      await new Promise((resolve,reject) => {
+        const worker = registration.installing;
+        const timeout = setTimeout(() => reject(new Error('Worker installation timed out')), 15000);
+        const check = () => {
+          if (worker.state === 'installed' || worker.state === 'activated') { clearTimeout(timeout); resolve(); }
+          else if (worker.state === 'redundant') { clearTimeout(timeout); reject(new Error('Worker validation failed')); }
+        };
+        worker.addEventListener('statechange', check); check();
+      });
+    }
+    if (registration.waiting) {
+      const next = registration.waiting;
+      await workerMessage(next, 'ACTIVATE_VERIFIED');
+      if (next.state !== 'activated') await new Promise((resolve,reject) => {
+        const timeout = setTimeout(() => reject(new Error('Worker activation timed out')), 8000);
+        const check = () => {
+          if (next.state === 'activated') { clearTimeout(timeout); resolve(); }
+          else if (next.state === 'redundant') { clearTimeout(timeout); reject(new Error('Worker activation failed')); }
+        };
+        next.addEventListener('statechange',check); check();
+      });
+    }
+    const ready = await navigator.serviceWorker.ready;
+    landWorkerInfo = await workerMessage(ready.active, 'CLIENT_INFO');
+    if (landWorkerInfo.protocol !== LAND_CLIENT_PROTOCOL) throw new Error('Shell protocol mismatch');
+    if (!navigator.serviceWorker.controller || landWorkerInfo.needs_reload) {
+      const key = 'land_c2_initial_reload';
+      if (sessionStorage.getItem(key) === landWorkerInfo.cache) throw new Error('Verified shell is not controlling this page');
+      sessionStorage.setItem(key, landWorkerInfo.cache);
+      window.location.reload();
+      return;
+    }
+    sessionStorage.removeItem('land_c2_initial_reload');
+    await loadData();
+  } catch (error) {
+    setStatus('アプリ・データ一式の検証が完了していません。最後の検証済みアプリで再読み込みするか、通信復帰後に更新してください。');
+    els.resultCount.textContent = '取得不能';
+  }
+}
+
+async function installLegacyReader() {
+  if (!('serviceWorker' in navigator)) return;
+  const registration=await navigator.serviceWorker.register('./service-worker.js',{updateViaCache:'none'});
+  if (registration.installing) await new Promise((resolve,reject)=>{
+    const worker=registration.installing;const timeout=setTimeout(()=>reject(new Error('Reader install timed out')),12000);
+    worker.addEventListener('statechange',()=>{if(worker.state==='installed'||worker.state==='activated'){clearTimeout(timeout);resolve();}else if(worker.state==='redundant'){clearTimeout(timeout);reject(new Error('Reader shell verification failed'));}});
+  });
+  if (registration.waiting) await workerMessage(registration.waiting,'ACTIVATE_VERIFIED');
+}
+
+async function refreshLandViewer() {
+  if (landRequiresVerifiedShell) {
+    try {
+      const result = await workerMessage(navigator.serviceWorker.controller, 'CHECK_RELEASE');
+      if (result.cache !== landWorkerInfo?.cache) { window.location.reload(); return; }
+      await loadData();
+    } catch (error) {
+      await loadData();
+      state.dataStale = true;
+      setStatus(`更新を検証できません。最後の検証済み一式（取得 ${formatDateTime(landWorkerInfo?.verified_at)}）を表示しています。`);
+    }
+  } else await loadData();
+}
+
+// Gate A's five-document contract is verified before any financial data is used.
+const LAND_DOCUMENTS = ["v1/history.json", "v1/latest.json", "v2/history.json", "v2/latest.json", "v2/statistics.json"];
+const LAND_FINANCIAL_FIELDS = ["price_man_yen", "land_area_sqm", "land_area_tsubo", "unit_price_man_per_tsubo"];
+let lastVerifiedLand = null;
+let landLoadSequence = 0;
+
+function declaredFinancialFieldsValid(record) {
+  return Boolean(record && typeof record.source === "string" && record.source &&
+    typeof (record.source_url || record.id) === "string" && (record.source_url || record.id) &&
+    ["detail_confirmed", "listing_observed"].includes(record.financial_status) &&
+    (record.source !== "LIFULL HOME'S" || record.financial_status === "detail_confirmed") &&
+    validFinancialTimestamp(record.financial_checked_at) &&
+    [record.price_man_yen, record.land_area_sqm, record.unit_price_man_per_tsubo]
+      .every((value) => typeof value === "number" && Number.isFinite(value) && value > 0));
+}
+
+function validFinancialTimestamp(value) {
+  if (typeof value !== "string") return false;
+  const parts = value.match(/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-](\d{2}):(\d{2}))$/);
+  if (!parts || !Number.isFinite(Date.parse(value))) return false;
+  const date = new Date(`${parts[1]}-${parts[2]}-${parts[3]}T00:00:00Z`);
+  return date.getUTCFullYear() === Number(parts[1]) && date.getUTCMonth() + 1 === Number(parts[2]) &&
+    date.getUTCDate() === Number(parts[3]) && Number(parts[4]) < 24 && Number(parts[5]) < 60 && Number(parts[6]) < 60 &&
+    (!parts[8] || (Number(parts[8]) < 24 && Number(parts[9]) < 60));
+}
+
+function safeFinancialRecord(record, historical = false) {
+  if (!record || typeof record.id !== "string" || !record.id) throw new Error("物件IDが不正です");
+  const result = { ...record };
+  const eligible = historical ? financialEvidence(record) : hasConfirmedFinancials(record);
+  if (!eligible) {
+    result.unconfirmed_financial_observation = record.unconfirmed_financial_observation || {
+      values: Object.fromEntries(LAND_FINANCIAL_FIELDS.map((key) => [key, record[key]])),
+    };
+    LAND_FINANCIAL_FIELDS.forEach((key) => { result[key] = null; });
+    result.financial_state = "pending";
+    result.financial_status = "pending";
+    result.is_cheap_new = false;
+  } else if (!(typeof result.land_area_tsubo === "number" && Number.isFinite(result.land_area_tsubo) && result.land_area_tsubo > 0)) {
+    result.land_area_tsubo = Math.round(result.land_area_sqm / TSUBO_SQM * 100) / 100;
+  }
+  return result;
+}
+
+function safePriceHistory(entry) {
+  if (!Array.isArray(entry.price_history || [])) throw new Error("価格履歴が不正です");
+  const reference = entry.latest || entry;
+  return (entry.price_history || []).filter((row) => financialEvidence({
+    source: reference.source, source_url: reference.source_url || reference.id, ...row,
+  }) && (row.source || reference.source) === reference.source &&
+    (row.source_url || reference.source_url || reference.id) === (reference.source_url || reference.id));
+}
+
+// Reader-first legacy migration: tags alone are not request evidence.
+function requestReceiptVerified(record) {
+  const proof = record?.verification_evidence;
+  const identity = record?.source_url || record?.id;
+  const listing = proof?.listing;
+  const receipt = record?.source === "LIFULL HOME'S" ? proof?.detail : listing;
+  const validReceipt = item => item?.success === true && item.source === record.source &&
+    item.source_url === identity && item.listing_id === identity &&
+    item.collection_id === proof.collection_id && validFinancialTimestamp(item.fetched_at) &&
+    /^[a-f0-9]{64}$/.test(item.input_sha256 || "");
+  return Boolean(proof?.schema_version === 1 && proof.parser_version === "land-extraction-d1" &&
+    typeof proof.collection_id === "string" && proof.collection_id && validReceipt(listing) &&
+    validReceipt(receipt) && declaredFinancialFieldsValid(record) &&
+    Date.parse(receipt.fetched_at) === Date.parse(record.financial_checked_at) &&
+    ["price_man_yen", "land_area_sqm"].every(key => receipt.extracted?.[key] === record[key]) &&
+    record.unit_price_man_per_tsubo === roundFinancialHundredth(record.price_man_yen / (record.land_area_sqm / 3.305785)) &&
+    (record.land_area_tsubo == null || record.land_area_tsubo === roundFinancialHundredth(record.land_area_sqm / 3.305785)) &&
+    (record.address === undefined || listing.extracted?.address === record.address));
+}
+
+
+function financialEvidence(record) {
+  return declaredFinancialFieldsValid(record) && requestReceiptVerified(record);
+}
+
+function safeLegacyLandPair(latest, history) {
+  const clean = record => {
+    if (!record || requestReceiptVerified(record)) return record;
+    return { ...record, financial_status: "pending", financial_state: "pending",
+      financial_checked_at: null, detail_pending_reason: "legacy_receipt_unverified" };
+  };
+  const current = { ...latest, listings: latest.listings.map(clean) };
+  const previous = { ...history, listings: history.listings.map(entry => ({ ...entry,
+    latest: clean(entry.latest), price_history: (entry.price_history || []).map(row => clean({
+      source: entry.latest?.source, source_url: entry.latest?.source_url || entry.id, ...row,
+    })), last_confirmed: entry.last_confirmed ? clean(entry.last_confirmed) : undefined,
+  })) };
+  return safeLandPair(current, previous);
+}
+
+function safeLandPair(latest, history) {
+  if (![1, 2].includes(latest?.schema_version) || latest.schema_version !== history?.schema_version ||
+      !Array.isArray(latest.listings) || !Array.isArray(history.listings)) throw new Error("土地データ形式が不正です");
+  if ((latest.generation_id || history.generation_id) && latest.generation_id !== history.generation_id) {
+    throw new Error("一覧と履歴の世代が一致しません");
+  }
+  const unique = (rows) => {
+    const ids = rows.map((row) => row.id);
+    if (ids.some((id) => typeof id !== "string" || !id) || new Set(ids).size !== ids.length) throw new Error("物件IDが重複しています");
+  };
+  unique(latest.listings); unique(history.listings);
+  if ((latest.collection_id || history.last_collection_id) && latest.collection_id !== history.last_collection_id) throw new Error("一覧と履歴の収集実行が一致しません");
+  for (const row of latest.listings.filter(hasConfirmedFinancials)) {
+    if (latest.collection_id && row.verification_evidence.collection_id !== latest.collection_id) throw new Error("現在の収集と確認証跡が一致しません");
+    const entry = history.listings.find((item) => item.id === row.id);
+    if (!entry || entry.latest?.source !== row.source || entry.latest?.source_url !== row.source_url ||
+        LAND_FINANCIAL_FIELDS.some((key) => row[key] !== entry.latest[key])) throw new Error("一覧と履歴の金融値が一致しません");
+  }
+  const rows = latest.listings.map((row) => safeFinancialRecord(row));
+  const entries = history.listings.map((entry) => {
+    if (entry.latest?.id !== entry.id) throw new Error("履歴の物件IDが一致しません");
+    return { ...entry, latest: safeFinancialRecord(entry.latest, true), price_history: safePriceHistory(entry) };
+  });
+  const current = financialStatistics(rows);
+  const past = historicalFinancialStatistics(entries, new Set(rows.filter(hasConfirmedFinancials).map((row) => row.id)));
+  return { latest: { ...latest, listings: rows, ...current }, history: { ...history, listings: entries, ...past } };
+}
+
+function financialStatistics(rows) {
+  const eligible = rows.filter((row) => hasConfirmedFinancials(row) && row.display_status !== "duplicate");
+  return { summary: {
+    listing_count: rows.length, financial_listing_count: eligible.length, observed_identity_count: rows.length,
+    representative_listing_count: rows.filter((row) => row.display_status !== "duplicate").length,
+    pending_listing_count: rows.filter((row) => !hasConfirmedFinancials(row)).length,
+    overall_average_unit_price_man_per_tsubo: financialMean(eligible.map((row) => row.unit_price_man_per_tsubo)),
+  }, towns: buildTownRowsFromListings(eligible).sort((a, b) => a.town < b.town ? -1 : a.town > b.town ? 1 : 0) };
+}
+
+function historicalFinancialStatistics(entries, currentIds) {
+  const eligible = entries.filter((entry) => entry.display_status !== "duplicate").map((entry) => {
+    const reference = financialEvidence(entry.latest) ? entry.latest : entry.last_confirmed;
+    return financialEvidence(reference) ? { ...entry, latest: reference } : null;
+  }).filter(Boolean);
+  const towns = [...new Set(eligible.map((entry) => String(entry.latest.town || "")))].sort().map((town) => {
+    const group = eligible.filter((entry) => String(entry.latest.town || "") === town);
+    const values = group.map((entry) => entry.latest.unit_price_man_per_tsubo);
+    const current = group.filter((entry) => currentIds.has(entry.id)).map((entry) => entry.latest.unit_price_man_per_tsubo);
+    return { town, historical_unique_listing_count: group.length, current_listing_count: current.length,
+      historical_average_unit_price_man_per_tsubo: financialMean(values), current_average_unit_price_man_per_tsubo: financialMean(current),
+      minimum_unit_price_man_per_tsubo: Math.min(...values), maximum_unit_price_man_per_tsubo: Math.max(...values) };
+  });
+  return { summary: { unique_listing_count: entries.length, financial_history_count: eligible.length,
+    current_listing_count: currentIds.size, historical_average_unit_price_man_per_tsubo: financialMean(eligible.map((entry) => entry.latest.unit_price_man_per_tsubo)) }, towns };
+}
+
+function financialMean(values) {
+  return values.length ? roundFinancialHundredth(values.reduce((sum, value) => sum + value, 0) / values.length) : null;
+}
+
+// Python round(x, 2): use the exact binary value and ties-to-even, not Math.round.
+function roundFinancialHundredth(value) {
+  const view = new DataView(new ArrayBuffer(8)); view.setFloat64(0, value);
+  const bits = view.getBigUint64(0);
+  const rawExponent = Number((bits >> 52n) & 2047n);
+  const exponent = (rawExponent || 1) - 1023 - 52;
+  let numerator = ((bits & ((1n << 52n) - 1n)) + (rawExponent ? 1n << 52n : 0n)) * 100n;
+  const denominator = exponent < 0 ? 1n << BigInt(-exponent) : 1n;
+  if (exponent > 0) numerator <<= BigInt(exponent);
+  let rounded = numerator / denominator; const remainder = numerator % denominator;
+  if (remainder * 2n > denominator || (remainder * 2n === denominator && rounded % 2n)) rounded += 1n;
+  return Number(rounded) / 100;
+}
+
+async function sha256Text(text) {
+  const bytes = new TextEncoder().encode(text);
+  const hash = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(hash)].map((value) => value.toString(16).padStart(2, "0")).join("");
+}
+
+async function fetchLandText(url) {
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) { const error = new Error(`土地データ取得失敗: ${response.status}`); error.status = response.status; throw error; }
+  const type = (response.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+  const host = new URL(url, window.location.href).hostname;
+  if (!["application/json", "application/manifest+json"].includes(type) && !(host === "raw.githubusercontent.com" && type === "text/plain")) throw new Error("JSONのContent-Typeが不正です");
+  const text = new TextDecoder("utf-8", { fatal: true }).decode(await response.arrayBuffer());
+  return { text, value: JSON.parse(text), verified_at: response.headers.get("X-Land-Verified-At"), snapshot_id: response.headers.get("X-Land-Legacy-Snapshot"), stale: response.headers.get("X-Land-Data-Stale")==="1" };
+}
+
+// Preserve Python's numeric lexemes (580.0 is not 580) when hashing the generation.
+function bareContractText(text) {
+  if (!text.startsWith("{") || !text.endsWith("}\n")) throw new Error("契約JSONの符号化が不正です");
+  const members = []; let start = 1, depth = 0, quoted = false, escaped = false;
+  for (let index = 1; index < text.length - 2; index += 1) {
+    const char = text[index];
+    if (quoted) { if (escaped) escaped = false; else if (char === "\\") escaped = true; else if (char === '"') quoted = false; }
+    else if (char === '"') quoted = true;
+    else if (char === "{" || char === "[") depth += 1;
+    else if (char === "}" || char === "]") depth -= 1;
+    else if (char === "," && depth === 0) { members.push(text.slice(start, index)); start = index + 1; }
+  }
+  members.push(text.slice(start, -2));
+  const keys = members.map((member) => JSON.parse(member.slice(0, member.indexOf(":"))));
+  if (new Set(keys).size !== keys.length || keys.filter((key) => key === "generation_id").length !== 1) throw new Error("契約キーが不正です");
+  return `{${members.filter((member, index) => keys[index] !== "generation_id").join(",")}}`;
+}
+
+function sameContractValue(a, b) {
+  if (a === b) return true;
+  if (!a || !b || typeof a !== "object" || typeof b !== "object") return false;
+  if (Array.isArray(a) !== Array.isArray(b)) return false;
+  const keys = Object.keys(a).sort(); const other = Object.keys(b).sort();
+  return keys.length === other.length && keys.every((key, index) => key === other[index] && sameContractValue(a[key], b[key]));
+}
+
+async function validateLandBundle(pointer, manifestText, texts) {
+  const hex = (value) => typeof value === "string" && /^[a-f0-9]{64}$/.test(value);
+  const manifest = JSON.parse(manifestText);
+  if (!hex(pointer.generation_id) || !hex(pointer.manifest_sha256) || await sha256Text(manifestText) !== pointer.manifest_sha256 ||
+      manifest.schema_version !== 2 || manifest.policy !== "land-financial-evidence-v2" || manifest.generation_id !== pointer.generation_id ||
+      !sameContractValue(Object.keys(manifest.files || {}).sort(), LAND_DOCUMENTS) ||
+      !manifest.reference_versions || Object.values(manifest.reference_versions).some((value) => typeof value !== "string")) throw new Error("土地manifest検証失敗");
+  const files = {}; const bare = [];
+  for (const name of LAND_DOCUMENTS) {
+    if (!hex(manifest.files[name]) || typeof texts[name] !== "string" || await sha256Text(texts[name]) !== manifest.files[name]) throw new Error("土地ファイルハッシュ不一致");
+    const doc = JSON.parse(texts[name]);
+    if (doc.generation_id !== pointer.generation_id || doc.schema_version !== (name.startsWith("v1/") ? 1 : 2) ||
+        !sameContractValue(doc.reference_versions, manifest.reference_versions)) throw new Error("土地世代・参照版不一致");
+    files[name] = doc; bare.push(`${JSON.stringify(name)}:${bareContractText(texts[name])}`);
+  }
+  const generationText = `{"files":{${bare.join(",")}},"policy":"land-financial-evidence-v2"}\n`;
+  if (await sha256Text(generationText) !== pointer.generation_id) throw new Error("土地世代ハッシュ不一致");
+  for (const row of files["v2/latest.json"].listings || []) {
+    if (!hasConfirmedFinancials(row) && LAND_FINANCIAL_FIELDS.some((key) => row[key] != null)) throw new Error("未確認金融値が確定欄に含まれています");
+  }
+  const pair = safeLandPair(files["v2/latest.json"], files["v2/history.json"]);
+  const stats = files["v2/statistics.json"];
+  if (!sameContractValue(stats.summary, pair.latest.summary) || !sameContractValue(stats.towns, pair.latest.towns) ||
+      !sameContractValue(stats.history, { summary: pair.history.summary, towns: pair.history.towns })) throw new Error("土地集計の検証失敗");
+  safeLandPair(files["v1/latest.json"], files["v1/history.json"]);
+  const v1Ids = files["v1/latest.json"].listings.map((row) => row.id).sort();
+  const eligibleIds = pair.latest.listings.filter((row) => hasConfirmedFinancials(row) && row.display_status !== "duplicate").map((row) => row.id).sort();
+  if (!sameContractValue(v1Ids, eligibleIds)) throw new Error("v1/v2物件集合不一致");
+  for (const row of files["v1/latest.json"].listings) {
+    const matching = pair.latest.listings.find((item) => item.id === row.id);
+    if (!hasConfirmedFinancials(row) || !matching || !hasConfirmedFinancials(matching) ||
+        LAND_FINANCIAL_FIELDS.some((key) => row[key] !== matching[key])) throw new Error("v1/v2金融値不一致");
+  }
+  for (const entry of files["v1/history.json"].listings) {
+    const matching = pair.history.listings.find((item) => item.id === entry.id);
+    if (!financialEvidence(entry.latest) || !matching || LAND_FINANCIAL_FIELDS.some((key) => entry.latest[key] !== matching.latest[key])) throw new Error("v1/v2履歴不一致");
+  }
+  // Any unverified history removed by normalization invalidates a signed v2 contract.
+  if (files["v2/history.json"].listings.some((entry, index) => !sameContractValue(entry.price_history || [], pair.history.listings[index].price_history))) throw new Error("未確認の価格履歴です");
+  return { ...pair, manifest, mode: "v2", verified_at: new Date().toISOString(), verified_bundle: { pointer, manifestText, texts } };
+}
+
+async function fetchLandPair() {
+  const bases = window.location.protocol === "file:" ? ["./", RAW_BASE] : ["./"]; // Keep web data within one publication origin.
+  let absent = true;
+  for (const base of bases) {
+    let pointer;
+    try { pointer = (await fetchLandText(`${base}viewer-contracts/current.json`)).value; }
+    catch (error) { if (error.status === 404) continue; absent = false; throw error; }
+    absent = false;
+    if (!/^[a-f0-9]{64}$/.test(pointer?.generation_id)) throw new Error("世代ポインタが不正です");
+    const path = `${base}viewer-contracts/generations/${pointer.generation_id}/`;
+    const manifest = await fetchLandText(`${path}manifest.json`);
+    const documents = await Promise.all(LAND_DOCUMENTS.map(async (name) => [name, (await fetchLandText(`${path}${name}`)).text]));
+    const pair = await validateLandBundle(pointer, manifest.text, Object.fromEntries(documents));
+    if (pair.manifest.reference_versions.source_revision && !landRequiresVerifiedShell) throw new Error("公開v2には検証済み配信一式が必要です");
+    pair.data_base = base;
+    pair.generation_path = path;
+    if (landRequiresVerifiedShell && pair.manifest.generation_id !== landWorkerInfo?.generation_id) throw new Error("アプリとデータの世代が一致しません");
+    if (manifest.verified_at) pair.verified_at = manifest.verified_at;
+    return pair;
+  }
+  if (!absent) throw new Error("v2土地データが利用できません");
+  for (const base of bases) {
+    try {
+      const [latest, history] = await Promise.all([fetchLandText(`${base}latest.json`), fetchLandText(`${base}history.json`)]);
+      if (latest.value.schema_version !== 1 || history.value.schema_version !== 1) throw new Error("v2は世代一式の検証が必要です");
+      if ((latest.snapshot_id || history.snapshot_id) && latest.snapshot_id!==history.snapshot_id) throw new Error('旧データのスナップショットが一致しません');
+      return { ...safeLegacyLandPair(latest.value, history.value), mode: "legacy", stale:latest.stale||history.stale, verified_at:latest.verified_at || new Date().toISOString() };
+    } catch (error) { if (base === bases.at(-1)) throw error; }
+  }
+}
+
+function compareFinancialNumber(a, b, field, descending = false) {
+  const valid = (row) => hasConfirmedFinancials(row) && typeof row[field] === "number" && Number.isFinite(row[field]) && row[field] > 0;
+  if (!valid(a) || !valid(b)) return valid(a) ? -1 : valid(b) ? 1 : 0;
+  return (a[field] - b[field]) * (descending ? -1 : 1);
+}
+
+function formatMeasure(value, suffix) {
+  return value == null ? "未確認" : `${formatNumber(value)}${suffix}`;
+}
+
+function formatAssessmentScore(score) {
+  return score == null ? "査定保留" : `${formatInteger(score)}点`;
+}
+
 const RAW_BASE =
   "https://raw.githubusercontent.com/mi-hiro/miyakonojo-land-viewer/main/";
 
@@ -358,155 +764,12 @@ const SCHOOL_ZONES = {
   "丸谷町": multiZone(["志和池小学校", "丸野小学校"], ["志和池中学校"], "丸谷町は一部地域で小学校区が分かれるため要確認"),
 };
 
-const SAMPLE_LATEST = {
-  area: "宮崎県都城市",
-  generated_at: "2026-06-07T12:24:35+09:00",
-  summary: {
-    listing_count: 3,
-    overall_average_unit_price_man_per_tsubo: 4.03,
-  },
-  towns: [],
-  listings: [
-    {
-      id: "sample-1",
-      title: "都城市下長飯町 売土地",
-      town: "下長飯町",
-      address: "宮崎県都城市下長飯町",
-      price_man_yen: 548,
-      land_area_sqm: 1136.1,
-      land_area_tsubo: 343.65,
-      unit_price_man_per_tsubo: 1.6,
-      source: "SUUMO",
-      source_url: "https://suumo.jp/tochi/miyazaki/sc_miyakonojo/",
-      image_url: null,
-      image_urls: [],
-      is_new: true,
-      new_reason: "掲載ブロック内に新着表示あり",
-      is_cheap_new: true,
-      zoning: null,
-      building_coverage_ratio_percent: null,
-      floor_area_ratio_percent: null,
-      restrictions: null,
-      remarks: null,
-      latitude: null,
-      longitude: null,
-      search_text: "下長飯町 宮崎県都城市下長飯町 SUUMO",
-    },
-    {
-      id: "sample-2",
-      title: "都城市一万城町 住宅用地",
-      town: "一万城町",
-      address: "都城市一万城町",
-      price_man_yen: 708,
-      land_area_sqm: 292.65,
-      land_area_tsubo: 88.53,
-      unit_price_man_per_tsubo: 8,
-      source: "アットホーム",
-      source_url: "https://www.athome.co.jp/",
-      image_url: null,
-      image_urls: [],
-      is_new: false,
-      new_reason: "",
-      is_cheap_new: false,
-      zoning: null,
-      building_coverage_ratio_percent: 60,
-      floor_area_ratio_percent: 200,
-      restrictions: null,
-      remarks: null,
-      latitude: null,
-      longitude: null,
-      search_text: "一万城町 都城市一万城町 アットホーム",
-    },
-    {
-      id: "sample-3",
-      title: "都城市安久町 売地",
-      town: "安久町",
-      address: "宮崎県都城市安久町",
-      price_man_yen: 443,
-      land_area_sqm: 488,
-      land_area_tsubo: 147.62,
-      unit_price_man_per_tsubo: 3,
-      source: "LIFULL HOME'S",
-      source_url: "https://www.homes.co.jp/",
-      image_url: null,
-      image_urls: [],
-      is_new: false,
-      new_reason: "",
-      is_cheap_new: false,
-      zoning: null,
-      building_coverage_ratio_percent: 70,
-      floor_area_ratio_percent: 200,
-      restrictions: null,
-      remarks: null,
-      latitude: null,
-      longitude: null,
-      search_text: "安久町 宮崎県都城市安久町 LIFULL",
-    },
-  ],
-};
-
-const SAMPLE_HISTORY = {
-  area: "宮崎県都城市",
-  updated_at: "2026-06-07T12:24:35+09:00",
-  summary: {
-    unique_listing_count: 3,
-    current_listing_count: 3,
-    historical_average_unit_price_man_per_tsubo: 4.2,
-    current_average_unit_price_man_per_tsubo: 4.03,
-  },
-  towns: [
-    {
-      town: "下長飯町",
-      historical_unique_listing_count: 1,
-      current_listing_count: 1,
-      historical_average_unit_price_man_per_tsubo: 1.6,
-      current_average_unit_price_man_per_tsubo: 1.6,
-    },
-    {
-      town: "一万城町",
-      historical_unique_listing_count: 1,
-      current_listing_count: 1,
-      historical_average_unit_price_man_per_tsubo: 8,
-      current_average_unit_price_man_per_tsubo: 8,
-    },
-    {
-      town: "安久町",
-      historical_unique_listing_count: 1,
-      current_listing_count: 1,
-      historical_average_unit_price_man_per_tsubo: 3,
-      current_average_unit_price_man_per_tsubo: 3,
-    },
-  ],
-  listings: [],
-};
-
-const SAMPLE_ROUTE_VALUES = {
-  schema_version: 1,
-  updated_at: null,
-  source: "固定資産税路線価データ未登録",
-  items: [],
-};
-
-const SAMPLE_FIXED_ASSET_ROUTE_VALUES = {
-  schema_version: 1,
-  updated_at: null,
-  source: "固定資産税路線価データ未登録",
-  items: [],
-};
-
-const SAMPLE_HAZARD_ZONES = {
-  schema_version: 1,
-  updated_at: null,
-  source: "ハザード判定データ未登録",
-  items: [],
-};
-
 const state = {
   latest: null,
   history: null,
   collectionHistory: null,
-  routeValues: SAMPLE_ROUTE_VALUES,
-  hazardZones: SAMPLE_HAZARD_ZONES,
+  routeValues: { items: [] },
+  hazardZones: { items: [] },
   listings: [],
   filtered: [],
   view: "list",
@@ -637,17 +900,11 @@ function init() {
   resetTransientFilters();
   renderBackupSummary();
   startTopbarLiveInfo();
-  loadData();
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker
-      .register("./service-worker.js")
-      .then((registration) => registration.update())
-      .catch(() => {});
-  }
+  initializeLandData();
 }
 
 function bindEvents() {
-  els.refreshButton.addEventListener("click", loadData);
+  els.refreshButton.addEventListener("click", refreshLandViewer);
   els.settingsButton?.addEventListener("click", openSettings);
   els.closeSettings?.addEventListener("click", closeSettings);
   els.collectionHistoryButton?.addEventListener("click", openCollectionHistoryView);
@@ -1356,36 +1613,77 @@ function localDateStamp(date) {
 }
 
 async function loadData() {
+  const requestId = ++landLoadSequence;
   setStatus("読み込み中");
+  let pair; let stale = false;
   try {
-    const [latest, history, routeValues, fixedAssetRouteValues, hazardZones, collectionHistory] = await Promise.all([
-      fetchDataFile("latest.json"),
-      fetchDataFile("history.json"),
-      fetchOptionalDataFile("route-values.json", SAMPLE_ROUTE_VALUES),
-      fetchOptionalDataFile("fixed-asset-route-values.json", SAMPLE_FIXED_ASSET_ROUTE_VALUES),
-      fetchOptionalDataFile("hazard-zones.json", SAMPLE_HAZARD_ZONES),
-      fetchOptionalDataFile("collection-history.json", null),
-    ]);
-    state.latest = latest;
-    state.history = history;
-    state.routeValues = mergeRouteValuePayloads(routeValues || SAMPLE_ROUTE_VALUES, fixedAssetRouteValues || SAMPLE_FIXED_ASSET_ROUTE_VALUES);
-    state.hazardZones = hazardZones || SAMPLE_HAZARD_ZONES;
-    state.collectionHistory = collectionHistory;
-    setStatus("");
+    pair = await fetchLandPair();
   } catch (error) {
-    state.latest = SAMPLE_LATEST;
-    state.history = SAMPLE_HISTORY;
-    state.collectionHistory = null;
-    state.routeValues = SAMPLE_ROUTE_VALUES;
-    state.hazardZones = SAMPLE_HAZARD_ZONES;
-    setStatus("最新データを取得できないため、サンプルを表示しています。");
+    pair = lastVerifiedLand; stale = true;
+    if (!pair) {
+      try {
+        const cached = JSON.parse(localStorage.getItem("miyakonojo_land_verified_v2"));
+        if (cached && Number.isFinite(Date.parse(cached.verified_at))) {
+          pair = await validateLandBundle(cached.pointer, cached.manifestText, cached.texts);
+          pair.verified_at = cached.verified_at;
+        }
+      } catch (cacheError) { pair = null; }
+    }
   }
+  if (landRequiresVerifiedShell && pair?.manifest?.generation_id !== landWorkerInfo?.generation_id) pair = null;
+  if (landRequiresVerifiedShell && pair) {
+    pair.data_base = './';
+    pair.generation_path = `./viewer-contracts/generations/${pair.manifest.generation_id}/`;
+  }
+  if (requestId !== landLoadSequence) return;
+  if (!pair) {
+    state.latest = null; state.history = null; state.listings = []; state.filtered = [];
+    state.dataStale = true; state.dataMode = null;
+    state.routeValues = { items: [] }; state.hazardZones = { items: [] }; state.collectionHistory = null;
+    [els.compareTable, els.historyGrid, els.distributionGrid, els.schoolAverageGrid, els.detailPageBody].filter(Boolean).forEach(el => { el.innerHTML = '<div class="empty-state">取得不能（査定保留）</div>'; });
+    setStatus("土地データを取得・検証できません。物件数や査定は確認できません。");
+    els.listingList.innerHTML = '<div class="empty-state">土地データ取得不能</div>';
+    els.resultCount.textContent = "取得不能";
+    [els.listingCount, els.currentAverage, els.historyAverage, els.updatedAt].filter(Boolean).forEach((el) => { el.textContent = "未確認"; });
+    return;
+  }
+  // Only a hash explicitly bound to this generation authorizes reference appraisal.
+  const optional = async (name) => {
+    const expected = pair.manifest?.reference_versions?.[`${name.replace(/\.json$/, "")}_sha256`];
+    if (!expected) return null;
+    try {
+      const base = pair.generation_path ? `${pair.generation_path}references/` : RAW_BASE;
+      let result;
+      try { result = await fetchLandText(`${base}${name}`); }
+      catch (error) {
+        if (landRequiresVerifiedShell || error.status !== 404) return null;
+        result = await fetchLandText(`${RAW_BASE}${name}`);
+      }
+      return await sha256Text(result.text) === expected ? result.value : null;
+    } catch (error) { return null; }
+  };
+  const [route, fixed, hazard, collection] = await Promise.all([
+    optional("route-values.json"), optional("fixed-asset-route-values.json"),
+    fetchOptionalDataFile("hazard-zones.json", null), fetchOptionalDataFile("collection-history.json", null),
+  ]);
+  if (requestId !== landLoadSequence) return;
+  // Commit one complete pair and its references; a slower earlier load cannot overwrite it.
+  state.latest = pair.latest; state.history = pair.history; state.dataMode = pair.mode; state.dataStale = stale || Boolean(pair.stale);
+  state.routeValues = mergeRouteValuePayloads(route, fixed);
+  state.hazardZones = hazard || { items: [] }; state.collectionHistory = collection;
+  state.listings = state.latest.listings.filter((row) => row.display_status !== "duplicate").map(normalizeListing);
+  if (!stale) {
+    lastVerifiedLand = pair;
+    if (pair.mode === "v2") {
+      try { localStorage.setItem("miyakonojo_land_verified_v2", JSON.stringify({ ...pair.verified_bundle, verified_at: pair.verified_at })); } catch (error) { /* Storage limits must not prevent viewing. */ }
+    }
+  }
+  setStatus((stale || pair.stale) ? `更新を検証できません。最後の検証済みデータ（取得 ${formatDateTime(pair.verified_at)}）を表示しています。` :
+    pair.mode === "legacy" ? (pair.latest.listings.length ? "旧形式データ：確認根拠のない価格・面積は未確認として表示しています。" : "旧形式の公開データは0件です。収集対象がないことを意味しません。収集状態は未確認です。") : "");
+  if (landRequiresVerifiedShell && !stale) setStatus(`検証済み一式（取得 ${formatDateTime(landWorkerInfo?.verified_at)}）を表示しています。`);
+  populateTownFilter(); populateSchoolFilter(); render();
 
-    state.listings = state.latest.listings.map((listing, index) => normalizeListing(listing, index));
-  populateTownFilter();
-  populateSchoolFilter();
-  render();
-  maybeSendDataNotifications(false);
+  if (!stale && pair.mode === "v2") maybeSendDataNotifications(false);
   routeFromHash();
 }
 
@@ -1413,11 +1711,7 @@ async function fetchOptionalDataFile(fileName, fallback) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(`${url}?v=${Date.now()}`, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`Fetch failed: ${response.status}`);
-  }
-  return response.json();
+  return (await fetchLandText(`${url}?v=${Date.now()}`)).value;
 }
 
 function mergeRouteValuePayloads(routeValues, fixedAssetRouteValues) {
@@ -1426,7 +1720,7 @@ function mergeRouteValuePayloads(routeValues, fixedAssetRouteValues) {
   return {
     schema_version: 1,
     updated_at: fixedAssetRouteValues?.updated_at || routeValues?.updated_at || null,
-    source: [fixedAssetRouteValues?.source, routeValues?.source].filter(Boolean).join(" / ") || SAMPLE_ROUTE_VALUES.source,
+    source: [fixedAssetRouteValues?.source, routeValues?.source].filter(Boolean).join(" / ") || "参照版未確認",
     note: [fixedAssetRouteValues?.note, routeValues?.note].filter(Boolean).join(" / "),
     fixed_asset_summary: fixedAssetRouteValues?.summary || null,
     route_value_summary: routeValues?.summary || null,
@@ -1442,6 +1736,7 @@ function routeValuePayloadItems(payload) {
 }
 
 function normalizeListing(listing, index) {
+  listing = safeFinancialRecord(listing);
   const historyEntry = findHistoryEntry(listing.id);
   const position = resolvePosition(listing, index);
   const positionedListing = {
@@ -1978,7 +2273,7 @@ function renderFromFirstListPage() {
   render();
 }
 
-function filterListings(listings) {
+function filterListings(listings, ignoreFinancialRanges = false) {
   const query = normalizeQuery(els.searchInput.value);
   const townFilter = els.townFilter?.value || "";
   const schoolFilter = els.schoolFilter.value;
@@ -2019,10 +2314,10 @@ function filterListings(listings) {
     if (query && !haystack.includes(query)) {
       return false;
     }
-    if (!withinRange(numberValue(listing.price_man_yen), priceRange)) {
+    if (!ignoreFinancialRanges && !withinRange(hasConfirmedFinancials(listing) ? listing.price_man_yen : null, priceRange)) {
       return false;
     }
-    if (!withinRange(numberValue(listing.land_area_tsubo), areaRange)) {
+    if (!ignoreFinancialRanges && !withinRange(hasConfirmedFinancials(listing) ? listing.land_area_tsubo : null, areaRange)) {
       return false;
     }
     if (schoolFilter && !matchesSchoolFilter(listing, schoolFilter)) {
@@ -2043,14 +2338,12 @@ function filterListings(listings) {
 
 function sortListings(listings) {
   const value = els.sortSelect.value;
+  const fields = { price: "price_man_yen", area: "land_area_sqm", unit: "unit_price_man_per_tsubo" };
   return [...listings].sort((a, b) => {
-    if (value === "priceAsc") return numberValue(a.price_man_yen) - numberValue(b.price_man_yen);
-    if (value === "priceDesc") return numberValue(b.price_man_yen) - numberValue(a.price_man_yen);
-    if (value === "areaAsc") return numberValue(a.land_area_sqm) - numberValue(b.land_area_sqm);
-    if (value === "areaDesc") return numberValue(b.land_area_sqm) - numberValue(a.land_area_sqm);
-    if (value === "unitAsc") return numberValue(a.unit_price_man_per_tsubo) - numberValue(b.unit_price_man_per_tsubo);
-    if (value === "unitDesc") return numberValue(b.unit_price_man_per_tsubo) - numberValue(a.unit_price_man_per_tsubo);
-    return newRank(b) - newRank(a) || dateRank(b.first_seen_date) - dateRank(a.first_seen_date) || numberValue(a.unit_price_man_per_tsubo) - numberValue(b.unit_price_man_per_tsubo);
+    for (const [prefix, field] of Object.entries(fields)) {
+      if (value === `${prefix}Asc` || value === `${prefix}Desc`) return compareFinancialNumber(a, b, field, value.endsWith("Desc"));
+    }
+    return newRank(b) - newRank(a) || dateRank(b.first_seen_date) - dateRank(a.first_seen_date) || compareFinancialNumber(a, b, "unit_price_man_per_tsubo");
   });
 }
 
@@ -2062,9 +2355,14 @@ function dateRank(value) {
   return value ? new Date(value).getTime() : 0;
 }
 
+function hasConfirmedFinancials(listing) {
+  return financialEvidence(listing) && (listing.financial_state == null || ["confirmed", "listing_observed"].includes(listing.financial_state));
+}
+
 function priceDropInfo(listing) {
+  if (!hasConfirmedFinancials(listing)) return null;
   const current = numberValue(listing.price_man_yen);
-  const history = Array.isArray(listing.price_history) ? listing.price_history : [];
+  const history = safePriceHistory({ latest: listing, price_history: listing.price_history });
   if (!current || history.length < 2) {
     return null;
   }
@@ -2120,6 +2418,7 @@ function inputRange(minValue, maxValue) {
 }
 
 function withinRange(value, range) {
+  if (range.min === null && range.max === null) return true;
   if (!Number.isFinite(value) || value <= 0) {
     return false;
   }
@@ -2133,13 +2432,13 @@ function withinRange(value, range) {
 }
 
 function renderSummary() {
-  const latestSummary = state.latest.summary || {};
+  const latestSummary = financialStatistics(state.listings).summary;
   els.listingCount.textContent = `${formatInteger(latestSummary.listing_count || state.listings.length)}件`;
   if (els.currentAverage) {
     els.currentAverage.textContent = formatUnit(latestSummary.overall_average_unit_price_man_per_tsubo);
   }
   if (els.historyAverage) {
-    const historySummary = state.history?.summary || {};
+    const historySummary = historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).summary;
     els.historyAverage.textContent = formatUnit(historySummary.historical_average_unit_price_man_per_tsubo);
   }
   els.updatedAt.textContent = formatDateTime(state.latest.generated_at);
@@ -2175,10 +2474,10 @@ function renderFixedAssetRouteStatus() {
 
   els.fixedAssetRouteCount.textContent = routeCount
     ? `${formatInteger(routeCount)}路線・${formatInteger(townCount)}町`
-    : "収集中";
+    : "参照版未確認";
   els.fixedAssetRouteMeta.textContent = routeCount
     ? `物件照合 ${formatInteger(matchedCount)}件${areaMeshRate ? `・範囲 ${formatInteger(areaMeshRate)}%` : ""}`
-    : "データ蓄積待ち";
+    : "査定には検証済み参照データが必要です";
   if (els.fixedAssetCoverageLink) {
     els.fixedAssetCoverageLink.hidden = !routeCount;
   }
@@ -2207,6 +2506,13 @@ function renderList() {
   els.resultCount.textContent = state.filtered.length
     ? `${formatInteger(start + 1)}〜${formatInteger(end)}件 / 全${formatInteger(state.filtered.length)}件`
     : "0件表示";
+  const priceRange = inputRange(els.priceMin.value, els.priceMax.value);
+  const areaRange = inputRange(els.areaMin.value, els.areaMax.value);
+  if ([priceRange.min, priceRange.max, areaRange.min, areaRange.max].some((value) => value !== null)) {
+    const count = filterListings(state.listings, true).filter((row) => !hasConfirmedFinancials(row)).length;
+    els.resultCount.textContent += ` / 数値未確認のため条件比較から除外 ${formatInteger(count)}件`;
+  }
+  els.resultCount.textContent += ` / 確認済み ${state.listings.filter(hasConfirmedFinancials).length}件・保留 ${state.listings.filter(row=>!hasConfirmedFinancials(row)).length}件`;
   els.mapReadyCount.textContent = `地図 ${formatInteger(state.filtered.filter((item) => Number.isFinite(item.map_latitude)).length)}件`;
   if (els.listPageSize) {
     els.listPageSize.value = String(state.listPageSize);
@@ -2305,9 +2611,9 @@ function renderListingCard(listing) {
       </div>
       <div class="price-grid">
         ${metric("価格", formatPrice(listing.price_man_yen))}
-        ${metric("面積", `${formatNumber(listing.land_area_tsubo)}坪`)}
+        ${metric("面積", `${formatMeasure(listing.land_area_tsubo, "坪")}`)}
         ${metric("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
-        ${metric("割安スコア", `${formatInteger(score.score)}点`)}
+        ${metric("割安スコア", `${formatAssessmentScore(score.score)}`)}
         ${drop ? metric("価格改定", priceDropSummary(drop)) : ""}
       </div>
       <div class="card-foot">
@@ -2342,9 +2648,9 @@ function renderListingCompact(listing) {
         </div>
         <div class="compact-metrics">
           <strong>${formatPrice(listing.price_man_yen)}</strong>
-          <span>${formatNumber(listing.land_area_tsubo)}坪</span>
+          <span>${formatMeasure(listing.land_area_tsubo, "坪")}</span>
           <span>${formatUnit(listing.unit_price_man_per_tsubo)}</span>
-          <span>AI ${formatInteger(score.score)}点</span>
+          <span>AI ${formatAssessmentScore(score.score)}</span>
           ${drop ? `<span>${escapeHtml(priceDropSummary(drop))}</span>` : ""}
           <span>${escapeHtml(school.elementary_text)} / ${escapeHtml(school.middle_text)}</span>
         </div>
@@ -2420,12 +2726,12 @@ function renderListingTableRow(listing) {
         <small>${escapeHtml(listing.address || "-")}</small>
       </td>
       <td><strong>${formatPrice(listing.price_man_yen)}</strong></td>
-      <td><strong>${formatNumber(listing.land_area_tsubo)}坪</strong><span>${formatNumber(listing.land_area_sqm)}㎡</span></td>
+      <td><strong>${formatMeasure(listing.land_area_tsubo, "坪")}</strong><span>${formatMeasure(listing.land_area_sqm, "㎡")}</span></td>
       <td><strong>${formatUnit(listing.unit_price_man_per_tsubo)}</strong></td>
       <td><span>${escapeHtml(school.elementary_text)}</span><small>${escapeHtml(school.middle_text)}</small></td>
       <td>
         <strong>${escapeHtml(assessment.label)}</strong>
-        <span>AI ${formatInteger(score.score)}点</span>
+        <span>AI ${formatAssessmentScore(score.score)}</span>
         ${drop ? `<small>${escapeHtml(priceDropSummary(drop))}</small>` : ""}
         <span>${escapeHtml(positionText)}</span>
         <div class="badge-row table-badges">${renderBadges(listing)}</div>
@@ -2614,6 +2920,7 @@ function userNote(listing) {
 }
 
 function listingDataQuality(listing) {
+  if (!hasConfirmedFinancials(listing)) return { score: 0, level: "low", financial_pending: true, reasons: ["価格・面積未確認（査定保留）"] };
   const reasons = [];
   let score = 100;
   const price = numberValue(listing.price_man_yen);
@@ -2695,6 +3002,7 @@ function listingDataQuality(listing) {
 
 function dataQualityLabel(quality) {
   if (!quality) return "未判定";
+  if (quality.financial_pending) return "価格・面積未確認";
   if (quality.level === "high") return "高信頼";
   if (quality.level === "medium") return "通常確認";
   return "要確認";
@@ -2753,11 +3061,12 @@ function renderBadges(listing) {
   if (isFavorite(listing)) badges.push(`<span class="badge favorite">お気に入り</span>`);
   if (isCandidate(listing)) badges.push(`<span class="badge candidate">買付候補</span>`);
   if (isExcluded(listing)) badges.push(`<span class="badge warning">除外</span>`);
-  if (score.score >= 70) badges.push(`<span class="badge score">AI ${formatInteger(score.score)}点</span>`);
+  if (score.score >= 70) badges.push(`<span class="badge score">AI ${formatAssessmentScore(score.score)}</span>`);
   if (drop) badges.push(`<span class="badge cheap">値下げ</span>`);
   if (userNote(listing)) badges.push(`<span class="badge approx">メモ</span>`);
   if (listing.is_new) badges.push(`<span class="badge new">新着</span>`);
-  if (listing.is_cheap_new) badges.push(`<span class="badge cheap">割安新着</span>`);
+  if (!hasConfirmedFinancials(listing)) badges.push(`<span class="badge pending">価格・面積未確認 / 査定保留</span>`);
+  if (hasConfirmedFinancials(listing) && listing.is_cheap_new) badges.push(`<span class="badge cheap">割安新着</span>`);
   if (assessment.discount_rate >= 0.1) badges.push(`<span class="badge cheap">査定割安</span>`);
   if (quality.level === "low") badges.push(`<span class="badge warning">要確認</span>`);
   if (listing.legal_notice?.setback_required) badges.push(`<span class="badge warning">要SB</span>`);
@@ -3200,6 +3509,7 @@ function renderHistory() {
 
 function renderDistribution() {
   const values = state.filtered
+    .filter(hasConfirmedFinancials)
     .map((listing) => numberValue(listing.unit_price_man_per_tsubo))
     .filter((value) => value > 0);
   if (!values.length) {
@@ -3268,6 +3578,7 @@ function renderSchoolAverageDashboard() {
 }
 
 function buildSchoolAverageRows(listings) {
+  listings = listings.filter(hasConfirmedFinancials);
   const groups = new Map();
   listings.forEach((listing) => {
     const unit = numberValue(listing.unit_price_man_per_tsubo);
@@ -3402,7 +3713,7 @@ function buildNotificationCandidates(listings = state.listings) {
     const score = assessmentScore(listing, assessment);
     const drop = priceDropInfo(listing);
     if (listing.is_new && assessment.discount_rate >= 0.1) {
-      rows.push({ listing, priority: 95 + score.score, type: "割安新着", label: `AI ${formatInteger(score.score)}点`, tone: "cheap" });
+      rows.push({ listing, priority: 95 + score.score, type: "割安新着", label: `AI ${formatAssessmentScore(score.score)}`, tone: "cheap" });
     } else if (listing.is_new) {
       rows.push({ listing, priority: 70 + score.score, type: "新着", label: formatUnit(listing.unit_price_man_per_tsubo), tone: "new" });
     }
@@ -3428,6 +3739,7 @@ function buildNotificationCandidates(listings = state.listings) {
 }
 
 function maybeSendDataNotifications(force) {
+  if (state.dataStale || state.dataMode !== "v2") return;
   if (!("Notification" in window) || Notification.permission !== "granted") {
     return;
   }
@@ -3938,10 +4250,10 @@ function renderCompareRow(listing) {
         <span>${escapeHtml(listing.town)} / ${escapeHtml(listing.source)}</span>
       </td>
       <td>${formatPrice(listing.price_man_yen)}</td>
-      <td>${formatNumber(listing.land_area_tsubo)}坪</td>
+      <td>${formatMeasure(listing.land_area_tsubo, "坪")}</td>
       <td>${formatUnit(listing.unit_price_man_per_tsubo)}</td>
       <td>${escapeHtml(assessment.label)}<br><small>${formatUnit(assessment.reference_unit_price)}基準</small></td>
-      <td><strong>${formatInteger(score.score)}点</strong><small>${score.reasons.slice(0, 2).map(escapeHtml).join(" / ") || "-"}</small></td>
+      <td><strong>${formatAssessmentScore(score.score)}</strong><small>${score.reasons.slice(0, 2).map(escapeHtml).join(" / ") || "-"}</small></td>
       <td>${escapeHtml(priceDropSummary(drop))}</td>
       <td>${school.elementary_text}<br><small>${school.middle_text}</small></td>
       <td>${escapeHtml(caution)}</td>
@@ -4058,10 +4370,10 @@ function renderComparePrintRow(listing) {
         ${listing.source_url ? `<a href="${escapeAttr(listing.source_url)}">掲載元</a>` : ""}
       </td>
       <td>${formatPrice(listing.price_man_yen)}</td>
-      <td>${formatNumber(listing.land_area_tsubo)}坪<br><span class="sub">${formatNumber(listing.land_area_sqm)}㎡</span></td>
+      <td>${formatMeasure(listing.land_area_tsubo, "坪")}<br><span class="sub">${formatMeasure(listing.land_area_sqm, "㎡")}</span></td>
       <td>${formatUnit(listing.unit_price_man_per_tsubo)}</td>
       <td>${escapeHtml(assessment.label)}<br><span class="sub">基準 ${formatUnit(assessment.reference_unit_price)}</span><span class="sub">査定 ${formatPrice(assessment.estimated_price_man_yen)}</span></td>
-      <td><strong class="score">${formatInteger(score.score)}点</strong><span class="sub">${score.reasons.slice(0, 3).map(escapeHtml).join(" / ")}</span></td>
+      <td><strong class="score">${formatAssessmentScore(score.score)}</strong><span class="sub">${score.reasons.slice(0, 3).map(escapeHtml).join(" / ")}</span></td>
       <td>${escapeHtml(priceDropSummary(drop))}</td>
       <td>${school.elementary_text}<br><span class="sub">${school.middle_text}</span></td>
       <td class="${caution === "-" ? "" : "caution"}">${escapeHtml(caution)}</td>
@@ -4079,8 +4391,8 @@ function plainText(value) {
 }
 
 function buildTownRows() {
-  const historyByTown = new Map((state.history?.towns || []).map((row) => [row.town, row]));
-  const latestRows = state.latest?.towns?.length ? state.latest.towns : buildTownRowsFromListings(state.listings);
+  const historyByTown = new Map(historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).towns.map((row) => [row.town, row]));
+  const latestRows = buildTownRowsFromListings(state.listings);
   return latestRows.map((row) => {
     const history = historyByTown.get(row.town) || {};
     return {
@@ -4089,9 +4401,9 @@ function buildTownRows() {
       average_unit_price_man_per_tsubo: row.average_unit_price_man_per_tsubo,
       minimum_unit_price_man_per_tsubo: row.minimum_unit_price_man_per_tsubo,
       maximum_unit_price_man_per_tsubo: row.maximum_unit_price_man_per_tsubo,
-      historical_unique_listing_count: history.historical_unique_listing_count ?? row.listing_count,
+      historical_unique_listing_count: history.historical_unique_listing_count ?? 0,
       historical_average_unit_price_man_per_tsubo:
-        history.historical_average_unit_price_man_per_tsubo ?? row.average_unit_price_man_per_tsubo,
+        history.historical_average_unit_price_man_per_tsubo ?? null,
     };
   });
 }
@@ -4099,6 +4411,7 @@ function buildTownRows() {
 function buildTownRowsFromListings(listings) {
   const groups = new Map();
   listings.forEach((listing) => {
+    if (!hasConfirmedFinancials(listing) || numberValue(listing.unit_price_man_per_tsubo) <= 0) return;
     const values = groups.get(listing.town) || [];
     values.push(numberValue(listing.unit_price_man_per_tsubo));
     groups.set(listing.town, values);
@@ -4106,7 +4419,7 @@ function buildTownRowsFromListings(listings) {
   return [...groups.entries()].map(([town, values]) => ({
     town,
     listing_count: values.length,
-    average_unit_price_man_per_tsubo: averageNumbers(values),
+    average_unit_price_man_per_tsubo: financialMean(values),
     minimum_unit_price_man_per_tsubo: Math.min(...values),
     maximum_unit_price_man_per_tsubo: Math.max(...values),
   }));
@@ -4115,7 +4428,7 @@ function buildTownRowsFromListings(listings) {
 function townUnitExtremes(town) {
   const townName = String(town || "");
   const listings = state.listings
-    .filter((listing) => listingTownName(listing) === townName)
+    .filter((listing) => hasConfirmedFinancials(listing) && listingTownName(listing) === townName)
     .filter((listing) => numberValue(listing.unit_price_man_per_tsubo) > 0);
   return {
     min: listings.slice().sort(compareListingsByUnitPrice("asc"))[0] || null,
@@ -4278,8 +4591,9 @@ function renderFallbackDetail(listing) {
       <h3>基本情報</h3>
       <dl class="detail-kv">
         ${kv("価格", formatPrice(listing.price_man_yen))}
-        ${kv("土地面積", `${formatNumber(listing.land_area_sqm)}㎡ / ${formatNumber(listing.land_area_tsubo)}坪`)}
+        ${kv("土地面積", `${formatMeasure(listing.land_area_sqm, "㎡")} / ${formatMeasure(listing.land_area_tsubo, "坪")}`)}
         ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
+        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv("過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
         ${kv("所在地", escapeHtml(listing.address || listing.town || "-"))}
         ${kv("掲載元", `<a href="${escapeAttr(listing.source_url)}" target="_blank" rel="noopener">開く</a>`)}
       </dl>
@@ -4314,8 +4628,9 @@ function renderDetail(listing) {
       <h3>金額・面積</h3>
       <dl class="detail-kv">
         ${kv("価格", formatPrice(listing.price_man_yen))}
-        ${kv("土地面積", `${formatNumber(listing.land_area_sqm)}㎡ / ${formatNumber(listing.land_area_tsubo)}坪`)}
+        ${kv("土地面積", `${formatMeasure(listing.land_area_sqm, "㎡")} / ${formatMeasure(listing.land_area_tsubo, "坪")}`)}
         ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
+        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv("過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
         ${kv("価格改定", priceDropDetailText(drop))}
         ${kv("新着", listing.is_new ? "あり" : "なし")}
         ${kv("割安新着", listing.is_cheap_new ? "あり" : "なし")}
@@ -4338,7 +4653,7 @@ function renderDetail(listing) {
       <h3>割安査定</h3>
       <dl class="detail-kv">
         ${kv("判定", assessment.label)}
-        ${kv("割安スコア", `${formatInteger(score.score)}点`)}
+        ${kv("割安スコア", `${formatAssessmentScore(score.score)}`)}
         ${kv("信頼度", assessment.confidence)}
         ${kv("比較基準", formatUnit(assessment.reference_unit_price))}
         ${kv("平均との差", `${formatNumber(assessment.discount_amount)}万円/坪`)}
@@ -4738,6 +5053,7 @@ function renderHazardSection(hazard) {
 }
 
 function calculateRouteValueAppraisal(listing, routeValue) {
+  if (!hasConfirmedFinancials(listing)) return null;
   const routeValueYen = numberValue(routeValue?.route_value_yen_per_sqm);
   const area = numberValue(listing.land_area_sqm);
   if (!routeValueYen || !area) return null;
@@ -4896,8 +5212,8 @@ function renderRouteValueSection(listing, routeValue) {
     : isPublicLandPrice
       ? routeValue.public_reference_unit_price_man_per_tsubo
       : routeValue.fixed_asset_unit_price_man_per_tsubo;
-  const marketDiff = routeValue.public_reference_unit_price_man_per_tsubo - numberValue(listing.unit_price_man_per_tsubo);
-  const diffRate = routeValue.public_reference_unit_price_man_per_tsubo
+  const marketDiff = hasConfirmedFinancials(listing) ? routeValue.public_reference_unit_price_man_per_tsubo - listing.unit_price_man_per_tsubo : null;
+  const diffRate = marketDiff !== null && routeValue.public_reference_unit_price_man_per_tsubo
     ? marketDiff / routeValue.public_reference_unit_price_man_per_tsubo
     : null;
   const matchText = [
@@ -4926,7 +5242,7 @@ function renderRouteValueSection(listing, routeValue) {
         ${routeValue.public_land_price_type ? kv("公示/調査区分", escapeHtml([routeValue.public_land_price_type, routeValue.public_land_price_use_category, routeValue.public_land_price_zoning].filter(Boolean).join(" / "))) : ""}
         ${routeValue.public_land_price_front_road_condition ? kv("公示/調査前面道路", escapeHtml(routeValue.public_land_price_front_road_condition)) : ""}
         ${routeValue.public_land_price_station_name ? kv("最寄駅", escapeHtml(`${routeValue.public_land_price_station_name}${routeValue.public_land_price_station_distance_m ? ` 約${formatInteger(routeValue.public_land_price_station_distance_m)}m` : ""}`)) : ""}
-        ${kv("掲載坪単価との差", `${formatNumber(marketDiff)}万円/坪${diffRate !== null ? `（${formatNumber(diffRate * 100)}%）` : ""}`)}
+        ${kv("掲載坪単価との差", `${formatMeasure(marketDiff, "万円/坪")}${diffRate !== null ? `（${formatNumber(diffRate * 100)}%）` : ""}`)}
         ${kv("前面道路・地点", escapeHtml(routeValue.road_name || routeValue.address || "-"))}
         ${kv("参照標準地", escapeHtml(routeValue.appraisal_address || routeValue.appraisal_point_id || "-"))}
         ${kv("年度", routeValue.year ? `${escapeHtml(routeValue.year)}年度` : "-")}
@@ -4940,13 +5256,19 @@ function renderRouteValueSection(listing, routeValue) {
 }
 
 function assessListing(listing) {
+  if (!hasConfirmedFinancials(listing)) return {
+    reference_unit_price: null, discount_amount: null, discount_rate: null,
+    estimated_price_man_yen: null, label: "査定保留", confidence: "未確認",
+    route_value: null, reasons: ["現在の価格・面積の確認根拠がありません"],
+  };
   const unit = numberValue(listing.unit_price_man_per_tsubo);
-  const peers = state.listings.filter((item) => item.town === listing.town && item.id !== listing.id);
+  const peers = state.listings.filter((item) => item.town === listing.town && item.id !== listing.id &&
+    hasConfirmedFinancials(item) && numberValue(item.unit_price_man_per_tsubo) > 0);
   const peerAvg = averageNumbers(peers.map((item) => numberValue(item.unit_price_man_per_tsubo)).filter(Boolean));
-  const historyRow = (state.history?.towns || []).find((row) => row.town === listing.town);
+  const historyRow = historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).towns.find((row) => row.town === listing.town);
   const historyAvg = numberValue(historyRow?.historical_average_unit_price_man_per_tsubo);
   const historyCount = numberValue(historyRow?.historical_unique_listing_count);
-  const overallAvg = numberValue(state.latest?.summary?.overall_average_unit_price_man_per_tsubo);
+  const overallAvg = numberValue(financialStatistics(state.listings).summary.overall_average_unit_price_man_per_tsubo);
   const routeValue = listing.route_value_reference;
   const sources = [];
   const reasons = [];
@@ -4994,11 +5316,11 @@ function assessListing(listing) {
   const estimatedPrice = reference ? reference * numberValue(listing.land_area_tsubo) : null;
 
   return {
-    reference_unit_price: reference,
+    reference_unit_price: reference || null,
     discount_amount: discountAmount,
     discount_rate: discountRate,
     estimated_price_man_yen: estimatedPrice,
-    label: discountLabel(discountRate),
+    label: reference ? discountLabel(discountRate) : "査定保留",
     confidence: assessmentConfidence(peers.length, historyCount, routeValue),
     route_value: routeValue,
     reasons,
@@ -5006,6 +5328,7 @@ function assessListing(listing) {
 }
 
 function assessmentScore(listing, assessment = assessListing(listing)) {
+  if (!hasConfirmedFinancials(listing) || assessment.reference_unit_price == null) return { score: null, reasons: ["査定保留：確認済みの金融値・比較根拠が必要です"] };
   const reasons = [];
   let score = 50;
   const rate = Number.isFinite(assessment.discount_rate) ? assessment.discount_rate : null;
@@ -5204,16 +5527,15 @@ function setStatus(message) {
 }
 
 function unitColorClass(unitPrice) {
-  const average = state.latest?.summary?.overall_average_unit_price_man_per_tsubo;
+  if (typeof unitPrice !== "number" || !Number.isFinite(unitPrice) || unitPrice <= 0) return "unknown";
+  const average = financialStatistics(state.listings).summary.overall_average_unit_price_man_per_tsubo;
   const unit = numberValue(unitPrice);
   if (average) {
     if (unit <= average * 0.75) return "low";
     if (unit <= average * 1.4) return "mid";
     return "high";
   }
-  if (unit <= 3) return "low";
-  if (unit <= 7) return "mid";
-  return "high";
+  return "unknown";
 }
 
 function shortTitle(listing) {
@@ -5226,10 +5548,12 @@ function normalizeQuery(value) {
 }
 
 function formatPrice(value) {
+  if (value == null) return "未確認";
   return `${formatNumber(value)}万円`;
 }
 
 function formatUnit(value) {
+  if (value == null) return "未確認";
   if (!Number.isFinite(Number(value))) {
     return "-";
   }
@@ -5244,12 +5568,12 @@ function formatYenPerSqm(value) {
 }
 
 function percent(value) {
-  return Number.isFinite(Number(value)) ? `${formatNumber(value)}%` : "-";
+  return value != null && Number.isFinite(Number(value)) ? `${formatNumber(value)}%` : "未確認";
 }
 
 function formatNumber(value) {
-  if (!Number.isFinite(Number(value))) {
-    return "-";
+  if (value == null || !Number.isFinite(Number(value))) {
+    return "未確認";
   }
   const number = Number(value);
   return number % 1 === 0 ? number.toLocaleString("ja-JP") : number.toLocaleString("ja-JP", { maximumFractionDigits: 2 });

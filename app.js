@@ -230,6 +230,70 @@ function safeLandPair(latest, history) {
   return { latest: { ...latest, listings: rows, ...current }, history: { ...history, listings: entries, ...past } };
 }
 
+// Clock-based display policy is separate from immutable cryptographic validation.
+// Cached bytes stay verifiable; expired values are never current appraisal inputs.
+function financialFreshnessSettings(pair) {
+  const refs = pair?.manifest?.reference_versions || pair?.latest?.reference_versions || {};
+  if (!Object.hasOwn(refs, "financial_max_age_seconds")) {if(Object.hasOwn(refs,"financial_update_warn_seconds")) throw new Error("金融値鮮度設定が不完全です");return null;}
+  const age = Number(refs.financial_max_age_seconds), warn = Number(refs.financial_update_warn_seconds);
+  if (!Number.isInteger(age) || age < 1 || age > 2592000 || !Number.isInteger(warn) || warn < 1 || warn > 2592000) throw new Error("金融値鮮度設定が不正です");
+  return {maxAge: age, warnAfter: warn, provisional: refs.financial_freshness_provisional === "true"};
+}
+
+function financialFreshnessProjection(pair, nowMs = Date.now()) {
+  const settings = financialFreshnessSettings(pair);
+  const expired = [];
+  const rows = pair.latest.listings.map(row => {
+    if (!hasConfirmedFinancials(row) || !settings) return {...row};
+    const age = (nowMs - Date.parse(row.financial_checked_at)) / 1000;
+    if (Number.isFinite(age) && age >= 0 && age <= settings.maxAge) return {...row};
+    expired.push(row.id);
+    return {...row, ...Object.fromEntries(LAND_FINANCIAL_FIELDS.map(key => [key,null])),
+      last_confirmed: {...row,financial_state:"past_confirmed"}, financial_status:"pending",financial_state:"pending",
+      financial_checked_at:row.financial_checked_at, detail_pending_reason:"financial_confirmation_expired", is_cheap_new:false};
+  });
+  const generationAge = (nowMs-Date.parse(pair.latest.generated_at))/1000;
+  return {latest:{...pair.latest,listings:rows,...financialStatistics(rows)},history:pair.history,
+    expired, updateStopped:Boolean(settings && (!Number.isFinite(generationAge) || generationAge<0 || generationAge>settings.warnAfter)),
+    settings};
+}
+
+function refreshFinancialFreshness() {
+  if (!state.financialSourcePair) return;
+  const previousExpiry = JSON.stringify(state.financialFreshness?.expired || []);
+  const projected = financialFreshnessProjection(state.financialSourcePair);
+  state.latest = projected.latest; state.history = projected.history;
+  state.listings = projected.latest.listings.filter(row=>row.display_status!=="duplicate").map(normalizeListing);
+  state.financialFreshness = projected;
+  const message = projected.expired.length ? `最終確認から期限を過ぎた価格 ${projected.expired.length}件は価格確認中／査定保留です。` : "";
+  const stopped = projected.updateStopped ? "土地データの更新が停止しています。生成日時は金融値の確認日時とは異なります。" : "";
+  const note = projected.settings?.provisional ? "鮮度期限は検証用の暫定値です（本番採用未承認）。" : !projected.settings ? "鮮度期限は未設定です。金融値の最終確認日時を確認してください。" : "";
+  let warning = document.getElementById("financialFreshnessWarning");
+  if (!warning) {warning=document.createElement("p");warning.id="financialFreshnessWarning";warning.setAttribute("role","status");els.resultCount.parentNode.insertBefore(warning,els.resultCount);}
+  warning.textContent=[message,stopped,note].filter(Boolean).join(" ");
+  if (state.view === "detail" && state.currentDetailId && previousExpiry !== JSON.stringify(projected.expired)) {
+    const listing = state.listings.find(row=>row.id===state.currentDetailId);
+    const detailRoot=els.detailPageBody || els.detailBody;
+    if (listing && detailRoot) {detailRoot.innerHTML=renderDetail(listing);bindDetailControls(listing,detailRoot);renderDetailMap(listing);}
+  }
+}
+
+// Wall-clock expiry also applies to a tab kept open or resumed offline.
+if (typeof window !== "undefined" && typeof document !== "undefined") {
+  setInterval(()=>{if(state.financialSourcePair){refreshFinancialFreshness();render();}},60000);
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden && state.financialSourcePair){refreshFinancialFreshness();render();}});
+}
+
+// Cache only inside one synchronous render, then discard in finally.
+// Verified aggregates must never survive a new data load or input mutation.
+let financialRenderSnapshot = null;
+function currentFinancialSnapshots() {
+  if (financialRenderSnapshot) return financialRenderSnapshot;
+  const rows = state.listings || [];
+  return {current: financialStatistics(rows),
+    history: historicalFinancialStatistics(state.history?.listings || [], new Set(rows.filter(hasConfirmedFinancials).map(row => row.id)))};
+}
+
 function financialStatistics(rows) {
   const eligible = rows.filter((row) => hasConfirmedFinancials(row) && row.display_status !== "duplicate");
   return { summary: {
@@ -258,11 +322,25 @@ function historicalFinancialStatistics(entries, currentIds) {
 }
 
 function financialMean(values) {
-  return values.length ? roundFinancialHundredth(values.reduce((sum, value) => sum + value, 0) / values.length) : null;
+  return values.length ? roundFinancialHundredth(compensatedFinancialSum(values) / values.length) : null;
+}
+
+// Python 3.12 sum(float): compensated accumulation before rounding.
+// A naive reduce changes the verified 3.715 mean to 3.7150000000000003.
+function compensatedFinancialSum(values) {
+  let high = 0, low = 0;
+  for (const value of values) {
+    const total = high + value;
+    low += Math.abs(high) >= Math.abs(value) ? (high - total) + value : (value - total) + high;
+    high = total;
+  }
+  return low !== 0 && Number.isFinite(low) ? high + low : high;
 }
 
 // Python round(x, 2): use the exact binary value and ties-to-even, not Math.round.
 function roundFinancialHundredth(value) {
+  // At this ULP, rounding to hundredths cannot change the original float.
+  if (Math.abs(value) >= 2 ** 46) return value;
   const view = new DataView(new ArrayBuffer(8)); view.setFloat64(0, value);
   const bits = view.getBigUint64(0);
   const rawExponent = Number((bits >> 52n) & 2047n);
@@ -324,6 +402,7 @@ async function validateLandBundle(pointer, manifestText, texts) {
       manifest.schema_version !== 2 || manifest.policy !== "land-financial-evidence-v2" || manifest.generation_id !== pointer.generation_id ||
       !sameContractValue(Object.keys(manifest.files || {}).sort(), LAND_DOCUMENTS) ||
       !manifest.reference_versions || Object.values(manifest.reference_versions).some((value) => typeof value !== "string")) throw new Error("土地manifest検証失敗");
+  financialFreshnessSettings({manifest});
   const files = {}; const bare = [];
   for (const name of LAND_DOCUMENTS) {
     if (!hex(manifest.files[name]) || typeof texts[name] !== "string" || await sha256Text(texts[name]) !== manifest.files[name]) throw new Error("土地ファイルハッシュ不一致");
@@ -373,6 +452,7 @@ async function fetchLandPair() {
     const documents = await Promise.all(LAND_DOCUMENTS.map(async (name) => [name, (await fetchLandText(`${path}${name}`)).text]));
     const pair = await validateLandBundle(pointer, manifest.text, Object.fromEntries(documents));
     if (pair.manifest.reference_versions.source_revision && !landRequiresVerifiedShell) throw new Error("公開v2には検証済み配信一式が必要です");
+    if (pair.manifest.reference_versions.private_preview === "true" && !["127.0.0.1", "localhost", "[::1]"].includes(new URL(window.location.href).hostname)) throw new Error("非公開プレビューはローカル環境限定です");
     pair.data_base = base;
     pair.generation_path = path;
     if (landRequiresVerifiedShell && pair.manifest.generation_id !== landWorkerInfo?.generation_id) throw new Error("アプリとデータの世代が一致しません");
@@ -1637,6 +1717,7 @@ async function loadData() {
   }
   if (requestId !== landLoadSequence) return;
   if (!pair) {
+    state.financialSourcePair = null;
     state.latest = null; state.history = null; state.listings = []; state.filtered = [];
     state.dataStale = true; state.dataMode = null;
     state.routeValues = { items: [] }; state.hazardZones = { items: [] }; state.collectionHistory = null;
@@ -1668,6 +1749,7 @@ async function loadData() {
   ]);
   if (requestId !== landLoadSequence) return;
   // Commit one complete pair and its references; a slower earlier load cannot overwrite it.
+  state.financialSourcePair = pair;
   state.latest = pair.latest; state.history = pair.history; state.dataMode = pair.mode; state.dataStale = stale || Boolean(pair.stale);
   state.routeValues = mergeRouteValuePayloads(route, fixed);
   state.hazardZones = hazard || { items: [] }; state.collectionHistory = collection;
@@ -1681,6 +1763,7 @@ async function loadData() {
   setStatus((stale || pair.stale) ? `更新を検証できません。最後の検証済みデータ（取得 ${formatDateTime(pair.verified_at)}）を表示しています。` :
     pair.mode === "legacy" ? (pair.latest.listings.length ? "旧形式データ：確認根拠のない価格・面積は未確認として表示しています。" : "旧形式の公開データは0件です。収集対象がないことを意味しません。収集状態は未確認です。") : "");
   if (landRequiresVerifiedShell && !stale) setStatus(`検証済み一式（取得 ${formatDateTime(landWorkerInfo?.verified_at)}）を表示しています。`);
+  refreshFinancialFreshness();
   populateTownFilter(); populateSchoolFilter(); render();
 
   if (!stale && pair.mode === "v2") maybeSendDataNotifications(false);
@@ -2252,6 +2335,9 @@ function render() {
   if (els.townFilter && els.townFilter.options.length <= 1 && state.listings.length) {
     populateTownFilter();
   }
+  const previousFinancialSnapshot = financialRenderSnapshot;
+  financialRenderSnapshot = currentFinancialSnapshots();
+  try {
   state.filtered = sortListings(filterListings(state.listings));
   renderSummary();
   renderBackupSummary();
@@ -2266,6 +2352,7 @@ function render() {
   if (window.lucide) {
     window.lucide.createIcons();
   }
+  } finally { financialRenderSnapshot = previousFinancialSnapshot; }
 }
 
 function renderFromFirstListPage() {
@@ -2432,13 +2519,13 @@ function withinRange(value, range) {
 }
 
 function renderSummary() {
-  const latestSummary = financialStatistics(state.listings).summary;
+  const latestSummary = currentFinancialSnapshots().current.summary;
   els.listingCount.textContent = `${formatInteger(latestSummary.listing_count || state.listings.length)}件`;
   if (els.currentAverage) {
     els.currentAverage.textContent = formatUnit(latestSummary.overall_average_unit_price_man_per_tsubo);
   }
   if (els.historyAverage) {
-    const historySummary = historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).summary;
+    const historySummary = currentFinancialSnapshots().history.summary;
     els.historyAverage.textContent = formatUnit(historySummary.historical_average_unit_price_man_per_tsubo);
   }
   els.updatedAt.textContent = formatDateTime(state.latest.generated_at);
@@ -4391,7 +4478,7 @@ function plainText(value) {
 }
 
 function buildTownRows() {
-  const historyByTown = new Map(historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).towns.map((row) => [row.town, row]));
+  const historyByTown = new Map(currentFinancialSnapshots().history.towns.map((row) => [row.town, row]));
   const latestRows = buildTownRowsFromListings(state.listings);
   return latestRows.map((row) => {
     const history = historyByTown.get(row.town) || {};
@@ -4710,6 +4797,10 @@ function renderDataQualitySection(listing) {
       <h3>データ信頼度</h3>
       <dl class="detail-kv">
         ${kv("判定", `${dataQualityLabel(quality)}（${formatInteger(quality.score)}点）`)}
+        ${kv("金融値確認", hasConfirmedFinancials(listing) ? (listing.financial_status === "detail_confirmed" ? "詳細確認済み" : "一覧観測確認") : "価格確認中／査定保留")}
+        ${kv("金融値確認時刻", validFinancialTimestamp(listing.financial_checked_at) ? formatDateTime(listing.financial_checked_at) : "未確認")}
+        ${kv("土地データ生成時刻", formatDateTime(state.latest?.generated_at))}
+        ${listing.detail_pending_reason === "financial_confirmation_expired" ? kv("鮮度", "確認期限切れ：現在価格・査定へ利用しません") : ""}
         ${kv("確認項目", quality.reasons.map(escapeHtml).join("<br>"))}
         ${kv("写真", imageUrlList(listing).length ? `${formatInteger(imageUrlList(listing).length)}枚` : "未取得")}
         ${kv("位置精度", listing.is_approx_position ? "概算位置" : Number.isFinite(listing.map_latitude) ? "緯度経度あり" : "未取得")}
@@ -5265,10 +5356,10 @@ function assessListing(listing) {
   const peers = state.listings.filter((item) => item.town === listing.town && item.id !== listing.id &&
     hasConfirmedFinancials(item) && numberValue(item.unit_price_man_per_tsubo) > 0);
   const peerAvg = averageNumbers(peers.map((item) => numberValue(item.unit_price_man_per_tsubo)).filter(Boolean));
-  const historyRow = historicalFinancialStatistics(state.history?.listings || [], new Set(state.listings.filter(hasConfirmedFinancials).map((row) => row.id))).towns.find((row) => row.town === listing.town);
+  const historyRow = currentFinancialSnapshots().history.towns.find((row) => row.town === listing.town);
   const historyAvg = numberValue(historyRow?.historical_average_unit_price_man_per_tsubo);
   const historyCount = numberValue(historyRow?.historical_unique_listing_count);
-  const overallAvg = numberValue(financialStatistics(state.listings).summary.overall_average_unit_price_man_per_tsubo);
+  const overallAvg = numberValue(currentFinancialSnapshots().current.summary.overall_average_unit_price_man_per_tsubo);
   const routeValue = listing.route_value_reference;
   const sources = [];
   const reasons = [];
@@ -5528,7 +5619,7 @@ function setStatus(message) {
 
 function unitColorClass(unitPrice) {
   if (typeof unitPrice !== "number" || !Number.isFinite(unitPrice) || unitPrice <= 0) return "unknown";
-  const average = financialStatistics(state.listings).summary.overall_average_unit_price_man_per_tsubo;
+  const average = currentFinancialSnapshots().current.summary.overall_average_unit_price_man_per_tsubo;
   const unit = numberValue(unitPrice);
   if (average) {
     if (unit <= average * 0.75) return "low";
@@ -5539,7 +5630,12 @@ function unitColorClass(unitPrice) {
 }
 
 function shortTitle(listing) {
-  const title = listing.title || listing.address || `${listing.town} 売土地`;
+  // Source advertisement text is not a verified current financial field.
+  // Keep it in the original data/search, but never present its figures as a title.
+  const original = String(listing.title || listing.address || `${listing.town} 売土地`);
+  const title = original.replace(/(?:価格|販売価格|売買価格|総額|坪単価|土地面積|敷地面積|面積)?\s*(?:[0-9０-９.,，]+\s*億\s*)?[0-9０-９.,，]+\s*(?:億円|万円|万|円|㎡|m[²2]|坪)(?:\s*[\/／]\s*(?:㎡|m[²2]|坪))?/gi, " ")
+    .replace(/(?:割安率\s*[0-9０-９.,，]+[％%]|[0-9０-９.,，]+[％%]\s*(?:割安|値下げ))/g, " ")
+    .replace(/[（(]\s*[）)]/g, "").replace(/\s+/g, " ").trim() || listing.address || `${listing.town} 売土地`;
   return title.length > 62 ? `${title.slice(0, 62)}...` : title;
 }
 

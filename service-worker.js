@@ -151,12 +151,26 @@ function historicalFinancialStatistics(entries, currentIds) {
 
 
 function financialMean(values) {
-  return values.length ? roundFinancialHundredth(values.reduce((sum, value) => sum + value, 0) / values.length) : null;
+  return values.length ? roundFinancialHundredth(compensatedFinancialSum(values) / values.length) : null;
+}
+
+// Python 3.12 sum(float): compensated accumulation before rounding.
+// A naive reduce changes the verified 3.715 mean to 3.7150000000000003.
+function compensatedFinancialSum(values) {
+  let high = 0, low = 0;
+  for (const value of values) {
+    const total = high + value;
+    low += Math.abs(high) >= Math.abs(value) ? (high - total) + value : (value - total) + high;
+    high = total;
+  }
+  return low !== 0 && Number.isFinite(low) ? high + low : high;
 }
 
 // Python round(x, 2): use the exact binary value and ties-to-even, not Math.round.
 
 function roundFinancialHundredth(value) {
+  // At this ULP, rounding to hundredths cannot change the original float.
+  if (Math.abs(value) >= 2 ** 46) return value;
   const view = new DataView(new ArrayBuffer(8)); view.setFloat64(0, value);
   const bits = view.getBigUint64(0);
   const rawExponent = Number((bits >> 52n) & 2047n);
@@ -211,6 +225,13 @@ async function validateLandBundle(pointer, manifestText, texts) {
       manifest.schema_version !== 2 || manifest.policy !== "land-financial-evidence-v2" || manifest.generation_id !== pointer.generation_id ||
       !sameContractValue(Object.keys(manifest.files || {}).sort(), LAND_DOCUMENTS) ||
       !manifest.reference_versions || Object.values(manifest.reference_versions).some((value) => typeof value !== "string")) throw new Error("土地manifest検証失敗");
+  const ageRefs=manifest.reference_versions;
+  if (Object.hasOwn(ageRefs,'financial_max_age_seconds') || Object.hasOwn(ageRefs,'financial_update_warn_seconds')) {
+    for(const key of ['financial_max_age_seconds','financial_update_warn_seconds']) {
+      const value=Number(ageRefs[key]);
+      if(!Number.isInteger(value) || value<1 || value>2592000) throw new Error('Invalid financial freshness policy');
+    }
+  }
   const files = {}; const bare = [];
   for (const name of LAND_DOCUMENTS) {
     if (!hex(manifest.files[name]) || typeof texts[name] !== "string" || await sha256Text(texts[name]) !== manifest.files[name]) throw new Error("土地ファイルハッシュ不一致");
@@ -329,6 +350,8 @@ async function verifyPackage(releaseText, responses) {
   const release = JSON.parse(releaseText);
   const hex = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
   if (release.schema_version !== 1 || !hex(release.generation_id) || !release.files || !/^[a-f0-9]{40}$/.test(release.source_revision || '')) throw new Error('Invalid release metadata');
+  const privatePreview = release.private_only === true && release.publication_authorized === false && release.references?.private_preview === 'true';
+  if ((release.private_only || release.references?.private_preview) && (!privatePreview || !['127.0.0.1','localhost','[::1]'].includes(new URL(self.registration.scope).hostname))) throw new Error('Private preview is loopback-only');
   const names = Object.keys(release.files);
   const required = ['index.html','app.js','styles.css','history.html','history.js','service-worker.js','manifest.json','latest.json','history.json','fixed-asset-route-values.json','viewer-contracts/current.json'];
   if (required.some(name => !names.includes(name)) || names.some(name => !hex(release.files[name]))) throw new Error('Incomplete release');
@@ -345,7 +368,7 @@ async function verifyPackage(releaseText, responses) {
   const manifestText = texts[`${prefix}manifest.json`];
   const docs = Object.fromEntries(LAND_DOCUMENTS.map(name => [name,texts[prefix+name]]));
   const pair = await validateLandBundle(pointer, manifestText, docs);
-  if (!pair.latest.summary.financial_listing_count) throw new Error('Empty v1 publication is blocked');
+  if (!pair.latest.summary.financial_listing_count && !privatePreview) throw new Error('Empty v1 publication is blocked');
   if (texts['latest.json'] !== docs['v1/latest.json'] || texts['history.json'] !== docs['v1/history.json']) throw new Error('Legacy URLs must remain safe v1');
   if (pair.manifest.reference_versions.source_revision !== release.source_revision) throw new Error('Source revision mismatch');
   for (const name of ['fixed-asset-route-values.json','route-values.json']) {

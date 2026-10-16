@@ -2,16 +2,39 @@ const LAND_CLIENT_PROTOCOL = "land-viewer-c2";
 let landWorkerInfo = null;
 let landRequiresVerifiedShell = false;
 
-function workerMessage(worker, type) {
+const LAND_PROGRESS_PROTOCOL = "land-worker-progress-v1";
+let landRefreshInFlight = null;
+
+function workerMessage(worker, type, onProgress = null) {
   return new Promise((resolve, reject) => {
     if (!worker) { reject(new Error('Service Worker unavailable')); return; }
     const channel = new MessageChannel();
-    const timeout = setTimeout(() => { channel.port1.close(); reject(new Error('Service Worker response timed out')); }, 3500);
+    let idleTimer;
+    let finished = false;
+    const cleanup = () => { clearTimeout(idleTimer); clearTimeout(deadline); channel.port1.close(); worker.removeEventListener?.('statechange', changed); };
+    const fail = error => { if (!finished) { finished = true; cleanup(); reject(error); } };
+    // The short limit detects a dead worker, not the duration of validation.
+    // Only the final verified reply completes the operation; progress never does.
+    const alive = () => { clearTimeout(idleTimer); idleTimer = setTimeout(() => fail(new Error('Service Worker stopped responding')), 3500); };
+    const changed = () => { if (worker.state === 'redundant') fail(new Error('Service Worker was replaced')); };
+    const deadline = setTimeout(() => fail(new Error('Service Worker operation did not complete')), 120000);
+    worker.addEventListener?.('statechange', changed);
     channel.port1.onmessage = event => {
-      clearTimeout(timeout); channel.port1.close();
-      if (event.data?.error) reject(new Error(event.data.error)); else resolve(event.data);
+      const data = event.data;
+      if (data?.progress_protocol === LAND_PROGRESS_PROTOCOL) {
+        if (data.phase === 'progress') { alive(); if (onProgress) onProgress(data); return; }
+        if (data.phase !== 'complete' && data.phase !== 'error') { fail(new Error('Invalid worker progress response')); return; }
+        if (data.phase === 'error') { fail(new Error(data.error || 'Release update validation failed')); return; }
+        if (!data.result || typeof data.result !== 'object') { fail(new Error('Missing verified worker result')); return; }
+        finished = true; cleanup(); resolve(data.result); return;
+      }
+      // Older installed workers return one final reply and remain compatible.
+      if (data?.error) { fail(new Error(data.error)); return; }
+      if (!data || typeof data !== 'object' || data.phase) { fail(new Error('Invalid worker result')); return; }
+      finished = true; cleanup(); resolve(data);
     };
-    worker.postMessage({type}, [channel.port2]);
+    alive();
+    worker.postMessage({type, progress_protocol: LAND_PROGRESS_PROTOCOL}, [channel.port2]);
   });
 }
 
@@ -96,9 +119,24 @@ async function installLegacyReader() {
 }
 
 async function refreshLandViewer() {
+  if (landRefreshInFlight) return landRefreshInFlight;
+  const button = document.getElementById('refreshButton');
+  if (button) button.disabled = true;
+  landRefreshInFlight = performLandRefresh().finally(() => {
+    landRefreshInFlight = null;
+    if (button) button.disabled = false;
+  });
+  return landRefreshInFlight;
+}
+
+async function performLandRefresh() {
   if (landRequiresVerifiedShell) {
     try {
-      const result = await workerMessage(navigator.serviceWorker.controller, 'CHECK_RELEASE');
+      const result = await workerMessage(navigator.serviceWorker.controller, 'CHECK_RELEASE', progress => {
+        const labels = {queued:'待機',fetching:'取得',downloading:'受信',verifying:'整合性検証',caching:'保存'};
+        const count = Number.isInteger(progress.completed) && Number.isInteger(progress.total) ? ` ${progress.completed}/${progress.total}` : '';
+        setStatus(`更新を検証中（${labels[progress.state] || '検証'}${count}）— 完了まで現在の検証済み表示を保持します。`);
+      });
       if (result.cache !== landWorkerInfo?.cache) { window.location.reload(); return; }
       await loadData();
     } catch (error) {
@@ -2521,6 +2559,9 @@ function withinRange(value, range) {
 function renderSummary() {
   const latestSummary = currentFinancialSnapshots().current.summary;
   els.listingCount.textContent = `${formatInteger(latestSummary.listing_count || state.listings.length)}件`;
+  const presencePending = state.listings.filter(listingPresencePending).length;
+  const countLabel = els.listingCount.parentElement?.querySelector(".summary-label");
+  if (countLabel) countLabel.textContent = presencePending ? `表示（要再確認${presencePending}）` : "表示";
   if (els.currentAverage) {
     els.currentAverage.textContent = formatUnit(latestSummary.overall_average_unit_price_man_per_tsubo);
   }
@@ -3139,12 +3180,22 @@ function renderPhotoFallback(listing, detail = false) {
   `;
 }
 
+function listingPresencePending(listing) {
+  return ["not_observed_coverage_unknown", "end_candidate", "not_in_public_inventory"].includes(listing.listing_status);
+}
+
+function listingPresenceLabel(listing) {
+  if (listingPresencePending(listing)) return "掲載状況 要再確認（掲載終了ではありません）";
+  return listing.listing_status === "listed" || listing.is_currently_listed === true ? "今回の一覧で観測" : "掲載状況 未確認";
+}
+
 function renderBadges(listing) {
   const badges = [];
   const assessment = assessListing(listing);
   const score = assessmentScore(listing, assessment);
   const quality = listingDataQuality(listing);
   const drop = priceDropInfo(listing);
+  if (listingPresencePending(listing)) badges.push(`<span class="badge warning">掲載状況 要再確認</span>`);
   if (isFavorite(listing)) badges.push(`<span class="badge favorite">お気に入り</span>`);
   if (isCandidate(listing)) badges.push(`<span class="badge candidate">買付候補</span>`);
   if (isExcluded(listing)) badges.push(`<span class="badge warning">除外</span>`);
@@ -4797,6 +4848,7 @@ function renderDataQualitySection(listing) {
       <h3>データ信頼度</h3>
       <dl class="detail-kv">
         ${kv("判定", `${dataQualityLabel(quality)}（${formatInteger(quality.score)}点）`)}
+        ${kv("掲載確認", listingPresenceLabel(listing))}
         ${kv("金融値確認", hasConfirmedFinancials(listing) ? (listing.financial_status === "detail_confirmed" ? "詳細確認済み" : "一覧観測確認") : "価格確認中／査定保留")}
         ${kv("金融値確認時刻", validFinancialTimestamp(listing.financial_checked_at) ? formatDateTime(listing.financial_checked_at) : "未確認")}
         ${kv("土地データ生成時刻", formatDateTime(state.latest?.generated_at))}

@@ -504,24 +504,55 @@ async function readVerified(name, full = false) {
   return selected;
 }
 
-async function prepareRelease() {
-  const descriptor = await fetch(localURL('viewer-contracts/release.json'), {cache:'no-store'});
+async function fetchReleaseResource(path, progress) {
+  const controller = new AbortController();
+  let idle;
+  const activity = () => { clearTimeout(idle); idle = setTimeout(() => controller.abort(), 15000); };
+  activity();
+  try {
+    const response = await fetch(localURL(path), {cache:'no-store', signal:controller.signal});
+    const reader = response.body?.getReader();
+    if (!reader) return response;
+    const chunks = []; let size = 0;
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      chunks.push(value); size += value.length; activity();
+    }
+    progress({state:'downloading', bytes:size});
+    const bytes = new Uint8Array(size); let offset = 0;
+    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
+    return new Response(bytes, {status:response.status, headers:response.headers});
+  } finally { clearTimeout(idle); }
+}
+
+async function prepareRelease(progress) {
+  progress = typeof progress === 'function' ? progress : () => {};
+  const descriptor = await fetchReleaseResource('viewer-contracts/release.json', progress);
   if (descriptor.status===404) return prepareReader();
   const releaseText = await validatedText('viewer-contracts/release.json', descriptor);
   const release = JSON.parse(releaseText);
   const responses = {};
   // Consume each response before opening the next stream; this also bounds fetch pressure.
-  for (const name of Object.keys(release.files || {})) {
-    const response = await fetch(localURL(name), {cache:'no-store'});
+  const names = Object.keys(release.files || {}); let completed = 0;
+  for (const name of names) {
+    progress({state:'fetching', completed, total:names.length});
+    const response = await fetchReleaseResource(name, detail => progress({...detail,completed,total:names.length}));
     await validatedText(name, response, release.files[name]);
     responses[name] = new Response(await response.arrayBuffer(), {status:response.status, headers:response.headers});
+    completed++;
   }
+  progress({state:'verifying',completed,total:names.length});
   await verifyPackage(releaseText, responses);
   const releaseHash = await sha256Text(releaseText);
   const name = CACHE_PREFIX + releaseHash;
   const cache = await caches.open(name);
   // A failed write leaves an unselectable candidate; the previous verified cache stays intact.
-  for (const [path,response] of Object.entries(responses)) await cache.put(localURL(path), response.clone());
+  completed = 0;
+  for (const [path,response] of Object.entries(responses)) {
+    progress({state:'caching',completed,total:names.length});
+    await cache.put(localURL(path), response.clone()); completed++;
+  }
   await cache.put(localURL('viewer-contracts/release.json'), descriptor.clone());
   await cache.put(localURL('.land-cache/verified.json'), new Response(JSON.stringify({release_hash:releaseHash, verified_at:new Date().toISOString()}), {headers:{'Content-Type':'application/json'}}));
   await readVerified(name);
@@ -590,12 +621,22 @@ self.addEventListener('fetch', event => {
   event.respondWith(serve(event));
 });
 self.addEventListener('message', event => {
-  const answer = value => event.ports[0]?.postMessage(value);
+  // Progress is opt-in: old cached JavaScript must receive only its final reply.
+  const protocol = 'land-worker-progress-v1';
+  const streaming = event.data?.progress_protocol === protocol;
+  let state = {state:'queued'};
+  const report = detail => { state = {...state,...detail}; if (streaming) event.ports[0]?.postMessage({progress_protocol:protocol,phase:'progress',...state}); };
+  const heartbeat = streaming ? setInterval(() => report(state), 1000) : null;
+  const answer = value => {
+    clearInterval(heartbeat);
+    event.ports[0]?.postMessage(streaming ? (value?.error ? {progress_protocol:protocol,phase:'error',error:value.error} : {progress_protocol:protocol,phase:'complete',result:value}) : value);
+  };
+  report(state);
   if (event.data?.type === 'CHECK_RELEASE') {
-    event.waitUntil(serialized(prepareRelease).then(answer).catch(() => answer({error:'Release update validation failed'})));
+    event.waitUntil(serialized(() => prepareRelease(report)).then(answer).catch(() => answer({error:'Release update validation failed'})));
   } else if (event.data?.type === 'CLIENT_INFO') {
     event.waitUntil(serialized(async () => { const known = Boolean((await control()).clients[event.source?.id]); const selected = await selectVerified(event.source?.id, false, true); return {protocol:CLIENT_PROTOCOL,cache:selected.name,generation_id:selected.release.generation_id,mode:selected.kind==='reader'?'legacy-reader':'v2',verified_at:selected.marker.verified_at,needs_reload:!known}; }).then(answer).catch(() => answer({error:'Verified complete release unavailable'})));
   } else if (event.data?.type === 'ACTIVATE_VERIFIED') {
     event.waitUntil(serialized(() => selectVerified(null)).then(() => { answer({protocol:CLIENT_PROTOCOL}); return self.skipWaiting(); }).catch(() => answer({error:'No verified release to activate'})));
-  }
+  } else { clearInterval(heartbeat); }
 });

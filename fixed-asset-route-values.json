@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-17T01:24:16.427Z",
+  "updated_at": "2026-10-17T14:23:10.297Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -15,14 +15,14 @@
     },
     "collection_progress": {
       "all": {
-        "total": 9940,
-        "checked": 9940,
+        "total": 9973,
+        "checked": 9973,
         "remaining": 0,
         "checked_rate": 100
       },
       "listing": {
-        "total": 5181,
-        "checked": 5181,
+        "total": 5214,
+        "checked": 5214,
         "remaining": 0,
         "checked_rate": 100
       },
@@ -54,8 +54,8 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9541,
-          "checked": 9541,
+          "total": 9574,
+          "checked": 9574,
           "remaining": 0,
           "checked_rate": 100
         },
@@ -68,11 +68,22 @@
       }
     },
     "collection_last_run": {
-      "mode": "none",
-      "requests": 0,
-      "newRows": 0,
-      "failures": 0,
-      "note": "No pending listing points."
+      "ran_at": "2026-10-17T14:23:10.202Z",
+      "mode": "browser",
+      "requests": 50,
+      "selected_points": 50,
+      "selected_area_mesh_points": 0,
+      "selected_listing_points": 25,
+      "selected_town_coverage_points": 25,
+      "selected_points_by_area": {
+        "都城市": 50
+      },
+      "selected_points_by_municipality": {
+        "都城市": 50
+      },
+      "all_points": 9973,
+      "new_rows": 0,
+      "failures": 0
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 315000

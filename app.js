@@ -342,10 +342,15 @@ function financialStatistics(rows) {
   }, towns: buildTownRowsFromListings(eligible).sort((a, b) => a.town < b.town ? -1 : a.town > b.town ? 1 : 0) };
 }
 
+function financialCalculationHeld(record) {
+  return ["individual_review_hold", "address_conflict_review"].includes(record?.detail_pending_reason);
+}
+
 function historicalFinancialStatistics(entries, currentIds) {
-  const eligible = entries.filter((entry) => entry.display_status !== "duplicate").map((entry) => {
+  const eligible = entries.filter((entry) => entry.display_status !== "duplicate" &&
+    !financialCalculationHeld(entry.latest)).map((entry) => {
     const reference = financialEvidence(entry.latest) ? entry.latest : entry.last_confirmed;
-    return financialEvidence(reference) ? { ...entry, latest: reference } : null;
+    return !financialCalculationHeld(reference) && financialEvidence(reference) ? { ...entry, latest: reference } : null;
   }).filter(Boolean);
   const towns = [...new Set(eligible.map((entry) => String(entry.latest.town || "")))].sort().map((town) => {
     const group = eligible.filter((entry) => String(entry.latest.town || "") === town);
@@ -2481,7 +2486,7 @@ function dateRank(value) {
 }
 
 function hasConfirmedFinancials(listing) {
-  return financialEvidence(listing) && (listing.financial_state == null || ["confirmed", "listing_observed"].includes(listing.financial_state));
+  return !financialCalculationHeld(listing) && financialEvidence(listing) && (listing.financial_state == null || ["confirmed", "listing_observed"].includes(listing.financial_state));
 }
 
 function priceDropInfo(listing) {
@@ -4731,7 +4736,7 @@ function renderFallbackDetail(listing) {
         ${kv("価格", formatPrice(listing.price_man_yen))}
         ${kv("土地面積", `${formatMeasure(listing.land_area_sqm, "㎡")} / ${formatMeasure(listing.land_area_tsubo, "坪")}`)}
         ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
-        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv("過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
+        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv(financialCalculationHeld(listing) ? "過去取得値（要再確認・計算対象外）" : "過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
         ${kv("所在地", escapeHtml(listing.address || listing.town || "-"))}
         ${kv("掲載元", `<a href="${escapeAttr(listing.source_url)}" target="_blank" rel="noopener">開く</a>`)}
       </dl>
@@ -4768,7 +4773,7 @@ function renderDetail(listing) {
         ${kv("価格", formatPrice(listing.price_man_yen))}
         ${kv("土地面積", `${formatMeasure(listing.land_area_sqm, "㎡")} / ${formatMeasure(listing.land_area_tsubo, "坪")}`)}
         ${kv("坪単価", formatUnit(listing.unit_price_man_per_tsubo))}
-        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv("過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
+        ${!hasConfirmedFinancials(listing) && financialEvidence(listing.last_confirmed) ? kv(financialCalculationHeld(listing) ? "過去取得値（要再確認・計算対象外）" : "過去確認値（現在は未確認）", `${formatPrice(listing.last_confirmed.price_man_yen)} / ${formatMeasure(listing.last_confirmed.land_area_sqm, "㎡")} / 確認 ${formatDateTime(listing.last_confirmed.financial_checked_at)}`) : ""}
         ${kv("価格改定", priceDropDetailText(drop))}
         ${kv("新着", listing.is_new ? "あり" : "なし")}
         ${kv("割安新着", listing.is_cheap_new ? "あり" : "なし")}

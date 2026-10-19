@@ -132,10 +132,15 @@ function financialStatistics(rows) {
 }
 
 
+function financialCalculationHeld(record) {
+  return ["individual_review_hold", "address_conflict_review"].includes(record?.detail_pending_reason);
+}
+
 function historicalFinancialStatistics(entries, currentIds) {
-  const eligible = entries.filter((entry) => entry.display_status !== "duplicate").map((entry) => {
+  const eligible = entries.filter((entry) => entry.display_status !== "duplicate" &&
+    !financialCalculationHeld(entry.latest)).map((entry) => {
     const reference = financialEvidence(entry.latest) ? entry.latest : entry.last_confirmed;
-    return financialEvidence(reference) ? { ...entry, latest: reference } : null;
+    return !financialCalculationHeld(reference) && financialEvidence(reference) ? { ...entry, latest: reference } : null;
   }).filter(Boolean);
   const towns = [...new Set(eligible.map((entry) => String(entry.latest.town || "")))].sort().map((town) => {
     const group = eligible.filter((entry) => String(entry.latest.town || "") === town);
@@ -269,7 +274,7 @@ async function validateLandBundle(pointer, manifestText, texts) {
 
 
 function hasConfirmedFinancials(listing) {
-  return financialEvidence(listing) && (listing.financial_state == null || ["confirmed", "listing_observed"].includes(listing.financial_state));
+  return !financialCalculationHeld(listing) && financialEvidence(listing) && (listing.financial_state == null || ["confirmed", "listing_observed"].includes(listing.financial_state));
 }
 
 

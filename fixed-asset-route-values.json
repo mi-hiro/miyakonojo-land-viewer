@@ -1,36 +1,36 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-20T02:03:43.432Z",
+  "updated_at": "2026-10-20T15:57:56.338Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 764,
-    "input_rows": 763,
-    "items": 764,
+    "rows": 765,
+    "input_rows": 764,
+    "items": 765,
     "towns": 60,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 751
+      "都城市": 752
     },
     "collection_progress": {
       "all": {
-        "total": 9897,
-        "checked": 9897,
-        "remaining": 0,
-        "checked_rate": 100
+        "total": 8283,
+        "checked": 8096,
+        "remaining": 187,
+        "checked_rate": 98
       },
       "listing": {
-        "total": 5115,
-        "checked": 5115,
-        "remaining": 0,
-        "checked_rate": 100
+        "total": 3630,
+        "checked": 3566,
+        "remaining": 64,
+        "checked_rate": 98
       },
       "town_coverage": {
-        "total": 1382,
-        "checked": 1382,
-        "remaining": 0,
-        "checked_rate": 100
+        "total": 1253,
+        "checked": 1130,
+        "remaining": 123,
+        "checked_rate": 90
       },
       "area_mesh": {
         "total": 3400,
@@ -54,10 +54,10 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9498,
-          "checked": 9498,
-          "remaining": 0,
-          "checked_rate": 100
+          "total": 7884,
+          "checked": 7697,
+          "remaining": 187,
+          "checked_rate": 98
         },
         "三股町": {
           "total": 399,
@@ -68,21 +68,21 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-10-20T02:03:43.316Z",
+      "ran_at": "2026-10-20T15:57:56.200Z",
       "mode": "browser",
-      "requests": 74,
-      "selected_points": 74,
+      "requests": 200,
+      "selected_points": 200,
       "selected_area_mesh_points": 0,
-      "selected_listing_points": 0,
-      "selected_town_coverage_points": 74,
+      "selected_listing_points": 101,
+      "selected_town_coverage_points": 99,
       "selected_points_by_area": {
-        "都城市": 74
+        "都城市": 200
       },
       "selected_points_by_municipality": {
-        "都城市": 74
+        "都城市": 200
       },
-      "all_points": 9897,
-      "new_rows": 5,
+      "all_points": 8283,
+      "new_rows": 1,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -20135,6 +20135,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-08-10T12:15:57.386Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5721183-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.736771944469837,
+      "longitude": 131.05983541657145,
+      "route_value_yen_per_sqm": 14700,
+      "fixed_asset_tax_route_value_yen_per_sqm": 14700,
+      "fixed_asset_unit_price_man_per_tsubo": 4.9,
+      "public_reference_unit_price_man_per_tsubo": 6.9,
+      "fixed_asset_route_id": "5721183-22",
+      "route_id": "5721183-22",
+      "fixedid": "5721183",
+      "town": "平江町",
+      "address": "平江町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T15:55:13.982Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

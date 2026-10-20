@@ -1,34 +1,34 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T17:47:31.904Z",
+  "updated_at": "2026-10-20T02:03:43.432Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
-    "rows": 759,
-    "input_rows": 758,
-    "items": 759,
+    "rows": 764,
+    "input_rows": 763,
+    "items": 764,
     "towns": 60,
     "municipalities": 2,
     "by_municipality": {
       "三股町": 13,
-      "都城市": 746
+      "都城市": 751
     },
     "collection_progress": {
       "all": {
-        "total": 9964,
-        "checked": 9964,
+        "total": 9897,
+        "checked": 9897,
         "remaining": 0,
         "checked_rate": 100
       },
       "listing": {
-        "total": 5181,
-        "checked": 5181,
+        "total": 5115,
+        "checked": 5115,
         "remaining": 0,
         "checked_rate": 100
       },
       "town_coverage": {
-        "total": 1383,
-        "checked": 1383,
+        "total": 1382,
+        "checked": 1382,
         "remaining": 0,
         "checked_rate": 100
       },
@@ -54,8 +54,8 @@
       },
       "by_municipality": {
         "都城市": {
-          "total": 9565,
-          "checked": 9565,
+          "total": 9498,
+          "checked": 9498,
           "remaining": 0,
           "checked_rate": 100
         },
@@ -68,21 +68,21 @@
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-10-19T17:47:31.785Z",
+      "ran_at": "2026-10-20T02:03:43.316Z",
       "mode": "browser",
-      "requests": 132,
-      "selected_points": 132,
+      "requests": 74,
+      "selected_points": 74,
       "selected_area_mesh_points": 0,
-      "selected_listing_points": 33,
-      "selected_town_coverage_points": 99,
+      "selected_listing_points": 0,
+      "selected_town_coverage_points": 74,
       "selected_points_by_area": {
-        "都城市": 132
+        "都城市": 74
       },
       "selected_points_by_municipality": {
-        "都城市": 132
+        "都城市": 74
       },
-      "all_points": 9964,
-      "new_rows": 12,
+      "all_points": 9897,
+      "new_rows": 5,
       "failures": 0
     },
     "min_yen_per_sqm": 700,
@@ -12438,6 +12438,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5713665-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.71580819449275,
+      "longitude": 131.0902511109502,
+      "route_value_yen_per_sqm": 15800,
+      "fixed_asset_tax_route_value_yen_per_sqm": 15800,
+      "fixed_asset_unit_price_man_per_tsubo": 5.2,
+      "public_reference_unit_price_man_per_tsubo": 7.5,
+      "fixed_asset_route_id": "5713665-22",
+      "route_id": "5713665-22",
+      "fixedid": "5713665",
+      "town": "上長飯町",
+      "address": "上長飯町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T02:02:30.008Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5714959-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.71367638890439,
@@ -12463,6 +12491,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-15T00:15:47.379Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5715948-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.722556805602267,
+      "longitude": 131.09657180574442,
+      "route_value_yen_per_sqm": 14100,
+      "fixed_asset_tax_route_value_yen_per_sqm": 14100,
+      "fixed_asset_unit_price_man_per_tsubo": 4.7,
+      "public_reference_unit_price_man_per_tsubo": 6.7,
+      "fixed_asset_route_id": "5715948-22",
+      "route_id": "5715948-22",
+      "fixedid": "5715948",
+      "town": "上長飯町",
+      "address": "上長飯町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T02:03:29.258Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -12578,6 +12634,34 @@
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
+      "id": "fixed-asset-5716413-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.71710138856838,
+      "longitude": 131.0933934721312,
+      "route_value_yen_per_sqm": 14600,
+      "fixed_asset_tax_route_value_yen_per_sqm": 14600,
+      "fixed_asset_unit_price_man_per_tsubo": 4.8,
+      "public_reference_unit_price_man_per_tsubo": 6.9,
+      "fixed_asset_route_id": "5716413-22",
+      "route_id": "5716413-22",
+      "fixedid": "5716413",
+      "town": "上長飯町",
+      "address": "上長飯町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T02:02:46.520Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
       "id": "fixed-asset-5716418-22",
       "route_value_type": "fixed_asset_tax",
       "latitude": 31.716001527598593,
@@ -12687,6 +12771,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-08-03T01:10:48.904Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5716457-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.714455277789,
+      "longitude": 131.09349847202708,
+      "route_value_yen_per_sqm": 14600,
+      "fixed_asset_tax_route_value_yen_per_sqm": 14600,
+      "fixed_asset_unit_price_man_per_tsubo": 4.8,
+      "public_reference_unit_price_man_per_tsubo": 6.9,
+      "fixed_asset_route_id": "5716457-22",
+      "route_id": "5716457-22",
+      "fixedid": "5716457",
+      "town": "上長飯町",
+      "address": "上長飯町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T02:03:03.883Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {
@@ -17755,6 +17867,34 @@
       "source": "固定資産税路線価",
       "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
       "collected_at": "2026-07-05T12:54:07.641Z",
+      "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
+    },
+    {
+      "id": "fixed-asset-5727648-22",
+      "route_value_type": "fixed_asset_tax",
+      "latitude": 31.75691444434628,
+      "longitude": 131.0930566670317,
+      "route_value_yen_per_sqm": 23200,
+      "fixed_asset_tax_route_value_yen_per_sqm": 23200,
+      "fixed_asset_unit_price_man_per_tsubo": 7.7,
+      "public_reference_unit_price_man_per_tsubo": 11,
+      "fixed_asset_route_id": "5727648-22",
+      "route_id": "5727648-22",
+      "fixedid": "5727648",
+      "town": "都北町",
+      "address": "都北町",
+      "fixed_asset_use_district": "普通住宅",
+      "fixed_asset_price_date": "時点修正後(令和６年７月１日時点)の価格を表示",
+      "fixed_asset_classification": "固定資産税路線価情報",
+      "classification": "固定資産税路線価情報",
+      "municipality": "都城市",
+      "area_id": "",
+      "area_label": "",
+      "mesh_key": "",
+      "collection_point_type": "town_coverage",
+      "source": "固定資産税路線価",
+      "source_url": "https://www.chikamap.jp/chikamap/Map/GetAttribute",
+      "collected_at": "2026-10-20T02:00:43.079Z",
       "note": "固定資産税路線価を公示価格水準に近づけるため、概算で70%水準として換算しています。"
     },
     {

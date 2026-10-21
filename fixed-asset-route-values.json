@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-21T02:01:12.511Z",
+  "updated_at": "2026-10-21T16:03:55.332Z",
   "source": "固定資産税路線価",
   "note": "ちかまっぷで収集した都城市周辺の固定資産税路線価をビューア用に整形したデータです。",
   "summary": {
@@ -15,22 +15,22 @@
     },
     "collection_progress": {
       "all": {
-        "total": 8283,
-        "checked": 8283,
+        "total": 3400,
+        "checked": 3400,
         "remaining": 0,
         "checked_rate": 100
       },
       "listing": {
-        "total": 3630,
-        "checked": 3630,
+        "total": 0,
+        "checked": 0,
         "remaining": 0,
-        "checked_rate": 100
+        "checked_rate": 0
       },
       "town_coverage": {
-        "total": 1253,
-        "checked": 1253,
+        "total": 0,
+        "checked": 0,
         "remaining": 0,
-        "checked_rate": 100
+        "checked_rate": 0
       },
       "area_mesh": {
         "total": 3400,
@@ -53,37 +53,26 @@
         }
       },
       "by_municipality": {
-        "都城市": {
-          "total": 7884,
-          "checked": 7884,
-          "remaining": 0,
-          "checked_rate": 100
-        },
         "三股町": {
           "total": 399,
           "checked": 399,
+          "remaining": 0,
+          "checked_rate": 100
+        },
+        "都城市": {
+          "total": 3001,
+          "checked": 3001,
           "remaining": 0,
           "checked_rate": 100
         }
       }
     },
     "collection_last_run": {
-      "ran_at": "2026-10-21T02:01:12.369Z",
-      "mode": "browser",
-      "requests": 187,
-      "selected_points": 187,
-      "selected_area_mesh_points": 0,
-      "selected_listing_points": 64,
-      "selected_town_coverage_points": 123,
-      "selected_points_by_area": {
-        "都城市": 187
-      },
-      "selected_points_by_municipality": {
-        "都城市": 187
-      },
-      "all_points": 8283,
-      "new_rows": 9,
-      "failures": 0
+      "mode": "none",
+      "requests": 0,
+      "newRows": 0,
+      "failures": 0,
+      "note": "No pending listing points."
     },
     "min_yen_per_sqm": 700,
     "max_yen_per_sqm": 315000

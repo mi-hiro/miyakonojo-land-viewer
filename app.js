@@ -284,7 +284,7 @@ function financialFreshnessProjection(pair, nowMs = Date.now()) {
   const rows = pair.latest.listings.map(row => {
     if (!hasConfirmedFinancials(row) || !settings) return {...row};
     const age = (nowMs - Date.parse(row.financial_checked_at)) / 1000;
-    if (Number.isFinite(age) && age >= 0 && age <= settings.maxAge) return {...row};
+    if (Number.isFinite(age) && age >= 0 && age < settings.maxAge) return {...row};
     expired.push(row.id);
     return {...row, ...Object.fromEntries(LAND_FINANCIAL_FIELDS.map(key => [key,null])),
       last_confirmed: {...row,financial_state:"past_confirmed"}, financial_status:"pending",financial_state:"pending",
@@ -292,7 +292,7 @@ function financialFreshnessProjection(pair, nowMs = Date.now()) {
   });
   const generationAge = (nowMs-Date.parse(pair.latest.generated_at))/1000;
   return {latest:{...pair.latest,listings:rows,...financialStatistics(rows)},history:pair.history,
-    expired, updateStopped:Boolean(settings && (!Number.isFinite(generationAge) || generationAge<0 || generationAge>settings.warnAfter)),
+    expired, updateStopped:Boolean(settings && (!Number.isFinite(generationAge) || generationAge<0 || generationAge>=settings.warnAfter)),
     settings};
 }
 
@@ -1786,9 +1786,10 @@ async function loadData() {
       return await sha256Text(result.text) === expected ? result.value : null;
     } catch (error) { return null; }
   };
-  const [route, fixed, hazard, collection] = await Promise.all([
+  const [route, fixed, hazard, collection, syncStatus] = await Promise.all([
     optional("route-values.json"), optional("fixed-asset-route-values.json"),
     fetchOptionalDataFile("hazard-zones.json", null), fetchOptionalDataFile("collection-history.json", null),
+    fetchOptionalDataFile("public-sync-status.json", null),
   ]);
   if (requestId !== landLoadSequence) return;
   // Commit one complete pair and its references; a slower earlier load cannot overwrite it.
@@ -1806,6 +1807,10 @@ async function loadData() {
   setStatus((stale || pair.stale) ? `更新を検証できません。最後の検証済みデータ（取得 ${formatDateTime(pair.verified_at)}）を表示しています。` :
     pair.mode === "legacy" ? (pair.latest.listings.length ? "旧形式データ：確認根拠のない価格・面積は未確認として表示しています。" : "旧形式の公開データは0件です。収集対象がないことを意味しません。収集状態は未確認です。") : "");
   if (landRequiresVerifiedShell && !stale) setStatus(`検証済み一式（取得 ${formatDateTime(landWorkerInfo?.verified_at)}）を表示しています。`);
+  if (syncStatus?.kind === "public-sync-status" && syncStatus.financial_update_held === true) {
+    const affected = Array.isArray(syncStatus.sources_with_errors) ? syncStatus.sources_with_errors.join("、") : "";
+    setStatus(`一部の収集・更新を検証できないため、公開金融値の更新を保留しています。最終確認日時と価格の有効期限を確認してください。${affected ? ` 対象：${affected}` : ""}`);
+  }
   refreshFinancialFreshness();
   populateTownFilter(); populateSchoolFilter(); render();
 
@@ -1886,6 +1891,18 @@ function normalizeListing(listing, index) {
     map_longitude: position.lng,
     is_approx_position: position.approx,
   };
+}
+
+function savedHistoryListing(id) {
+  const entry = findHistoryEntry(String(id));
+  if (!entry?.latest) return null;
+  return normalizeListing({...entry.latest,
+    ...Object.fromEntries(LAND_FINANCIAL_FIELDS.map(key => [key, null])),
+    financial_status: "pending", financial_state: "pending", financial_checked_at: null,
+    verification_evidence: null, is_currently_listed: null,
+    detail_pending_reason: ["individual_review_hold", "address_conflict_review"].includes(entry.latest.detail_pending_reason) ? entry.latest.detail_pending_reason : "not_in_public_inventory",
+    title: `過去履歴・掲載未確認：${entry.latest.title || "土地情報"}`,
+  });
 }
 
 function findHistoryEntry(id) {
@@ -2381,7 +2398,12 @@ function render() {
   const previousFinancialSnapshot = financialRenderSnapshot;
   financialRenderSnapshot = currentFinancialSnapshots();
   try {
-  state.filtered = sortListings(filterListings(state.listings));
+  const visible = [...state.listings];
+  if (els.favoriteOnly?.checked || els.candidateOnly?.checked) {
+    const saved = new Set([...(els.favoriteOnly?.checked ? state.favorites : []), ...(els.candidateOnly?.checked ? state.candidates : [])]);
+    saved.forEach(id => { if (!visible.some(row => row.id === id)) { const row = savedHistoryListing(id); if (row) visible.push(row); } });
+  }
+  state.filtered = sortListings(filterListings(visible));
   renderSummary();
   renderBackupSummary();
   updateHazardAreaControl();
@@ -4344,7 +4366,7 @@ function buildDistributionBins(values) {
 }
 
 function renderCompare() {
-  const candidates = state.listings.filter((listing) => isCandidate(listing));
+  const candidates = [...state.candidates].map(id => state.listings.find(row => row.id === id) || savedHistoryListing(id)).filter(Boolean);
   els.candidateCount.textContent = `${formatInteger(candidates.length)}件`;
   if (!candidates.length) {
     els.compareTable.innerHTML = `<div class="empty-state">買付候補に追加した物件がありません</div>`;
@@ -4412,7 +4434,7 @@ function renderCompareRow(listing) {
 }
 
 function exportComparePdf() {
-  const candidates = state.listings.filter((listing) => isCandidate(listing));
+  const candidates = [...state.candidates].map(id => state.listings.find(row => row.id === id) || savedHistoryListing(id)).filter(Boolean);
   if (!candidates.length) {
     setStatus("買付候補がありません。比較したい物件を買付候補に追加してください。");
     return;
@@ -4680,7 +4702,7 @@ function matchesSchoolFilter(listing, value) {
 }
 
 function openDetail(id) {
-  const listing = state.listings.find((item) => String(item.id) === String(id));
+  const listing = state.listings.find((item) => String(item.id) === String(id)) || savedHistoryListing(id);
   if (!listing) {
     setStatus("詳細を開けませんでした。ページを更新してからもう一度押してください。");
     return;
